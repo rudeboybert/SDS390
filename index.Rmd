@@ -1,0 +1,80 @@
+---
+title: "SDS390: Ecological Forecasting"
+author: "Albert Y. Kim"
+date: "Last updated on `r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    df_print: paged
+    includes:
+      in_header: "favicon.html"
+---
+
+<style>
+h1{font-weight: 400;}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo=TRUE, 
+  message=FALSE, 
+  warning=FALSE, 
+  eval=FALSE, 
+  fig.width=16/2, 
+  fig.height=9/2
+)
+library(tidyverse)
+library(lubridate)
+library(stringr)
+library(forcats)
+library(moderndive)
+
+# Formating packages:
+library(knitr)
+library(kableExtra)
+library(scales)
+
+# Etc
+library(here)
+library(patchwork)
+
+# Set seed value of random number generator to get "replicable" random numbers.
+set.seed(76)
+```
+
+
+
+***
+
+
+
+# Schedule 
+
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=1373353942&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600"></iframe>
+
+
+
+
+<!--
+{target="_blank"}
+-->
+
+
+
+***
+
+
+
+# Lec 01: Tue 9/1
+
+## Announcements
+
+1. Hello world
+
+
+
+***
+
+

@@ -1,0 +1,22 @@
+name: sds390
+output_dir: docs
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    toc_depth: 2
+    theme: cosmo
+    highlight: tango
+    df_print: paged
+    lib_dir: site_libs
+    self_contained: no
+navbar:
+  title: SDS390
+  left:
+#  - text: Moodle
+#    href: https://moodle.smith.edu/course/view.php?id=37125
+  right:
+  - text: Syllabus
+    href: syllabus.html
+  - icon: fa-github fa-lg
+    href: https://github.com/rudeboybert/SDS390
