@@ -28,11 +28,10 @@ https://docs.google.com/document/d/1Ql2phLrzc7fEnBuG9Ii8bIBA6pznXgLvoKpsiFomJHk/
 ## Basic information {#basicinfo}
 
 * **Course title:** SDS 390 Topics in Statistical and Data Sciences - Ecological Forecasting
-* **Communication:** All communication will take place via Slack.
-    + You must have the [Slack Desktop or Mobile
-    App](https://slack.com/downloads/){target="_blank"} installed, since it is
-    too easy to miss messages when using the browser version.
-    + After you've installed Slack, add the sds-390-2020-09.slack.com workspace.
+* **Communication:** All communication will take place via the
+sds-390-2020-09.slack.com Slack workspace. You must have the [Slack Desktop or
+Mobile App](https://slack.com/downloads/){target="_blank"} installed, since it
+is too easy to miss messages when using the browser version.
 * **Lectures:** Remote only Tue/Thu 9:20am - 10:35am Eastern
 * **Pre-requisites:**
     1. SDS 192 Introduction to Data Science
@@ -74,7 +73,13 @@ reserve](https://forestgeo.si.edu/sites/north-america/smithsonian-conservation-b
 
 **Course objectives and learning goals**: This semester you will:
 
-1. TBD
+1. Apply near-term iterative forecasting principles in an ecological setting.
+1. "Learn how to learn" domain specific knowledge, in our case ecology.
+1. Learn effective strategies for reading journal articles.
+1. Collaborate on projects remotely using advanced GitHub tools: issue tracking,
+branches, pull requests, code reviews, etc.
+1. Create [`shiny`](https://shiny.rstudio.com/){target="_blank"} dashboards that
+provide "consumers of science" with tools to explore large datasets.
 
 
 
@@ -82,17 +87,30 @@ reserve](https://forestgeo.si.edu/sites/north-america/smithsonian-conservation-b
 
 
 
-# Topic Schedule and Readings {#topicschedule}
+# Textbooks {#textbooks}
 
-* **Schedule**: On the [main page](index.html) of this course webpage.
-* **Textbook**: Prof. Michael C. Dietze's [Ecological
-Forecasting](https://press.princeton.edu/books/hardcover/9780691160573/ecological-forecasting){target="_blank"}.
+We'll be using the following two textbooks:
+
+* [Forecasting: Principles and Practice (online edition)](https://otexts.com/fpp2/){target="_blank"} by Hyndman and Athanasopoulos. 
+* [Ecological Forecasting](https://press.princeton.edu/books/hardcover/9780691160573/ecological-forecasting){target="_blank"} by Dietze. 
 You can find exercise code for each of the chapters in the [EcoForecast GitHub
 Repo](https://github.com/EcoForecast/EF_Activities){target="_blank"}
 
-```{r, echo=FALSE, fig.align='center', out.width="40%"}
+```{r, echo=FALSE, fig.align='center', out.width="40%", fig.show = "hold", fig.align = "default"}
+knitr::include_graphics("static/images/forecasting_principles_and_practice.jpg")
 knitr::include_graphics("static/images/ecological_forecasting_book.jpg")
 ```
+
+
+
+***  
+
+
+
+# Topic Schedule and Readings {#topicschedule}
+
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=1373353942&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600"></iframe>
+
 
 
 ***  
@@ -101,21 +119,30 @@ knitr::include_graphics("static/images/ecological_forecasting_book.jpg")
 
 # Evaluation {#evaluation}
 
-<!--
-* 10% reading papers
-* 20% group work
-* 70% projects
+## Mini-Projects 50% {#miniprojects}
 
+Over the course of the semester there will be several mini-projects that will
+build up to the term project.
 
-## Term Project 30% {#termproject}
+## Term Project 35% {#termproject}
 
-## Term Project 30% {#termproject}
+There will be a term project involving analysis of these data sources:
 
-## Engagement 10% {#engagement}
--->
+1. Smithsonian Conservation Biology Institute (SCBI) ForestGEO Data
+[(GitHub)](https://github.com/SCBI-ForestGEO/SCBI-ForestGEO-Data){target="_blank"}
+1. Michigan Big Woods research plot data [(Michigan Deep Blue
+Data)](https://deepblue.lib.umich.edu/data/concern/data_sets/ht24wj48w?locale=en){target="_blank"}
+1. Smith College MacLeish Field Station
+[(smith.edu)](https://www.smith.edu/about-smith/sustainable-smith/macleish){target="_blank"}
+and [(`macleish` R package)](https://github.com/beanumber/macleish){target="_blank"}
 
+## Engagement 15% {#engagement}
 
+This will be measured by a combination of
 
+1. Your participation in synchronous Zoom meetings, in particular relating to journal articles.
+1. Discussions on Slack.
+1. Peer-evaluations of group work.
 
 ## Policies
 
@@ -129,7 +156,7 @@ TBD
 
 # Academic Honor Code
 
-All students are expected to adhere to the Smith College Academic Honor Code
+All students are expected to adhere to the Smith College Academic Honor Code:
 
 > Smith College expects all students to be honest and committed to the
 principles of academic and intellectual integrity in their preparation and
@@ -138,14 +165,13 @@ part of an academic community defined by its commitment to scholarship, which
 depends on scrupulous and attentive acknowledgement of all sources of
 information, and honest and respectful use of college resources.
 
-In the case of a suspected violation, I will follow the [procedures for faculty
-reporting a suspected
-infraction](https://www.smith.edu/sao/handbook/socialconduct/honorcode.php){target="_blank"}:
+In the case of a suspected violation, I will follow the [procedures for
+faculty](https://www.smith.edu/sao/handbook/socialconduct/honorcode.php){target="_blank"}:
 
 1. I will have a private discussion with the student first, where I will present
 student with evidence of the infraction in question.
-1. If I feel an Academic Honor Board case is merited at all, I will give the
-student the opportunity to report themselves first at <honorboard@smith.edu>.
+1. If an Academic Honor Board case is merited, I will give the student the
+opportunity to report themselves first at <honorboard@smith.edu>.
 1. I will then write to <honorboard@smith.edu> and to the Dean of the College
 <docemail@smith.edu>.
 1. The ultimate decision will then be in the hands of the Academic Honor Board.
