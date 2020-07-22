@@ -33,7 +33,7 @@ https://docs.google.com/document/d/1Ql2phLrzc7fEnBuG9Ii8bIBA6pznXgLvoKpsiFomJHk/
     App](https://slack.com/downloads/){target="_blank"} installed, since it is
     too easy to miss messages when using the browser version.
     + After you've installed Slack, add the sds-390-2020-09.slack.com workspace.
-* **Lectures:** Tue/Thu 9:20am - 10:35am Eastern
+* **Lectures:** Remote only Tue/Thu 9:20am - 10:35am Eastern
 * **Pre-requisites:**
     1. SDS 192 Introduction to Data Science
     1. SDS/MTH 291 Multiple Regression
@@ -101,7 +101,20 @@ knitr::include_graphics("static/images/ecological_forecasting_book.jpg")
 
 # Evaluation {#evaluation}
 
-TBD
+<!--
+* 10% reading papers
+* 20% group work
+* 70% projects
+
+
+## Term Project 30% {#termproject}
+
+## Term Project 30% {#termproject}
+
+## Engagement 10% {#engagement}
+-->
+
+
 
 
 ## Policies
@@ -114,7 +127,28 @@ TBD
 
 
 
-# Academic Integrity
+# Academic Honor Code
+
+All students are expected to adhere to the Smith College Academic Honor Code
+
+> Smith College expects all students to be honest and committed to the
+principles of academic and intellectual integrity in their preparation and
+submission of course work and examinations. Students and faculty at Smith are
+part of an academic community defined by its commitment to scholarship, which
+depends on scrupulous and attentive acknowledgement of all sources of
+information, and honest and respectful use of college resources.
+
+In the case of a suspected violation, I will follow the [procedures for faculty
+reporting a suspected
+infraction](https://www.smith.edu/sao/handbook/socialconduct/honorcode.php){target="_blank"}:
+
+1. I will have a private discussion with the student first, where I will present
+student with evidence of the infraction in question.
+1. If I feel an Academic Honor Board case is merited at all, I will give the
+student the opportunity to report themselves first at <honorboard@smith.edu>.
+1. I will then write to <honorboard@smith.edu> and to the Dean of the College
+<docemail@smith.edu>.
+1. The ultimate decision will then be in the hands of the Academic Honor Board.
 
 
 
