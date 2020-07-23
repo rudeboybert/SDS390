@@ -2,6 +2,7 @@ name: sds390
 output_dir: docs
 output:
   html_document:
+    css: style.css
     toc: yes
     toc_float: yes
     toc_depth: 2
@@ -10,11 +11,11 @@ output:
     df_print: paged
     lib_dir: site_libs
     self_contained: no
+    includes:
+      in_header: "favicon.html"
 navbar:
   title: SDS390
   left:
-#  - text: Moodle
-#    href: https://moodle.smith.edu/course/view.php?id=37125
   right:
   - text: Syllabus
     href: syllabus.html
