@@ -1,3 +1,7 @@
+/*
+Change font of site to Avenir:
+https://stackoverflow.com/questions/29274501/r-markdown-changing-font-size-and-font-type-in-html-output
+*/
 /* Whole document: */
 body{
   font-family: Avenir;
@@ -5,4 +9,108 @@ body{
 /* Headers */
 h1,h2,h3,h4,h5,h6{
   font-family: Avenir;
+}
+
+
+
+
+
+/*
+Change top navbar color scheme:
+https://stackoverflow.com/questions/18529274/change-navbar-color-in-twitter-bootstrap
+*/
+
+/* navbar */
+.navbar-default {
+    background-color: #57983B;
+    border-color: #57983B;
+}
+
+/* SDS390 title default color */
+.navbar-default .navbar-brand {
+    color: #FFFFFF;
+}
+/* SDS390 title hover color */
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #5E5E5E;
+}
+
+/* Link default color */
+.navbar-default .navbar-nav > li > a {
+    color: #FFFFFF;
+    background-color: #57983B;
+}
+/* not sure */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #5E5E5E;
+    background-color: #57983B;
+}
+/* not sure */
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #FFFFFF;
+    background-color: #57983B;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #FFFFFF;
+    background-color: #57983B;
+}
+
+/* Mobile version */
+.navbar-default .navbar-toggle {
+    background-color: #57983B;
+    border-color: #57983B;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #57983B;
+    border-color: #57983B;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFFFFF;
+    border-color: #57983B;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+        border-color: #57983B;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        border-color: #57983B;
+    }
+}
+
+
+
+
+/*
+Change side navbar color scheme
+https://stackoverflow.com/questions/62793492/website-in-rmarkdown-navbar-changes-color-between-index-and-other-pages
+*/
+.navbar-inverse {
+  background-color: #57983B;
+}
+.navbar-inverse .navbar-brand {
+  color: #FFFFFF;
+}
+.navbar-inverse .navbar-nav>li>a {
+  color: #FFFFFF;
+}
+.navbar-inverse .navbar-nav>.active>a {
+  background-color: #57983B;
+}
+.list-group-item.active {
+  background-color: #57983B;
+  border-color: #57983B;
+}
+item.active, .list-group-item.active:hover {
+  background-color: #57983B;
+  border-color: #57983B;
 }
