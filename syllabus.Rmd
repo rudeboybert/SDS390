@@ -25,17 +25,13 @@ https://docs.google.com/document/d/1Ql2phLrzc7fEnBuG9Ii8bIBA6pznXgLvoKpsiFomJHk/
 ## Basic information {#basicinfo}
 
 * **Course title:** SDS 390 Topics in Statistical and Data Sciences - Ecological Forecasting
-* **Communication:** All communication will take place via the
-sds-390-2020-09.slack.com Slack workspace. You must have the [Slack Desktop or
+* **Communication:** All communication will take place via this Slack workspace. You must have the [Slack Desktop or
 Mobile App](https://slack.com/downloads/){target="_blank"} installed, since it
 is too easy to miss messages when using the browser version.
-* **Lectures:** Remote only Tue/Thu 9:20am - 10:35am Eastern
-* **Pre-requisites:**
-    1. SDS 192 Introduction to Data Science
-    1. SDS/MTH 291 Multiple Regression
-    1. The same pre-reqs as MTH 211 Linear Algebra, which is a required course for the SDS major:
-        + MTH 112 Calculus II or 
-        + MTH 111 Calculus I and MTH 153 Intro to Discrete Math
+* **Lectures:** Remote only
+    1. Scheduled time: Tue/Thu 9:20am - 10:35am Eastern
+    1. Meeting times:  Tue/Thu 9:45am - 10:35am Eastern
+
 
 
 
@@ -46,7 +42,6 @@ respond to Slack messages sent during the weekend at my own discretion.
 * If possible, please only Slack me with briefer and administrative questions; I
 prefer having more substantive conversations over Zoom as it takes me less
 energy to understand where you are at.
-* I will do my best to return all grading as promptly as possible.
 
 
 
@@ -54,9 +49,11 @@ energy to understand where you are at.
 
 
 
-# Course Description & Objectives
+# About this course
 
-**Official course description**: Ecologists are asked to respond to
+## Official course description
+
+Ecologists are asked to respond to
 unprecedented environmental challenges. How can they provide the best scientific
 information about what will happen in the future? The goal of this seminar is to
 bring together the concepts and tools needed to make ecology a more predictive
@@ -68,15 +65,35 @@ semester-long project will center on data from the [Smithsonian Conservation
 Biology Institute (SCBI) forestry
 reserve](https://forestgeo.si.edu/sites/north-america/smithsonian-conservation-biology-institute){target="_blank"}.
 
-**Course objectives and learning goals**: This semester you will:
+**Pre-requisites:**
 
-1. Apply near-term iterative forecasting principles in an ecological setting.
-1. "Learn how to learn" domain specific knowledge, in our case ecology.
-1. Learn effective strategies for reading journal articles.
-1. Collaborate on projects remotely using advanced GitHub tools: issue tracking,
-branches, pull requests, code reviews, etc.
-1. Create [`shiny`](https://shiny.rstudio.com/){target="_blank"} dashboards that
-provide "consumers of science" with tools to explore large datasets.
+1. SDS 192 Introduction to Data Science
+1. SDS/MTH 291 Multiple Regression
+1. The same pre-reqs as MTH 211 Linear Algebra, which is a required course for the SDS major:
+    + MTH 112 Calculus II or 
+    + MTH 111 Calculus I and MTH 153 Intro to Discrete Math
+
+
+## Learning goals {#learninggoals}
+
+This semester you will:
+
+1. Learn how to collaborate remotely
+    1. Slack
+    1. Understandable (not just functioning) code, [(repr)oducible (ex)amples](https://www.tidyverse.org/help/#reprex){target="_blank"}
+    1. GitHub: issue tracking, branches/pull requests, code reviews
+1. Learn how to build (virtual) infrastructure
+    1. [R packages](http://r-pkgs.had.co.nz/){target="_blank"}
+    1. [`shiny`](https://mastering-shiny.org/){target="_blank"} dashboards like this [one](https://forc.shinyapps.io/global_data_visualization/){target="_blank"}.
+    1. Blogposts
+1. Learn "how to learn"
+    1. Acquiring just enough ecological knowledge so that you can leverage your
+    data science skills
+    1. Strategies for reading journal articles
+1. Learn to keep the big picture in mind
+    1. Climate change
+    1. Ugly legacies ecology has inherited and their influence on society
+    1. The role that nature and the outdoors can play in improving your mental health
 
 
 
@@ -88,10 +105,13 @@ provide "consumers of science" with tools to explore large datasets.
 
 We'll be using the following two textbooks:
 
-* [Forecasting: Principles and Practice (online edition)](https://otexts.com/fpp2/){target="_blank"} by Hyndman and Athanasopoulos. 
-* [Ecological Forecasting](https://press.princeton.edu/books/hardcover/9780691160573/ecological-forecasting){target="_blank"} by Dietze. 
+* [Forecasting: Principles and Practice (online edition)](https://otexts.com/fpp2/){target="_blank"} by Hyndman and Athanasopoulos. We'll call this **FPP**.
+* [Ecological Forecasting](https://press.princeton.edu/books/hardcover/9780691160573/ecological-forecasting){target="_blank"} by Dietze. We'll call this **EF**.
+
+<!--
 You can find exercise code for each of the chapters in the [EcoForecast GitHub
 Repo](https://github.com/EcoForecast/EF_Activities){target="_blank"}
+-->
 
 ```{r, echo=FALSE, fig.align='center', out.width="40%", fig.show = "hold", fig.align = "default"}
 knitr::include_graphics("static/images/forecasting_principles_and_practice.jpg")
@@ -116,14 +136,10 @@ knitr::include_graphics("static/images/ecological_forecasting_book.jpg")
 
 # Evaluation {#evaluation}
 
-## Mini-Projects 50% {#miniprojects}
+## Projects 80% {#projects}
 
-Over the course of the semester there will be several mini-projects that will
-build up to the term project.
-
-## Term Project 35% {#termproject}
-
-There will be a term project involving analysis of these data sources:
+Over the course of the semester there will be several projects relating to the
+learning goals. They'll involve some combination of the following data:
 
 1. Smithsonian Conservation Biology Institute (SCBI) ForestGEO Data
 [(GitHub)](https://github.com/SCBI-ForestGEO/SCBI-ForestGEO-Data){target="_blank"}
@@ -133,17 +149,13 @@ Data)](https://deepblue.lib.umich.edu/data/concern/data_sets/ht24wj48w?locale=en
 [(smith.edu)](https://www.smith.edu/about-smith/sustainable-smith/macleish){target="_blank"}
 and [(`macleish` R package)](https://github.com/beanumber/macleish){target="_blank"}
 
-## Engagement 15% {#engagement}
+## Engagement 20% {#engagement}
 
 This will be measured by a combination of
 
-1. Your participation in synchronous Zoom meetings, in particular relating to journal articles.
-1. Discussions on Slack.
-1. Peer-evaluations of group work.
-
-## Policies
-
-TBD
+1. Staying in touch with me and your classmates
+1. Your participation in synchronous Zoom meetings
+1. Discussions on Slack
 
 
 

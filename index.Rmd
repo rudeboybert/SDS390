@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
   echo=TRUE, 
   message=FALSE, 
   warning=FALSE, 
-  eval=FALSE, 
+  eval=TRUE, 
   fig.width=16/2, 
   fig.height=9/2
 )
@@ -51,9 +51,6 @@ set.seed(76)
 
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=1373353942&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600"></iframe>
 
-
-
-
 <!--
 {target="_blank"}
 -->
@@ -66,9 +63,24 @@ set.seed(76)
 
 # Lec 01: Tue 9/1
 
-## Announcements
+## Synchronous
 
-1. Hello world
+1. Introductions: name, pronoun, year, major, city you're currently in, name a few things you will do this semester for self-care.
+1. Announcement from the [Statistical & Data Sciences Coalition of Color (SDSCC)](https://docs.google.com/presentation/d/1trAXeX9FHCHiMk5iFTN14TEmK8tXbRHfY5WdmNGChVc/edit#slide=id.g93874104fe_0_5){target="_blank"}
+1. Go over syllabus
+1. What is forecasting? From [FPP 3.5](https://otexts.com/fpp2/prediction-intervals.html){target="_blank"}:
+```{r, echo=FALSE}
+include_graphics("https://otexts.com/fpp2/fpp_files/figure-html/googforecasts2-1.png")
+```
+1. Discussion topic: Name four variables about a tree that both (1) are easily measurable in the field while (2) capture the most information about it.
+
+
+## Asynchronous
+
+I will post a ~20min video lecture by Wednesday afternoon eastern time. This is why we are starting synchronous discussions 25 minutes later than scheduled. 
+
+1. "Chalk talk" on GitHub. I encourage you to not just passively watch, but also actively write. [Field Notes'](https://fieldnotesbrand.com/){target="_blank"} slogan is *I'm not writing it down to remember it later, I'm writing it down to remember it now.*
+1. Data collection activity... in the field!
 
 
 
