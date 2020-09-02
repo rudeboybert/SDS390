@@ -61,9 +61,32 @@ set.seed(76)
 
 
 
+# Lec 02: Thu 9/3 {#Lec02}
+
+## Videos
+
+### 1. Data collection activity... in the field!
+
+</br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U83hZCTRxPA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</br>
+
+
+## Class meeeting time
+
+1. To be posted on Wednesday morning a few minutes before the meeting time of 9:45am
+
+
+
+***
+
+
+
 # Lec 01: Tue 9/1
 
-## Synchronous
+## Class meeeting time
 
 1. Introductions: name, pronoun, year, major, city you're currently in, name a few things you will do this semester for self-care.
 1. Announcement from the [Statistical & Data Sciences Coalition of Color (SDSCC)](https://docs.google.com/presentation/d/1trAXeX9FHCHiMk5iFTN14TEmK8tXbRHfY5WdmNGChVc/edit#slide=id.g93874104fe_0_5){target="_blank"}
@@ -75,7 +98,7 @@ include_graphics("https://otexts.com/fpp2/fpp_files/figure-html/googforecasts2-1
 1. Discussion topic: Name four variables about a tree that both (1) are easily measurable in the field while (2) capture the most information about it.
 
 
-## Asynchronous
+## Videos
 
 I will post a ~20min video lecture by Wednesday afternoon eastern time. This is why we are starting synchronous discussions 25 minutes later than scheduled. 
 
