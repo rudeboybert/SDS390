@@ -96,6 +96,7 @@ set.seed(76)
 include_graphics("https://otexts.com/fpp2/fpp_files/figure-html/googforecasts2-1.png")
 ```
 1. Discussion topic: Name four variables about a tree that both (1) are easily measurable in the field while (2) capture the most information about it.
+1. [Link](https://smith.zoom.us/rec/share/v8pUE6rz_HlIWLPo6huEQ594T9T-aaa81ikX-fVfz00jHE5Ns0-sumdQni9hSU2V){target="_blank"} to video recording (password required)
 
 
 ## Videos
