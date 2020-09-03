@@ -67,6 +67,8 @@ set.seed(76)
 
 ### 1. Data collection activity... in the field!
 
+Note: I will do my best to post any videos the day before lecture at 6pm eastern.
+
 </br>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/U83hZCTRxPA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -76,7 +78,43 @@ set.seed(76)
 
 ## Class meeeting time
 
-1. To be posted on Wednesday morning a few minutes before the meeting time of 9:45am
+1. "Chalk talk": Introduction to GitHub terminology. I encourage you to write along: [*I’m not writing it down to remember it later, I’m writing it down to remember it now.*](https://twitter.com/jack/status/369882367093002242){target="_blank"}
+1. Demo of what you'll be doing for MP1. 
+1. Link to recording to be posted here after lecture. All recordings will use the same password shared on Slack.
+
+
+## For next week
+
+### 1. Readings
+
+The readings for next week are posted in the above Schedule Google Sheet. Anything below the orange line is still TBD.  
+
+1. To access all journal articles from Smith Libraries, you will need to be logged into Smith's Virtual Private Network [(instructions on how to set this up)](https://www.smith.edu/its/tara/networking/vpn.html){target="_blank"}. 
+1. Tips on reading. Take the *minimally viable product* approach. In other words, a completed imperfect reading is better than an incomplete "perfect" reading.
+
+```{r, echo=FALSE, fig.align="center"}
+include_graphics("static/images/MVP.png")
+```
+
+    
+### 2. MP1
+
+Ask any questions in the `#mp1` channel on Slack.
+
+**a) Data collection**
+
+1. To the best of your abilities, replicate my DBH data collection in the video.
+1. You will submit your answers in this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSeJ28eWWThINaXKWE2uvOFuDL2YiMVPheSa47ZRrtp8Q10W1Q/viewform){target="_blank"}.
+1. You may need help identifying the tree's species. To this end, take a few photos of the tree and if possible the leaves. 
+
+
+**b) First GitHub edits**
+
+1. Create an [ORCID](https://orcid.org/){target="_blank"}, which you can think of as a social security number for research. Mine is [0000-0001-7824-306X](https://orcid.org/0000-0001-7824-306X){target="_blank"}.
+1. *Clone* the following *repo* *locally* onto your computer using RStudio: my *forked* copy of Prof. Ben Baumer's [`macleich` R package](https://github.com/rudeboybert/macleish){target="_blank"}. 
+1. *Pull* the repo to update it with any changes.
+1. Edit the `DESCRIPTION` file by adding yourself as a contributor like I did.
+1. *Commit* your changes and then *push* them.
 
 
 
