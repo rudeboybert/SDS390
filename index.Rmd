@@ -115,6 +115,7 @@ Ask any questions in the `#mp1` channel on Slack.
 1. *Pull* the repo to update it with any changes.
 1. Edit the `DESCRIPTION` file by adding yourself as a contributor like I did.
 1. *Commit* your changes and then *push* them.
+1. You may need to check out these [notes](https://rudeboybert.github.io/SDS192/PS.html#1_github_component){target="_blank"} on getting started linking GitHub to RStudio. If you have questions, please ask on Slack!
 
 
 
