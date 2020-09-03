@@ -60,6 +60,55 @@ set.seed(76)
 ***
 
 
+<!--
+
+# Lec XX: Tue 9/8 {#LecXX}
+
+## Videos
+
+### 1. Topic
+
+To be (hopefully) posted by Mon 9/7 at 6pm eastern.
+
+
+
+
+## Class meeeting time
+
+To be posted by Tue 9/8 right before class.
+
+
+
+***
+
+
+
+
+
+
+-->
+
+
+# Lec 03: Tue 9/8 {#Lec03}
+
+## Videos
+
+### 1. Time series and basic forecasting
+
+To be (hopefully) posted by Mon 9/7 at 6pm eastern.
+
+
+
+
+## Class meeeting time
+
+To be posted by Tue 9/8 right before class.
+
+
+
+***
+
+
 
 # Lec 02: Thu 9/3 {#Lec02}
 
@@ -80,7 +129,8 @@ Note: I will do my best to post any videos the day before lecture at 6pm eastern
 
 1. "Chalk talk": Introduction to GitHub terminology. I encourage you to write along: [*I’m not writing it down to remember it later, I’m writing it down to remember it now.*](https://twitter.com/jack/status/369882367093002242){target="_blank"}
 1. Demo of what you'll be doing for MP1. 
-1. Link to recording to be posted here after lecture. All recordings will use the same password shared on Slack.
+1. [Link](https://smith.zoom.us/rec/share/r1TRECCVTK1AST0fjikBWNFziM1id-VtREbZM2mLsuv_sS4N5NkKCqrzOqh76BiS.cj7NMRvilB29J2yz){target="_blank"} to video recording.
+
 
 
 ## For next week
@@ -135,7 +185,7 @@ Ask any questions in the `#mp1` channel on Slack.
 include_graphics("https://otexts.com/fpp2/fpp_files/figure-html/googforecasts2-1.png")
 ```
 1. Discussion topic: Name four variables about a tree that both (1) are easily measurable in the field while (2) capture the most information about it.
-1. [Link](https://smith.zoom.us/rec/share/v8pUE6rz_HlIWLPo6huEQ594T9T-aaa81ikX-fVfz00jHE5Ns0-sumdQni9hSU2V){target="_blank"} to video recording (password required)
+1. [Link](https://smith.zoom.us/rec/share/v8pUE6rz_HlIWLPo6huEQ594T9T-aaa81ikX-fVfz00jHE5Ns0-sumdQni9hSU2V){target="_blank"} to video recording (required password on Slack in `#announcements`).
 
 
 ## Videos
