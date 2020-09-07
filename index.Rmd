@@ -61,31 +61,51 @@ set.seed(76)
 
 
 <!--
-
-# Lec XX: Tue 9/8 {#LecXX}
+# Lec 04: Thu 9/10 {#Lec04}
 
 ## Videos
 
-### 1. Topic
-
-To be (hopefully) posted by Mon 9/7 at 6pm eastern.
+### 1. AAA
 
 
 
+## Class meeting time
 
-## Class meeeting time
+1. ForestGEO Network: Talk about paper
+1. Breakout room: data collection
+1. Demo of what you'll be doing for MP2.
 
-To be posted by Tue 9/8 right before class.
+
+
+
+## For next week
+
+### 1. Readings
+
+The readings for next week are posted in the above Schedule Google Sheet. Anything below the orange line is still TBD.  
+
+
+
+
+### 2. MP2
+
+Ask any questions in the `#mp2` channel on Slack.
+
+**a) AAA**
+
+1. a
+1. b
+1. c
+
+**b) BBB**
+
+1. a
+1. b
+1. c
 
 
 
 ***
-
-
-
-
-
-
 -->
 
 
@@ -93,16 +113,31 @@ To be posted by Tue 9/8 right before class.
 
 ## Videos
 
-### 1. Time series and basic forecasting
+### 1. Dendrobands
 
-To be (hopefully) posted by Mon 9/7 at 6pm eastern.
+One way to measure a tree's dbh is using dendrobands. 
+
+</br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OT2FPiMwGcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</br>
+
+### 2. Time series and basic forecasting
+
+Coming by Monday 9/7 7pm!
 
 
 
 
-## Class meeeting time
+## Class meeting time
 
-To be posted by Tue 9/8 right before class.
+These will be finalized just before class meeting time starts at 9:45am.
+
+1. Announcements
+    1. Office hours:
+1. Check in on MP1
+1. Discussion on dendrobands: Video 1
+1. Discussion on time series and basic forecasting: Video 2 & readings
 
 
 
@@ -114,9 +149,9 @@ To be posted by Tue 9/8 right before class.
 
 ## Videos
 
-### 1. Data collection activity... in the field!
-
 Note: I will do my best to post any videos the day before lecture at 6pm eastern.
+
+### 1. Data collection activity... in the field!
 
 </br>
 <center>
@@ -125,7 +160,7 @@ Note: I will do my best to post any videos the day before lecture at 6pm eastern
 </br>
 
 
-## Class meeeting time
+## Class meeting time
 
 1. "Chalk talk": Introduction to GitHub terminology. I encourage you to write along: [*I’m not writing it down to remember it later, I’m writing it down to remember it now.*](https://twitter.com/jack/status/369882367093002242){target="_blank"}
 1. Demo of what you'll be doing for MP1. 
@@ -165,7 +200,7 @@ Ask any questions in the `#mp1` channel on Slack.
 1. *Pull* the repo to update it with any changes.
 1. Edit the `DESCRIPTION` file by adding yourself as a contributor like I did.
 1. *Commit* your changes and then *push* them.
-1. You may need to check out these [notes](https://rudeboybert.github.io/SDS192/PS.html#1_github_component){target="_blank"} on getting started linking GitHub to RStudio. If you have questions, please ask on Slack!
+1. You may need to check out these [notes](https://rudeboybert.github.io/SDS192/PS.html#1_github_component){target="_blank"} on getting started linking GitHub to RStudio.
 
 
 
@@ -175,7 +210,7 @@ Ask any questions in the `#mp1` channel on Slack.
 
 # Lec 01: Tue 9/1
 
-## Class meeeting time
+## Class meeting time
 
 1. Introductions: name, pronoun, year, major, city you're currently in, name a few things you will do this semester for self-care.
 1. Announcement from the [Statistical & Data Sciences Coalition of Color (SDSCC)](https://docs.google.com/presentation/d/1trAXeX9FHCHiMk5iFTN14TEmK8tXbRHfY5WdmNGChVc/edit#slide=id.g93874104fe_0_5){target="_blank"}

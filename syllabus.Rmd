@@ -25,13 +25,14 @@ https://docs.google.com/document/d/1Ql2phLrzc7fEnBuG9Ii8bIBA6pznXgLvoKpsiFomJHk/
 ## Basic information {#basicinfo}
 
 * **Course title:** SDS 390 Topics in Statistical and Data Sciences - Ecological Forecasting
-* **Communication:** All communication will take place via this Slack workspace. You must have the [Slack Desktop or
+* **Communication:** All communication will take place via this [Slack workspace](https://smi-sds390-03-202101.slack.com){target="_blank"}. You must have the [Slack Desktop or
 Mobile App](https://slack.com/downloads/){target="_blank"} installed, since it
 is too easy to miss messages when using the browser version.
 * **Lectures:** Remote only
     1. Scheduled time: Tue/Thu 9:20am - 10:35am Eastern
     1. Meeting times:  Tue/Thu 9:45am - 10:35am Eastern
-
+* **Office hours:**
+    1. 
 
 
 
