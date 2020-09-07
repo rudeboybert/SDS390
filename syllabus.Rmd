@@ -106,7 +106,7 @@ This semester you will:
 
 We'll be using the following two textbooks:
 
-* [Forecasting: Principles and Practice (online edition)](https://otexts.com/fpp2/){target="_blank"} by Hyndman and Athanasopoulos. We'll call this **FPP**.
+* [Forecasting: Principles and Practice (3rd online edition)](https://otexts.com/fpp3/){target="_blank"} by Hyndman and Athanasopoulos. We'll call this **FPP**.
 * [Ecological Forecasting](https://press.princeton.edu/books/hardcover/9780691160573/ecological-forecasting){target="_blank"} by Dietze. We'll call this **EF**.
 
 <!--

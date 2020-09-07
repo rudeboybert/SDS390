@@ -39,11 +39,12 @@ library(patchwork)
 
 # Set seed value of random number generator to get "replicable" random numbers.
 set.seed(76)
-```
 
-```{r klippy, echo=FALSE, include=TRUE}
+# For "copy code" button for code chunks
 klippy::klippy()
 ```
+
+
 
 ***
 
@@ -125,9 +126,9 @@ One way to measure a tree's dbh is using dendrobands (6:00).
 </center>
 </br>
 
-### 2. Time series and basic forecasting ()
+### 2. Time series
 
-Time series in R (14:24).
+Exploratory data analysis for time series plots (14:24).
 
 </br>
 <center>
