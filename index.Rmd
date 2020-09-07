@@ -41,7 +41,9 @@ library(patchwork)
 set.seed(76)
 ```
 
-
+```{r klippy, echo=FALSE, include=TRUE}
+klippy::klippy()
+```
 
 ***
 
@@ -115,16 +117,60 @@ Ask any questions in the `#mp2` channel on Slack.
 
 ### 1. Dendrobands
 
-One way to measure a tree's dbh is using dendrobands. 
+One way to measure a tree's dbh is using dendrobands (6:00). 
 
 </br>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OT2FPiMwGcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
 </br>
 
-### 2. Time series and basic forecasting
+### 2. Time series and basic forecasting ()
 
-Coming by Monday 9/7 7pm!
+Time series in R (14:24).
+
+</br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oy-eVRkQUeE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</br>
+
+Corresponding code:
+
+```{r, eval = FALSE, class.source="klippy"}
+# Lec03 Code
+library(tidyverse)
+library(tsibble)
+library(lubridate)
+library(fpp3)
+
+weatherdata <-
+  read_csv("https://rudeboybert.github.io/SDS390/static/data/NCDC_NOAA_precip_temp.csv") %>%
+  mutate(
+    # Convert to variable of type date
+    date = dmy(DATE), 
+    # This will be used for the group_by() below
+    month = floor_date(date, unit = "month"),
+    # Using special function from fpp package to define yearmonth units
+    month = yearmonth(month)
+  ) %>% 
+  group_by(month) %>% 
+  summarize(TMAX_avg = mean(TMAX, na.rm = TRUE), PRCP_avg = mean(PRCP, na.rm = TRUE)) %>% 
+  # Convert to tsibble = time series tibble data type
+  as_tsibble(index = month) 
+
+# FPP3 2.2 Fig 2.1
+weatherdata %>% autoplot(TMAX_avg)
+
+# FPP3 2.4 Fig 2.4
+weatherdata %>% gg_season(TMAX_avg, labels = "both")
+
+# FPP3 2.5 Fig 2.5 
+weatherdata %>% gg_subseries(TMAX_avg)
+
+# FPP3 2.7 Fig 2.16 
+weatherdata %>% gg_lag(TMAX_avg, lags = 1:12)
+```
 
 
 

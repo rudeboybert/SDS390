@@ -20,19 +20,25 @@ weatherdata <-
   as_tsibble(index = month) 
 
 # FPP3 2.2 Fig 2.1
-weatherdata %>% autoplot(TMAX)
+weatherdata %>% autoplot(TMAX_avg)
 
 # FPP3 2.4 Fig 2.4
-weatherdata %>% gg_season(TMAX, labels = "both")
+weatherdata %>% gg_season(TMAX_avg, labels = "both")
 
 # FPP3 2.5 Fig 2.5 
-weatherdata %>% gg_subseries(TMAX)
+weatherdata %>% gg_subseries(TMAX_avg)
 
 # FPP3 2.7 Fig 2.16 
-weatherdata %>% gg_lag(TMAX, lags = 1:12)
+weatherdata %>% gg_lag(TMAX_avg, lags = 1:12)
 
 # FPP3 2.8 Fig 2.17
-weatherdata %>% ACF(TMAX) %>% autoplot()
+weatherdata %>% ACF(TMAX_avg) %>% autoplot()
+
+
+
+
+
+
 
 
 
