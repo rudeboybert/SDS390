@@ -1,25 +1,44 @@
-# Lec03
+# Lec03 Code
 library(tidyverse)
 library(tsibble)
 library(lubridate)
 library(fpp3)
 
 weatherdata <-
-  read_csv("~/Documents/Trees/growth_phenology/climate data/NCDC_NOAA_precip_temp.csv") %>%
+  read_csv("https://rudeboybert.github.io/SDS390/static/data/NCDC_NOAA_precip_temp.csv") %>%
   mutate(
+    # Convert to variable of type date
     date = dmy(DATE), 
+    # This will be used for the group_by() below
     month = floor_date(date, unit = "month"),
+    # Using special function from fpp package to define yearmonth units
     month = yearmonth(month)
   ) %>% 
   group_by(month) %>% 
-  summarize(TMAX = mean(TMAX, na.rm = TRUE), PRCP = mean(PRCP, na.rm = TRUE)) %>% 
+  summarize(TMAX_avg = mean(TMAX, na.rm = TRUE), PRCP_avg = mean(PRCP, na.rm = TRUE)) %>% 
+  # Convert to tsibble = time series tibble data type
   as_tsibble(index = month) 
 
-weatherdata %>% autoplot(TMAX)
-weatherdata %>% gg_season(TMAX, labels = "both")
-weatherdata %>% gg_subseries()
-weatherdata %>% gg_lag(TMAX, lags = 1:12)
-weatherdata %>% ACF(TMAX) %>% autoplot()
+# FPP3 2.2 Fig 2.1
+weatherdata %>% autoplot(TMAX_avg)
+
+# FPP3 2.4 Fig 2.4
+weatherdata %>% gg_season(TMAX_avg, labels = "both")
+
+# FPP3 2.5 Fig 2.5 
+weatherdata %>% gg_subseries(TMAX_avg)
+
+# FPP3 2.7 Fig 2.16 
+weatherdata %>% gg_lag(TMAX_avg, lags = 1:12)
+
+# FPP3 2.8 Fig 2.17
+weatherdata %>% ACF(TMAX_avg) %>% autoplot()
+
+
+
+
+
+
 
 
 
