@@ -32,7 +32,9 @@ is too easy to miss messages when using the browser version.
     1. Scheduled time: Tue/Thu 9:20am - 10:35am Eastern
     1. Meeting times:  Tue/Thu 9:45am - 10:35am Eastern
 * **Office hours:**
-    1. 
+    1. Immediately after lecture: Just stick around
+    1. Scheduled group office hours: TBD 
+    1. For individual matters, by appointment at <https://bit.ly/meet_with_albert>. If there aren't any appointments, please Slack me. 
 
 
 

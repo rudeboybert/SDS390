@@ -178,13 +178,21 @@ weatherdata %>% gg_lag(TMAX_avg, lags = 1:12)
 
 ## Class meeting time
 
-These will be finalized just before class meeting time starts at 9:45am.
-
 1. Announcements
-    1. Office hours:
-1. Check in on MP1
-1. Discussion on dendrobands: Video 1
-1. Discussion on time series and basic forecasting: Video 2 & readings
+    1. More introductions: name/pronoun, year/major, city you're currently in, name a few things you will do this semester for self-care.
+    1. Started scheduling office hours in [syllabus](syllabus.html).
+    1. We'll be using the [3rd online edition of FPP](https://otexts.com/fpp3/){target="_blank"} (I originally linked to the 2nd edition).
+1. Check in on [MP1](#MP1)
+1. Set up our workspace for the semester:
+    1. Open RStudio
+    1. Create a new RStudio project called `SDS390`
+    1. Create a new `.R` script or `.Rmd` and call it `lecture_notes`
+    1. Copy the code for any lecture into `lecture_notes`. For today: the above `# Lec03 Code`
+1. Breakout rooms: A designated group leader will create a Slack DM with all members, but not Albert. They will take notes and then speak on behalf of the group. Discuss
+    1. What is the goal of analysis hinted in Video 1? Questions?
+    1. Do you have questions about Video 2 on time series?
+    1. Do you have any feedback/comments about lecture format?
+    1. Questions about MP1?
 
 
 
@@ -229,7 +237,7 @@ include_graphics("static/images/MVP.png")
 ```
 
     
-### 2. MP1
+### 2. MP1 {#MP1}
 
 Ask any questions in the `#mp1` channel on Slack.
 

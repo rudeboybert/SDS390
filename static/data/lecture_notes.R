@@ -43,6 +43,10 @@ weatherdata %>% ACF(TMAX_avg) %>% autoplot()
 
 
 
+
+
+
+
 dendro <- 
   read_csv("static/data/all_stems.csv") %>% 
   as_tibble() %>%
