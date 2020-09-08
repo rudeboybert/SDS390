@@ -474,23 +474,26 @@ h1{font-weight: 400;}
 {target="_blank"}
 -->
 <hr />
+</div>
+<div id="Lec04" class="section level1">
+<h1>Lec 04: Thu 9/10</h1>
+<div id="videos" class="section level2">
+<h2>Videos</h2>
+<div id="scbi-forestgeo-site" class="section level3">
+<h3>1. SCBI ForestGEO site</h3>
+</div>
+</div>
+<div id="class-meeting-time" class="section level2">
+<h2>Class meeting time</h2>
+<ol style="list-style-type: decimal">
+<li>Announcements:
+<ol style="list-style-type: decimal">
+<li>For all video chalk talks, I’ll post the PDF on the webpage. Also I’ll work on improving my handwriting!</li>
+<li>Note that I added the two missing lines of code to the Lec03 code on auto-correlation functions.</li>
+</ol></li>
+<li></li>
+</ol>
 <!--
-# Lec 04: Thu 9/10 {#Lec04}
-
-## Videos
-
-### 1. AAA
-
-
-
-## Class meeting time
-
-1. ForestGEO Network: Talk about paper
-1. Breakout room: data collection
-1. Demo of what you'll be doing for MP2.
-
-
-
 
 ## For next week
 
@@ -516,15 +519,13 @@ Ask any questions in the `#mp2` channel on Slack.
 1. a
 1. b
 1. c
-
-
-
-***
 -->
+<hr />
+</div>
 </div>
 <div id="Lec03" class="section level1">
 <h1>Lec 03: Tue 9/8</h1>
-<div id="videos" class="section level2">
+<div id="videos-1" class="section level2">
 <h2>Videos</h2>
 <div id="dendrobands" class="section level3">
 <h3>1. Dendrobands</h3>
@@ -536,9 +537,9 @@ Ask any questions in the `#mp2` channel on Slack.
 </center>
 <p></br></p>
 </div>
-<div id="time-series" class="section level3">
+<div id="Lec03-Video2" class="section level3">
 <h3>2. Time series</h3>
-<p>Exploratory data analysis for time series plots (14:24).</p>
+<p>Chalk talk on exploratory data analysis for time series plots (14:24). <strong>Added after Lec03</strong>: <a href="static/chalk_talks/Lec03.pdf" target="_blank">PDF of chalk talk</a>.</p>
 </br>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oy-eVRkQUeE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -577,10 +578,13 @@ Ask any questions in the `#mp2` channel on Slack.
 <span id="cb1-29"><a href="#cb1-29"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_subseries</span>(TMAX_avg)</span>
 <span id="cb1-30"><a href="#cb1-30"></a></span>
 <span id="cb1-31"><a href="#cb1-31"></a><span class="co"># FPP3 2.7 Fig 2.16 </span></span>
-<span id="cb1-32"><a href="#cb1-32"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_lag</span>(TMAX_avg, <span class="dt">lags =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</span></code></pre></div>
+<span id="cb1-32"><a href="#cb1-32"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_lag</span>(TMAX_avg, <span class="dt">lags =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</span>
+<span id="cb1-33"><a href="#cb1-33"></a></span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="co"># Added after Lec03: FPP3 2.8 Fig 2.17</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ACF</span>(TMAX_avg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>()</span></code></pre></div>
 </div>
 </div>
-<div id="class-meeting-time" class="section level2">
+<div id="class-meeting-time-1" class="section level2">
 <h2>Class meeting time</h2>
 <ol style="list-style-type: decimal">
 <li>Announcements
@@ -604,13 +608,14 @@ Ask any questions in the `#mp2` channel on Slack.
 <li>Do you have any feedback/comments about lecture format?</li>
 <li>Questions about MP1?</li>
 </ol></li>
+<li><a href="https://smith.zoom.us/rec/share/msdCameUcJtJV4W6_TllvNOYGCYdU72iUSIFMPXxW0oF4zYv6G25uVGJdjHQ3BRb.MdQFuvpLLtgaxvUU" target="_blank">Link</a> to video recording.</li>
 </ol>
 <hr />
 </div>
 </div>
 <div id="Lec02" class="section level1">
 <h1>Lec 02: Thu 9/3</h1>
-<div id="videos-1" class="section level2">
+<div id="videos-2" class="section level2">
 <h2>Videos</h2>
 <p>Note: I will do my best to post any videos the day before lecture at 6pm eastern.</p>
 <div id="data-collection-activity-in-the-field" class="section level3">
@@ -623,7 +628,7 @@ Ask any questions in the `#mp2` channel on Slack.
 <p></br></p>
 </div>
 </div>
-<div id="class-meeting-time-1" class="section level2">
+<div id="class-meeting-time-2" class="section level2">
 <h2>Class meeting time</h2>
 <ol style="list-style-type: decimal">
 <li>“Chalk talk”: Introduction to GitHub terminology. I encourage you to write along: <a href="https://twitter.com/jack/status/369882367093002242" target="_blank"><em>I’m not writing it down to remember it later, I’m writing it down to remember it now.</em></a></li>
@@ -666,7 +671,7 @@ Ask any questions in the `#mp2` channel on Slack.
 </div>
 <div id="lec-01-tue-91" class="section level1">
 <h1>Lec 01: Tue 9/1</h1>
-<div id="class-meeting-time-2" class="section level2">
+<div id="class-meeting-time-3" class="section level2">
 <h2>Class meeting time</h2>
 <ol style="list-style-type: decimal">
 <li>Introductions: name, pronoun, year, major, city you’re currently in, name a few things you will do this semester for self-care.</li>
@@ -677,7 +682,7 @@ Ask any questions in the `#mp2` channel on Slack.
 <li><a href="https://smith.zoom.us/rec/share/v8pUE6rz_HlIWLPo6huEQ594T9T-aaa81ikX-fVfz00jHE5Ns0-sumdQni9hSU2V" target="_blank">Link</a> to video recording (required password on Slack in <code>#announcements</code>).</li>
 </ol>
 </div>
-<div id="videos-2" class="section level2">
+<div id="videos-3" class="section level2">
 <h2>Videos</h2>
 <p>I will post a ~20min video lecture by Wednesday afternoon eastern time. This is why we are starting synchronous discussions 25 minutes later than scheduled.</p>
 <ol style="list-style-type: decimal">

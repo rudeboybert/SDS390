@@ -63,23 +63,23 @@ klippy::klippy()
 ***
 
 
-<!--
 # Lec 04: Thu 9/10 {#Lec04}
 
 ## Videos
 
-### 1. AAA
+### 1. SCBI ForestGEO site
 
 
 
 ## Class meeting time
 
-1. ForestGEO Network: Talk about paper
-1. Breakout room: data collection
-1. Demo of what you'll be doing for MP2.
+1. Announcements:
+    1. For all video chalk talks, I'll post the PDF on the webpage. Also I'll work on improving my handwriting!
+    1. Note that I added the two missing lines of code to the Lec03 code on auto-correlation functions.
+1. 
 
 
-
+<!--
 
 ## For next week
 
@@ -105,11 +105,12 @@ Ask any questions in the `#mp2` channel on Slack.
 1. a
 1. b
 1. c
+-->
 
 
 
 ***
--->
+
 
 
 # Lec 03: Tue 9/8 {#Lec03}
@@ -126,9 +127,9 @@ One way to measure a tree's dbh is using dendrobands (6:00).
 </center>
 </br>
 
-### 2. Time series
+### 2. Time series {#Lec03-Video2}
 
-Exploratory data analysis for time series plots (14:24).
+Chalk talk on exploratory data analysis for time series plots (14:24). **Added after Lec03**: [PDF of chalk talk](static/chalk_talks/Lec03.pdf){target="_blank"}.
 
 </br>
 <center>
@@ -171,6 +172,9 @@ weatherdata %>% gg_subseries(TMAX_avg)
 
 # FPP3 2.7 Fig 2.16 
 weatherdata %>% gg_lag(TMAX_avg, lags = 1:12)
+
+# Added after Lec03: FPP3 2.8 Fig 2.17
+weatherdata %>% ACF(TMAX_avg) %>% autoplot()
 ```
 
 
@@ -193,7 +197,7 @@ weatherdata %>% gg_lag(TMAX_avg, lags = 1:12)
     1. Do you have questions about Video 2 on time series?
     1. Do you have any feedback/comments about lecture format?
     1. Questions about MP1?
-
+1. [Link](https://smith.zoom.us/rec/share/msdCameUcJtJV4W6_TllvNOYGCYdU72iUSIFMPXxW0oF4zYv6G25uVGJdjHQ3BRb.MdQFuvpLLtgaxvUU){target="_blank"} to video recording.
 
 
 ***
