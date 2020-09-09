@@ -67,7 +67,25 @@ klippy::klippy()
 
 ## Videos
 
-### 1. SCBI ForestGEO site
+### 1. GitHub branches and pull requests
+
+Using the "playground" repo [here](https://github.com/rudeboybert/SCBI-ForestGEO-Data){target="_blank"}, which is a separate copy of the Smithsonian Conservation Biology Institute (SCBI) ForestGEO Data found [here](https://github.com/SCBI-ForestGEO/SCBI-ForestGEO-Data){target="_blank"}. [PDF of chalk talk](static/chalk_talks/Lec04.pdf){target="_blank"}.
+
+</br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DHpNuxPgiQY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</br>
+
+### 2. Conducting a census of trees
+
+In the Battell Woods, Middlebury, VT, USA.
+
+</br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/z3kNVHm7R0I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</br>
 
 
 
@@ -80,6 +98,10 @@ klippy::klippy()
 
 
 <!--
+
+https://www.google.com/maps/d/edit?mid=1QYcZhzmRASjCqFyCiraxosBmMcWrEeg7&usp=sharing
+
+
 
 ## For next week
 
