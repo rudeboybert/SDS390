@@ -16,8 +16,10 @@ output:
 navbar:
   title: SDS390
   left:
+  - icon: fa-github fa-lg
+    href: https://github.com/390-2020-09-Fall
   right:
   - text: Syllabus
     href: syllabus.html
-  - icon: fa-github fa-lg
+  - icon: fa-github-square fa-lg
     href: https://github.com/rudeboybert/SDS390

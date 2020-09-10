@@ -42,6 +42,9 @@ set.seed(76)
 
 # For "copy code" button for code chunks
 klippy::klippy()
+
+# Student list for group making
+students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Serena", "Sophie", "Starry", "Nidhi")
 ```
 
 
@@ -69,7 +72,10 @@ klippy::klippy()
 
 ### 1. GitHub branches and pull requests
 
-Using the "playground" repo [here](https://github.com/rudeboybert/SCBI-ForestGEO-Data){target="_blank"}, which is a separate copy of the Smithsonian Conservation Biology Institute (SCBI) ForestGEO Data found [here](https://github.com/SCBI-ForestGEO/SCBI-ForestGEO-Data){target="_blank"}. [PDF of chalk talk](static/chalk_talks/Lec04.pdf){target="_blank"}.
+Using the "playground" repo [here](https://github.com/390-2020-09-Fall/SCBI-ForestGEO-Data){target="_blank"}, which is a separate copy of the Smithsonian Conservation Biology Institute (SCBI) ForestGEO Data found [here](https://github.com/SCBI-ForestGEO/SCBI-ForestGEO-Data){target="_blank"}. [PDF of chalk talk](static/chalk_talks/Lec04.pdf){target="_blank"}.
+
+**Update on Thu 9/10 8:30am**: I changed "ownership" of the repository from my personal GitHub "rudeboybert" to the class GitHub Organization ["390-2020-09-Fall"](https://github.com/390-2020-09-Fall). I've added a link to this organization in the top-left of this webpage menubar.
+
 
 </br>
 <center>
@@ -92,14 +98,16 @@ In the Battell Woods, Middlebury, VT, USA.
 ## Class meeting time
 
 1. Announcements:
+    1. See update I added today about Video 1. 
     1. For all video chalk talks, I'll post the PDF on the webpage. Also I'll work on improving my handwriting!
     1. Note that I added the two missing lines of code to the Lec03 code on auto-correlation functions.
-1. 
-
-
-<!--
-
-https://www.google.com/maps/d/edit?mid=1QYcZhzmRASjCqFyCiraxosBmMcWrEeg7&usp=sharing
+1. Intros
+1. Lingering questions from Lec03?
+1. Breakout rooms:
+    1. Questions about Lec04 Videos
+    1. Data collection reflection: Write down anything that crossed your mind as you collected this data. Ex: what difficulties, what questions, did anything from my video not apply in your case?
+    1. ForestGEO reading: What do you think are some organizational goals of the ForestGEO **network**?
+1. Discuss what's next week.
 
 
 
@@ -109,25 +117,39 @@ https://www.google.com/maps/d/edit?mid=1QYcZhzmRASjCqFyCiraxosBmMcWrEeg7&usp=sha
 
 The readings for next week are posted in the above Schedule Google Sheet. Anything below the orange line is still TBD.  
 
+1. **Albert's Tips for Shiny reading**: Run the code! The best way to learn how to use tools is to learn by doing.
+1. **Albert's tips for Ecological Forecasting reading**: This book is pitched at higher level than for undergraduates. However let's keep with the "some is better than none" philosophy by dedicating at least 30 minutes to reading and *setting a timer*.
+    1. Read the synopsis at the start
+    1. Read the key concepts at the back
+    1. Scan through the figures and tables
+    1. Most importantly tho, look at the clock and keep moving! *Done is better than perfect!*
+    1. If you have more time or are more curious, then iterate through the above steps again, again, again, ...
 
+```{r, echo=FALSE, fig.align="center"}
+include_graphics("static/images/MVP.png")
+```
 
 
 ### 2. MP2
 
 Ask any questions in the `#mp2` channel on Slack.
 
-**a) AAA**
+**a) Race to the first data visualization** Create a first visualization of the 2018 SCBI ForestGEO census. For MP3, you'll be making a Shiny interactive version of this visualization.
 
-1. a
-1. b
-1. c
+1. Re-watch Lec04 Video 2 about tree censuses 
+1. *"Numbers are numbers, but data has context"*": Look at map of the four corners of the [SCBI site](https://www.google.com/maps/d/edit?mid=1QYcZhzmRASjCqFyCiraxosBmMcWrEeg7&usp=sharing){target="_blank"}. 
+1. Clone the playground version of the [SCBI-ForestGEO-Data](https://github.com/390-2020-09-Fall/SCBI-ForestGEO-Data) repo
+1. Find the relevant `.csv` file in the `tree_main_census/` folder
+1. Load the `.csv` in R
 
-**b) BBB**
 
-1. a
-1. b
-1. c
--->
+**b) Submit via GitHub branch and pull request**
+
+1. Create a new branch just like in Lec04 Video 1.
+1. Create your visualization in a file `390/YOURFIRSTNAME_YOURLASTNAME.Rmd`
+1. Make all commits
+1. Submit a pull request
+
 
 
 
@@ -149,9 +171,46 @@ One way to measure a tree's dbh is using dendrobands (6:00).
 </center>
 </br>
 
+```{r, include = FALSE, eval = FALSE}
+# Code used at end of video. Need to run
+# growth_phenology/RScripts/SCBI_growth_phenology.R first
+plot <- all_stems %>%
+  as_tibble() %>%
+  filter(tag %in% c(082422, 202215, 172202)) %>%
+  mutate(sp = case_when(
+    sp == "litu" ~ "tulip poplar",
+    sp == "qual" ~ "white oak",
+    sp == "quru" ~ "red oak"
+  )) %>%
+  unite("date", c(year, month, day), sep = "-") %>%
+  mutate(date = ymd(date)) %>%
+  filter(date >= ymd("2015-01-01")) %>%
+  ggplot(aes(x=date, y=measure, col = sp, group = tag)) +
+  geom_line() +
+  labs(x = "Date of measurement", y = "Diameter in cm", col = "species") +
+  coord_cartesian(xlim = c(ymd("2015-01-01"), ymd("2020-08-01")))
+plot
+
+library(plotly)
+weather <- weatherdata %>%
+  filter(DATE >= ymd("2015-01-01")) %>%
+  mutate(month = floor_date(DATE, unit = "months")) %>%
+  group_by(month) %>%
+  dplyr::summarize(`Average max temp` = mean(TMAX)) %>%
+  ggplot(aes(x = month, y = `Average max temp`)) +
+  geom_line() +
+  labs(x = "Date", y = "Temperature", title = "Average monthly maximum temperature")
+ggplotly(weather)
+
+plot +
+  geom_vline(xintercept = as.Date("2017-07-01"), linetype = "dashed") +
+  geom_vline(xintercept = as.Date("2020-07-01"), linetype = "dashed")
+```
+
+
 ### 2. Time series {#Lec03-Video2}
 
-Chalk talk on exploratory data analysis for time series plots (14:24). **Added after Lec03**: [PDF of chalk talk](static/chalk_talks/Lec03.pdf){target="_blank"}.
+Chalk talk on exploratory data analysis for time series plots (14:24). **Update after Lec03**: [PDF of chalk talk](static/chalk_talks/Lec03.pdf){target="_blank"}.
 
 </br>
 <center>
@@ -195,7 +254,7 @@ weatherdata %>% gg_subseries(TMAX_avg)
 # FPP3 2.7 Fig 2.16 
 weatherdata %>% gg_lag(TMAX_avg, lags = 1:12)
 
-# Added after Lec03: FPP3 2.8 Fig 2.17
+# Update after Lec03: FPP3 2.8 Fig 2.17
 weatherdata %>% ACF(TMAX_avg) %>% autoplot()
 ```
 
