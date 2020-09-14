@@ -66,6 +66,33 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 ***
 
 
+# Lec 05: Tue 9/15 {#Lec05}
+
+## Videos
+
+### 1. Models and parameter estimation
+
+Given an assumed model $y = f(\vec{x}) + \epsilon$, you want an fitted model $\widehat{y} = f(\vec{x})$. To do this, you need to do *parameter estimation*. [PDF of chalk talk](static/chalk_talks/Lec05.pdf){target="_blank"}.
+
+</br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pAf1JAGzM-E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</br>
+
+
+
+## Class meeting time
+
+1. 
+
+
+
+
+***
+
+
+
 # Lec 04: Thu 9/10 {#Lec04}
 
 ## Videos
