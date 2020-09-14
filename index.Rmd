@@ -72,7 +72,7 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 ### 1. Models and parameter estimation
 
-Given an assumed model $y = f(\vec{x}) + \epsilon$, you want an fitted model $\widehat{y} = f(\vec{x})$. To do this, you need to do *parameter estimation*. [PDF of chalk talk](static/chalk_talks/Lec05.pdf){target="_blank"}.
+Given an assumed model $y = f(\vec{x}) + \epsilon$, you want an fitted model $\widehat{y} = \widehat{f}(\vec{x})$. To do this, you need to do *parameter estimation*. [PDF of chalk talk](static/chalk_talks/Lec05.pdf){target="_blank"}.
 
 </br>
 <center>
