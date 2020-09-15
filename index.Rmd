@@ -63,6 +63,14 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 
 
+<!--
+* Assign one personal reading
+* Sheet & flashlight trick
+* Shiny app on parameters
+-->
+
+
+
 ***
 
 
@@ -84,8 +92,15 @@ Given an assumed model $y = f(\vec{x}) + \epsilon$, you want an fitted model $\w
 
 ## Class meeting time
 
-1. 
-
+1. Announcements
+    1. Say hello to Emma K.
+    1. In course schedule, I posted readings and lecture topics for next week (more on Thu 9/17).
+    1. MP1: I'll give feedback by Thursday's lecture, likely this afternoon.
+1. [Plan for the semester](https://docs.google.com/document/d/1PeQXPsnxe6ZJjiBGBXD3dRfTKNETKMQpzIJUSWgTYr0/edit?usp=sharing){target="_blank"}
+1. Breakout rooms
+    1. Plan for the semester and course format
+    1. Video: model parameters
+    1. MP2 questions
 
 
 
@@ -99,7 +114,7 @@ Given an assumed model $y = f(\vec{x}) + \epsilon$, you want an fitted model $\w
 
 ### 1. GitHub branches and pull requests
 
-Using the "playground" repo [here](https://github.com/390-2020-09-Fall/SCBI-ForestGEO-Data){target="_blank"}, which is a separate copy of the Smithsonian Conservation Biology Institute (SCBI) ForestGEO Data found [here](https://github.com/SCBI-ForestGEO/SCBI-ForestGEO-Data){target="_blank"}. [PDF of chalk talk](static/chalk_talks/Lec04.pdf){target="_blank"}.
+Using the "playground" repo [here](https://github.com/390-2020-09-Fall/SCBI-ForestGEO-Data){target="_blank"}, which is a separate copy of the Smithsonian Conservation Biology Institute (SCBI) ForestGEO Data found [here](https://github.com/SCBI-ForestGEO/SCBI-ForestGEO-Data){target="_blank"}. [PDF of chalk talk](static/chalk_talks/Lec04.pdf).
 
 **Update on Thu 9/10 8:30am**: I changed "ownership" of the repository from my personal GitHub "rudeboybert" to the class GitHub Organization ["390-2020-09-Fall"](https://github.com/390-2020-09-Fall). I've added a link to this organization in the top-left of this webpage menubar.
 

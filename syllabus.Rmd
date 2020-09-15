@@ -34,7 +34,9 @@ is too easy to miss messages when using the browser version.
 * **Office hours:**
     1. Immediately after lecture: Just stick around
     1. Scheduled group office hours: TBD 
-    1. For individual matters, by appointment at <https://bit.ly/meet_with_albert>. If there aren't any appointments, please Slack me. 
+    1. For individual matters, by appointment at
+    <https://bit.ly/meet_with_albert>. If there aren't any appointments, please
+    Slack me.
 
 
 
