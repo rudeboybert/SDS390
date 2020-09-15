@@ -64,9 +64,17 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 
 <!--
+Feedback
+* Connect ecological content to course better
+* Consider starting course on time? Solicit feedback
+* Ramp up GitHub for MP3
+* Set up dedicated zoom room for course that auto-records
+* Better ways to leverage group work and small class
+
 * Assign one personal reading
 * Sheet & flashlight trick
 * Shiny app on parameters
+* Logistic regression is a special case of generalized logistic regression function
 -->
 
 
@@ -101,6 +109,8 @@ Given an assumed model $y = f(\vec{x}) + \epsilon$, you want an fitted model $\w
     1. Plan for the semester and course format
     1. Video: model parameters
     1. MP2 questions
+1. [Link](https://smith.zoom.us/rec/share/oRGM5exNswi3Svq6bfq3j3mxyYXzl2ELSTlGZ5RqIdQmkYOCl4cYDywpe6rLj8QO.lB4yeBtWJRZSv5C_?startTime=1600179202000){target="_blank"} to video recording.
+
 
 
 
