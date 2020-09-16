@@ -1,4 +1,94 @@
-# Lec03 Code
+# Lec06 code ----------------
+library(tidyverse)
+
+dendroband_data <- read_csv("https://rudeboybert.github.io/SDS390/static/data/observed_dbh_vs_doy.csv")
+
+# Plot data
+base_plot <- ggplot() +
+  geom_point(data = dendroband_data, mapping = aes(x = doy, y = dbh)) +
+  labs(x = "day of year", y = "dbh")
+base_plot
+
+
+
+lg5 <- function(params, doy) {
+  # Get 5 parameter values
+  L <- params[1]
+  K <- params[2]
+  doy.ip <- params[3]
+  r <- params[4]
+  theta <- params[5]
+  
+  # For 5 parameters and doy, compute dbh
+  dbh <- L + ((K - L) / (1 + 1/theta * exp(-(r * (doy - doy.ip) / theta)) ^ theta))
+  return(dbh)
+}
+
+
+K <- 12
+L <- 14
+doy.ip <- 100
+r <- 0.05
+theta <- 1
+params_init <- c(K, L, doy.ip, r, theta)
+
+base_plot + 
+  stat_function(fun = lg5, args = list(params = params_init), col = "red", n = 500)
+
+lg5_ML <- function(params, doy, dbh, resid.sd) {
+  pred_dbh <- lg5(params, doy)
+  pred_ML <- -sum(dnorm(dbh, pred_dbh, resid.sd, log = T))
+  return(pred_ML)
+}
+
+lg5_optimization_output <- optim(par = params_init, fn = lg5_ML, resid.sd = 0.1, method = "BFGS", hessian = TRUE, doy = dendroband_data$doy, dbh =dendroband_data$dbh)
+params_star <- lg5_optimization_output$par
+
+base_plot +
+  stat_function(fun = lg5, args = list(params = params_star), col = "red", n = 500)
+
+
+
+
+
+
+
+
+
+
+# Lec06 Data ----------------
+library(tidyverse)
+
+generalized_logistic_function <- function(params, doy) {
+  L <- params[1]
+  K <- params[2]
+  doy.ip <- params[3]
+  r <- params[4]
+  theta <- params[5]
+  dbh <- L + ((K - L) / (1 + 1/theta * exp(-(r * (doy - doy.ip) / theta)) ^ theta))
+  return(dbh)
+}
+
+K <- 13
+L <- 15
+doy.ip <- 200
+r <- 0.075
+theta <- 2
+sigma <- 0.05
+
+params <- c(K, L, doy.ip, r, theta)
+
+set.seed(79)
+observed_values <- tibble(
+  doy = seq(from = 1, to = 365, by = 5),
+  dbh = lg5.pred(params, doy)
+) %>%
+  mutate(dbh = dbh + rnorm(n(), sd = sigma))
+write_csv(observed_values, path = "static/data/observed_dbh_vs_doy.csv")
+
+
+
+# Lec03 Code ----------------
 library(tidyverse)
 library(tsibble)
 library(lubridate)
@@ -36,13 +126,7 @@ weatherdata %>% ACF(TMAX_avg) %>% autoplot()
 
 
 
-
-
-
-
-
-
-
+# Extra ----------------
 
 
 

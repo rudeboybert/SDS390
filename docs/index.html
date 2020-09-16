@@ -462,7 +462,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">SDS390: Ecological Forecasting</h1>
 <h4 class="author">Albert Y. Kim</h4>
-<h4 class="date">Last updated on 2020-09-15</h4>
+<h4 class="date">Last updated on 2020-09-16</h4>
 
 </div>
 
@@ -479,6 +479,14 @@ h1{font-weight: 400;}
 {target="_blank"}
 -->
 <!--
+Feedback
+* Connect ecological content to course better
+* Consider starting course on time? Solicit feedback
+* Ramp up GitHub for MP3
+* Set up dedicated zoom room for course that auto-records
+* Better ways to leverage group work and small class
+* Pre-make weekly breakout rooms and pre-make Slack chat messages
+* Practice MP before main project
 
 * Assign one personal reading
 * Sheet & flashlight trick
@@ -487,9 +495,44 @@ h1{font-weight: 400;}
 -->
 <hr />
 </div>
+<div id="Lec06" class="section level1">
+<h1>Lec 06: Thu 9/17</h1>
+<div id="videos" class="section level2">
+<h2>Videos</h2>
+<div id="maximum-likelihood-estimation" class="section level3">
+<h3>1. Maximum likelihood estimation</h3>
+<p>Say you have data consisting of diameter at breast height (dbh) as measured by your dendroband and day of year (doy) measurement pairs. How we find the “best fitting” S-shaped curve through these points? In other words, how do we find the “optimal” values of the 5 parameters from the generalized logistic function. Also, what do we even by “best fitting”? <a href="static/chalk_talks/Lec06.pdf" target="_blank">PDF of chalk talk</a>.</p>
+</br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/38H_QN3Z4SA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</center>
+<p></br></p>
+</div>
+</div>
+<div id="class-meeting-time" class="section level2">
+<h2>Class meeting time</h2>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Lec06 Code</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Load (simulated) dendroband data</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>dendroband_data &lt;-<span class="st"> </span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="st">  </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/observed_dbh_vs_doy.csv&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># Plot data</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>base_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> dendroband_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> doy, <span class="dt">y =</span> dbh)) <span class="op">+</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;day of year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;dbh&quot;</span>)</span>
+<span id="cb1-12"><a href="#cb1-12"></a>base_plot</span></code></pre></div>
+<hr />
+</div>
+</div>
 <div id="Lec05" class="section level1">
 <h1>Lec 05: Tue 9/15</h1>
-<div id="videos" class="section level2">
+<div id="videos-1" class="section level2">
 <h2>Videos</h2>
 <div id="models-and-parameter-estimation" class="section level3">
 <h3>1. Models and parameter estimation</h3>
@@ -502,7 +545,7 @@ h1{font-weight: 400;}
 <p></br></p>
 </div>
 </div>
-<div id="class-meeting-time" class="section level2">
+<div id="class-meeting-time-1" class="section level2">
 <h2>Class meeting time</h2>
 <ol style="list-style-type: decimal">
 <li>Announcements
@@ -525,7 +568,7 @@ h1{font-weight: 400;}
 </div>
 <div id="Lec04" class="section level1">
 <h1>Lec 04: Thu 9/10</h1>
-<div id="videos-1" class="section level2">
+<div id="videos-2" class="section level2">
 <h2>Videos</h2>
 <div id="github-branches-and-pull-requests" class="section level3">
 <h3>1. GitHub branches and pull requests</h3>
@@ -549,7 +592,7 @@ h1{font-weight: 400;}
 <p></br></p>
 </div>
 </div>
-<div id="class-meeting-time-1" class="section level2">
+<div id="class-meeting-time-2" class="section level2">
 <h2>Class meeting time</h2>
 <ol style="list-style-type: decimal">
 <li>Announcements:
@@ -612,7 +655,7 @@ h1{font-weight: 400;}
 </div>
 <div id="Lec03" class="section level1">
 <h1>Lec 03: Tue 9/8</h1>
-<div id="videos-2" class="section level2">
+<div id="videos-3" class="section level2">
 <h2>Videos</h2>
 <div id="dendrobands" class="section level3">
 <h3>1. Dendrobands</h3>
@@ -634,44 +677,44 @@ h1{font-weight: 400;}
 </center>
 <p></br></p>
 <p>Corresponding code:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Lec03 Code</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(tsibble)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(lubridate)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">library</span>(fpp3)</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>weatherdata &lt;-</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="st">  </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/NCDC_NOAA_precip_temp.csv&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
-<span id="cb1-10"><a href="#cb1-10"></a>    <span class="co"># Convert to variable of type date</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>    <span class="dt">date =</span> <span class="kw">dmy</span>(DATE), </span>
-<span id="cb1-12"><a href="#cb1-12"></a>    <span class="co"># This will be used for the group_by() below</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a>    <span class="dt">month =</span> <span class="kw">floor_date</span>(date, <span class="dt">unit =</span> <span class="st">&quot;month&quot;</span>),</span>
-<span id="cb1-14"><a href="#cb1-14"></a>    <span class="co"># Using special function from fpp package to define yearmonth units</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>    <span class="dt">month =</span> <span class="kw">yearmonth</span>(month)</span>
-<span id="cb1-16"><a href="#cb1-16"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="st">  </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">TMAX_avg =</span> <span class="kw">mean</span>(TMAX, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">PRCP_avg =</span> <span class="kw">mean</span>(PRCP, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="st">  </span><span class="co"># Convert to tsibble = time series tibble data type</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="st">  </span><span class="kw">as_tsibble</span>(<span class="dt">index =</span> month) </span>
-<span id="cb1-21"><a href="#cb1-21"></a></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="co"># FPP3 2.2 Fig 2.1</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>(TMAX_avg)</span>
-<span id="cb1-24"><a href="#cb1-24"></a></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="co"># FPP3 2.4 Fig 2.4</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_season</span>(TMAX_avg, <span class="dt">labels =</span> <span class="st">&quot;both&quot;</span>)</span>
-<span id="cb1-27"><a href="#cb1-27"></a></span>
-<span id="cb1-28"><a href="#cb1-28"></a><span class="co"># FPP3 2.5 Fig 2.5 </span></span>
-<span id="cb1-29"><a href="#cb1-29"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_subseries</span>(TMAX_avg)</span>
-<span id="cb1-30"><a href="#cb1-30"></a></span>
-<span id="cb1-31"><a href="#cb1-31"></a><span class="co"># FPP3 2.7 Fig 2.16 </span></span>
-<span id="cb1-32"><a href="#cb1-32"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_lag</span>(TMAX_avg, <span class="dt">lags =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</span>
-<span id="cb1-33"><a href="#cb1-33"></a></span>
-<span id="cb1-34"><a href="#cb1-34"></a><span class="co"># Update after Lec03: FPP3 2.8 Fig 2.17</span></span>
-<span id="cb1-35"><a href="#cb1-35"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ACF</span>(TMAX_avg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Lec03 Code</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(tsibble)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">library</span>(fpp3)</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a>weatherdata &lt;-</span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="st">  </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/NCDC_NOAA_precip_temp.csv&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="co"># Convert to variable of type date</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="dt">date =</span> <span class="kw">dmy</span>(DATE), </span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="co"># This will be used for the group_by() below</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="dt">month =</span> <span class="kw">floor_date</span>(date, <span class="dt">unit =</span> <span class="st">&quot;month&quot;</span>),</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    <span class="co"># Using special function from fpp package to define yearmonth units</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>    <span class="dt">month =</span> <span class="kw">yearmonth</span>(month)</span>
+<span id="cb2-16"><a href="#cb2-16"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="st">  </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">TMAX_avg =</span> <span class="kw">mean</span>(TMAX, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">PRCP_avg =</span> <span class="kw">mean</span>(PRCP, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="st">  </span><span class="co"># Convert to tsibble = time series tibble data type</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="st">  </span><span class="kw">as_tsibble</span>(<span class="dt">index =</span> month) </span>
+<span id="cb2-21"><a href="#cb2-21"></a></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="co"># FPP3 2.2 Fig 2.1</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>(TMAX_avg)</span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="co"># FPP3 2.4 Fig 2.4</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_season</span>(TMAX_avg, <span class="dt">labels =</span> <span class="st">&quot;both&quot;</span>)</span>
+<span id="cb2-27"><a href="#cb2-27"></a></span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="co"># FPP3 2.5 Fig 2.5 </span></span>
+<span id="cb2-29"><a href="#cb2-29"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_subseries</span>(TMAX_avg)</span>
+<span id="cb2-30"><a href="#cb2-30"></a></span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="co"># FPP3 2.7 Fig 2.16 </span></span>
+<span id="cb2-32"><a href="#cb2-32"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_lag</span>(TMAX_avg, <span class="dt">lags =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</span>
+<span id="cb2-33"><a href="#cb2-33"></a></span>
+<span id="cb2-34"><a href="#cb2-34"></a><span class="co"># Update after Lec03: FPP3 2.8 Fig 2.17</span></span>
+<span id="cb2-35"><a href="#cb2-35"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ACF</span>(TMAX_avg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>()</span></code></pre></div>
 </div>
 </div>
-<div id="class-meeting-time-2" class="section level2">
+<div id="class-meeting-time-3" class="section level2">
 <h2>Class meeting time</h2>
 <ol style="list-style-type: decimal">
 <li>Announcements
@@ -702,7 +745,7 @@ h1{font-weight: 400;}
 </div>
 <div id="Lec02" class="section level1">
 <h1>Lec 02: Thu 9/3</h1>
-<div id="videos-3" class="section level2">
+<div id="videos-4" class="section level2">
 <h2>Videos</h2>
 <p>Note: I will do my best to post any videos the day before lecture at 6pm eastern.</p>
 <div id="data-collection-activity-in-the-field" class="section level3">
@@ -715,7 +758,7 @@ h1{font-weight: 400;}
 <p></br></p>
 </div>
 </div>
-<div id="class-meeting-time-3" class="section level2">
+<div id="class-meeting-time-4" class="section level2">
 <h2>Class meeting time</h2>
 <ol style="list-style-type: decimal">
 <li>“Chalk talk”: Introduction to GitHub terminology. I encourage you to write along: <a href="https://twitter.com/jack/status/369882367093002242" target="_blank"><em>I’m not writing it down to remember it later, I’m writing it down to remember it now.</em></a></li>
@@ -758,7 +801,7 @@ h1{font-weight: 400;}
 </div>
 <div id="lec-01-tue-91" class="section level1">
 <h1>Lec 01: Tue 9/1</h1>
-<div id="class-meeting-time-4" class="section level2">
+<div id="class-meeting-time-5" class="section level2">
 <h2>Class meeting time</h2>
 <ol style="list-style-type: decimal">
 <li>Introductions: name, pronoun, year, major, city you’re currently in, name a few things you will do this semester for self-care.</li>
@@ -769,7 +812,7 @@ h1{font-weight: 400;}
 <li><a href="https://smith.zoom.us/rec/share/v8pUE6rz_HlIWLPo6huEQ594T9T-aaa81ikX-fVfz00jHE5Ns0-sumdQni9hSU2V" target="_blank">Link</a> to video recording (required password on Slack in <code>#announcements</code>).</li>
 </ol>
 </div>
-<div id="videos-4" class="section level2">
+<div id="videos-5" class="section level2">
 <h2>Videos</h2>
 <p>I will post a ~20min video lecture by Wednesday afternoon eastern time. This is why we are starting synchronous discussions 25 minutes later than scheduled.</p>
 <ol style="list-style-type: decimal">

@@ -70,6 +70,8 @@ Feedback
 * Ramp up GitHub for MP3
 * Set up dedicated zoom room for course that auto-records
 * Better ways to leverage group work and small class
+* Pre-make weekly breakout rooms and pre-make Slack chat messages
+* Practice MP before main project
 
 * Assign one personal reading
 * Sheet & flashlight trick
@@ -79,7 +81,53 @@ Feedback
 
 
 
+
+
+
+
+
 ***
+
+
+# Lec 06: Thu 9/17 {#Lec06}
+
+## Videos
+
+### 1. Maximum likelihood estimation
+
+Say you have data consisting of diameter at breast height (dbh) as measured by your dendroband and day of year (doy) measurement pairs. How we find the "best fitting" S-shaped curve through these points? In other words, how do we find the "optimal" values of the 5 parameters from the generalized logistic function. Also, what do we even by "best fitting"? [PDF of chalk talk](static/chalk_talks/Lec06.pdf){target="_blank"}.
+
+</br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/38H_QN3Z4SA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</br>
+
+
+
+## Class meeting time
+
+1. 
+
+```{r, eval = FALSE, class.source="klippy"}
+# Lec06 Code
+library(tidyverse)
+
+# Load (simulated) dendroband data
+dendroband_data <- 
+  read_csv("https://rudeboybert.github.io/SDS390/static/data/observed_dbh_vs_doy.csv")
+
+# Plot data
+base_plot <- ggplot() +
+  geom_point(data = dendroband_data, mapping = aes(x = doy, y = dbh)) +
+  labs(x = "day of year", y = "dbh")
+base_plot
+```
+
+
+
+***
+
 
 
 # Lec 05: Tue 9/15 {#Lec05}
