@@ -95,7 +95,7 @@ Feedback
 
 ### 1. Maximum likelihood estimation
 
-Say you have data consisting of diameter at breast height (dbh) as measured by your dendroband and day of year (doy) measurement pairs. How we find the "best fitting" S-shaped curve through these points? In other words, how do we find the "optimal" values of the 5 parameters from the generalized logistic function. Also, what do we even by "best fitting"? [PDF of chalk talk](static/chalk_talks/Lec06.pdf){target="_blank"}.
+Say you have data that consists of the following pairs of observations: diameter at breast height (dbh) as measured by your dendroband and day of year (doy) of the measurement. How we find the "best fitting" S-shaped curve through these points? In other words, how do we find the "optimal" values of the 5 parameters from the generalized logistic function? Also, what do we even by "best fitting"? [PDF of chalk talk](static/chalk_talks/Lec06.pdf){target="_blank"}.
 
 </br>
 <center>
