@@ -10,7 +10,8 @@ base_plot <- ggplot() +
 base_plot
 
 
-
+# Define the generalized logistic function. Note the params input has to be a
+# vector of length 5 in the correct order:
 lg5 <- function(params, doy) {
   # Get 5 parameter values
   L <- params[1]
@@ -19,12 +20,14 @@ lg5 <- function(params, doy) {
   r <- params[4]
   theta <- params[5]
   
-  # For 5 parameters and doy, compute dbh
+  # For specified 5 parameters and x = doy, compute y = dbh
   dbh <- L + ((K - L) / (1 + 1/theta * exp(-(r * (doy - doy.ip) / theta)) ^ theta))
   return(dbh)
 }
 
 
+# Let's set an initial guess and plot what the generalized logistic function
+# looks like for this initial guess
 K <- 12
 L <- 14
 doy.ip <- 100
@@ -32,18 +35,40 @@ r <- 0.05
 theta <- 1
 params_init <- c(K, L, doy.ip, r, theta)
 
+# Not a great fit!
 base_plot + 
   stat_function(fun = lg5, args = list(params = params_init), col = "red", n = 500)
 
+
+
+# Let's define the "likelihood function" that we want to maximize/optimize. 
+# Recall that this is our criteria for "best fitting" curve.
+# These types of functions are covered in MTH 320 Mathematical Statistics
 lg5_ML <- function(params, doy, dbh, resid.sd) {
   pred_dbh <- lg5(params, doy)
   pred_ML <- -sum(dnorm(dbh, pred_dbh, resid.sd, log = T))
   return(pred_ML)
 }
 
-lg5_optimization_output <- optim(par = params_init, fn = lg5_ML, resid.sd = 0.1, method = "BFGS", hessian = TRUE, doy = dendroband_data$doy, dbh =dendroband_data$dbh)
-params_star <- lg5_optimization_output$par
+# Numerical optimization via the optim() function:
+lg5_optimization_output <- optim(
+  # Our initial guess:
+  par = params_init, 
+  # The likelihood function we want to optimize:
+  fn = lg5_ML, 
+  # The points we want want to fit the S-shaped curve to:
+  doy = dendroband_data$doy, dbh = dendroband_data$dbh,
+  # Some extra stuff:
+  resid.sd = 0.1, method = "BFGS", hessian = TRUE
+  )
+lg5_optimization_output
 
+# The optimal (K*, L*, doy.ip*, r*, theta*) are saved in par
+params_star <- lg5_optimization_output$par
+params_star
+
+# Let's plot what the generalized logistic function looks like for these optimal
+# values. Not bad!
 base_plot +
   stat_function(fun = lg5, args = list(params = params_star), col = "red", n = 500)
 

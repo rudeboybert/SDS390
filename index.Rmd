@@ -64,6 +64,9 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 
 <!--
+* When something doesn't work, simplify
+
+
 Feedback
 * Connect ecological content to course better
 * Consider starting course on time? Solicit feedback
@@ -72,6 +75,8 @@ Feedback
 * Better ways to leverage group work and small class
 * Pre-make weekly breakout rooms and pre-make Slack chat messages
 * Practice MP before main project
+* Assign FPP3
+* Have you heard of bootstrap resampling?
 
 * Assign one personal reading
 * Sheet & flashlight trick
@@ -107,7 +112,14 @@ Say you have data that consists of the following pairs of observations: diameter
 
 ## Class meeting time
 
-1. 
+1. Set up today's Shiny app:
+    1. Ensure you have the `shiny` package installed.
+    1. Download and unzip this <a href="static/data/dendroband_shiny.zip" download>.zip file</a> of a Shiny application RStudio Project. Since this is an RStudio Project, you should not save it inside another RStudio Project
+1. Set up Lec06 notes: Wherever it is you're saving lecture files/code
+    1. Save the PDF of [A general model of intra-annual tree growth using
+dendrometer bands by McMahon and Parker (2015)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4314258/){target="_blank"}.
+    1. Copy the code below as you did for the code in Lec03
+
 
 ```{r, eval = FALSE, class.source="klippy"}
 # Lec06 Code
