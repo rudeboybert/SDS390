@@ -83,7 +83,7 @@ TODO: later lectures
 * Practice MP before main project
 * Sheet & flashlight trick
 * When something doesn't work, simplify
-
+* grizzy podcast
 
 
 -->
@@ -147,6 +147,22 @@ base_plot
 
 
 # Added halfway through Lec06:
+
+
+# Define the generalized logistic function. Note the params input has to be a
+# vector of length 5 in the correct order:
+lg5 <- function(params, doy) {
+  # Get 5 parameter values
+  L <- params[1]
+  K <- params[2]
+  doy.ip <- params[3]
+  r <- params[4]
+  theta <- params[5]
+  
+  # For specified 5 parameters and x = doy, compute y = dbh
+  dbh <- L + ((K - L) / (1 + 1/theta * exp(-(r * (doy - doy.ip) / theta)) ^ theta))
+  return(dbh)
+}
 
 # Let's define the "likelihood function" that we want to maximize/optimize. 
 # Recall that this is our criteria for "best fitting" curve.

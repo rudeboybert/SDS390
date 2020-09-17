@@ -498,7 +498,7 @@ TODO: later lectures
 * Practice MP before main project
 * Sheet & flashlight trick
 * When something doesn't work, simplify
-
+* grizzy podcast
 
 
 -->
@@ -559,36 +559,52 @@ TODO: later lectures
 <span id="cb1-14"><a href="#cb1-14"></a></span>
 <span id="cb1-15"><a href="#cb1-15"></a><span class="co"># Added halfway through Lec06:</span></span>
 <span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="co"># Let&#39;s define the &quot;likelihood function&quot; that we want to maximize/optimize. </span></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="co"># Recall that this is our criteria for &quot;best fitting&quot; curve.</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="co"># These types of functions are covered in MTH 320 Mathematical Statistics</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a>lg5_ML &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy, dbh, resid.sd) {</span>
-<span id="cb1-21"><a href="#cb1-21"></a>  pred_dbh &lt;-<span class="st"> </span><span class="kw">lg5</span>(params, doy)</span>
-<span id="cb1-22"><a href="#cb1-22"></a>  pred_ML &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sum</span>(<span class="kw">dnorm</span>(dbh, pred_dbh, resid.sd, <span class="dt">log =</span> T))</span>
-<span id="cb1-23"><a href="#cb1-23"></a>  <span class="kw">return</span>(pred_ML)</span>
-<span id="cb1-24"><a href="#cb1-24"></a>}</span>
-<span id="cb1-25"><a href="#cb1-25"></a></span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="co"># Numerical optimization via the optim() function:</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a>lg5_optimization_output &lt;-<span class="st"> </span><span class="kw">optim</span>(</span>
-<span id="cb1-28"><a href="#cb1-28"></a>  <span class="co"># Our initial guess:</span></span>
-<span id="cb1-29"><a href="#cb1-29"></a>  <span class="dt">par =</span> params_init, </span>
-<span id="cb1-30"><a href="#cb1-30"></a>  <span class="co"># The likelihood function we want to optimize:</span></span>
-<span id="cb1-31"><a href="#cb1-31"></a>  <span class="dt">fn =</span> lg5_ML, </span>
-<span id="cb1-32"><a href="#cb1-32"></a>  <span class="co"># The points we want want to fit the S-shaped curve to:</span></span>
-<span id="cb1-33"><a href="#cb1-33"></a>  <span class="dt">doy =</span> dendroband_data<span class="op">$</span>doy, <span class="dt">dbh =</span> dendroband_data<span class="op">$</span>dbh,</span>
-<span id="cb1-34"><a href="#cb1-34"></a>  <span class="co"># Some extra stuff:</span></span>
-<span id="cb1-35"><a href="#cb1-35"></a>  <span class="dt">resid.sd =</span> <span class="fl">0.1</span>, <span class="dt">method =</span> <span class="st">&quot;BFGS&quot;</span>, <span class="dt">hessian =</span> <span class="ot">TRUE</span></span>
-<span id="cb1-36"><a href="#cb1-36"></a>  )</span>
-<span id="cb1-37"><a href="#cb1-37"></a>lg5_optimization_output</span>
-<span id="cb1-38"><a href="#cb1-38"></a></span>
-<span id="cb1-39"><a href="#cb1-39"></a><span class="co"># The optimal (K*, L*, doy.ip*, r*, theta*) are saved in par</span></span>
-<span id="cb1-40"><a href="#cb1-40"></a>params_star &lt;-<span class="st"> </span>lg5_optimization_output<span class="op">$</span>par</span>
-<span id="cb1-41"><a href="#cb1-41"></a>params_star</span>
-<span id="cb1-42"><a href="#cb1-42"></a></span>
-<span id="cb1-43"><a href="#cb1-43"></a><span class="co"># Let&#39;s plot what the generalized logistic function looks like for these optimal</span></span>
-<span id="cb1-44"><a href="#cb1-44"></a><span class="co"># values. Not bad!</span></span>
-<span id="cb1-45"><a href="#cb1-45"></a>base_plot <span class="op">+</span></span>
-<span id="cb1-46"><a href="#cb1-46"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> lg5, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">params =</span> params_star), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">n =</span> <span class="dv">500</span>)</span></code></pre></div>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co"># Define the generalized logistic function. Note the params input has to be a</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="co"># vector of length 5 in the correct order:</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>lg5 &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy) {</span>
+<span id="cb1-21"><a href="#cb1-21"></a>  <span class="co"># Get 5 parameter values</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a>  L &lt;-<span class="st"> </span>params[<span class="dv">1</span>]</span>
+<span id="cb1-23"><a href="#cb1-23"></a>  K &lt;-<span class="st"> </span>params[<span class="dv">2</span>]</span>
+<span id="cb1-24"><a href="#cb1-24"></a>  doy.ip &lt;-<span class="st"> </span>params[<span class="dv">3</span>]</span>
+<span id="cb1-25"><a href="#cb1-25"></a>  r &lt;-<span class="st"> </span>params[<span class="dv">4</span>]</span>
+<span id="cb1-26"><a href="#cb1-26"></a>  theta &lt;-<span class="st"> </span>params[<span class="dv">5</span>]</span>
+<span id="cb1-27"><a href="#cb1-27"></a>  </span>
+<span id="cb1-28"><a href="#cb1-28"></a>  <span class="co"># For specified 5 parameters and x = doy, compute y = dbh</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>  dbh &lt;-<span class="st"> </span>L <span class="op">+</span><span class="st"> </span>((K <span class="op">-</span><span class="st"> </span>L) <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>theta <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>(r <span class="op">*</span><span class="st"> </span>(doy <span class="op">-</span><span class="st"> </span>doy.ip) <span class="op">/</span><span class="st"> </span>theta)) <span class="op">^</span><span class="st"> </span>theta))</span>
+<span id="cb1-30"><a href="#cb1-30"></a>  <span class="kw">return</span>(dbh)</span>
+<span id="cb1-31"><a href="#cb1-31"></a>}</span>
+<span id="cb1-32"><a href="#cb1-32"></a></span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="co"># Let&#39;s define the &quot;likelihood function&quot; that we want to maximize/optimize. </span></span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="co"># Recall that this is our criteria for &quot;best fitting&quot; curve.</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a><span class="co"># These types of functions are covered in MTH 320 Mathematical Statistics</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a>lg5_ML &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy, dbh, resid.sd) {</span>
+<span id="cb1-37"><a href="#cb1-37"></a>  pred_dbh &lt;-<span class="st"> </span><span class="kw">lg5</span>(params, doy)</span>
+<span id="cb1-38"><a href="#cb1-38"></a>  pred_ML &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sum</span>(<span class="kw">dnorm</span>(dbh, pred_dbh, resid.sd, <span class="dt">log =</span> T))</span>
+<span id="cb1-39"><a href="#cb1-39"></a>  <span class="kw">return</span>(pred_ML)</span>
+<span id="cb1-40"><a href="#cb1-40"></a>}</span>
+<span id="cb1-41"><a href="#cb1-41"></a></span>
+<span id="cb1-42"><a href="#cb1-42"></a><span class="co"># Numerical optimization via the optim() function:</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>lg5_optimization_output &lt;-<span class="st"> </span><span class="kw">optim</span>(</span>
+<span id="cb1-44"><a href="#cb1-44"></a>  <span class="co"># Our initial guess:</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a>  <span class="dt">par =</span> params_init, </span>
+<span id="cb1-46"><a href="#cb1-46"></a>  <span class="co"># The likelihood function we want to optimize:</span></span>
+<span id="cb1-47"><a href="#cb1-47"></a>  <span class="dt">fn =</span> lg5_ML, </span>
+<span id="cb1-48"><a href="#cb1-48"></a>  <span class="co"># The points we want want to fit the S-shaped curve to:</span></span>
+<span id="cb1-49"><a href="#cb1-49"></a>  <span class="dt">doy =</span> dendroband_data<span class="op">$</span>doy, <span class="dt">dbh =</span> dendroband_data<span class="op">$</span>dbh,</span>
+<span id="cb1-50"><a href="#cb1-50"></a>  <span class="co"># Some extra stuff:</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>  <span class="dt">resid.sd =</span> <span class="fl">0.1</span>, <span class="dt">method =</span> <span class="st">&quot;BFGS&quot;</span>, <span class="dt">hessian =</span> <span class="ot">TRUE</span></span>
+<span id="cb1-52"><a href="#cb1-52"></a>  )</span>
+<span id="cb1-53"><a href="#cb1-53"></a>lg5_optimization_output</span>
+<span id="cb1-54"><a href="#cb1-54"></a></span>
+<span id="cb1-55"><a href="#cb1-55"></a><span class="co"># The optimal (K*, L*, doy.ip*, r*, theta*) are saved in par</span></span>
+<span id="cb1-56"><a href="#cb1-56"></a>params_star &lt;-<span class="st"> </span>lg5_optimization_output<span class="op">$</span>par</span>
+<span id="cb1-57"><a href="#cb1-57"></a>params_star</span>
+<span id="cb1-58"><a href="#cb1-58"></a></span>
+<span id="cb1-59"><a href="#cb1-59"></a><span class="co"># Let&#39;s plot what the generalized logistic function looks like for these optimal</span></span>
+<span id="cb1-60"><a href="#cb1-60"></a><span class="co"># values. Not bad!</span></span>
+<span id="cb1-61"><a href="#cb1-61"></a>base_plot <span class="op">+</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> lg5, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">params =</span> params_star), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">n =</span> <span class="dv">500</span>)</span></code></pre></div>
 </div>
 <div id="for-next-week" class="section level2">
 <h2>For next week</h2>
