@@ -129,7 +129,7 @@ dendrometer bands by McMahon and Parker (2015)](https://www.ncbi.nlm.nih.gov/pmc
 1. Breakout rooms:
     1. Get the values of the 5 parameters!
     1. Any questions?
-
+1. [Link](https://smith.zoom.us/rec/share/gavffQ0QHbw7Z82trsHofxkysFZWRr3fCIEqWQlJD8I_dVJ3GnhgYUC7t2W8GbEb.o0fkIrER2h0VCgOg?startTime=1600350544000){target="_blank"} to video recording.
 
 ```{r, eval = FALSE, class.source="klippy"}
 # Lec06 Code
