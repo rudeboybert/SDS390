@@ -64,24 +64,28 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 
 <!--
-* When something doesn't work, simplify
 
 
 Feedback
 * Connect ecological content to course better
 * Consider starting course on time? Solicit feedback
 * Ramp up GitHub for MP3
-* Set up dedicated zoom room for course that auto-records
 * Better ways to leverage group work and small class
-* Pre-make weekly breakout rooms and pre-make Slack chat messages
-* Practice MP before main project
-* Assign FPP3
-* Have you heard of bootstrap resampling?
 
-* Assign one personal reading
+
+TODO: Next lecture
+* Set up dedicated zoom room for course that auto-records
+* Pre-assign breakout room groups, keep them fixed for the week, pre-make group Slack DM's
+* Assign FPP3
+
+
+TODO: later lectures
+* Practice MP before main project
 * Sheet & flashlight trick
-* Shiny app on parameters
-* Logistic regression is a special case of generalized logistic regression function
+* When something doesn't work, simplify
+
+
+
 -->
 
 
@@ -119,6 +123,12 @@ Say you have data that consists of the following pairs of observations: diameter
     1. Save the PDF of [A general model of intra-annual tree growth using
 dendrometer bands by McMahon and Parker (2015)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4314258/){target="_blank"}.
     1. Copy the code below as you did for the code in Lec03
+1. Announcements:
+    1. Please vote on three polls I posted in #announcements on Slack.
+    1. Start next week I'll have a decidated zoom room for this class. I will share link on Slack before next lecture.
+1. Breakout rooms:
+    1. Get the values of the 5 parameters!
+    1. Any questions?
 
 
 ```{r, eval = FALSE, class.source="klippy"}
@@ -134,6 +144,42 @@ base_plot <- ggplot() +
   geom_point(data = dendroband_data, mapping = aes(x = doy, y = dbh)) +
   labs(x = "day of year", y = "dbh")
 base_plot
+```
+
+
+
+## For next week
+
+### 1. Readings
+
+1. **Allen 2020**: Dedicate 30 minutes for a "done is better than perfect"
+reading **before** lecture
+1. **R packages Ch2**: I suggest you follow along by running the code. You'll
+need to do this eventually anyways.
+1. **Vogue**: We're going to have a discussion on this article on Lec08 on Thu
+9/24. This article was shared by my SCBI colleague [Erika
+Gonzalez-Akre](https://sites.google.com/site/forestecoclimlab/people#h.p_ID_132){target="_blank"}
+
+### 2. MP3
+
+Based on your MP2 work, create a Shiny app!
+
+1. I will give feedback on MP2 via GitHub code review by tomorrow 5pm.
+1. Consult
+    1. The [Mastering Shiny](https://mastering-shiny.org/){target="_blank"}
+    1. Shiny cheatsheet for the kinds of inputs you can create: RStudio
+menu bar -> Help -> Cheatsheets -> Web apps with Shiny -> 1st page -> Right-hand
+column
+1. Create a new branch of the same repo as in MP2 and create a new pull request.
+1. Criteria for app? Done is better than perfect.
+
+I can't emphasize this enough: start simple, make a small incremental change and
+test that it works, then make another small incremental change and test that
+that works, and so on. If you make to large a change without testing, your app
+will be harder to debug.
+
+```{r, echo=FALSE, fig.align="center"}
+include_graphics("static/images/MVP.png")
 ```
 
 

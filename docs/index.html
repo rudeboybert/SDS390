@@ -479,24 +479,28 @@ h1{font-weight: 400;}
 {target="_blank"}
 -->
 <!--
-* When something doesn't work, simplify
 
 
 Feedback
 * Connect ecological content to course better
 * Consider starting course on time? Solicit feedback
 * Ramp up GitHub for MP3
-* Set up dedicated zoom room for course that auto-records
 * Better ways to leverage group work and small class
-* Pre-make weekly breakout rooms and pre-make Slack chat messages
-* Practice MP before main project
-* Assign FPP3
-* Have you heard of bootstrap resampling?
 
-* Assign one personal reading
+
+TODO: Next lecture
+* Set up dedicated zoom room for course that auto-records
+* Pre-assign breakout room groups, keep them fixed for the week, pre-make group Slack DM's
+* Assign FPP3
+
+
+TODO: later lectures
+* Practice MP before main project
 * Sheet & flashlight trick
-* Shiny app on parameters
-* Logistic regression is a special case of generalized logistic regression function
+* When something doesn't work, simplify
+
+
+
 -->
 <hr />
 </div>
@@ -528,6 +532,16 @@ Feedback
 <li>Save the PDF of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4314258/" target="_blank">A general model of intra-annual tree growth using dendrometer bands by McMahon and Parker (2015)</a>.</li>
 <li>Copy the code below as you did for the code in Lec03</li>
 </ol></li>
+<li>Announcements:
+<ol style="list-style-type: decimal">
+<li>Please vote on three polls I posted in #announcements on Slack.</li>
+<li>Start next week I’ll have a decidated zoom room for this class. I will share link on Slack before next lecture.</li>
+</ol></li>
+<li>Breakout rooms:
+<ol style="list-style-type: decimal">
+<li>Get the values of the 5 parameters!</li>
+<li>Any questions?</li>
+</ol></li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Lec06 Code</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(tidyverse)</span>
@@ -541,7 +555,34 @@ Feedback
 <span id="cb1-10"><a href="#cb1-10"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> dendroband_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> doy, <span class="dt">y =</span> dbh)) <span class="op">+</span></span>
 <span id="cb1-11"><a href="#cb1-11"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;day of year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;dbh&quot;</span>)</span>
 <span id="cb1-12"><a href="#cb1-12"></a>base_plot</span></code></pre></div>
+</div>
+<div id="for-next-week" class="section level2">
+<h2>For next week</h2>
+<div id="readings" class="section level3">
+<h3>1. Readings</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Allen 2020</strong>: Dedicate 30 minutes for a “done is better than perfect” reading <strong>before</strong> lecture</li>
+<li><strong>R packages Ch2</strong>: I suggest you follow along by running the code. You’ll need to do this eventually anyways.</li>
+<li><strong>Vogue</strong>: We’re going to have a discussion on this article on Lec08 on Thu 9/24. This article was shared by my SCBI colleague <a href="https://sites.google.com/site/forestecoclimlab/people#h.p_ID_132" target="_blank">Erika Gonzalez-Akre</a></li>
+</ol>
+</div>
+<div id="mp3" class="section level3">
+<h3>2. MP3</h3>
+<p>Based on your MP2 work, create a Shiny app!</p>
+<ol style="list-style-type: decimal">
+<li>I will give feedback on MP2 via GitHub code review by tomorrow 5pm.</li>
+<li>Consult
+<ol style="list-style-type: decimal">
+<li>The <a href="https://mastering-shiny.org/" target="_blank">Mastering Shiny</a></li>
+<li>Shiny cheatsheet for the kinds of inputs you can create: RStudio menu bar -&gt; Help -&gt; Cheatsheets -&gt; Web apps with Shiny -&gt; 1st page -&gt; Right-hand column</li>
+</ol></li>
+<li>Create a new branch of the same repo as in MP2 and create a new pull request.</li>
+<li>Criteria for app? Done is better than perfect.</li>
+</ol>
+<p>I can’t emphasize this enough: start simple, make a small incremental change and test that it works, then make another small incremental change and test that that works, and so on. If you make to large a change without testing, your app will be harder to debug.</p>
+<p><img src="static/images/MVP.png" width="443" style="display: block; margin: auto;" /></p>
 <hr />
+</div>
 </div>
 </div>
 <div id="Lec05" class="section level1">
@@ -627,9 +668,9 @@ Feedback
 <li><a href="https://drive.google.com/file/d/15vszRIZQ1qEpqiQbeXjJDApfDG-ZVQ2n/view?usp=sharing" target="_blank">Link</a> to video recording.</li>
 </ol>
 </div>
-<div id="for-next-week" class="section level2">
+<div id="for-next-week-1" class="section level2">
 <h2>For next week</h2>
-<div id="readings" class="section level3">
+<div id="readings-1" class="section level3">
 <h3>1. Readings</h3>
 <p>The readings for next week are posted in the above Schedule Google Sheet. Anything below the orange line is still TBD.</p>
 <ol style="list-style-type: decimal">
@@ -780,9 +821,9 @@ Feedback
 <li><a href="https://smith.zoom.us/rec/share/r1TRECCVTK1AST0fjikBWNFziM1id-VtREbZM2mLsuv_sS4N5NkKCqrzOqh76BiS.cj7NMRvilB29J2yz" target="_blank">Link</a> to video recording.</li>
 </ol>
 </div>
-<div id="for-next-week-1" class="section level2">
+<div id="for-next-week-2" class="section level2">
 <h2>For next week</h2>
-<div id="readings-1" class="section level3">
+<div id="readings-2" class="section level3">
 <h3>1. Readings</h3>
 <p>The readings for next week are posted in the above Schedule Google Sheet. Anything below the orange line is still TBD.</p>
 <ol style="list-style-type: decimal">
