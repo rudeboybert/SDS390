@@ -121,11 +121,11 @@ Say you have data that consists of the following pairs of observations: diameter
     1. Download and unzip this <a href="static/data/dendroband_shiny.zip" download>.zip file</a> of a Shiny application RStudio Project. Since this is an RStudio Project, you should not save it inside another RStudio Project
 1. Set up Lec06 notes: Wherever it is you're saving lecture files/code
     1. Save the PDF of [A general model of intra-annual tree growth using
-dendrometer bands by McMahon and Parker (2015)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4314258/){target="_blank"}.
-    1. Copy the code below as you did for the code in Lec03
+dendrometer bands by McMahon and Parker (2015)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4314258/){target="_blank"} (open access).
+    1. Copy the Lec06 code below as you did for the code in Lec03
 1. Announcements:
     1. Please vote on three polls I posted in #announcements on Slack.
-    1. Start next week I'll have a decidated zoom room for this class. I will share link on Slack before next lecture.
+    1. Starting next week I'll have a dedicated zoom room for this class that auto-records. I will share link to zoom room on Slack before next lecture.
 1. Breakout rooms:
     1. Get the values of the 5 parameters!
     1. Any questions?
