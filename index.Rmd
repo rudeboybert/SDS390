@@ -132,21 +132,16 @@ dendrometer bands by McMahon and Parker (2015)](https://www.ncbi.nlm.nih.gov/pmc
 
 
 ```{r, eval = FALSE, class.source="klippy"}
-# Lec06 Code
+# Lec06 code ----------------
 library(tidyverse)
 
-# Load (simulated) dendroband data
-dendroband_data <- 
-  read_csv("https://rudeboybert.github.io/SDS390/static/data/observed_dbh_vs_doy.csv")
+dendroband_data <- read_csv("https://rudeboybert.github.io/SDS390/static/data/observed_dbh_vs_doy.csv")
 
 # Plot data
 base_plot <- ggplot() +
   geom_point(data = dendroband_data, mapping = aes(x = doy, y = dbh)) +
   labs(x = "day of year", y = "dbh")
 base_plot
-
-
-# Added halfway through Lec06:
 
 
 # Define the generalized logistic function. Note the params input has to be a
@@ -163,6 +158,22 @@ lg5 <- function(params, doy) {
   dbh <- L + ((K - L) / (1 + 1/theta * exp(-(r * (doy - doy.ip) / theta)) ^ theta))
   return(dbh)
 }
+
+
+# Let's set an initial guess and plot what the generalized logistic function
+# looks like for this initial guess
+K <- 12
+L <- 14
+doy.ip <- 100
+r <- 0.05
+theta <- 1
+params_init <- c(K, L, doy.ip, r, theta)
+
+# Not a great fit!
+base_plot + 
+  stat_function(fun = lg5, args = list(params = params_init), col = "red", n = 500)
+
+
 
 # Let's define the "likelihood function" that we want to maximize/optimize. 
 # Recall that this is our criteria for "best fitting" curve.
