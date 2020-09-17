@@ -144,6 +144,40 @@ base_plot <- ggplot() +
   geom_point(data = dendroband_data, mapping = aes(x = doy, y = dbh)) +
   labs(x = "day of year", y = "dbh")
 base_plot
+
+
+# Added halfway through Lec06:
+
+# Let's define the "likelihood function" that we want to maximize/optimize. 
+# Recall that this is our criteria for "best fitting" curve.
+# These types of functions are covered in MTH 320 Mathematical Statistics
+lg5_ML <- function(params, doy, dbh, resid.sd) {
+  pred_dbh <- lg5(params, doy)
+  pred_ML <- -sum(dnorm(dbh, pred_dbh, resid.sd, log = T))
+  return(pred_ML)
+}
+
+# Numerical optimization via the optim() function:
+lg5_optimization_output <- optim(
+  # Our initial guess:
+  par = params_init, 
+  # The likelihood function we want to optimize:
+  fn = lg5_ML, 
+  # The points we want want to fit the S-shaped curve to:
+  doy = dendroband_data$doy, dbh = dendroband_data$dbh,
+  # Some extra stuff:
+  resid.sd = 0.1, method = "BFGS", hessian = TRUE
+  )
+lg5_optimization_output
+
+# The optimal (K*, L*, doy.ip*, r*, theta*) are saved in par
+params_star <- lg5_optimization_output$par
+params_star
+
+# Let's plot what the generalized logistic function looks like for these optimal
+# values. Not bad!
+base_plot +
+  stat_function(fun = lg5, args = list(params = params_star), col = "red", n = 500)
 ```
 
 
