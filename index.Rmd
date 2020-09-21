@@ -69,12 +69,10 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 Feedback
 * Connect ecological content to course better
 * Consider starting course on time? Solicit feedback
-* Ramp up GitHub for MP3
 * Better ways to leverage group work and small class
 
 
 TODO: Next lecture
-* Set up dedicated zoom room for course that auto-records
 * Pre-assign breakout room groups, keep them fixed for the week, pre-make group Slack DM's
 * Assign FPP3
 
@@ -84,7 +82,6 @@ TODO: later lectures
 * Sheet & flashlight trick
 * When something doesn't work, simplify
 * grizzy podcast
-
 
 -->
 
@@ -106,25 +103,34 @@ TODO: later lectures
 
 *Absolute* filepaths only work on your computer, thus making your work less reproducible. Using filepaths that are *relative* to some assumed *root* folder will work on anybody's computer. The `here` R package facilitates relative filepath use by always assuming the *root* folder is the folder of your RStudio Project. [PDF of chalk talk](static/chalk_talks/Lec07_filepaths.pdf){target="_blank"}.
 
+</br>
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NO1-bhqjxB8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+</center>
+</br>
 
 
 ### 2. Modeling interspecies competition
 
 
+</br>
+<center>
 
+</center>
+</br>
 
 
 
 ## Class meeting time
 
 1. Announcements:
+    1. If you haven’t already, please vote in the 3 Poll Everywhere questions posted in `#announcements` on Thursday 9/17.
     1. Starting today we'll be meeting in a dedicated Zoom room that automatically records. See Slack for new Zoom link.
-    1. See update to [MP3](#MP3) instructions about how to submit work.
-1. Filepaths
-    1. Importance of ensuring your work is reproducible.
 
+<!--
+1. "Forking" a repo: See updated submission instructions to [MP3](#MP3).
+1. Filepaths: Importance of ensuring your work is reproducible.
+-->
 
 
 
