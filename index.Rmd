@@ -112,7 +112,11 @@ TODO: later lectures
 
 ### 2. Modeling interspecies competition
 
-[PDF of chalk talk](static/chalk_talks/Lec07_competition.pdf){target="_blank"}.
+Two possible models for the effect of competition on the growth of a tree. Model 1 (in left image): Treating all competitor trees the same. Model 2 (in right image): Distinguishing competitor species. [PDF of chalk talk](static/chalk_talks/Lec07_competition.pdf){target="_blank"}.
+
+```{r, echo=FALSE, out.width="49%", out.height="20%", fig.cap="Two models for the effect of competitor biomass.", fig.show='hold', fig.align='center'}
+knitr::include_graphics(c("static/images/competition_1.png", "static/images/competition_2.png"))
+``` 
 
 </br>
 <center>
@@ -120,15 +124,8 @@ TODO: later lectures
 </center>
 </br>
 
-Model 1: Does not distinguish competitor species
-```{r, echo=FALSE, fig.align="left"}
-include_graphics("static/images/competition_1.png")
-```
 
-Model 2: Does distinguish competitor species
-```{r, echo=FALSE, fig.align="left"}
-include_graphics("static/images/competition_2.png")
-```
+
 
 
 
