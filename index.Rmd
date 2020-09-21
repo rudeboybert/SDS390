@@ -98,6 +98,41 @@ TODO: later lectures
 ***
 
 
+# Lec 07: Tue 9/22 {#Lec07}
+
+## Videos
+
+### 1. Filepaths
+
+*Absolute* filepaths only work on your computer, thus making your work less reproducible. Using filepaths that are *relative* to some assumed *root* folder will work on anybody's computer. The `here` R package facilitates relative filepath use by always assuming the *root* folder is the folder of your RStudio Project. [PDF of chalk talk](static/chalk_talks/Lec07_filepaths.pdf){target="_blank"}.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NO1-bhqjxB8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+### 2. Modeling interspecies competition
+
+
+
+
+
+
+## Class meeting time
+
+1. Announcements:
+    1. Starting today we'll be meeting in a dedicated Zoom room that automatically records. See Slack for new Zoom link.
+    1. See update to [MP3](#MP3) instructions about how to submit work.
+1. Filepaths
+    1. Importance of ensuring your work is reproducible.
+
+
+
+
+
+***
+
+
+
 # Lec 06: Thu 9/17 {#Lec06}
 
 ## Videos
@@ -221,7 +256,7 @@ need to do this eventually anyways.
 9/24. This article was shared by my SCBI colleague [Erika
 Gonzalez-Akre](https://sites.google.com/site/forestecoclimlab/people#h.p_ID_132){target="_blank"}
 
-### 2. MP3
+### 2. MP3 {#MP3}
 
 Based on your MP2 work, create a Shiny app!
 
@@ -242,6 +277,8 @@ will be harder to debug.
 ```{r, echo=FALSE, fig.align="center"}
 include_graphics("static/images/MVP.png")
 ```
+
+**Added on Mon 9/21**: Submission instructions. Here is a template GitHub repo for [MP3](https://github.com/390-2020-09-Fall/shiny_app){target="_blank"}. However, unlike MP2 where you were an internal collaborator to the repo, here we are going to assume you are not a collaborator. Hence you will "fork" your own copy of the MP3 repo.
 
 
 
