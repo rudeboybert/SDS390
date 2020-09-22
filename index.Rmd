@@ -68,19 +68,14 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 Feedback
 * Connect ecological content to course better
-* Consider starting course on time? Solicit feedback
 * Better ways to leverage group work and small class
 
 
 TODO: Next lecture
-* Pre-assign breakout room groups, keep them fixed for the week, pre-make group Slack DM's
-* Assign FPP3
 
 
 TODO: later lectures
-* Practice MP before main project
 * Sheet & flashlight trick
-* When something doesn't work, simplify
 * grizzy podcast
 
 -->
@@ -93,6 +88,53 @@ TODO: later lectures
 
 
 ***
+
+
+<!--
+
+# Lec 08: Thu 9/24 {#Lec08}
+
+## Videos
+
+### 1. R Packages
+
+*Absolute* filepaths only work on your computer, thus making your work less reproducible. Using filepaths that are *relative* to some assumed *root* folder will work on anybody's computer. The `here` R package facilitates relative filepath use by always assuming the *root* folder is the folder of your RStudio Project. [PDF of chalk talk](static/chalk_talks/Lec07_filepaths.pdf){target="_blank"}.
+
+</br>
+<center>
+
+</center>
+</br>
+
+
+
+
+## Class meeting time
+
+1. Announcements:
+    1. Start lecture at 9:30?
+    1. 
+1. Discussion on Vogue article
+
+
+## For next week
+
+### 1. Readings
+
+1. 
+
+### 2. MP4 {#MP4}
+
+Build an R package in groups of 3, code review, 
+
+
+
+***
+
+-->
+
+
+
 
 
 # Lec 07: Tue 9/22 {#Lec07}
@@ -125,21 +167,16 @@ knitr::include_graphics(c("static/images/competition_1.png", "static/images/comp
 </br>
 
 
-
-
-
-
 ## Class meeting time
 
 1. Announcements:
     1. If you haven’t already, please vote in the 3 Poll Everywhere questions posted in `#announcements` on Thursday 9/17.
     1. Starting today we'll be meeting in a dedicated Zoom room that automatically records. See Slack for new Zoom link.
-
-<!--
-1. "Forking" a repo: See updated submission instructions to [MP3](#MP3).
-1. Filepaths: Importance of ensuring your work is reproducible.
--->
-
+1. Discuss updated Schedule above.
+1. MP3: See [updated instructions](#MP3)
+1. Breakout rooms
+    1. Filepaths: A key step in ensuring reproducibility
+    1. Two models for interspecies competition
 
 
 
@@ -292,8 +329,16 @@ will be harder to debug.
 include_graphics("static/images/MVP.png")
 ```
 
-**Added on Mon 9/21**: Submission instructions. Here is a template GitHub repo for [MP3](https://github.com/390-2020-09-Fall/shiny_app){target="_blank"}. However, unlike MP2 where you were an internal collaborator to the repo, here we are going to assume you are not a collaborator. Hence you will "fork" your own copy of the MP3 repo.
+**Added on Tue 9/22**:
 
+1. Submission instructions: Here is a template GitHub repo for [MP3](https://github.com/390-2020-09-Fall/shiny_app){target="_blank"}. However, unlike MP2 where you were an internal collaborator to the repo, here we are going to assume you are not a collaborator. Hence you will "fork" your own copy of the MP3 repo.
+1. Start ultra simple, even if the interactive element isn't scientifically interesting.
+1. Example workflow: Test early, test often.
+    1. Get a non-interactive version of your plot working. I recommend you do this in a separate file, because debugging code in a Shiny app can get messy.
+    1. Copy over code for non-interactive plot into your Shiny RStudio Project `app.R` file. *Test the app. If it works, commit your changes.*
+    1. Add an input panel, but don't connect `input$` value to output plot yet. *Test the app. If it works, commit your changes.*
+    1. Connect `input$` value to output plot. Test the app. *Test the app. If it works, commit your changes.*
+    1. If you have time, iterate through the above steps. *Test the app. If it works, commit your changes.*
 
 
 ***

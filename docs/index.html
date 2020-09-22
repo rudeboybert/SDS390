@@ -462,7 +462,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">SDS390: Ecological Forecasting</h1>
 <h4 class="author">Albert Y. Kim</h4>
-<h4 class="date">Last updated on 2020-09-21</h4>
+<h4 class="date">Last updated on 2020-09-22</h4>
 
 </div>
 
@@ -483,23 +483,60 @@ h1{font-weight: 400;}
 
 Feedback
 * Connect ecological content to course better
-* Consider starting course on time? Solicit feedback
 * Better ways to leverage group work and small class
 
 
 TODO: Next lecture
-* Pre-assign breakout room groups, keep them fixed for the week, pre-make group Slack DM's
-* Assign FPP3
 
 
 TODO: later lectures
-* Practice MP before main project
 * Sheet & flashlight trick
-* When something doesn't work, simplify
 * grizzy podcast
 
 -->
 <hr />
+<!--
+
+# Lec 08: Thu 9/24 {#Lec08}
+
+## Videos
+
+### 1. R Packages
+
+*Absolute* filepaths only work on your computer, thus making your work less reproducible. Using filepaths that are *relative* to some assumed *root* folder will work on anybody's computer. The `here` R package facilitates relative filepath use by always assuming the *root* folder is the folder of your RStudio Project. [PDF of chalk talk](static/chalk_talks/Lec07_filepaths.pdf){target="_blank"}.
+
+</br>
+<center>
+
+</center>
+</br>
+
+
+
+
+## Class meeting time
+
+1. Announcements:
+    1. Start lecture at 9:30?
+    1. 
+1. Discussion on Vogue article
+
+
+## For next week
+
+### 1. Readings
+
+1. 
+
+### 2. MP4 {#MP4}
+
+Build an R package in groups of 3, code review, 
+
+
+
+***
+
+-->
 </div>
 <div id="Lec07" class="section level1">
 <h1>Lec 07: Tue 9/22</h1>
@@ -540,11 +577,14 @@ Two models for the effect of competitor biomass.
 <li>If you haven’t already, please vote in the 3 Poll Everywhere questions posted in <code>#announcements</code> on Thursday 9/17.</li>
 <li>Starting today we’ll be meeting in a dedicated Zoom room that automatically records. See Slack for new Zoom link.</li>
 </ol></li>
+<li>Discuss updated Schedule above.</li>
+<li>MP3: See <a href="#MP3">updated instructions</a></li>
+<li>Breakout rooms
+<ol style="list-style-type: decimal">
+<li>Filepaths: A key step in ensuring reproducibility</li>
+<li>Two models for interspecies competition</li>
+</ol></li>
 </ol>
-<!--
-1. "Forking" a repo: See updated submission instructions to [MP3](#MP3).
-1. Filepaths: Importance of ensuring your work is reproducible.
--->
 <hr />
 </div>
 </div>
@@ -687,7 +727,19 @@ Two models for the effect of competitor biomass.
 </ol>
 <p>I can’t emphasize this enough: start simple, make a small incremental change and test that it works, then make another small incremental change and test that that works, and so on. If you make to large a change without testing, your app will be harder to debug.</p>
 <p><img src="static/images/MVP.png" width="443" style="display: block; margin: auto;" /></p>
-<p><strong>Added on Mon 9/21</strong>: Submission instructions. Here is a template GitHub repo for <a href="https://github.com/390-2020-09-Fall/shiny_app" target="_blank">MP3</a>. However, unlike MP2 where you were an internal collaborator to the repo, here we are going to assume you are not a collaborator. Hence you will “fork” your own copy of the MP3 repo.</p>
+<p><strong>Added on Tue 9/22</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Submission instructions: Here is a template GitHub repo for <a href="https://github.com/390-2020-09-Fall/shiny_app" target="_blank">MP3</a>. However, unlike MP2 where you were an internal collaborator to the repo, here we are going to assume you are not a collaborator. Hence you will “fork” your own copy of the MP3 repo.</li>
+<li>Start ultra simple, even if the interactive element isn’t scientifically interesting.</li>
+<li>Example workflow: Test early, test often.
+<ol style="list-style-type: decimal">
+<li>Get a non-interactive version of your plot working. I recommend you do this in a separate file, because debugging code in a Shiny app can get messy.</li>
+<li>Copy over code for non-interactive plot into your Shiny RStudio Project <code>app.R</code> file. <em>Test the app. If it works, commit your changes.</em></li>
+<li>Add an input panel, but don’t connect <code>input$</code> value to output plot yet. <em>Test the app. If it works, commit your changes.</em></li>
+<li>Connect <code>input$</code> value to output plot. Test the app. <em>Test the app. If it works, commit your changes.</em></li>
+<li>If you have time, iterate through the above steps. <em>Test the app. If it works, commit your changes.</em></li>
+</ol></li>
+</ol>
 <hr />
 </div>
 </div>
