@@ -177,7 +177,12 @@ knitr::include_graphics(c("static/images/competition_1.png", "static/images/comp
 1. Breakout rooms
     1. Filepaths: A key step in ensuring reproducibility
     1. Two models for interspecies competition
+1. Links to video recordings
+    1. [Part 1](https://smith.zoom.us/rec/play/wNnTrm9S3JvHe_uAWkAXBVO_4n3-tnx8b9oSdCF-bwL7IQoC1RmWa7W1qPJNfttN8hgIqZP7wSMcZq4h.c_DXP_DZhlJFfrjg?autoplay=true&startTime=1600782173000){target="_blank"}
+    1. [Part 2](https://smith.zoom.us/rec/share/Yt97lNdkNGvTC_Y6x-_hjCMwwAd8Udg9X6srdbGOGpxfxcEnAdSB5xiwoVcQIXbs.jW0nBSc_PYpKyHEO?startTime=1600783430000){target="_blank"}
+1. **During office hours** A screencast of creating a minimally viable Shiny app using the MP3 starter code: Converting the histogram from base R to `ggplot2`. Enter usual lecture password below. 
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/bab813e2b831436c83a1cf07b094a1c3" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 
 ***
