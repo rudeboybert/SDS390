@@ -72,6 +72,9 @@ Feedback
 
 
 TODO: Next lecture
+* R-squared adjusted
+* Occam's razor
+* Permutation test (like bootstrap resampling)
 
 
 TODO: later lectures
