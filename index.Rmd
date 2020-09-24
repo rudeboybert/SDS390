@@ -135,6 +135,8 @@ This is a great lesson in the value of running `check()` often! Fix this by:
     1. Discussion on Vogue article
     1. Other questions
 1. Discuss what's next week
+1. [Link](https://smith.zoom.us/rec/share/18_mdQR9-Lb_Z814FUVjgdeJRc1VX8BVXbCPnmiBDCh1TDnLU_y-8lPBrDRvc4CU.QOOyscB1PNLL2k8d?startTime=1600955111000){target="_blank"} to video recording.
+
 
 
 
