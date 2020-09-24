@@ -36,6 +36,7 @@ library(scales)
 # Etc
 library(here)
 library(patchwork)
+library(fpp3)
 
 # Set seed value of random number generator to get "replicable" random numbers.
 set.seed(76)
@@ -129,12 +130,11 @@ This is a great lesson in the value of running `check()` often! Fix this by:
 
 1. Run this code to ensure the following packages are up-to-date: `install.packages(c("devtools", "roxygen2", "testthat", "knitr"))`
 1. Announcements:
-
-<!--
-
-    1. Start lecture at 9:30?
-    1. 
-1. Discussion on Vogue article
+    1. Stick with lecture start time of 9:45, but we'll keep things moving briskly.
+1. Breakout rooms:
+    1. Discussion on Vogue article
+    1. Other questions
+1. Discuss what's next week
 
 
 
@@ -142,14 +142,65 @@ This is a great lesson in the value of running `check()` often! Fix this by:
 
 ### 1. Readings
 
-1. 
+1. **Allen 2020**: If you haven't already, dedicate 30 minutes for a "done is better than perfect"
+reading. Even if their are gaps in understanding, just encountering the terms and ideas for the first time will prime you for the next time.
+1. **FPP3**: In particular the $y_t = S_t + T_t + R_t$ seasonal + trend + remainder breakdown of the $y_t$ US retail employment time series in [Figure 3.10](https://otexts.com/fpp3/classical-decomposition.html#fig:classical-empl){target="_blank"}.
+
+```{r, echo = TRUE}
+library(fpp3)
+us_retail_employment <- us_employment %>%
+  filter(year(Month) >= 1990, Title == "Retail Trade") %>%
+  select(-Series_ID)
+
+# Fit decomposition model
+dcmp <- us_retail_employment %>%
+  model(classical_decomposition(Employed, type = "additive"))
+
+# Plot decomposition model
+components(dcmp) %>% 
+  autoplot() + 
+  labs(x = "Year", title = "Employed = Trend + Seasonal + Remainder")
+```
+
 
 ### 2. MP4 {#MP4}
 
-Build an R package in groups of 3, code review, 
+For MP4, you will be adding one documented function, one documented dataset, and your `DESCRIPTION` info to the [`foofactors`](https://github.com/390-2020-09-Fall/foofactors){target="_blank"} package I demoed in the video. You are going to work in the following groups:
 
--->
+```{r}
+set.seed(76)
+students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Serena", "Sophie", "Starry")
+tibble(
+  name = sample(students),
+  Branch = rep(1:3, times = 3) %>% str_c("group", .),
+  member = rep(1:3, each = 3) %>% str_c("Member ", .)
+) %>% 
+  pivot_wider(names_from = member, values_from = name)
+```
 
+You will
+
+1. Each create branches from your group's branch. i.e. a branch of a branch.
+1. Each independently work on your function, dataset, and `DESCRIPTION` file, being sure to `install()` and `check()` your package often. 
+1. Create a pull request of your branch into the group's branch.
+1. Request a *code review*: Member 1 requests a review from Member 2, 2 from 3, and 3 from 1.
+1. Go back and forth about requested changes as necessary on the pull request page, just as I did for MP2. 
+1. Once approved, Member 2 will merge Member 1's pull request into the group's branch.
+
+Example: Lauren will
+
+1. Create a branch `group1-lauren` from the `group1` branch.
+1. Push/commit changes to the package to her `group1-lauren` branch, making sure to `install()` and `check()` her local version of the package often. 
+1. Create a pull request of `group1-lauren` into `group1`
+1. Tag Haley for a code review.
+1. Incorporate changes requested by Haley (if any) 
+1. Once approved, Haley will merge Lauren's pull request of the contents of the `group1-lauren` branch into the `group1` branch.
+
+
+Notes:
+
+1. Later on, we'll eventually merge the changes in the three group branches into `master`.
+1. Expect [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/){target="_blank"} moments, especially *merge conflicts* in the `DESCRIPTION` file.
 
 
 
@@ -207,6 +258,7 @@ knitr::include_graphics(c("static/images/competition_1.png", "static/images/comp
 1. **During office hours** A screencast of creating a minimally viable Shiny app using the MP3 starter code: Converting the histogram from base R to `ggplot2`. Enter usual lecture password below. 
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/bab813e2b831436c83a1cf07b094a1c3" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
 
 
 ***
@@ -368,6 +420,7 @@ include_graphics("static/images/MVP.png")
     1. Add an input panel, but don't connect `input$` value to output plot yet. *Test the app. If it works, commit your changes.*
     1. Connect `input$` value to output plot. Test the app. *Test the app. If it works, commit your changes.*
     1. If you have time, iterate through the above steps. *Test the app. If it works, commit your changes.*
+
 
 
 ***

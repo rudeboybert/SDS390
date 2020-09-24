@@ -462,7 +462,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">SDS390: Ecological Forecasting</h1>
 <h4 class="author">Albert Y. Kim</h4>
-<h4 class="date">Last updated on 2020-09-23</h4>
+<h4 class="date">Last updated on 2020-09-24</h4>
 
 </div>
 
@@ -527,28 +527,82 @@ TODO: later lectures
 <h2>Class meeting time</h2>
 <ol style="list-style-type: decimal">
 <li>Run this code to ensure the following packages are up-to-date: <code>install.packages(c("devtools", "roxygen2", "testthat", "knitr"))</code></li>
-<li>Announcements:</li>
+<li>Announcements:
+<ol style="list-style-type: decimal">
+<li>Stick with lecture start time of 9:45, but we’ll keep things moving briskly.</li>
+</ol></li>
+<li>Breakout rooms:
+<ol style="list-style-type: decimal">
+<li>Discussion on Vogue article</li>
+<li>Other questions</li>
+</ol></li>
+<li>Discuss what’s next week</li>
 </ol>
-<!--
-
-    1. Start lecture at 9:30?
-    1. 
-1. Discussion on Vogue article
-
-
-
-## For next week
-
-### 1. Readings
-
-1. 
-
-### 2. MP4 {#MP4}
-
-Build an R package in groups of 3, code review, 
-
--->
+</div>
+<div id="for-next-week" class="section level2">
+<h2>For next week</h2>
+<div id="readings" class="section level3">
+<h3>1. Readings</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Allen 2020</strong>: If you haven’t already, dedicate 30 minutes for a “done is better than perfect” reading. Even if their are gaps in understanding, just encountering the terms and ideas for the first time will prime you for the next time.</li>
+<li><strong>FPP3</strong>: In particular the <span class="math inline">\(y_t = S_t + T_t + R_t\)</span> seasonal + trend + remainder breakdown of the <span class="math inline">\(y_t\)</span> US retail employment time series in <a href="https://otexts.com/fpp3/classical-decomposition.html#fig:classical-empl" target="_blank">Figure 3.10</a>.</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(fpp3)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>us_retail_employment &lt;-<span class="st"> </span>us_employment <span class="op">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="st">  </span><span class="kw">filter</span>(<span class="kw">year</span>(Month) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1990</span>, Title <span class="op">==</span><span class="st"> &quot;Retail Trade&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Series_ID)</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># Fit decomposition model</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>dcmp &lt;-<span class="st"> </span>us_retail_employment <span class="op">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="st">  </span><span class="kw">model</span>(<span class="kw">classical_decomposition</span>(Employed, <span class="dt">type =</span> <span class="st">&quot;additive&quot;</span>))</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># Plot decomposition model</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="kw">components</span>(dcmp) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="st">  </span><span class="kw">autoplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Employed = Trend + Seasonal + Remainder&quot;</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
+</div>
+<div id="MP4" class="section level3">
+<h3>2. MP4</h3>
+<p>For MP4, you will be adding one documented function, one documented dataset, and your <code>DESCRIPTION</code> info to the <a href="https://github.com/390-2020-09-Fall/foofactors" target="_blank"><code>foofactors</code></a> package I demoed in the video. You are going to work in the following groups:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">set.seed</span>(<span class="dv">76</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>students &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Candy&quot;</span>, <span class="st">&quot;Emma S.&quot;</span>, <span class="st">&quot;Emma K.&quot;</span>, <span class="st">&quot;Haley&quot;</span>, <span class="st">&quot;Lauren&quot;</span>, <span class="st">&quot;Olivia&quot;</span>, <span class="st">&quot;Serena&quot;</span>, <span class="st">&quot;Sophie&quot;</span>, <span class="st">&quot;Starry&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">tibble</span>(</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="dt">name =</span> <span class="kw">sample</span>(students),</span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="dt">Branch =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;group&quot;</span>, .),</span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="dt">member =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;Member &quot;</span>, .)</span>
+<span id="cb2-7"><a href="#cb2-7"></a>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> member, <span class="dt">values_from =</span> name)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Branch"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Member 1"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Member 2"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Member 3"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"group1","2":"Lauren","3":"Haley","4":"Emma K."},{"1":"group2","2":"Candy","3":"Emma S.","4":"Sophie"},{"1":"group3","2":"Starry","3":"Serena","4":"Olivia"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>You will</p>
+<ol style="list-style-type: decimal">
+<li>Each create branches from your group’s branch. i.e. a branch of a branch.</li>
+<li>Each independently work on your function, dataset, and <code>DESCRIPTION</code> file, being sure to <code>install()</code> and <code>check()</code> your package often.</li>
+<li>Create a pull request of your branch into the group’s branch.</li>
+<li>Request a <em>code review</em>: Member 1 requests a review from Member 2, 2 from 3, and 3 from 1.</li>
+<li>Go back and forth about requested changes as necessary on the pull request page, just as I did for MP2.</li>
+<li>Once approved, Member 2 will merge Member 1’s pull request into the group’s branch.</li>
+</ol>
+<p>Example: Lauren will</p>
+<ol style="list-style-type: decimal">
+<li>Create a branch <code>group1-lauren</code> from the <code>group1</code> branch.</li>
+<li>Push/commit changes to the package to her <code>group1-lauren</code> branch, making sure to <code>install()</code> and <code>check()</code> her local version of the package often.</li>
+<li>Create a pull request of <code>group1-lauren</code> into <code>group1</code></li>
+<li>Tag Haley for a code review.</li>
+<li>Incorporate changes requested by Haley (if any)</li>
+<li>Once approved, Haley will merge Lauren’s pull request of the contents of the <code>group1-lauren</code> branch into the <code>group1</code> branch.</li>
+</ol>
+<p>Notes:</p>
+<ol style="list-style-type: decimal">
+<li>Later on, we’ll eventually merge the changes in the three group branches into <code>master</code>.</li>
+<li>Expect <a href="https://wizardzines.com/zines/oh-shit-git/" target="_blank">Oh shit, git!</a> moments, especially <em>merge conflicts</em> in the <code>DESCRIPTION</code> file.</li>
+</ol>
 <hr />
+</div>
 </div>
 </div>
 <div id="Lec07" class="section level1">
@@ -651,83 +705,83 @@ Two models for the effect of competitor biomass.
 </ol></li>
 <li><a href="https://smith.zoom.us/rec/share/gavffQ0QHbw7Z82trsHofxkysFZWRr3fCIEqWQlJD8I_dVJ3GnhgYUC7t2W8GbEb.o0fkIrER2h0VCgOg?startTime=1600350544000" target="_blank">Link</a> to video recording.</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Lec06 code ----------------</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>dendroband_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/observed_dbh_vs_doy.csv&quot;</span>)</span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># Plot data</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>base_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> dendroband_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> doy, <span class="dt">y =</span> dbh)) <span class="op">+</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;day of year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;dbh&quot;</span>)</span>
-<span id="cb1-10"><a href="#cb1-10"></a>base_plot</span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># Define the generalized logistic function. Note the params input has to be a</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># vector of length 5 in the correct order:</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>lg5 &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy) {</span>
-<span id="cb1-16"><a href="#cb1-16"></a>  <span class="co"># Get 5 parameter values</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a>  L &lt;-<span class="st"> </span>params[<span class="dv">1</span>]</span>
-<span id="cb1-18"><a href="#cb1-18"></a>  K &lt;-<span class="st"> </span>params[<span class="dv">2</span>]</span>
-<span id="cb1-19"><a href="#cb1-19"></a>  doy.ip &lt;-<span class="st"> </span>params[<span class="dv">3</span>]</span>
-<span id="cb1-20"><a href="#cb1-20"></a>  r &lt;-<span class="st"> </span>params[<span class="dv">4</span>]</span>
-<span id="cb1-21"><a href="#cb1-21"></a>  theta &lt;-<span class="st"> </span>params[<span class="dv">5</span>]</span>
-<span id="cb1-22"><a href="#cb1-22"></a>  </span>
-<span id="cb1-23"><a href="#cb1-23"></a>  <span class="co"># For specified 5 parameters and x = doy, compute y = dbh</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a>  dbh &lt;-<span class="st"> </span>L <span class="op">+</span><span class="st"> </span>((K <span class="op">-</span><span class="st"> </span>L) <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>theta <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>(r <span class="op">*</span><span class="st"> </span>(doy <span class="op">-</span><span class="st"> </span>doy.ip) <span class="op">/</span><span class="st"> </span>theta)) <span class="op">^</span><span class="st"> </span>theta))</span>
-<span id="cb1-25"><a href="#cb1-25"></a>  <span class="kw">return</span>(dbh)</span>
-<span id="cb1-26"><a href="#cb1-26"></a>}</span>
-<span id="cb1-27"><a href="#cb1-27"></a></span>
-<span id="cb1-28"><a href="#cb1-28"></a></span>
-<span id="cb1-29"><a href="#cb1-29"></a><span class="co"># Let&#39;s set an initial guess and plot what the generalized logistic function</span></span>
-<span id="cb1-30"><a href="#cb1-30"></a><span class="co"># looks like for this initial guess</span></span>
-<span id="cb1-31"><a href="#cb1-31"></a>K &lt;-<span class="st"> </span><span class="dv">12</span></span>
-<span id="cb1-32"><a href="#cb1-32"></a>L &lt;-<span class="st"> </span><span class="dv">14</span></span>
-<span id="cb1-33"><a href="#cb1-33"></a>doy.ip &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb1-34"><a href="#cb1-34"></a>r &lt;-<span class="st"> </span><span class="fl">0.05</span></span>
-<span id="cb1-35"><a href="#cb1-35"></a>theta &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb1-36"><a href="#cb1-36"></a>params_init &lt;-<span class="st"> </span><span class="kw">c</span>(K, L, doy.ip, r, theta)</span>
-<span id="cb1-37"><a href="#cb1-37"></a></span>
-<span id="cb1-38"><a href="#cb1-38"></a><span class="co"># Not a great fit!</span></span>
-<span id="cb1-39"><a href="#cb1-39"></a>base_plot <span class="op">+</span><span class="st"> </span></span>
-<span id="cb1-40"><a href="#cb1-40"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> lg5, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">params =</span> params_init), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">n =</span> <span class="dv">500</span>)</span>
-<span id="cb1-41"><a href="#cb1-41"></a></span>
-<span id="cb1-42"><a href="#cb1-42"></a></span>
-<span id="cb1-43"><a href="#cb1-43"></a></span>
-<span id="cb1-44"><a href="#cb1-44"></a><span class="co"># Let&#39;s define the &quot;likelihood function&quot; that we want to maximize/optimize. </span></span>
-<span id="cb1-45"><a href="#cb1-45"></a><span class="co"># Recall that this is our criteria for &quot;best fitting&quot; curve.</span></span>
-<span id="cb1-46"><a href="#cb1-46"></a><span class="co"># These types of functions are covered in MTH 320 Mathematical Statistics</span></span>
-<span id="cb1-47"><a href="#cb1-47"></a>lg5_ML &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy, dbh, resid.sd) {</span>
-<span id="cb1-48"><a href="#cb1-48"></a>  pred_dbh &lt;-<span class="st"> </span><span class="kw">lg5</span>(params, doy)</span>
-<span id="cb1-49"><a href="#cb1-49"></a>  pred_ML &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sum</span>(<span class="kw">dnorm</span>(dbh, pred_dbh, resid.sd, <span class="dt">log =</span> T))</span>
-<span id="cb1-50"><a href="#cb1-50"></a>  <span class="kw">return</span>(pred_ML)</span>
-<span id="cb1-51"><a href="#cb1-51"></a>}</span>
-<span id="cb1-52"><a href="#cb1-52"></a></span>
-<span id="cb1-53"><a href="#cb1-53"></a><span class="co"># Numerical optimization via the optim() function:</span></span>
-<span id="cb1-54"><a href="#cb1-54"></a>lg5_optimization_output &lt;-<span class="st"> </span><span class="kw">optim</span>(</span>
-<span id="cb1-55"><a href="#cb1-55"></a>  <span class="co"># Our initial guess:</span></span>
-<span id="cb1-56"><a href="#cb1-56"></a>  <span class="dt">par =</span> params_init, </span>
-<span id="cb1-57"><a href="#cb1-57"></a>  <span class="co"># The likelihood function we want to optimize:</span></span>
-<span id="cb1-58"><a href="#cb1-58"></a>  <span class="dt">fn =</span> lg5_ML, </span>
-<span id="cb1-59"><a href="#cb1-59"></a>  <span class="co"># The points we want want to fit the S-shaped curve to:</span></span>
-<span id="cb1-60"><a href="#cb1-60"></a>  <span class="dt">doy =</span> dendroband_data<span class="op">$</span>doy, <span class="dt">dbh =</span> dendroband_data<span class="op">$</span>dbh,</span>
-<span id="cb1-61"><a href="#cb1-61"></a>  <span class="co"># Some extra stuff:</span></span>
-<span id="cb1-62"><a href="#cb1-62"></a>  <span class="dt">resid.sd =</span> <span class="fl">0.1</span>, <span class="dt">method =</span> <span class="st">&quot;BFGS&quot;</span>, <span class="dt">hessian =</span> <span class="ot">TRUE</span></span>
-<span id="cb1-63"><a href="#cb1-63"></a>  )</span>
-<span id="cb1-64"><a href="#cb1-64"></a>lg5_optimization_output</span>
-<span id="cb1-65"><a href="#cb1-65"></a></span>
-<span id="cb1-66"><a href="#cb1-66"></a><span class="co"># The optimal (K*, L*, doy.ip*, r*, theta*) are saved in par</span></span>
-<span id="cb1-67"><a href="#cb1-67"></a>params_star &lt;-<span class="st"> </span>lg5_optimization_output<span class="op">$</span>par</span>
-<span id="cb1-68"><a href="#cb1-68"></a>params_star</span>
-<span id="cb1-69"><a href="#cb1-69"></a></span>
-<span id="cb1-70"><a href="#cb1-70"></a><span class="co"># Let&#39;s plot what the generalized logistic function looks like for these optimal</span></span>
-<span id="cb1-71"><a href="#cb1-71"></a><span class="co"># values. Not bad!</span></span>
-<span id="cb1-72"><a href="#cb1-72"></a>base_plot <span class="op">+</span></span>
-<span id="cb1-73"><a href="#cb1-73"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> lg5, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">params =</span> params_star), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">n =</span> <span class="dv">500</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Lec06 code ----------------</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>dendroband_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/observed_dbh_vs_doy.csv&quot;</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co"># Plot data</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>base_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> dendroband_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> doy, <span class="dt">y =</span> dbh)) <span class="op">+</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;day of year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;dbh&quot;</span>)</span>
+<span id="cb3-10"><a href="#cb3-10"></a>base_plot</span>
+<span id="cb3-11"><a href="#cb3-11"></a></span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># Define the generalized logistic function. Note the params input has to be a</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co"># vector of length 5 in the correct order:</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>lg5 &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy) {</span>
+<span id="cb3-16"><a href="#cb3-16"></a>  <span class="co"># Get 5 parameter values</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>  L &lt;-<span class="st"> </span>params[<span class="dv">1</span>]</span>
+<span id="cb3-18"><a href="#cb3-18"></a>  K &lt;-<span class="st"> </span>params[<span class="dv">2</span>]</span>
+<span id="cb3-19"><a href="#cb3-19"></a>  doy.ip &lt;-<span class="st"> </span>params[<span class="dv">3</span>]</span>
+<span id="cb3-20"><a href="#cb3-20"></a>  r &lt;-<span class="st"> </span>params[<span class="dv">4</span>]</span>
+<span id="cb3-21"><a href="#cb3-21"></a>  theta &lt;-<span class="st"> </span>params[<span class="dv">5</span>]</span>
+<span id="cb3-22"><a href="#cb3-22"></a>  </span>
+<span id="cb3-23"><a href="#cb3-23"></a>  <span class="co"># For specified 5 parameters and x = doy, compute y = dbh</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a>  dbh &lt;-<span class="st"> </span>L <span class="op">+</span><span class="st"> </span>((K <span class="op">-</span><span class="st"> </span>L) <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>theta <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>(r <span class="op">*</span><span class="st"> </span>(doy <span class="op">-</span><span class="st"> </span>doy.ip) <span class="op">/</span><span class="st"> </span>theta)) <span class="op">^</span><span class="st"> </span>theta))</span>
+<span id="cb3-25"><a href="#cb3-25"></a>  <span class="kw">return</span>(dbh)</span>
+<span id="cb3-26"><a href="#cb3-26"></a>}</span>
+<span id="cb3-27"><a href="#cb3-27"></a></span>
+<span id="cb3-28"><a href="#cb3-28"></a></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="co"># Let&#39;s set an initial guess and plot what the generalized logistic function</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="co"># looks like for this initial guess</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a>K &lt;-<span class="st"> </span><span class="dv">12</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a>L &lt;-<span class="st"> </span><span class="dv">14</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a>doy.ip &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a>r &lt;-<span class="st"> </span><span class="fl">0.05</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a>theta &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a>params_init &lt;-<span class="st"> </span><span class="kw">c</span>(K, L, doy.ip, r, theta)</span>
+<span id="cb3-37"><a href="#cb3-37"></a></span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="co"># Not a great fit!</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a>base_plot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb3-40"><a href="#cb3-40"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> lg5, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">params =</span> params_init), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">n =</span> <span class="dv">500</span>)</span>
+<span id="cb3-41"><a href="#cb3-41"></a></span>
+<span id="cb3-42"><a href="#cb3-42"></a></span>
+<span id="cb3-43"><a href="#cb3-43"></a></span>
+<span id="cb3-44"><a href="#cb3-44"></a><span class="co"># Let&#39;s define the &quot;likelihood function&quot; that we want to maximize/optimize. </span></span>
+<span id="cb3-45"><a href="#cb3-45"></a><span class="co"># Recall that this is our criteria for &quot;best fitting&quot; curve.</span></span>
+<span id="cb3-46"><a href="#cb3-46"></a><span class="co"># These types of functions are covered in MTH 320 Mathematical Statistics</span></span>
+<span id="cb3-47"><a href="#cb3-47"></a>lg5_ML &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy, dbh, resid.sd) {</span>
+<span id="cb3-48"><a href="#cb3-48"></a>  pred_dbh &lt;-<span class="st"> </span><span class="kw">lg5</span>(params, doy)</span>
+<span id="cb3-49"><a href="#cb3-49"></a>  pred_ML &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sum</span>(<span class="kw">dnorm</span>(dbh, pred_dbh, resid.sd, <span class="dt">log =</span> T))</span>
+<span id="cb3-50"><a href="#cb3-50"></a>  <span class="kw">return</span>(pred_ML)</span>
+<span id="cb3-51"><a href="#cb3-51"></a>}</span>
+<span id="cb3-52"><a href="#cb3-52"></a></span>
+<span id="cb3-53"><a href="#cb3-53"></a><span class="co"># Numerical optimization via the optim() function:</span></span>
+<span id="cb3-54"><a href="#cb3-54"></a>lg5_optimization_output &lt;-<span class="st"> </span><span class="kw">optim</span>(</span>
+<span id="cb3-55"><a href="#cb3-55"></a>  <span class="co"># Our initial guess:</span></span>
+<span id="cb3-56"><a href="#cb3-56"></a>  <span class="dt">par =</span> params_init, </span>
+<span id="cb3-57"><a href="#cb3-57"></a>  <span class="co"># The likelihood function we want to optimize:</span></span>
+<span id="cb3-58"><a href="#cb3-58"></a>  <span class="dt">fn =</span> lg5_ML, </span>
+<span id="cb3-59"><a href="#cb3-59"></a>  <span class="co"># The points we want want to fit the S-shaped curve to:</span></span>
+<span id="cb3-60"><a href="#cb3-60"></a>  <span class="dt">doy =</span> dendroband_data<span class="op">$</span>doy, <span class="dt">dbh =</span> dendroband_data<span class="op">$</span>dbh,</span>
+<span id="cb3-61"><a href="#cb3-61"></a>  <span class="co"># Some extra stuff:</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a>  <span class="dt">resid.sd =</span> <span class="fl">0.1</span>, <span class="dt">method =</span> <span class="st">&quot;BFGS&quot;</span>, <span class="dt">hessian =</span> <span class="ot">TRUE</span></span>
+<span id="cb3-63"><a href="#cb3-63"></a>  )</span>
+<span id="cb3-64"><a href="#cb3-64"></a>lg5_optimization_output</span>
+<span id="cb3-65"><a href="#cb3-65"></a></span>
+<span id="cb3-66"><a href="#cb3-66"></a><span class="co"># The optimal (K*, L*, doy.ip*, r*, theta*) are saved in par</span></span>
+<span id="cb3-67"><a href="#cb3-67"></a>params_star &lt;-<span class="st"> </span>lg5_optimization_output<span class="op">$</span>par</span>
+<span id="cb3-68"><a href="#cb3-68"></a>params_star</span>
+<span id="cb3-69"><a href="#cb3-69"></a></span>
+<span id="cb3-70"><a href="#cb3-70"></a><span class="co"># Let&#39;s plot what the generalized logistic function looks like for these optimal</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a><span class="co"># values. Not bad!</span></span>
+<span id="cb3-72"><a href="#cb3-72"></a>base_plot <span class="op">+</span></span>
+<span id="cb3-73"><a href="#cb3-73"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> lg5, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">params =</span> params_star), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">n =</span> <span class="dv">500</span>)</span></code></pre></div>
 </div>
-<div id="for-next-week" class="section level2">
+<div id="for-next-week-1" class="section level2">
 <h2>For next week</h2>
-<div id="readings" class="section level3">
+<div id="readings-1" class="section level3">
 <h3>1. Readings</h3>
 <ol style="list-style-type: decimal">
 <li><strong>Allen 2020</strong>: Dedicate 30 minutes for a “done is better than perfect” reading <strong>before</strong> lecture</li>
@@ -850,9 +904,9 @@ Two models for the effect of competitor biomass.
 <li><a href="https://drive.google.com/file/d/15vszRIZQ1qEpqiQbeXjJDApfDG-ZVQ2n/view?usp=sharing" target="_blank">Link</a> to video recording.</li>
 </ol>
 </div>
-<div id="for-next-week-1" class="section level2">
+<div id="for-next-week-2" class="section level2">
 <h2>For next week</h2>
-<div id="readings-1" class="section level3">
+<div id="readings-2" class="section level3">
 <h3>1. Readings</h3>
 <p>The readings for next week are posted in the above Schedule Google Sheet. Anything below the orange line is still TBD.</p>
 <ol style="list-style-type: decimal">
@@ -914,41 +968,41 @@ Two models for the effect of competitor biomass.
 </center>
 <p></br></p>
 <p>Corresponding code:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Lec03 Code</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(tsibble)</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">library</span>(lubridate)</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">library</span>(fpp3)</span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a>weatherdata &lt;-</span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="st">  </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/NCDC_NOAA_precip_temp.csv&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
-<span id="cb2-10"><a href="#cb2-10"></a>    <span class="co"># Convert to variable of type date</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a>    <span class="dt">date =</span> <span class="kw">dmy</span>(DATE), </span>
-<span id="cb2-12"><a href="#cb2-12"></a>    <span class="co"># This will be used for the group_by() below</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a>    <span class="dt">month =</span> <span class="kw">floor_date</span>(date, <span class="dt">unit =</span> <span class="st">&quot;month&quot;</span>),</span>
-<span id="cb2-14"><a href="#cb2-14"></a>    <span class="co"># Using special function from fpp package to define yearmonth units</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a>    <span class="dt">month =</span> <span class="kw">yearmonth</span>(month)</span>
-<span id="cb2-16"><a href="#cb2-16"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="st">  </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">TMAX_avg =</span> <span class="kw">mean</span>(TMAX, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">PRCP_avg =</span> <span class="kw">mean</span>(PRCP, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-19"><a href="#cb2-19"></a><span class="st">  </span><span class="co"># Convert to tsibble = time series tibble data type</span></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="st">  </span><span class="kw">as_tsibble</span>(<span class="dt">index =</span> month) </span>
-<span id="cb2-21"><a href="#cb2-21"></a></span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="co"># FPP3 2.2 Fig 2.1</span></span>
-<span id="cb2-23"><a href="#cb2-23"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>(TMAX_avg)</span>
-<span id="cb2-24"><a href="#cb2-24"></a></span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="co"># FPP3 2.4 Fig 2.4</span></span>
-<span id="cb2-26"><a href="#cb2-26"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_season</span>(TMAX_avg, <span class="dt">labels =</span> <span class="st">&quot;both&quot;</span>)</span>
-<span id="cb2-27"><a href="#cb2-27"></a></span>
-<span id="cb2-28"><a href="#cb2-28"></a><span class="co"># FPP3 2.5 Fig 2.5 </span></span>
-<span id="cb2-29"><a href="#cb2-29"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_subseries</span>(TMAX_avg)</span>
-<span id="cb2-30"><a href="#cb2-30"></a></span>
-<span id="cb2-31"><a href="#cb2-31"></a><span class="co"># FPP3 2.7 Fig 2.16 </span></span>
-<span id="cb2-32"><a href="#cb2-32"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_lag</span>(TMAX_avg, <span class="dt">lags =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</span>
-<span id="cb2-33"><a href="#cb2-33"></a></span>
-<span id="cb2-34"><a href="#cb2-34"></a><span class="co"># Update after Lec03: FPP3 2.8 Fig 2.17</span></span>
-<span id="cb2-35"><a href="#cb2-35"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ACF</span>(TMAX_avg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Lec03 Code</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">library</span>(tsibble)</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="kw">library</span>(fpp3)</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a>weatherdata &lt;-</span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="st">  </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/NCDC_NOAA_precip_temp.csv&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="co"># Convert to variable of type date</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="dt">date =</span> <span class="kw">dmy</span>(DATE), </span>
+<span id="cb4-12"><a href="#cb4-12"></a>    <span class="co"># This will be used for the group_by() below</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>    <span class="dt">month =</span> <span class="kw">floor_date</span>(date, <span class="dt">unit =</span> <span class="st">&quot;month&quot;</span>),</span>
+<span id="cb4-14"><a href="#cb4-14"></a>    <span class="co"># Using special function from fpp package to define yearmonth units</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>    <span class="dt">month =</span> <span class="kw">yearmonth</span>(month)</span>
+<span id="cb4-16"><a href="#cb4-16"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="st">  </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">TMAX_avg =</span> <span class="kw">mean</span>(TMAX, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">PRCP_avg =</span> <span class="kw">mean</span>(PRCP, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="st">  </span><span class="co"># Convert to tsibble = time series tibble data type</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="st">  </span><span class="kw">as_tsibble</span>(<span class="dt">index =</span> month) </span>
+<span id="cb4-21"><a href="#cb4-21"></a></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="co"># FPP3 2.2 Fig 2.1</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>(TMAX_avg)</span>
+<span id="cb4-24"><a href="#cb4-24"></a></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="co"># FPP3 2.4 Fig 2.4</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_season</span>(TMAX_avg, <span class="dt">labels =</span> <span class="st">&quot;both&quot;</span>)</span>
+<span id="cb4-27"><a href="#cb4-27"></a></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="co"># FPP3 2.5 Fig 2.5 </span></span>
+<span id="cb4-29"><a href="#cb4-29"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_subseries</span>(TMAX_avg)</span>
+<span id="cb4-30"><a href="#cb4-30"></a></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="co"># FPP3 2.7 Fig 2.16 </span></span>
+<span id="cb4-32"><a href="#cb4-32"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_lag</span>(TMAX_avg, <span class="dt">lags =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</span>
+<span id="cb4-33"><a href="#cb4-33"></a></span>
+<span id="cb4-34"><a href="#cb4-34"></a><span class="co"># Update after Lec03: FPP3 2.8 Fig 2.17</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ACF</span>(TMAX_avg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>()</span></code></pre></div>
 </div>
 </div>
 <div id="class-meeting-time-5" class="section level2">
@@ -1003,9 +1057,9 @@ Two models for the effect of competitor biomass.
 <li><a href="https://smith.zoom.us/rec/share/r1TRECCVTK1AST0fjikBWNFziM1id-VtREbZM2mLsuv_sS4N5NkKCqrzOqh76BiS.cj7NMRvilB29J2yz" target="_blank">Link</a> to video recording.</li>
 </ol>
 </div>
-<div id="for-next-week-2" class="section level2">
+<div id="for-next-week-3" class="section level2">
 <h2>For next week</h2>
-<div id="readings-2" class="section level3">
+<div id="readings-3" class="section level3">
 <h3>1. Readings</h3>
 <p>The readings for next week are posted in the above Schedule Google Sheet. Anything below the orange line is still TBD.</p>
 <ol style="list-style-type: decimal">
