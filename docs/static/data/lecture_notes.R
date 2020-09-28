@@ -1,3 +1,27 @@
+# Lec09 code ----------------
+library(moderndive)
+library(broom)
+
+# Parallel slopes model: Less complex
+model_2_parallel_slopes <- 
+  lm(average_sat_math ~ perc_disadvan + size, data = MA_schools)
+
+# Interaction model: More complex
+model_2_interaction <- 
+  lm(average_sat_math ~ perc_disadvan * size, data = MA_schools)
+
+# Compare regression tables
+tidy(model_2_parallel_slopes)
+tidy(model_2_interaction)
+
+# Compare R^2_adj and AIC
+glance(model_2_parallel_slopes)
+glance(model_2_interaction)
+
+
+
+
+
 # Lec06 code ----------------
 library(tidyverse)
 

@@ -95,6 +95,66 @@ TODO: later lectures
 
 
 
+# Lec 09: Tue 9/29 {#Lec09}
+
+## Videos
+
+### 1. Model selection
+
+Recall our comparison of two models for interspecies competition from [Lec07](#Lec07). Which model should we select? 
+
+```{r, echo=FALSE, out.width="49%", out.height="20%", fig.cap="Two models for the effect of competitor biomass.", fig.show='hold', fig.align='center'}
+knitr::include_graphics(c("static/images/competition_1.png", "static/images/competition_2.png"))
+``` 
+
+Model selection attempts to balance (1) goodness-of-fit (how well a model fits points) and (2) model complexity. These two quantities are **inversely related**. Using example data from [ModernDive Chapter 6.3.1](https://moderndive.com/6-multiple-regression.html#model-selection){target="_blank"}, we discuss two numerical methods for selecting between (1) parallel slopes and (2) interaction regression models:
+
+1. R-squared adjusted: $R^2_{adj} = 1 - \frac{n-1}{n - (k+1)}(1-R^2)$
+1. Akaike Information Criteria: $AIC = 2k - 2\cdot\text{log-likelihood}$
+
+</br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/de6rvfeoeDo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</br>
+
+The code from the video is below. [PDF of chalk talk](static/chalk_talks/Lec08.pdf){target="_blank"}.
+
+
+```{r, eval = FALSE, echo=TRUE}
+# Lec09 code ----------------
+library(moderndive)
+library(broom)
+
+# Parallel slopes model: Less complex
+model_2_parallel_slopes <- 
+  lm(average_sat_math ~ perc_disadvan + size, data = MA_schools)
+
+# Interaction model: More complex
+model_2_interaction <- 
+  lm(average_sat_math ~ perc_disadvan * size, data = MA_schools)
+
+# Compare regression tables
+tidy(model_2_parallel_slopes)
+tidy(model_2_interaction)
+
+# Compare R^2_adj and AIC
+glance(model_2_parallel_slopes)
+glance(model_2_interaction)
+```
+
+
+
+## Class meeting time
+
+1. 
+
+
+
+
+***
+
+
 
 # Lec 08: Thu 9/24 {#Lec08}
 
