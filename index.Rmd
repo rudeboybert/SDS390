@@ -118,7 +118,7 @@ Model selection attempts to balance (1) goodness-of-fit (how well a model fits p
 </center>
 </br>
 
-The code from the video is below. [PDF of chalk talk](static/chalk_talks/Lec08.pdf){target="_blank"}.
+The code from the video is below. [PDF of chalk talk](static/chalk_talks/Lec09.pdf){target="_blank"}.
 
 
 ```{r, eval = FALSE, echo=TRUE}
