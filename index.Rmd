@@ -63,31 +63,69 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 -->
 
 
-
 <!--
 
+Feedback:
 
-Feedback
 * Connect ecological content to course better
 * Better ways to leverage group work and small class
 
 
-TODO: Next lecture
-* R-squared adjusted
-* Occam's razor
-* Permutation test (like bootstrap resampling)
+Topic ideas:
 
-
-TODO: later lectures
 * Sheet & flashlight trick
-* grizzy podcast
+* Permutation test (like bootstrap resampling)
 
 -->
 
 
 
+***
 
 
+
+# Lec 10: Thu 10/1 {#Lec10}
+
+## Videos
+
+### 1. The Anatomy of a GitHub Pull Request
+
+</br>
+<center>
+
+</center>
+</br>
+
+
+
+### 2. Time series decompositions & statistics	
+
+</br>
+<center>
+
+</center>
+</br>
+
+
+
+## Class meeting time
+
+1. Breakout rooms: 
+
+
+## For next week
+
+### 1. Readings
+
+1. 
+
+
+### 2. MP5 {#MP5}
+
+<!--
+1. Model selection using teaching evals data and tree data
+1. Sources of error
+-->
 
 
 
@@ -121,7 +159,7 @@ Model selection attempts to balance (1) goodness-of-fit (how well a model fits p
 The code from the video is below. [PDF of chalk talk](static/chalk_talks/Lec09.pdf){target="_blank"}.
 
 
-```{r, eval = FALSE, echo=TRUE}
+```{r, eval = FALSE, echo=TRUE, class.source="klippy"}
 # Lec09 code ----------------
 library(moderndive)
 library(broom)
@@ -157,9 +195,9 @@ model_2_interaction <-
   lm(average_sat_math ~ perc_disadvan * size, data = MA_schools)
 
 
-# Compare regression tables. Notice k = 4 vs k = 6
-tidy(model_2_parallel_slopes)
-tidy(model_2_interaction)
+# Updated on Tue 9/29 11am: Compare regression tables. Notice k = 4 vs k = 6
+tidy(model_2_parallel_slopes, conf.int = TRUE)
+tidy(model_2_interaction, conf.int = TRUE)
 
 
 # Compare R^2_adj and AIC
@@ -171,8 +209,10 @@ glance(model_2_interaction)
 
 ## Class meeting time
 
-1. 
-
+1. Breakout rooms: Questions about
+    1. Model Selection
+    1. MP4 on R Packages
+1. [Link](https://smith.zoom.us/rec/share/3lmr4qC3Fi8wBKBkrACavKQTuh5AFWkGuinXJpmrXYsAd9vpzxXuFXeq1NIEzbMl.hsPH0TZmkarqgrHy?startTime=1601387106000){target="_blank"} to video recording.
 
 
 
@@ -291,10 +331,6 @@ Notes:
 
 
 ***
-
-
-
-
 
 
 
