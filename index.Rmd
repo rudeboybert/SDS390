@@ -126,17 +126,41 @@ The code from the video is below. [PDF of chalk talk](static/chalk_talks/Lec09.p
 library(moderndive)
 library(broom)
 
-# Parallel slopes model: Less complex
+
+# Added on Tue 9/29 9:40am: Visualize both models
+library(patchwork)
+p1 <- ggplot(MA_schools, aes(x = perc_disadvan, y = average_sat_math, color = size)) +
+  geom_point(alpha = 0.25) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    x = "Percent economically disadvantaged", y = "Math SAT Score",
+    color = "School size", title = "Interaction model"
+  ) +
+  theme(legend.position = "none")
+p2 <- ggplot(MA_schools,aes(x = perc_disadvan, y = average_sat_math, color = size)) +
+  geom_point(alpha = 0.25) +
+  geom_parallel_slopes(se = FALSE) +
+  labs(
+    x = "Percent economically disadvantaged", y = "Math SAT Score",
+    color = "School size", title = "Parallel slopes model"
+  ) +
+  theme(axis.title.y = element_blank())
+p1 + p2
+
+
+# Fit parallel slopes model: Less complex
 model_2_parallel_slopes <- 
   lm(average_sat_math ~ perc_disadvan + size, data = MA_schools)
 
-# Interaction model: More complex
+# Fit interaction model: More complex
 model_2_interaction <- 
   lm(average_sat_math ~ perc_disadvan * size, data = MA_schools)
 
-# Compare regression tables
+
+# Compare regression tables. Notice k = 4 vs k = 6
 tidy(model_2_parallel_slopes)
 tidy(model_2_interaction)
+
 
 # Compare R^2_adj and AIC
 glance(model_2_parallel_slopes)
