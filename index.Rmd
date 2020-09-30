@@ -90,9 +90,11 @@ Topic ideas:
 
 ### 1. The Anatomy of a GitHub Pull Request
 
+Learning more about GitHub Pull Requests as well as GitHub Issues using this [example](https://github.com/rudeboybert/forestecology/pull/37){target="_blank"}.
+
 </br>
 <center>
-
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/f4090c33caa5424eb3eb3d136dfa2987" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 </center>
 </br>
 
