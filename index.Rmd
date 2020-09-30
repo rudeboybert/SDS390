@@ -100,13 +100,9 @@ Learning more about GitHub Pull Requests as well as GitHub Issues using this [ex
 
 
 
-### 2. Time series decompositions & statistics	
+### 2. ~~Time series decompositions & statistics~~ ES&P Presentation	
 
-</br>
-<center>
-
-</center>
-</br>
+Watch my [presentation](https://smith.zoom.us/rec/share/qCAT70076QjI1FsPeDW0Rja9ev-iunwsrEyqVJVW-27gDrKTggw7QYKUYfNgyLeB.dx0K3Ygv81KXuHfA){target="_blank"} to the Environmental Science & Policy program, from 14:22 to 24:53. Password is on Slack.
 
 
 
