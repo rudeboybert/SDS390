@@ -108,22 +108,32 @@ Watch my [presentation](https://smith.zoom.us/rec/share/qCAT70076QjI1FsPeDW0Rja9
 
 ## Class meeting time
 
+1. Mini-projects
+    1. Once PR's for any MP are approved, I'll enter your grade in moodle
+    1. I gave feedback for MP3 on Shiny apps this week. Be sure to make requested changes and commit/push.
 1. Breakout rooms: 
+    1. GitHub pull requests and version control
+    1. Growth as a proxy for carbon
 
 
 ## For next week
 
 ### 1. Readings
 
-1. 
+1. **FPP**: I moved today's FPP Ch 3-4 discussion to Tuesday. We'll have a single FPP Ch 5 discussion then.
+1. **Podcast**: [(Link)](https://www.npr.org/2020/06/02/867691497/migration-isnt-crisis-it-s-the-solution-science-writer-says){target="_blank"} The roots of Linnean classification of species and how this influences our notion of "belonging" and "place", and thus our notion of "migration."
 
 
 ### 2. MP5 {#MP5}
 
-<!--
-1. Model selection using teaching evals data and tree data
-1. Sources of error
--->
+Model selection as guided by $R^2_{adj}$ and $AIC$. Everything you need to this MP was covered in Lec09. Two scenarios:
+
+1. Teaching evals data
+    1. Interaction model vs
+    1. Parallel slopes model
+1. Maple trees in the BigWoods Michigan Forest
+    1. Distinguish between competitor species
+    1. Do not distinguish
 
 
 
