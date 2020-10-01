@@ -110,7 +110,7 @@ Watch my [presentation](https://smith.zoom.us/rec/share/qCAT70076QjI1FsPeDW0Rja9
 
 ### 3. Inspecting a GitHub Pull Request
 
-**Added after lecture**
+**Added after lecture on Thu 10/1 4pm** 
 
 </br>
 <center>
@@ -150,6 +150,7 @@ Model selection as guided by $R^2_{adj}$ and $AIC$. Everything you need to this 
     1. Distinguish between competitor species
     1. Do not distinguish between competitor species and treat all trees the same
 
+Download <a href="static/MP5.Rmd" download>`MP5.Rmd`</a>, complete your work, and submit on Moodle.
 
 
 ***
