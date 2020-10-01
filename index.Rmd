@@ -146,7 +146,7 @@ Model selection as guided by $R^2_{adj}$ and $AIC$. Everything you need to this 
 1. Teaching evals data
     1. Interaction model vs
     1. Parallel slopes model
-1. Maple trees in the BigWoods Michigan Forest
+1. Maple trees in the [Michigan Big Woods](https://forestgeo.si.edu/sites/north-america/michigan-big-woods){target="_blank"} ForestGEO site
     1. Distinguish between competitor species
     1. Do not distinguish between competitor species and treat all trees the same
 
