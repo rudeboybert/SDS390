@@ -70,11 +70,15 @@ Feedback:
 * Connect ecological content to course better
 * Better ways to leverage group work and small class
 
-
 Topic ideas:
 
 * Sheet & flashlight trick
 * Permutation test (like bootstrap resampling)
+
+Oh shit, Git
+
+* Undoing commits: locally and online
+* Merge conflicts
 
 -->
 
@@ -114,6 +118,8 @@ Watch my [presentation](https://smith.zoom.us/rec/share/qCAT70076QjI1FsPeDW0Rja9
 1. Breakout rooms: 
     1. GitHub pull requests and version control
     1. Growth as a proxy for carbon
+1. Discuss MP5
+1. [Link](https://smith.zoom.us/rec/share/2OtxlrnfdUJLt4TQJ3pPFxxtX-JophG3aOWUQSTEku29xo1pp4fUpf8E6phZfcGI.dXutWPNmC2mRp3wZ){target="_blank"} to video recording
 
 
 ## For next week
@@ -133,7 +139,7 @@ Model selection as guided by $R^2_{adj}$ and $AIC$. Everything you need to this 
     1. Parallel slopes model
 1. Maple trees in the BigWoods Michigan Forest
     1. Distinguish between competitor species
-    1. Do not distinguish
+    1. Do not distinguish between competitor species and treat all trees the same
 
 
 
