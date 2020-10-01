@@ -108,6 +108,15 @@ Learning more about GitHub Pull Requests as well as GitHub Issues using this [ex
 
 Watch my [presentation](https://smith.zoom.us/rec/share/qCAT70076QjI1FsPeDW0Rja9ev-iunwsrEyqVJVW-27gDrKTggw7QYKUYfNgyLeB.dx0K3Ygv81KXuHfA){target="_blank"} to the Environmental Science & Policy program, from 14:22 to 24:53. Password is on Slack.
 
+### 3. Inspecting a GitHub Pull Request
+
+**Added after lecture**
+
+</br>
+<center>
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/14c270aac2eb4274a92e1888574a889c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+</center>
+</br>
 
 
 ## Class meeting time
@@ -126,7 +135,7 @@ Watch my [presentation](https://smith.zoom.us/rec/share/qCAT70076QjI1FsPeDW0Rja9
 
 ### 1. Readings
 
-1. **FPP**: I moved today's FPP Ch 3-4 discussion to Tuesday. We'll have a single FPP Ch 5 discussion then.
+1. **FPP**: I moved today's FPP Ch 3-4 discussion to Tuesday. We'll have a single FPP Ch 3-5 discussion then.
 1. **Podcast**: [(Link)](https://www.npr.org/2020/06/02/867691497/migration-isnt-crisis-it-s-the-solution-science-writer-says){target="_blank"} The roots of Linnean classification of species and how this influences our notion of "belonging" and "place", and thus our notion of "migration."
 
 
