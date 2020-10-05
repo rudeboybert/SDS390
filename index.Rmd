@@ -116,6 +116,7 @@ Summaries of
 Add this code to your running lecture notes code:
 
 ```{r, eval = FALSE, echo=TRUE, class.source="klippy"}
+# Lec11 code -------------------------------------------------------------------
 library(tidyverse)
 library(tsibble)
 library(lubridate)
@@ -177,8 +178,8 @@ train %>%
 # Fit/train the models
 beer_fit <- train %>%
   model(
-    # Mean = MEAN(Beer),
-    # `Naïve` = NAIVE(Beer),
+    Mean = MEAN(Beer),
+    `Naïve` = NAIVE(Beer),
     `Seasonal naïve` = SNAIVE(Beer)
   )
 
