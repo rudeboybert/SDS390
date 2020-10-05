@@ -1,3 +1,107 @@
+# Lec11 code ----------------
+library(tidyverse)
+library(tsibble)
+library(lubridate)
+library(fpp3)
+
+
+
+# Time series decompositions -------
+# From FPP3 Chap 3.2: https://otexts.com/fpp3/components.html
+us_retail_employment <- us_employment %>%
+  filter(year(Month) >= 1990, Title == "Retail Trade") %>%
+  select(-Series_ID)
+
+# Note: period is [1M] = 1 month:
+us_retail_employment
+
+# Plot
+us_retail_employment_plot <- us_retail_employment %>%
+  autoplot(Employed, color = "gray") +
+  labs(x = "Year", y = "Persons (thousands)", title = "Total employment in US retail")
+us_retail_employment_plot
+
+# Fit STL decomposition
+stl_dcmp <- us_retail_employment %>%
+  model(STL(Employed))
+
+# Inspect contents:
+components(stl_dcmp)
+
+# What does this mean? The curve in red = signal which you separate from noise.
+us_retail_employment_plot + 
+  autolayer(components(stl_dcmp), trend, color = "red")
+
+components(stl_dcmp) %>% 
+  autoplot() + 
+  xlab("Year")
+
+
+
+# Simple forecasting methods -------
+# From FPP3 Chap 5.2: https://otexts.com/fpp3/simple-methods.html
+
+# Note: period is [1Q] = 1 quarter:
+aus_production
+
+# Plot
+aus_production %>%
+  autoplot(Beer) +
+  labs(x = "Year", y = "Beer production (megalitres)", title = "Total beer production in Australia")
+
+# Set "training" data: Only from 1992-2006
+train <- aus_production %>% 
+  filter_index("1992 Q1" ~ "2006 Q4")
+
+train %>%
+  autoplot(Beer) +
+  labs(x = "Year", y = "Beer production (megalitres)", title = "Total beer production in Australia")
+
+# Fit/train the models
+beer_fit <- train %>%
+  model(
+    # Mean = MEAN(Beer),
+    # `Naïve` = NAIVE(Beer),
+    `Seasonal naïve` = SNAIVE(Beer)
+  )
+
+# Generate predictions/forecasts for 14 quarters
+beer_fc <- beer_fit %>% 
+  forecast(h=14)
+
+# Plot forecasts
+beer_fc %>%
+  autoplot(train, level = NULL) +
+  labs(x = "Year", y = "Beer production (megalitres)", title = "Total beer production in Australia", col = "Forecast")
+
+# Plot forecasts and actual observed values post 2007 Q1
+beer_fc %>%
+  autoplot(train, level = NULL) +
+  labs(x = "Year", y = "Beer production (megalitres)", title = "Total beer production in Australia", col = "Forecast") +
+  autolayer(filter_index(aus_production, "2007 Q1" ~ .), color = "black")
+
+# Plot forecasts with prediction error bands
+beer_fc %>%
+  autoplot(train) +
+  labs(x = "Year", y = "Beer production (megalitres)", title = "Total beer production in Australia", col = "Forecast")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Lec09 code ----------------
 library(moderndive)
 library(broom)
