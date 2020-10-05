@@ -80,6 +80,14 @@ Oh shit, Git
 * Undoing commits: locally and online
 * Merge conflicts
 
+
+NCFDD topics:
+
+1. Week : Assess and Adjust
+    1. Show "What's holding you back?" PDF
+1. Week 7: Mentoring Networks
+    1. "What do I need this week?"
+
 -->
 
 
