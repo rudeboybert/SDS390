@@ -96,6 +96,43 @@ NCFDD topics:
 
 
 
+# Lec 12: Thu 10/8 {#Lec12}
+
+## Videos
+
+### 1. Paradise Pond drone activity
+
+</br>
+<center>
+
+</center>
+</br>
+
+
+## Class meeting time
+
+1. Questions from Lec11:
+    1. How to manually set interval length in a `tsibble()`
+    1. How to take Australian Beer training data example and make it representative.
+
+## For next week
+
+### 1. Readings
+
+1.
+
+
+### 2. MP6 {#MP6}
+
+1. Forecasting
+1. GitHub merge conflicts
+
+
+
+***
+
+
+
 # Lec 11: Tue 10/6 {#Lec11}
 
 ## Videos
@@ -226,9 +263,8 @@ beer_fc %>%
     1. Time series
     1. MP4 code reviews
     1. MP5
-1. [(Anonymous) Google Form](https://docs.google.com/forms/d/e/1FAIpQLSexjl7dkC5CS8kAUZ-8uJV3gOmdDm3dAChT11jXhukwK_GipQ/viewform){target="_blank"}
-
-
+1. Please fill out this [(Anonymous) Google Form](https://docs.google.com/forms/d/e/1FAIpQLSexjl7dkC5CS8kAUZ-8uJV3gOmdDm3dAChT11jXhukwK_GipQ/viewform){target="_blank"}
+1. [Link](https://smith.zoom.us/rec/share/5BTfjBFR2XZfY2BqSclR6fsmqSwjZOvOzBoOI-t-qxO5T_xwbFIN6elGJ8cayttC.R_PekP9LYX8lDqJk?startTime=1601991900000){target="_blank"} to video recording
 
 
 
