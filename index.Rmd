@@ -211,11 +211,11 @@ beer_fc %>%
 
 ## Class meeting time
 
-1. Asking for help: [Minimal reproducible examples](https://stackoverflow.com/help/minimal-reproducible-example){target="_blank"}. In R circles, these are called [reprex's](https://www.tidyverse.org/help/){target="_blank"} (repr)oducible (ex)amples
+1. Asking for help: [Minimal reproducible examples](https://stackoverflow.com/help/minimal-reproducible-example){target="_blank"}. In R circles, these are called [reprex's](https://www.tidyverse.org/help/){target="_blank"}: (repr)oducible (ex)amples
     1. Open RStudio
     1. If you haven't already, install the `reprex` package
-    1. Open the `foofactors` GitHub issues page.
-    1. Copy and paste this code into your .R or .Rmd file where you've been saving course code.
+    1. Open the `foofactors` [GitHub issues](https://github.com/390-2020-09-Fall/foofactors/issues){target="_blank"} page
+    1. Copy and paste this code into your .R or .Rmd file where you've been saving course code
     ```{r, eval = FALSE}
     library(dplyr)
     
