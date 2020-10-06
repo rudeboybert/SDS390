@@ -211,7 +211,24 @@ beer_fc %>%
 
 ## Class meeting time
 
-1. 
+1. Asking for help: [Minimal reproducible examples](https://stackoverflow.com/help/minimal-reproducible-example){target="_blank"}. In R circles, these are called [reprex's](https://www.tidyverse.org/help/){target="_blank"} (repr)oducible (ex)amples
+    1. Open RStudio
+    1. If you haven't already, install the `reprex` package
+    1. Open the `foofactors` GitHub issues page.
+    1. Copy and paste this code into your .R or .Rmd file where you've been saving course code.
+    ```{r, eval = FALSE}
+    library(dplyr)
+    
+    ggplot(mtcars, aes(x = as.factor(cyl), y = hp)) +
+      geom_boxplot()
+    ```
+1. Breakout rooms
+    1. Time series
+    1. MP4 code reviews
+    1. MP5
+1. [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSexjl7dkC5CS8kAUZ-8uJV3gOmdDm3dAChT11jXhukwK_GipQ/viewform){target="_blank"}
+
+
 
 
 
