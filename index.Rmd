@@ -83,7 +83,7 @@ Oh shit, Git
 
 NCFDD topics:
 
-1. Week : Assess and Adjust
+1. Week 5: Assess and Adjust
     1. Show "What's holding you back?" PDF
 1. Week 7: Mentoring Networks
     1. "What do I need this week?"
@@ -102,18 +102,23 @@ NCFDD topics:
 
 ### 1. Paradise Pond drone activity
 
+A data collection activity near [Paradise Pond](https://www.google.com/maps/place/42%C2%B019'01.5%22N+72%C2%B038'39.3%22W/@42.3170872,-72.6464387,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d42.3170833!4d-72.64425){target="_blank"} on Smith College campus. 
+
 </br>
 <center>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vWAkx-G0juw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 </br>
 
 
 ## Class meeting time
 
+<!--
 1. Questions from Lec11:
     1. How to manually set interval length in a `tsibble()`
     1. How to take Australian Beer training data example and make it representative.
+-->
+
 
 ## For next week
 
