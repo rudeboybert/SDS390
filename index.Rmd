@@ -125,7 +125,10 @@ A data collection activity near [Paradise Pond](https://www.google.com/maps/plac
 1. Breakout rooms: Thanks for your feedback. Changes: they'll be slightly shorter and rooms will always have 3+ people.
     1. Podcast on migration
     1. Paradise Pond activity
-
+1. Tested new [gather.town](https://smith.zoom.us/rec/play/e2LQ63Ptyyzcyxr8Bp_em5bXj-H_soO8l6SO_cXV0RyIhDqsFSjlggOklsiUKFWY202SnMyCCDMzAmIK.Qywdirzg2pXIyFV1?startTime=1602769531000){target="_blank"} breakout room format. Password is the same as for lectures. 
+1. [Link](https://smith.zoom.us/rec/play/e2LQ63Ptyyzcyxr8Bp_em5bXj-H_soO8l6SO_cXV0RyIhDqsFSjlggOklsiUKFWY202SnMyCCDMzAmIK.Qywdirzg2pXIyFV1?startTime=1602769531000){target="_blank"} to video recording. Also relevant links from class:
+    1. [Microsoft AI's SilviaTerra](https://www.microsoft.com/en-us/ai/ai-for-earth-silviaterra){target="_blank"} research on using machine learning methods on aerial imagery of forests, including associating portions of overstory/canopy images to individual trees.
+    1. Related to podcast on migration: *"Fighting the fly is really a **fight for the homeland**, in a sense. Potential battle plans include a nightmare-inducing scenario..."* as worded by [NBC10 Philadelphia's article](https://www.nbcphiladelphia.com/news/local/spotted-lanternfly-risks-dangers-pennsylvania-philadelphia/1978747/){target="_blank"} on the Spotted Lanternfly. 😬😬😬
 
 
 ## For next week
@@ -137,7 +140,7 @@ A data collection activity near [Paradise Pond](https://www.google.com/maps/plac
 
 ### 2. MP6 {#MP6}
 
-1. Complete [Project Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfm_OoM_4XR3MWRfe3uFMShQqsTcvww0f-xZOlFyN7LAIwe8Q/viewform){target="_blank"} by Wednesday 10/21 at 7pm Eastern. Project details can be found [here](Project outline){target="_blank"}.
+1. Complete [Project Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfm_OoM_4XR3MWRfe3uFMShQqsTcvww0f-xZOlFyN7LAIwe8Q/viewform){target="_blank"} by Wednesday 10/21 at 7pm Eastern. Project details can be found [here](https://docs.google.com/document/d/1PeQXPsnxe6ZJjiBGBXD3dRfTKNETKMQpzIJUSWgTYr0/edit){target="_blank"}.
 1. Answering questions about Paradise Pond:
     1. How much Eastern Hemlock [*biomass*](https://en.wikipedia.org/wiki/Biomass_(ecology)){target="_blank"} is there? Use the development version of the [`allodb`](https://github.com/forestgeo/allodb){target="_blank"}.
     1. Model the relationship between dbh and height of trees in Paradise Pond
