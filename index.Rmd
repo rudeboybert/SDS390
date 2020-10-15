@@ -95,12 +95,16 @@ NCFDD topics:
 ***
 
 
+<!--
+GitHub merge conflicts
+-->
 
-# Lec 12: Thu 10/8 {#Lec12}
+
+# Lec 13: Thu 10/15 {#Lec13}
 
 ## Videos
 
-### 1. Paradise Pond drone activity
+### 1. Paradise Pond data collection activity
 
 A data collection activity near [Paradise Pond](https://www.google.com/maps/place/42%C2%B019'01.5%22N+72%C2%B038'39.3%22W/@42.3170872,-72.6464387,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d42.3170833!4d-72.64425){target="_blank"} on Smith College campus. 
 
@@ -113,29 +117,47 @@ A data collection activity near [Paradise Pond](https://www.google.com/maps/plac
 
 ## Class meeting time
 
-<!--
-1. Questions from Lec11:
-    1. How to manually set interval length in a `tsibble()`
-    1. How to take Australian Beer training data example and make it representative.
--->
+1. Announcements:
+    1. I'll make a big push on MP feedback today. Note if you have a grade of 50% in Moodle for a MP, it just means it's still in "incomplete" and you have more work to do. 
+    1. Questions from Lec11 punted to Lec14:
+        1. How to manually set interval length in a `tsibble()`
+        1. How to take Australian Beer training data example and make it representative.
+1. Breakout rooms: Thanks for your feedback. Changes: they'll be slightly shorter and rooms will always have 3+ people.
+    1. Podcast on migration
+    1. Paradise Pond activity
+
 
 
 ## For next week
 
 ### 1. Readings
 
-1.
+1. **Podcast**: Underneath It All [EPISODE 2 - ASSIGNING A NEGATIVE](https://www.underneathitallpodcast.com/episodes/episode-2-assigninganegative){target="_blank"}. Akuna and Grizel discuss the effects of racism on Akuna’s mental health, living with PTSD, and how people with mental health challenges are often assigned a negative stereotype. They also discuss how racial injustice stems into everyday living, including his safest and happiest place: Nature. 
 
 
 ### 2. MP6 {#MP6}
 
-1. Forecasting
-1. GitHub merge conflicts
-
+1. Complete [Project Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfm_OoM_4XR3MWRfe3uFMShQqsTcvww0f-xZOlFyN7LAIwe8Q/viewform){target="_blank"} by Wednesday 10/21 at 7pm Eastern. Project details can be found [here](Project outline){target="_blank"}.
+1. Answering questions about Paradise Pond:
+    1. How much Eastern Hemlock [*biomass*](https://en.wikipedia.org/wiki/Biomass_(ecology)){target="_blank"} is there? Use the development version of the [`allodb`](https://github.com/forestgeo/allodb){target="_blank"}.
+    1. Model the relationship between dbh and height of trees in Paradise Pond
+    1. Bonus: Model the overstory of Paradise Pond using the *perfect plasticity approximation* method:
+    
+```{r, echo=FALSE, out.width="75%", fig.align='center'}
+knitr::include_graphics("static/images/perfect_plasticity.png")
+```
 
 
 ***
 
+
+# Lec 12: Thu 10/8 {#Lec12}
+
+Cancelled.
+
+
+
+***
 
 
 # Lec 11: Tue 10/6 {#Lec11}
@@ -271,7 +293,7 @@ beer_fc %>%
 1. Please fill out this [(Anonymous) Google Form](https://docs.google.com/forms/d/e/1FAIpQLSexjl7dkC5CS8kAUZ-8uJV3gOmdDm3dAChT11jXhukwK_GipQ/viewform){target="_blank"}
 1. [Link](https://smith.zoom.us/rec/share/5BTfjBFR2XZfY2BqSclR6fsmqSwjZOvOzBoOI-t-qxO5T_xwbFIN6elGJ8cayttC.R_PekP9LYX8lDqJk?startTime=1601991900000){target="_blank"} to video recording
 
-
+ 
 
 ***
 
