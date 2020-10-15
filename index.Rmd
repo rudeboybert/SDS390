@@ -95,9 +95,38 @@ NCFDD topics:
 ***
 
 
-<!--
-GitHub merge conflicts
--->
+
+# Lec 14: Tue 10/20 {#Lec14}
+
+## Videos
+
+### 1. Perfect plasticity approximation
+
+Approximating the overstory using the perfect plasticity approximation:
+
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("static/images/perfect_plasticity.png")
+```
+
+</br>
+<center>
+</center>
+</br>
+
+
+
+
+## Class meeting time
+
+1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
+1. Questions from Lec11 punted to Lec14:
+    1. How to manually set interval length in a `tsibble()`
+    1. How to take Australian Beer training data example and make it representative.
+    
+
+
+***
+
 
 
 # Lec 13: Thu 10/15 {#Lec13}
@@ -144,14 +173,12 @@ A data collection activity near [Paradise Pond](https://www.google.com/maps/plac
 ### 2. MP6 {#MP6}
 
 1. Complete [Project Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfm_OoM_4XR3MWRfe3uFMShQqsTcvww0f-xZOlFyN7LAIwe8Q/viewform){target="_blank"} by Wednesday 10/21 at 7pm Eastern. Project details can be found [here](https://docs.google.com/document/d/1PeQXPsnxe6ZJjiBGBXD3dRfTKNETKMQpzIJUSWgTYr0/edit){target="_blank"}.
-1. Answering questions about Paradise Pond:
-    1. How much Eastern Hemlock [*biomass*](https://en.wikipedia.org/wiki/Biomass_(ecology)){target="_blank"} is there? Use the development version of the [`allodb`](https://github.com/forestgeo/allodb){target="_blank"}.
-    1. Model the relationship between dbh and height of trees in Paradise Pond
-    1. Bonus: Model the overstory of Paradise Pond using the *perfect plasticity approximation* method:
-    
-```{r, echo=FALSE, out.width="75%", fig.align='center'}
-knitr::include_graphics("static/images/perfect_plasticity.png")
-```
+1. Eastern Hemlocks near Paradise Pond:
+    1. How much [*biomass*](https://en.wikipedia.org/wiki/Biomass_(ecology)){target="_blank"} is there? Use the development version of the [`allodb`](https://github.com/forestgeo/allodb){target="_blank"}.
+    1. Model the relationship between dbh and height
+    1. Dropped from MP6: ~~Model the overstory of Paradise Pond using the *perfect plasticity approximation* method~~~
+
+Download <a href="static/MP6.Rmd" download>`MP6.Rmd`</a>, complete your work, and submit on Moodle.    
 
 
 ***

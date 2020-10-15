@@ -1,0 +1,112 @@
+---
+title: "Mini-Project 6: Eastern Hemlocks on Paradise Pond"
+author: "WRITE YOUR NAME HERE"
+date: "Last updated on `r Sys.Date()`"
+output:
+  html_document: 
+    df_print: kable
+    highlight: tango
+    number_sections: yes
+    theme: cosmo
+    toc: yes
+    toc_depth: 2
+    toc_float:
+      collapsed: yes
+---
+
+```{r setup, include=FALSE}
+# Set default behavior for all code chunks here:
+knitr::opts_chunk$set(
+  echo = TRUE, 
+  message = FALSE, 
+  warning = FALSE, 
+  fig.width = 16/2, 
+  fig.height = 9/2
+)
+
+# Load all your used packages here:
+library(tidyverse)
+library(knitr)
+library(broom)
+
+# Set seed value of random number generator here:
+set.seed(76)
+```
+
+```{r, echo = FALSE, out.width="100%", fig.align="center"}
+include_graphics("https://www.adirondackvic.org/Images/Trees-of-the-Adirondacks-Eastern-Hemlock-28-July-2012-5.jpg")
+```
+
+
+# Eastern Hemlock Data
+
+For this MP we'll be using data from Marney Pratt's BIO 131 class.^[Many thanks Marney!] Here is the data's [codebook](https://docs.google.com/document/d/1jVz_0ivC6Wpa5bNSG4JoOUp7iQfZJVgOXrfkXwyPeas/edit){target="_blank"}.
+
+```{r}
+hemlocks <- 
+  "https://rudeboybert.github.io/SDS390/static/data/hemlocks_pratt.csv" %>% 
+  read_csv() %>% 
+  # Drop those in Fitzgerald Lake & MacLeish, keeping only those on Smith campus
+  filter(location == "SMC")
+```
+
+
+<center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It is cold out there - but Smith College Bio 131 students brave the cold to collect data on invasive insects on eastern hemlock trees. <a href="https://twitter.com/smithcollege?ref_src=twsrc%5Etfw">@smithcollege</a> <a href="https://t.co/YkejCZPEOS">pic.twitter.com/YkejCZPEOS</a></p>&mdash; Marney Pratt (@marney_pratt) <a href="https://twitter.com/marney_pratt/status/1100747861778677760?ref_src=twsrc%5Etfw">February 27, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+</center>
+
+
+
+***
+
+
+
+# Part 1: Biomass
+
+1. How much Eastern Hemlock [biomass](https://en.wikipedia.org/wiki/Biomass_(ecology)){target="_blank"} is there in the portion of Paradise Pond featured in the Lec13 video? Be mindful of the units. 
+1. Plot and comment on the relationship between diameter at breast height and above ground biomass.
+
+Hint: use the development version of the [`allodb`](https://github.com/forestgeo/allodb){target="_blank"} written by my collaborators at SCBI: Erika Gonzalez-Akre, Mauro Lepore, Camille Piponiot, and Kristina Anderson-Teixeira. 
+
+```{r}
+
+```
+
+
+
+
+***
+
+
+
+# Part 2: Model relationship between DBH and height
+
+Assume that this set of `r nrow(hemlocks)` is a representative sample of ALL Eastern Hemlocks on Smith College campus, and thus any inferences/results based on this sample can *generalize* to all Eastern Hemlocks on Smith College campus.
+
+1. Fit a model, any model, for $y$ = height of the tree using diameter at breast height.
+1. A forest ecologist asks "How would you quantify the relationship between tree height and diameter at breast height for all Eastern Hemlocks on Smith College campus?" Respond to them.
+1. Visualize this model. There are many ways to do this, but here is one way:
+
+```{r}
+library(tidyverse)
+library(broom)
+
+# Fit model
+mpg_model <- lm(mpg ~ hp, data = mtcars)
+
+# Look at fitted values and residuals using broom::augment()
+augment(mpg_model) %>% head()
+
+# Visualize observed data with black points and fitted values with red line
+ggplot() +
+  geom_point(data = mtcars, aes(x = hp, y = mpg)) +
+  geom_line(data = augment(mpg_model), aes(x = hp, y = .fitted), col = "red")
+```
+
+
+```{r}
+
+```
+
+
+
