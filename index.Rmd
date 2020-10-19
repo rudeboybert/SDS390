@@ -64,30 +64,12 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 
 <!--
-
-Feedback:
-
-* Connect ecological content to course better
-* Better ways to leverage group work and small class
-
-Topic ideas:
-
-* Sheet & flashlight trick
-* Permutation test (like bootstrap resampling)
-
-Oh shit, Git
-
-* Undoing commits: locally and online
-* Merge conflicts
-
-
-NCFDD topics:
-
-1. Week 5: Assess and Adjust
-    1. Show "What's holding you back?" PDF
-1. Week 7: Mentoring Networks
-    1. "What do I need this week?"
-
+* Oh shit, Git
+    1. Undoing commits: locally and online
+    1. Merge conflicts
+* NCFDD topics:
+    1. Week 5: Assess and Adjust. Show "What's holding you back?" PDF
+    1. Week 7: Mentoring Networks. "What do I need?"
 -->
 
 
@@ -100,29 +82,25 @@ NCFDD topics:
 
 ## Videos
 
-### 1. Perfect plasticity approximation
-
-Approximating the overstory using the perfect plasticity approximation:
-
-```{r, echo=FALSE, out.width="50%", fig.align='center'}
-knitr::include_graphics("static/images/perfect_plasticity.png")
-```
-
-</br>
-<center>
-</center>
-</br>
-
+None
 
 
 
 ## Class meeting time
 
+1. Announcements:
+    1. New round of feedback for all MP2, MP3, and MP4 has been delivered.
+    1. Don't forget to submit your project preferences [Google Form]](#MP6) by Wednesday 10/21 at 7pm Eastern.
 1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
 1. Questions from Lec11 punted to Lec14:
     1. How to manually set interval length in a `tsibble()`
     1. How to take Australian Beer training data example and make it representative.
-    
+1. Approximating the overstory using the perfect plasticity approximation:
+
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("static/images/perfect_plasticity.png")
+```    
+
 
 
 ***
