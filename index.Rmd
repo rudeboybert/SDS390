@@ -77,6 +77,37 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 ***
 
 
+# Lec 15: Thu 10/22 {#Lec15}
+
+## Videos
+
+None
+
+
+
+## Class meeting time
+
+1. Lecture topics
+    1. Approximating the overstory using the perfect plasticity approximation:
+
+<!--    
+1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
+--> 
+
+
+### Lecture topic 1
+
+Approximating the overstory using the *perfect plasticity approximation*.
+
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("static/images/perfect_plasticity.png")
+```
+
+
+
+***
+
+
 
 # Lec 14: Tue 10/20 {#Lec14}
 
@@ -94,8 +125,10 @@ None
 1. Lecture topics
     1. From Lec11: How to manually set interval length in a `tsibble()`
     1. From Lec11: How to take Australian Beer training data example and make it representative.
-    1. Approximating the overstory using the perfect plasticity approximation:
+    1. ~~Approximating the overstory using the perfect plasticity approximation:~~
 1. Next lecture: Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
+1. [Link](https://smith.zoom.us/rec/share/6Mjs-diUjs4UGsJINjN2FmKvHwWFeYtPRotrUr3zLiw3lfA6kUpvEYQ-2v4gL2-U._UoEza4QfdpBfmmD){target="_blank"} to video recording and [PDF](static/chalk_talks/Lec14.pdf){target="_blank"} of class notes. 
+
 
 ### Lecture topic 1
 
