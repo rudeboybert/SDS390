@@ -90,16 +90,61 @@ None
 
 1. Announcements:
     1. New round of feedback for all MP2, MP3, and MP4 has been delivered.
-    1. Don't forget to submit your project preferences [Google Form]](#MP6) by Wednesday 10/21 at 7pm Eastern.
-1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
-1. Questions from Lec11 punted to Lec14:
-    1. How to manually set interval length in a `tsibble()`
-    1. How to take Australian Beer training data example and make it representative.
-1. Approximating the overstory using the perfect plasticity approximation:
+    1. Don't forget to submit your project preferences [Google Form](#MP6) by Wednesday 10/21 at 7pm Eastern. Related: Prof. Jesse Bellemare said he will provide [data](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.2391){target="_blank"} for incorporation into `macleish` package.
+1. Lecture topics
+    1. From Lec11: How to manually set interval length in a `tsibble()`
+    1. From Lec11: How to take Australian Beer training data example and make it representative.
+    1. Approximating the overstory using the perfect plasticity approximation:
+1. Next lecture: Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
+
+### Lecture topic 1
+
+How to manually set interval length in a `tsibble()`. Using "time class functions" from [FPP 2.1](https://otexts.com/fpp3/tsibbles.html){target="_blank"} include:
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("static/images/time_class_functions.png")
+```  
+
+```{r}
+# Lec14 code
+library(tsibble)
+library(lubridate)
+
+# From https://otexts.com/fpp3/tsibbles.html. Manually setting yearly data
+yearly <- tsibble(
+  Year = 2015:2019, 
+  Observation = c(123, 39, 78, 52, 110), 
+  # Note this sets the increment value to [1Y]. It seems to autodetect that this
+  # is yearly data:
+  index = Year
+)
+autoplot(yearly)
+
+# Setting daily data
+daily <- tsibble(
+  Day = seq(from = ymd("2020-10-01"), to = ymd("2020-10-06"), by = "1 day"),
+  Value = c(76, 4, 79, 9, 11, 66),
+  # Note this sets the increment value to [1D]. This is easy to detect since
+  # Day is a "date" object
+  index = Day
+)
+autoplot(daily)
+```
+
+
+### Lecture topic 2
+
+Is your training data *representative* of your test data? From [Kaggle Airbnb prediction competition](https://www.kaggle.com/c/airbnb-recruiting-new-user-bookings){target="_blank"}. You are interested in predicting/forecasting whether a new Airbnb user makes a booking within the first month of signing up. See this [plot](static/airbnb.pdf){target="_blank"}.
+
+
+### Lecture topic 3
+
+Approximating the overstory using the *perfect plasticity approximation*.
 
 ```{r, echo=FALSE, out.width="50%", fig.align='center'}
 knitr::include_graphics("static/images/perfect_plasticity.png")
-```    
+``` 
+
 
 
 
