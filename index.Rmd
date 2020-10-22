@@ -70,11 +70,39 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 * NCFDD topics:
     1. Week 5: Assess and Adjust. Show "What's holding you back?" PDF
     1. Week 7: Mentoring Networks. "What do I need?"
--->
+
+
+1. Underneath it all podcast
+1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
+--> 
 
 
 
 ***
+
+
+
+# Lec 17: Thu 10/29 {#Lec17}
+
+1. Group 2 (parameter estimation) update
+1. Underneath it all podcast
+
+
+
+***
+
+
+
+
+# Lec 16: Tue 10/27 {#Lec16}
+
+No lecture. Focus on getting that quick win!
+
+
+
+***
+
+
 
 
 # Lec 15: Thu 10/22 {#Lec15}
@@ -91,12 +119,9 @@ None
     ```{r, echo=FALSE, out.width="50%", fig.align='center'}
     knitr::include_graphics("static/images/perfect_plasticity.png")
     ```
-1. Breakout room: Underneath it all podcast
-1. Project discussion
+1. Project discussion and breakout room
+1. [Link](https://smith.zoom.us/rec/share/xLO_ZjhkwA4MS4gY49an2DxzXUUG6niq5CFOkRcz8SbeBZ-Pgs_rFGel6Ory_0OZ.Hyl7Lh0l-aQRawbc){target="_blank"} to video recording and [PDF](static/chalk_talks/Lec15.pdf){target="_blank"} of class notes. 
 
-<!--    
-1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
---> 
 
 
 
