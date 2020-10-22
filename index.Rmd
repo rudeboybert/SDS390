@@ -87,21 +87,16 @@ None
 
 ## Class meeting time
 
-1. Lecture topics
-    1. Approximating the overstory using the perfect plasticity approximation:
+1. Lecture topics: Approximating the overstory using the perfect plasticity approximation.
+    ```{r, echo=FALSE, out.width="50%", fig.align='center'}
+    knitr::include_graphics("static/images/perfect_plasticity.png")
+    ```
+1. Breakout room: Underneath it all podcast
+1. Project discussion
 
 <!--    
 1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
 --> 
-
-
-### Lecture topic 1
-
-Approximating the overstory using the *perfect plasticity approximation*.
-
-```{r, echo=FALSE, out.width="50%", fig.align='center'}
-knitr::include_graphics("static/images/perfect_plasticity.png")
-```
 
 
 
