@@ -84,6 +84,7 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 # Lec 17: Thu 10/29 {#Lec17}
 
+1. If you haven't already, please fill out the Mid-Semester Assessment survey posted on Slack on Sunday 10/25 at 7:45pm eastern.
 1. Group 2 (parameter estimation) update
 1. Underneath it all podcast
 
