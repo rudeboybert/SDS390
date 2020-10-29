@@ -24,6 +24,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
@@ -37,9 +38,9 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -49,14 +50,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -65,9 +68,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -459,7 +462,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">SDS390: Ecological Forecasting</h1>
 <h4 class="author">Albert Y. Kim</h4>
-<h4 class="date">Last updated on 2020-10-25</h4>
+<h4 class="date">Last updated on 2020-10-29</h4>
 
 </div>
 
@@ -473,9 +476,6 @@ h1{font-weight: 400;}
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=1373353942&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600">
 </iframe>
 <!--
-{target="_blank"}
--->
-<!--
 * Oh shit, Git
     1. Undoing commits: locally and online
     1. Merge conflicts
@@ -486,15 +486,23 @@ h1{font-weight: 400;}
 
 1. Underneath it all podcast
 1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
+
+{target="_blank"}
 -->
 <hr />
 </div>
 <div id="Lec17" class="section level1">
 <h1>Lec 17: Thu 10/29</h1>
 <ol style="list-style-type: decimal">
-<li>If you haven’t already, please fill out the Mid-Semester Assessment survey posted on Slack on Sunday 10/25 at 7:45pm eastern.</li>
-<li>Group 2 (parameter estimation) update</li>
-<li>Underneath it all podcast</li>
+<li><em>Tentative</em> plan for next week:
+<ol style="list-style-type: decimal">
+<li>Tue 11/3 Group 1 - Time Series Forecasting</li>
+<li>Thu 11/5 Group 3 - Wildfire Biomass Estimation</li>
+</ol></li>
+<li>Today: Group 2 - Parameter Estimation</li>
+<li>Breakout rooms: Underneath it all podcast</li>
+<li>“What’s holding you back?”</li>
+<li>Fill out <a href="https://smithcollege.qualtrics.com/jfe/form/SV_ey8fSCWwFZs7oe9" target="_blank">MSA survey</a>.</li>
 </ol>
 <hr />
 </div>
@@ -546,29 +554,29 @@ h1{font-weight: 400;}
 <h3>Lecture topic 1</h3>
 <p>How to manually set interval length in a <code>tsibble()</code>. Using “time class functions” from <a href="https://otexts.com/fpp3/tsibbles.html" target="_blank">FPP 2.1</a> include:</p>
 <p><img src="static/images/time_class_functions.png" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Lec14 code</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(tsibble)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(lubridate)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># From https://otexts.com/fpp3/tsibbles.html. Manually setting yearly data</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">yearly &lt;-<span class="st"> </span><span class="kw">tsibble</span>(</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="dt">Year =</span> <span class="dv">2015</span><span class="op">:</span><span class="dv">2019</span>, </a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">  <span class="dt">Observation =</span> <span class="kw">c</span>(<span class="dv">123</span>, <span class="dv">39</span>, <span class="dv">78</span>, <span class="dv">52</span>, <span class="dv">110</span>), </a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">  <span class="co"># Note this sets the increment value to [1Y]. It seems to autodetect that this</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="co"># is yearly data:</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">  <span class="dt">index =</span> Year</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">)</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="kw">autoplot</span>(yearly)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Lec14 code</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(tsibble)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># From https://otexts.com/fpp3/tsibbles.html. Manually setting yearly data</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>yearly &lt;-<span class="st"> </span><span class="kw">tsibble</span>(</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="dt">Year =</span> <span class="dv">2015</span><span class="op">:</span><span class="dv">2019</span>, </span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="dt">Observation =</span> <span class="kw">c</span>(<span class="dv">123</span>, <span class="dv">39</span>, <span class="dv">78</span>, <span class="dv">52</span>, <span class="dv">110</span>), </span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="co"># Note this sets the increment value to [1Y]. It seems to autodetect that this</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="co"># is yearly data:</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="dt">index =</span> Year</span>
+<span id="cb1-12"><a href="#cb1-12"></a>)</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="kw">autoplot</span>(yearly)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Setting daily data</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">daily &lt;-<span class="st"> </span><span class="kw">tsibble</span>(</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">Day =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">ymd</span>(<span class="st">&quot;2020-10-01&quot;</span>), <span class="dt">to =</span> <span class="kw">ymd</span>(<span class="st">&quot;2020-10-06&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;1 day&quot;</span>),</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="dt">Value =</span> <span class="kw">c</span>(<span class="dv">76</span>, <span class="dv">4</span>, <span class="dv">79</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">66</span>),</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="co"># Note this sets the increment value to [1D]. This is easy to detect since</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="co"># Day is a &quot;date&quot; object</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">  <span class="dt">index =</span> Day</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">)</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw">autoplot</span>(daily)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Setting daily data</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>daily &lt;-<span class="st"> </span><span class="kw">tsibble</span>(</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="dt">Day =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">ymd</span>(<span class="st">&quot;2020-10-01&quot;</span>), <span class="dt">to =</span> <span class="kw">ymd</span>(<span class="st">&quot;2020-10-06&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;1 day&quot;</span>),</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="dt">Value =</span> <span class="kw">c</span>(<span class="dv">76</span>, <span class="dv">4</span>, <span class="dv">79</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">66</span>),</span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="co"># Note this sets the increment value to [1D]. This is easy to detect since</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="co"># Day is a &quot;date&quot; object</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="dt">index =</span> Day</span>
+<span id="cb2-8"><a href="#cb2-8"></a>)</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="kw">autoplot</span>(daily)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-3-2.png" width="768" /></p>
 </div>
 <div id="lecture-topic-2" class="section level3">
@@ -672,95 +680,95 @@ h1{font-weight: 400;}
 </center>
 <p></br></p>
 <p>Add this code to your running lecture notes code:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r klippy"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Lec11 code -------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">library</span>(tsibble)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">library</span>(lubridate)</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">library</span>(fpp3)</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># Time series decompositions ---------------------------------------------------</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co"># From FPP3 Chap 3.2: https://otexts.com/fpp3/components.html</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">us_retail_employment &lt;-<span class="st"> </span>us_employment <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">year</span>(Month) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1990</span>, Title <span class="op">==</span><span class="st"> &quot;Retail Trade&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Series_ID)</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co"># Note: period is [1M] = 1 month:</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">us_retail_employment</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co"># Plot</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18">us_retail_employment_plot &lt;-<span class="st"> </span>us_retail_employment <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="st">  </span><span class="kw">autoplot</span>(Employed, <span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Persons (thousands)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Total employment in US retail&quot;</span>)</a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">us_retail_employment_plot</a>
-<a class="sourceLine" id="cb3-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co"># Fit STL decomposition</span></a>
-<a class="sourceLine" id="cb3-24" data-line-number="24">stl_dcmp &lt;-<span class="st"> </span>us_retail_employment <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="st">  </span><span class="kw">model</span>(<span class="kw">STL</span>(Employed))</a>
-<a class="sourceLine" id="cb3-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="co"># Inspect contents:</span></a>
-<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="kw">components</span>(stl_dcmp)</a>
-<a class="sourceLine" id="cb3-29" data-line-number="29"></a>
-<a class="sourceLine" id="cb3-30" data-line-number="30"><span class="co"># What does this mean? The curve in red = signal which you separate from noise.</span></a>
-<a class="sourceLine" id="cb3-31" data-line-number="31">us_retail_employment_plot <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-32" data-line-number="32"><span class="st">  </span><span class="kw">autolayer</span>(<span class="kw">components</span>(stl_dcmp), trend, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</a>
-<a class="sourceLine" id="cb3-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb3-34" data-line-number="34"><span class="kw">components</span>(stl_dcmp) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-35" data-line-number="35"><span class="st">  </span><span class="kw">autoplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-36" data-line-number="36"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>)</a>
-<a class="sourceLine" id="cb3-37" data-line-number="37"></a>
-<a class="sourceLine" id="cb3-38" data-line-number="38"></a>
-<a class="sourceLine" id="cb3-39" data-line-number="39"><span class="co"># Simple forecasting methods ---------------------------------------------------</span></a>
-<a class="sourceLine" id="cb3-40" data-line-number="40"><span class="co"># From FPP3 Chap 5.2: https://otexts.com/fpp3/simple-methods.html</span></a>
-<a class="sourceLine" id="cb3-41" data-line-number="41"></a>
-<a class="sourceLine" id="cb3-42" data-line-number="42"><span class="co"># Note: period is [1Q] = 1 quarter:</span></a>
-<a class="sourceLine" id="cb3-43" data-line-number="43">aus_production</a>
-<a class="sourceLine" id="cb3-44" data-line-number="44"></a>
-<a class="sourceLine" id="cb3-45" data-line-number="45"><span class="co"># Plot</span></a>
-<a class="sourceLine" id="cb3-46" data-line-number="46">aus_production <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-47" data-line-number="47"><span class="st">  </span><span class="kw">autoplot</span>(Beer) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-48" data-line-number="48"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Beer production (megalitres)&quot;</span>, </a>
-<a class="sourceLine" id="cb3-49" data-line-number="49">       <span class="dt">title =</span> <span class="st">&quot;Total beer production in Australia&quot;</span>)</a>
-<a class="sourceLine" id="cb3-50" data-line-number="50"></a>
-<a class="sourceLine" id="cb3-51" data-line-number="51"><span class="co"># Set &quot;training&quot; data: Only from 1992-2006</span></a>
-<a class="sourceLine" id="cb3-52" data-line-number="52">train &lt;-<span class="st"> </span>aus_production <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-53" data-line-number="53"><span class="st">  </span><span class="kw">filter_index</span>(<span class="st">&quot;1992 Q1&quot;</span> <span class="op">~</span><span class="st"> &quot;2006 Q4&quot;</span>)</a>
-<a class="sourceLine" id="cb3-54" data-line-number="54"></a>
-<a class="sourceLine" id="cb3-55" data-line-number="55">train <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-56" data-line-number="56"><span class="st">  </span><span class="kw">autoplot</span>(Beer) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-57" data-line-number="57"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Beer production (megalitres)&quot;</span>, </a>
-<a class="sourceLine" id="cb3-58" data-line-number="58">       <span class="dt">title =</span> <span class="st">&quot;Total beer production in Australia&quot;</span>)</a>
-<a class="sourceLine" id="cb3-59" data-line-number="59"></a>
-<a class="sourceLine" id="cb3-60" data-line-number="60"><span class="co"># Fit/train the models</span></a>
-<a class="sourceLine" id="cb3-61" data-line-number="61">beer_fit &lt;-<span class="st"> </span>train <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-62" data-line-number="62"><span class="st">  </span><span class="kw">model</span>(</a>
-<a class="sourceLine" id="cb3-63" data-line-number="63">    <span class="dt">Mean =</span> <span class="kw">MEAN</span>(Beer),</a>
-<a class="sourceLine" id="cb3-64" data-line-number="64">    <span class="st">`</span><span class="dt">Naïve</span><span class="st">`</span> =<span class="st"> </span><span class="kw">NAIVE</span>(Beer),</a>
-<a class="sourceLine" id="cb3-65" data-line-number="65">    <span class="st">`</span><span class="dt">Seasonal naïve</span><span class="st">`</span> =<span class="st"> </span><span class="kw">SNAIVE</span>(Beer)</a>
-<a class="sourceLine" id="cb3-66" data-line-number="66">  )</a>
-<a class="sourceLine" id="cb3-67" data-line-number="67"></a>
-<a class="sourceLine" id="cb3-68" data-line-number="68"><span class="co"># Generate predictions/forecasts for 14 quarters</span></a>
-<a class="sourceLine" id="cb3-69" data-line-number="69">beer_fc &lt;-<span class="st"> </span>beer_fit <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-70" data-line-number="70"><span class="st">  </span><span class="kw">forecast</span>(<span class="dt">h=</span><span class="dv">14</span>)</a>
-<a class="sourceLine" id="cb3-71" data-line-number="71"></a>
-<a class="sourceLine" id="cb3-72" data-line-number="72"><span class="co"># Plot forecasts</span></a>
-<a class="sourceLine" id="cb3-73" data-line-number="73">beer_fc <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-74" data-line-number="74"><span class="st">  </span><span class="kw">autoplot</span>(train, <span class="dt">level =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-75" data-line-number="75"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Beer production (megalitres)&quot;</span>, </a>
-<a class="sourceLine" id="cb3-76" data-line-number="76">       <span class="dt">title =</span> <span class="st">&quot;Total beer production in Australia&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;Forecast&quot;</span>)</a>
-<a class="sourceLine" id="cb3-77" data-line-number="77"></a>
-<a class="sourceLine" id="cb3-78" data-line-number="78"><span class="co"># Plot forecasts and actual observed values post 2007 Q1</span></a>
-<a class="sourceLine" id="cb3-79" data-line-number="79">beer_fc <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-80" data-line-number="80"><span class="st">  </span><span class="kw">autoplot</span>(train, <span class="dt">level =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-81" data-line-number="81"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Beer production (megalitres)&quot;</span>, </a>
-<a class="sourceLine" id="cb3-82" data-line-number="82">       <span class="dt">title =</span> <span class="st">&quot;Total beer production in Australia&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;Forecast&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-83" data-line-number="83"><span class="st">  </span><span class="kw">autolayer</span>(<span class="kw">filter_index</span>(aus_production, <span class="st">&quot;2007 Q1&quot;</span> <span class="op">~</span><span class="st"> </span>.), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>)</a>
-<a class="sourceLine" id="cb3-84" data-line-number="84"></a>
-<a class="sourceLine" id="cb3-85" data-line-number="85"><span class="co"># Plot forecasts with prediction error bands</span></a>
-<a class="sourceLine" id="cb3-86" data-line-number="86">beer_fc <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-87" data-line-number="87"><span class="st">  </span><span class="kw">autoplot</span>(train) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-88" data-line-number="88"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Beer production (megalitres)&quot;</span>, </a>
-<a class="sourceLine" id="cb3-89" data-line-number="89">       <span class="dt">title =</span> <span class="st">&quot;Total beer production in Australia&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;Forecast&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Lec11 code -------------------------------------------------------------------</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">library</span>(tsibble)</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">library</span>(fpp3)</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co"># Time series decompositions ---------------------------------------------------</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co"># From FPP3 Chap 3.2: https://otexts.com/fpp3/components.html</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>us_retail_employment &lt;-<span class="st"> </span>us_employment <span class="op">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="st">  </span><span class="kw">filter</span>(<span class="kw">year</span>(Month) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1990</span>, Title <span class="op">==</span><span class="st"> &quot;Retail Trade&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Series_ID)</span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co"># Note: period is [1M] = 1 month:</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>us_retail_employment</span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co"># Plot</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>us_retail_employment_plot &lt;-<span class="st"> </span>us_retail_employment <span class="op">%&gt;%</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="st">  </span><span class="kw">autoplot</span>(Employed, <span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Persons (thousands)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Total employment in US retail&quot;</span>)</span>
+<span id="cb3-21"><a href="#cb3-21"></a>us_retail_employment_plot</span>
+<span id="cb3-22"><a href="#cb3-22"></a></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="co"># Fit STL decomposition</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a>stl_dcmp &lt;-<span class="st"> </span>us_retail_employment <span class="op">%&gt;%</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="st">  </span><span class="kw">model</span>(<span class="kw">STL</span>(Employed))</span>
+<span id="cb3-26"><a href="#cb3-26"></a></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="co"># Inspect contents:</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="kw">components</span>(stl_dcmp)</span>
+<span id="cb3-29"><a href="#cb3-29"></a></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="co"># What does this mean? The curve in red = signal which you separate from noise.</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a>us_retail_employment_plot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="st">  </span><span class="kw">autolayer</span>(<span class="kw">components</span>(stl_dcmp), trend, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb3-33"><a href="#cb3-33"></a></span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="kw">components</span>(stl_dcmp) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="st">  </span><span class="kw">autoplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>)</span>
+<span id="cb3-37"><a href="#cb3-37"></a></span>
+<span id="cb3-38"><a href="#cb3-38"></a></span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="co"># Simple forecasting methods ---------------------------------------------------</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a><span class="co"># From FPP3 Chap 5.2: https://otexts.com/fpp3/simple-methods.html</span></span>
+<span id="cb3-41"><a href="#cb3-41"></a></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="co"># Note: period is [1Q] = 1 quarter:</span></span>
+<span id="cb3-43"><a href="#cb3-43"></a>aus_production</span>
+<span id="cb3-44"><a href="#cb3-44"></a></span>
+<span id="cb3-45"><a href="#cb3-45"></a><span class="co"># Plot</span></span>
+<span id="cb3-46"><a href="#cb3-46"></a>aus_production <span class="op">%&gt;%</span></span>
+<span id="cb3-47"><a href="#cb3-47"></a><span class="st">  </span><span class="kw">autoplot</span>(Beer) <span class="op">+</span></span>
+<span id="cb3-48"><a href="#cb3-48"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Beer production (megalitres)&quot;</span>, </span>
+<span id="cb3-49"><a href="#cb3-49"></a>       <span class="dt">title =</span> <span class="st">&quot;Total beer production in Australia&quot;</span>)</span>
+<span id="cb3-50"><a href="#cb3-50"></a></span>
+<span id="cb3-51"><a href="#cb3-51"></a><span class="co"># Set &quot;training&quot; data: Only from 1992-2006</span></span>
+<span id="cb3-52"><a href="#cb3-52"></a>train &lt;-<span class="st"> </span>aus_production <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-53"><a href="#cb3-53"></a><span class="st">  </span><span class="kw">filter_index</span>(<span class="st">&quot;1992 Q1&quot;</span> <span class="op">~</span><span class="st"> &quot;2006 Q4&quot;</span>)</span>
+<span id="cb3-54"><a href="#cb3-54"></a></span>
+<span id="cb3-55"><a href="#cb3-55"></a>train <span class="op">%&gt;%</span></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="st">  </span><span class="kw">autoplot</span>(Beer) <span class="op">+</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Beer production (megalitres)&quot;</span>, </span>
+<span id="cb3-58"><a href="#cb3-58"></a>       <span class="dt">title =</span> <span class="st">&quot;Total beer production in Australia&quot;</span>)</span>
+<span id="cb3-59"><a href="#cb3-59"></a></span>
+<span id="cb3-60"><a href="#cb3-60"></a><span class="co"># Fit/train the models</span></span>
+<span id="cb3-61"><a href="#cb3-61"></a>beer_fit &lt;-<span class="st"> </span>train <span class="op">%&gt;%</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a><span class="st">  </span><span class="kw">model</span>(</span>
+<span id="cb3-63"><a href="#cb3-63"></a>    <span class="dt">Mean =</span> <span class="kw">MEAN</span>(Beer),</span>
+<span id="cb3-64"><a href="#cb3-64"></a>    <span class="st">`</span><span class="dt">Naïve</span><span class="st">`</span> =<span class="st"> </span><span class="kw">NAIVE</span>(Beer),</span>
+<span id="cb3-65"><a href="#cb3-65"></a>    <span class="st">`</span><span class="dt">Seasonal naïve</span><span class="st">`</span> =<span class="st"> </span><span class="kw">SNAIVE</span>(Beer)</span>
+<span id="cb3-66"><a href="#cb3-66"></a>  )</span>
+<span id="cb3-67"><a href="#cb3-67"></a></span>
+<span id="cb3-68"><a href="#cb3-68"></a><span class="co"># Generate predictions/forecasts for 14 quarters</span></span>
+<span id="cb3-69"><a href="#cb3-69"></a>beer_fc &lt;-<span class="st"> </span>beer_fit <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-70"><a href="#cb3-70"></a><span class="st">  </span><span class="kw">forecast</span>(<span class="dt">h=</span><span class="dv">14</span>)</span>
+<span id="cb3-71"><a href="#cb3-71"></a></span>
+<span id="cb3-72"><a href="#cb3-72"></a><span class="co"># Plot forecasts</span></span>
+<span id="cb3-73"><a href="#cb3-73"></a>beer_fc <span class="op">%&gt;%</span></span>
+<span id="cb3-74"><a href="#cb3-74"></a><span class="st">  </span><span class="kw">autoplot</span>(train, <span class="dt">level =</span> <span class="ot">NULL</span>) <span class="op">+</span></span>
+<span id="cb3-75"><a href="#cb3-75"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Beer production (megalitres)&quot;</span>, </span>
+<span id="cb3-76"><a href="#cb3-76"></a>       <span class="dt">title =</span> <span class="st">&quot;Total beer production in Australia&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;Forecast&quot;</span>)</span>
+<span id="cb3-77"><a href="#cb3-77"></a></span>
+<span id="cb3-78"><a href="#cb3-78"></a><span class="co"># Plot forecasts and actual observed values post 2007 Q1</span></span>
+<span id="cb3-79"><a href="#cb3-79"></a>beer_fc <span class="op">%&gt;%</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a><span class="st">  </span><span class="kw">autoplot</span>(train, <span class="dt">level =</span> <span class="ot">NULL</span>) <span class="op">+</span></span>
+<span id="cb3-81"><a href="#cb3-81"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Beer production (megalitres)&quot;</span>, </span>
+<span id="cb3-82"><a href="#cb3-82"></a>       <span class="dt">title =</span> <span class="st">&quot;Total beer production in Australia&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;Forecast&quot;</span>) <span class="op">+</span></span>
+<span id="cb3-83"><a href="#cb3-83"></a><span class="st">  </span><span class="kw">autolayer</span>(<span class="kw">filter_index</span>(aus_production, <span class="st">&quot;2007 Q1&quot;</span> <span class="op">~</span><span class="st"> </span>.), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb3-84"><a href="#cb3-84"></a></span>
+<span id="cb3-85"><a href="#cb3-85"></a><span class="co"># Plot forecasts with prediction error bands</span></span>
+<span id="cb3-86"><a href="#cb3-86"></a>beer_fc <span class="op">%&gt;%</span></span>
+<span id="cb3-87"><a href="#cb3-87"></a><span class="st">  </span><span class="kw">autoplot</span>(train) <span class="op">+</span></span>
+<span id="cb3-88"><a href="#cb3-88"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Beer production (megalitres)&quot;</span>, </span>
+<span id="cb3-89"><a href="#cb3-89"></a>       <span class="dt">title =</span> <span class="st">&quot;Total beer production in Australia&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;Forecast&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="class-meeting-time-3" class="section level2">
@@ -773,10 +781,10 @@ h1{font-weight: 400;}
 <li>Open the <code>foofactors</code> <a href="https://github.com/390-2020-09-Fall/foofactors/issues" target="_blank">GitHub issues</a> page</li>
 <li>Copy and paste this code into your .R or .Rmd file where you’ve been saving course code</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(cyl), <span class="dt">y =</span> hp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div></li>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(cyl), <span class="dt">y =</span> hp)) <span class="op">+</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div></li>
 <li>Breakout rooms
 <ol style="list-style-type: decimal">
 <li>Time series</li>
@@ -893,49 +901,49 @@ Two models for the effect of competitor biomass.
 </center>
 <p></br></p>
 <p>The code from the video is below. <a href="static/chalk_talks/Lec09.pdf" target="_blank">PDF of chalk talk</a>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r klippy"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Lec09 code ----------------</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">library</span>(moderndive)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">library</span>(broom)</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co"># Added on Tue 9/29 9:40am: Visualize both models</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="kw">library</span>(patchwork)</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(MA_schools, <span class="kw">aes</span>(<span class="dt">x =</span> perc_disadvan, <span class="dt">y =</span> average_sat_math, <span class="dt">color =</span> size)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.25</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">    <span class="dt">x =</span> <span class="st">&quot;Percent economically disadvantaged&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Math SAT Score&quot;</span>,</a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">    <span class="dt">color =</span> <span class="st">&quot;School size&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Interaction model&quot;</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a>
-<a class="sourceLine" id="cb5-16" data-line-number="16">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(MA_schools,<span class="kw">aes</span>(<span class="dt">x =</span> perc_disadvan, <span class="dt">y =</span> average_sat_math, <span class="dt">color =</span> size)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.25</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="st">  </span><span class="kw">geom_parallel_slopes</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb5-20" data-line-number="20">    <span class="dt">x =</span> <span class="st">&quot;Percent economically disadvantaged&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Math SAT Score&quot;</span>,</a>
-<a class="sourceLine" id="cb5-21" data-line-number="21">    <span class="dt">color =</span> <span class="st">&quot;School size&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Parallel slopes model&quot;</span></a>
-<a class="sourceLine" id="cb5-22" data-line-number="22">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>())</a>
-<a class="sourceLine" id="cb5-24" data-line-number="24">p1 <span class="op">+</span><span class="st"> </span>p2</a>
-<a class="sourceLine" id="cb5-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb5-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co"># Fit parallel slopes model: Less complex</span></a>
-<a class="sourceLine" id="cb5-28" data-line-number="28">model_<span class="dv">2</span>_parallel_slopes &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb5-29" data-line-number="29"><span class="st">  </span><span class="kw">lm</span>(average_sat_math <span class="op">~</span><span class="st"> </span>perc_disadvan <span class="op">+</span><span class="st"> </span>size, <span class="dt">data =</span> MA_schools)</a>
-<a class="sourceLine" id="cb5-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb5-31" data-line-number="31"><span class="co"># Fit interaction model: More complex</span></a>
-<a class="sourceLine" id="cb5-32" data-line-number="32">model_<span class="dv">2</span>_interaction &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb5-33" data-line-number="33"><span class="st">  </span><span class="kw">lm</span>(average_sat_math <span class="op">~</span><span class="st"> </span>perc_disadvan <span class="op">*</span><span class="st"> </span>size, <span class="dt">data =</span> MA_schools)</a>
-<a class="sourceLine" id="cb5-34" data-line-number="34"></a>
-<a class="sourceLine" id="cb5-35" data-line-number="35"></a>
-<a class="sourceLine" id="cb5-36" data-line-number="36"><span class="co"># Updated on Tue 9/29 11am: Compare regression tables. Notice k = 4 vs k = 6</span></a>
-<a class="sourceLine" id="cb5-37" data-line-number="37"><span class="kw">tidy</span>(model_<span class="dv">2</span>_parallel_slopes, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb5-38" data-line-number="38"><span class="kw">tidy</span>(model_<span class="dv">2</span>_interaction, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb5-39" data-line-number="39"></a>
-<a class="sourceLine" id="cb5-40" data-line-number="40"></a>
-<a class="sourceLine" id="cb5-41" data-line-number="41"><span class="co"># Compare R^2_adj and AIC</span></a>
-<a class="sourceLine" id="cb5-42" data-line-number="42"><span class="kw">glance</span>(model_<span class="dv">2</span>_parallel_slopes)</a>
-<a class="sourceLine" id="cb5-43" data-line-number="43"><span class="kw">glance</span>(model_<span class="dv">2</span>_interaction)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Lec09 code ----------------</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">library</span>(moderndive)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">library</span>(broom)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co"># Added on Tue 9/29 9:40am: Visualize both models</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="kw">library</span>(patchwork)</span>
+<span id="cb5-8"><a href="#cb5-8"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(MA_schools, <span class="kw">aes</span>(<span class="dt">x =</span> perc_disadvan, <span class="dt">y =</span> average_sat_math, <span class="dt">color =</span> size)) <span class="op">+</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.25</span>) <span class="op">+</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="dt">x =</span> <span class="st">&quot;Percent economically disadvantaged&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Math SAT Score&quot;</span>,</span>
+<span id="cb5-13"><a href="#cb5-13"></a>    <span class="dt">color =</span> <span class="st">&quot;School size&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Interaction model&quot;</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>  ) <span class="op">+</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb5-16"><a href="#cb5-16"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(MA_schools,<span class="kw">aes</span>(<span class="dt">x =</span> perc_disadvan, <span class="dt">y =</span> average_sat_math, <span class="dt">color =</span> size)) <span class="op">+</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.25</span>) <span class="op">+</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="st">  </span><span class="kw">geom_parallel_slopes</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb5-20"><a href="#cb5-20"></a>    <span class="dt">x =</span> <span class="st">&quot;Percent economically disadvantaged&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Math SAT Score&quot;</span>,</span>
+<span id="cb5-21"><a href="#cb5-21"></a>    <span class="dt">color =</span> <span class="st">&quot;School size&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Parallel slopes model&quot;</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>  ) <span class="op">+</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>())</span>
+<span id="cb5-24"><a href="#cb5-24"></a>p1 <span class="op">+</span><span class="st"> </span>p2</span>
+<span id="cb5-25"><a href="#cb5-25"></a></span>
+<span id="cb5-26"><a href="#cb5-26"></a></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="co"># Fit parallel slopes model: Less complex</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a>model_<span class="dv">2</span>_parallel_slopes &lt;-<span class="st"> </span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="st">  </span><span class="kw">lm</span>(average_sat_math <span class="op">~</span><span class="st"> </span>perc_disadvan <span class="op">+</span><span class="st"> </span>size, <span class="dt">data =</span> MA_schools)</span>
+<span id="cb5-30"><a href="#cb5-30"></a></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="co"># Fit interaction model: More complex</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a>model_<span class="dv">2</span>_interaction &lt;-<span class="st"> </span></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="st">  </span><span class="kw">lm</span>(average_sat_math <span class="op">~</span><span class="st"> </span>perc_disadvan <span class="op">*</span><span class="st"> </span>size, <span class="dt">data =</span> MA_schools)</span>
+<span id="cb5-34"><a href="#cb5-34"></a></span>
+<span id="cb5-35"><a href="#cb5-35"></a></span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="co"># Updated on Tue 9/29 11am: Compare regression tables. Notice k = 4 vs k = 6</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="kw">tidy</span>(model_<span class="dv">2</span>_parallel_slopes, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="kw">tidy</span>(model_<span class="dv">2</span>_interaction, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb5-39"><a href="#cb5-39"></a></span>
+<span id="cb5-40"><a href="#cb5-40"></a></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="co"># Compare R^2_adj and AIC</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="kw">glance</span>(model_<span class="dv">2</span>_parallel_slopes)</span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="kw">glance</span>(model_<span class="dv">2</span>_interaction)</span></code></pre></div>
 </div>
 </div>
 <div id="class-meeting-time-5" class="section level2">
@@ -978,7 +986,7 @@ Two models for the effect of competitor biomass.
 <div id="class-meeting-time-6" class="section level2">
 <h2>Class meeting time</h2>
 <ol style="list-style-type: decimal">
-<li>Run this code to ensure the following packages are up-to-date: <code>install.packages(c(&quot;devtools&quot;, &quot;roxygen2&quot;, &quot;testthat&quot;, &quot;knitr&quot;))</code></li>
+<li>Run this code to ensure the following packages are up-to-date: <code>install.packages(c("devtools", "roxygen2", "testthat", "knitr"))</code></li>
 <li>Announcements:
 <ol style="list-style-type: decimal">
 <li>Stick with lecture start time of 9:45, but we’ll keep things moving briskly.</li>
@@ -1000,32 +1008,32 @@ Two models for the effect of competitor biomass.
 <li><strong>Allen 2020</strong>: If you haven’t already, dedicate 30 minutes for a “done is better than perfect” reading. Even if their are gaps in understanding, just encountering the terms and ideas for the first time will prime you for the next time.</li>
 <li><strong>FPP3</strong>: In particular the <span class="math inline">\(y_t = S_t + T_t + R_t\)</span> seasonal + trend + remainder breakdown of the <span class="math inline">\(y_t\)</span> US retail employment time series in <a href="https://otexts.com/fpp3/classical-decomposition.html#fig:classical-empl" target="_blank">Figure 3.10</a>.</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">library</span>(fpp3)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">us_retail_employment &lt;-<span class="st"> </span>us_employment <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">year</span>(Month) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1990</span>, Title <span class="op">==</span><span class="st"> &quot;Retail Trade&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Series_ID)</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co"># Fit decomposition model</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">dcmp &lt;-<span class="st"> </span>us_retail_employment <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">  </span><span class="kw">model</span>(<span class="kw">classical_decomposition</span>(Employed, <span class="dt">type =</span> <span class="st">&quot;additive&quot;</span>))</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co"># Plot decomposition model</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="kw">components</span>(dcmp) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="st">  </span><span class="kw">autoplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Employed = Trend + Seasonal + Remainder&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">library</span>(fpp3)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>us_retail_employment &lt;-<span class="st"> </span>us_employment <span class="op">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="st">  </span><span class="kw">filter</span>(<span class="kw">year</span>(Month) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1990</span>, Title <span class="op">==</span><span class="st"> &quot;Retail Trade&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Series_ID)</span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co"># Fit decomposition model</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>dcmp &lt;-<span class="st"> </span>us_retail_employment <span class="op">%&gt;%</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="st">  </span><span class="kw">model</span>(<span class="kw">classical_decomposition</span>(Employed, <span class="dt">type =</span> <span class="st">&quot;additive&quot;</span>))</span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co"># Plot decomposition model</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="kw">components</span>(dcmp) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="st">  </span><span class="kw">autoplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Employed = Trend + Seasonal + Remainder&quot;</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
 </div>
 <div id="MP4" class="section level3">
 <h3>2. MP4</h3>
 <p>For MP4, you will be adding one documented function, one documented dataset, and your <code>DESCRIPTION</code> info to the <a href="https://github.com/390-2020-09-Fall/foofactors" target="_blank"><code>foofactors</code></a> package I demoed in the video. You are going to work in the following groups:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">76</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">students &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Candy&quot;</span>, <span class="st">&quot;Emma S.&quot;</span>, <span class="st">&quot;Emma K.&quot;</span>, <span class="st">&quot;Haley&quot;</span>, <span class="st">&quot;Lauren&quot;</span>, <span class="st">&quot;Olivia&quot;</span>, <span class="st">&quot;Serena&quot;</span>, <span class="st">&quot;Sophie&quot;</span>, <span class="st">&quot;Starry&quot;</span>)</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">tibble</span>(</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="dt">name =</span> <span class="kw">sample</span>(students),</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="dt">Branch =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;group&quot;</span>, .),</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">  <span class="dt">member =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;Member &quot;</span>, .)</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> member, <span class="dt">values_from =</span> name)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">set.seed</span>(<span class="dv">76</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>students &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Candy&quot;</span>, <span class="st">&quot;Emma S.&quot;</span>, <span class="st">&quot;Emma K.&quot;</span>, <span class="st">&quot;Haley&quot;</span>, <span class="st">&quot;Lauren&quot;</span>, <span class="st">&quot;Olivia&quot;</span>, <span class="st">&quot;Serena&quot;</span>, <span class="st">&quot;Sophie&quot;</span>, <span class="st">&quot;Starry&quot;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">tibble</span>(</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="dt">name =</span> <span class="kw">sample</span>(students),</span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="dt">Branch =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;group&quot;</span>, .),</span>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="dt">member =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;Member &quot;</span>, .)</span>
+<span id="cb7-7"><a href="#cb7-7"></a>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> member, <span class="dt">values_from =</span> name)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Branch"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Member 1"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Member 2"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Member 3"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"group1","2":"Lauren","3":"Haley","4":"Emma K."},{"1":"group2","2":"Candy","3":"Emma S.","4":"Sophie"},{"1":"group3","2":"Starry","3":"Serena","4":"Olivia"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1158,79 +1166,79 @@ Two models for the effect of competitor biomass.
 </ol></li>
 <li><a href="https://smith.zoom.us/rec/share/gavffQ0QHbw7Z82trsHofxkysFZWRr3fCIEqWQlJD8I_dVJ3GnhgYUC7t2W8GbEb.o0fkIrER2h0VCgOg?startTime=1600350544000" target="_blank">Link</a> to video recording.</li>
 </ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r klippy"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># Lec06 code ----------------</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">dendroband_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/observed_dbh_vs_doy.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co"># Plot data</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">base_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> dendroband_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> doy, <span class="dt">y =</span> dbh)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;day of year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;dbh&quot;</span>)</a>
-<a class="sourceLine" id="cb8-10" data-line-number="10">base_plot</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co"># Define the generalized logistic function. Note the params input has to be a</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co"># vector of length 5 in the correct order:</span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">lg5 &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy) {</a>
-<a class="sourceLine" id="cb8-16" data-line-number="16">  <span class="co"># Get 5 parameter values</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17">  L &lt;-<span class="st"> </span>params[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb8-18" data-line-number="18">  K &lt;-<span class="st"> </span>params[<span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">  doy.ip &lt;-<span class="st"> </span>params[<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb8-20" data-line-number="20">  r &lt;-<span class="st"> </span>params[<span class="dv">4</span>]</a>
-<a class="sourceLine" id="cb8-21" data-line-number="21">  theta &lt;-<span class="st"> </span>params[<span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb8-22" data-line-number="22">  </a>
-<a class="sourceLine" id="cb8-23" data-line-number="23">  <span class="co"># For specified 5 parameters and x = doy, compute y = dbh</span></a>
-<a class="sourceLine" id="cb8-24" data-line-number="24">  dbh &lt;-<span class="st"> </span>L <span class="op">+</span><span class="st"> </span>((K <span class="op">-</span><span class="st"> </span>L) <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>theta <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>(r <span class="op">*</span><span class="st"> </span>(doy <span class="op">-</span><span class="st"> </span>doy.ip) <span class="op">/</span><span class="st"> </span>theta)) <span class="op">^</span><span class="st"> </span>theta))</a>
-<a class="sourceLine" id="cb8-25" data-line-number="25">  <span class="kw">return</span>(dbh)</a>
-<a class="sourceLine" id="cb8-26" data-line-number="26">}</a>
-<a class="sourceLine" id="cb8-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb8-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb8-29" data-line-number="29"><span class="co"># Let&#39;s set an initial guess and plot what the generalized logistic function</span></a>
-<a class="sourceLine" id="cb8-30" data-line-number="30"><span class="co"># looks like for this initial guess</span></a>
-<a class="sourceLine" id="cb8-31" data-line-number="31">K &lt;-<span class="st"> </span><span class="dv">12</span></a>
-<a class="sourceLine" id="cb8-32" data-line-number="32">L &lt;-<span class="st"> </span><span class="dv">14</span></a>
-<a class="sourceLine" id="cb8-33" data-line-number="33">doy.ip &lt;-<span class="st"> </span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb8-34" data-line-number="34">r &lt;-<span class="st"> </span><span class="fl">0.05</span></a>
-<a class="sourceLine" id="cb8-35" data-line-number="35">theta &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb8-36" data-line-number="36">params_init &lt;-<span class="st"> </span><span class="kw">c</span>(K, L, doy.ip, r, theta)</a>
-<a class="sourceLine" id="cb8-37" data-line-number="37"></a>
-<a class="sourceLine" id="cb8-38" data-line-number="38"><span class="co"># Not a great fit!</span></a>
-<a class="sourceLine" id="cb8-39" data-line-number="39">base_plot <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-40" data-line-number="40"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> lg5, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">params =</span> params_init), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">n =</span> <span class="dv">500</span>)</a>
-<a class="sourceLine" id="cb8-41" data-line-number="41"></a>
-<a class="sourceLine" id="cb8-42" data-line-number="42"></a>
-<a class="sourceLine" id="cb8-43" data-line-number="43"></a>
-<a class="sourceLine" id="cb8-44" data-line-number="44"><span class="co"># Let&#39;s define the &quot;likelihood function&quot; that we want to maximize/optimize. </span></a>
-<a class="sourceLine" id="cb8-45" data-line-number="45"><span class="co"># Recall that this is our criteria for &quot;best fitting&quot; curve.</span></a>
-<a class="sourceLine" id="cb8-46" data-line-number="46"><span class="co"># These types of functions are covered in MTH 320 Mathematical Statistics</span></a>
-<a class="sourceLine" id="cb8-47" data-line-number="47">lg5_ML &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy, dbh, resid.sd) {</a>
-<a class="sourceLine" id="cb8-48" data-line-number="48">  pred_dbh &lt;-<span class="st"> </span><span class="kw">lg5</span>(params, doy)</a>
-<a class="sourceLine" id="cb8-49" data-line-number="49">  pred_ML &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sum</span>(<span class="kw">dnorm</span>(dbh, pred_dbh, resid.sd, <span class="dt">log =</span> T))</a>
-<a class="sourceLine" id="cb8-50" data-line-number="50">  <span class="kw">return</span>(pred_ML)</a>
-<a class="sourceLine" id="cb8-51" data-line-number="51">}</a>
-<a class="sourceLine" id="cb8-52" data-line-number="52"></a>
-<a class="sourceLine" id="cb8-53" data-line-number="53"><span class="co"># Numerical optimization via the optim() function:</span></a>
-<a class="sourceLine" id="cb8-54" data-line-number="54">lg5_optimization_output &lt;-<span class="st"> </span><span class="kw">optim</span>(</a>
-<a class="sourceLine" id="cb8-55" data-line-number="55">  <span class="co"># Our initial guess:</span></a>
-<a class="sourceLine" id="cb8-56" data-line-number="56">  <span class="dt">par =</span> params_init, </a>
-<a class="sourceLine" id="cb8-57" data-line-number="57">  <span class="co"># The likelihood function we want to optimize:</span></a>
-<a class="sourceLine" id="cb8-58" data-line-number="58">  <span class="dt">fn =</span> lg5_ML, </a>
-<a class="sourceLine" id="cb8-59" data-line-number="59">  <span class="co"># The points we want want to fit the S-shaped curve to:</span></a>
-<a class="sourceLine" id="cb8-60" data-line-number="60">  <span class="dt">doy =</span> dendroband_data<span class="op">$</span>doy, <span class="dt">dbh =</span> dendroband_data<span class="op">$</span>dbh,</a>
-<a class="sourceLine" id="cb8-61" data-line-number="61">  <span class="co"># Some extra stuff:</span></a>
-<a class="sourceLine" id="cb8-62" data-line-number="62">  <span class="dt">resid.sd =</span> <span class="fl">0.1</span>, <span class="dt">method =</span> <span class="st">&quot;BFGS&quot;</span>, <span class="dt">hessian =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb8-63" data-line-number="63">  )</a>
-<a class="sourceLine" id="cb8-64" data-line-number="64">lg5_optimization_output</a>
-<a class="sourceLine" id="cb8-65" data-line-number="65"></a>
-<a class="sourceLine" id="cb8-66" data-line-number="66"><span class="co"># The optimal (K*, L*, doy.ip*, r*, theta*) are saved in par</span></a>
-<a class="sourceLine" id="cb8-67" data-line-number="67">params_star &lt;-<span class="st"> </span>lg5_optimization_output<span class="op">$</span>par</a>
-<a class="sourceLine" id="cb8-68" data-line-number="68">params_star</a>
-<a class="sourceLine" id="cb8-69" data-line-number="69"></a>
-<a class="sourceLine" id="cb8-70" data-line-number="70"><span class="co"># Let&#39;s plot what the generalized logistic function looks like for these optimal</span></a>
-<a class="sourceLine" id="cb8-71" data-line-number="71"><span class="co"># values. Not bad!</span></a>
-<a class="sourceLine" id="cb8-72" data-line-number="72">base_plot <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-73" data-line-number="73"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> lg5, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">params =</span> params_star), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">n =</span> <span class="dv">500</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Lec06 code ----------------</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a>dendroband_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/observed_dbh_vs_doy.csv&quot;</span>)</span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co"># Plot data</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>base_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> dendroband_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> doy, <span class="dt">y =</span> dbh)) <span class="op">+</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;day of year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;dbh&quot;</span>)</span>
+<span id="cb8-10"><a href="#cb8-10"></a>base_plot</span>
+<span id="cb8-11"><a href="#cb8-11"></a></span>
+<span id="cb8-12"><a href="#cb8-12"></a></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co"># Define the generalized logistic function. Note the params input has to be a</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co"># vector of length 5 in the correct order:</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>lg5 &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy) {</span>
+<span id="cb8-16"><a href="#cb8-16"></a>  <span class="co"># Get 5 parameter values</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a>  L &lt;-<span class="st"> </span>params[<span class="dv">1</span>]</span>
+<span id="cb8-18"><a href="#cb8-18"></a>  K &lt;-<span class="st"> </span>params[<span class="dv">2</span>]</span>
+<span id="cb8-19"><a href="#cb8-19"></a>  doy.ip &lt;-<span class="st"> </span>params[<span class="dv">3</span>]</span>
+<span id="cb8-20"><a href="#cb8-20"></a>  r &lt;-<span class="st"> </span>params[<span class="dv">4</span>]</span>
+<span id="cb8-21"><a href="#cb8-21"></a>  theta &lt;-<span class="st"> </span>params[<span class="dv">5</span>]</span>
+<span id="cb8-22"><a href="#cb8-22"></a>  </span>
+<span id="cb8-23"><a href="#cb8-23"></a>  <span class="co"># For specified 5 parameters and x = doy, compute y = dbh</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a>  dbh &lt;-<span class="st"> </span>L <span class="op">+</span><span class="st"> </span>((K <span class="op">-</span><span class="st"> </span>L) <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>theta <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>(r <span class="op">*</span><span class="st"> </span>(doy <span class="op">-</span><span class="st"> </span>doy.ip) <span class="op">/</span><span class="st"> </span>theta)) <span class="op">^</span><span class="st"> </span>theta))</span>
+<span id="cb8-25"><a href="#cb8-25"></a>  <span class="kw">return</span>(dbh)</span>
+<span id="cb8-26"><a href="#cb8-26"></a>}</span>
+<span id="cb8-27"><a href="#cb8-27"></a></span>
+<span id="cb8-28"><a href="#cb8-28"></a></span>
+<span id="cb8-29"><a href="#cb8-29"></a><span class="co"># Let&#39;s set an initial guess and plot what the generalized logistic function</span></span>
+<span id="cb8-30"><a href="#cb8-30"></a><span class="co"># looks like for this initial guess</span></span>
+<span id="cb8-31"><a href="#cb8-31"></a>K &lt;-<span class="st"> </span><span class="dv">12</span></span>
+<span id="cb8-32"><a href="#cb8-32"></a>L &lt;-<span class="st"> </span><span class="dv">14</span></span>
+<span id="cb8-33"><a href="#cb8-33"></a>doy.ip &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb8-34"><a href="#cb8-34"></a>r &lt;-<span class="st"> </span><span class="fl">0.05</span></span>
+<span id="cb8-35"><a href="#cb8-35"></a>theta &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb8-36"><a href="#cb8-36"></a>params_init &lt;-<span class="st"> </span><span class="kw">c</span>(K, L, doy.ip, r, theta)</span>
+<span id="cb8-37"><a href="#cb8-37"></a></span>
+<span id="cb8-38"><a href="#cb8-38"></a><span class="co"># Not a great fit!</span></span>
+<span id="cb8-39"><a href="#cb8-39"></a>base_plot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb8-40"><a href="#cb8-40"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> lg5, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">params =</span> params_init), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">n =</span> <span class="dv">500</span>)</span>
+<span id="cb8-41"><a href="#cb8-41"></a></span>
+<span id="cb8-42"><a href="#cb8-42"></a></span>
+<span id="cb8-43"><a href="#cb8-43"></a></span>
+<span id="cb8-44"><a href="#cb8-44"></a><span class="co"># Let&#39;s define the &quot;likelihood function&quot; that we want to maximize/optimize. </span></span>
+<span id="cb8-45"><a href="#cb8-45"></a><span class="co"># Recall that this is our criteria for &quot;best fitting&quot; curve.</span></span>
+<span id="cb8-46"><a href="#cb8-46"></a><span class="co"># These types of functions are covered in MTH 320 Mathematical Statistics</span></span>
+<span id="cb8-47"><a href="#cb8-47"></a>lg5_ML &lt;-<span class="st"> </span><span class="cf">function</span>(params, doy, dbh, resid.sd) {</span>
+<span id="cb8-48"><a href="#cb8-48"></a>  pred_dbh &lt;-<span class="st"> </span><span class="kw">lg5</span>(params, doy)</span>
+<span id="cb8-49"><a href="#cb8-49"></a>  pred_ML &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sum</span>(<span class="kw">dnorm</span>(dbh, pred_dbh, resid.sd, <span class="dt">log =</span> T))</span>
+<span id="cb8-50"><a href="#cb8-50"></a>  <span class="kw">return</span>(pred_ML)</span>
+<span id="cb8-51"><a href="#cb8-51"></a>}</span>
+<span id="cb8-52"><a href="#cb8-52"></a></span>
+<span id="cb8-53"><a href="#cb8-53"></a><span class="co"># Numerical optimization via the optim() function:</span></span>
+<span id="cb8-54"><a href="#cb8-54"></a>lg5_optimization_output &lt;-<span class="st"> </span><span class="kw">optim</span>(</span>
+<span id="cb8-55"><a href="#cb8-55"></a>  <span class="co"># Our initial guess:</span></span>
+<span id="cb8-56"><a href="#cb8-56"></a>  <span class="dt">par =</span> params_init, </span>
+<span id="cb8-57"><a href="#cb8-57"></a>  <span class="co"># The likelihood function we want to optimize:</span></span>
+<span id="cb8-58"><a href="#cb8-58"></a>  <span class="dt">fn =</span> lg5_ML, </span>
+<span id="cb8-59"><a href="#cb8-59"></a>  <span class="co"># The points we want want to fit the S-shaped curve to:</span></span>
+<span id="cb8-60"><a href="#cb8-60"></a>  <span class="dt">doy =</span> dendroband_data<span class="op">$</span>doy, <span class="dt">dbh =</span> dendroband_data<span class="op">$</span>dbh,</span>
+<span id="cb8-61"><a href="#cb8-61"></a>  <span class="co"># Some extra stuff:</span></span>
+<span id="cb8-62"><a href="#cb8-62"></a>  <span class="dt">resid.sd =</span> <span class="fl">0.1</span>, <span class="dt">method =</span> <span class="st">&quot;BFGS&quot;</span>, <span class="dt">hessian =</span> <span class="ot">TRUE</span></span>
+<span id="cb8-63"><a href="#cb8-63"></a>  )</span>
+<span id="cb8-64"><a href="#cb8-64"></a>lg5_optimization_output</span>
+<span id="cb8-65"><a href="#cb8-65"></a></span>
+<span id="cb8-66"><a href="#cb8-66"></a><span class="co"># The optimal (K*, L*, doy.ip*, r*, theta*) are saved in par</span></span>
+<span id="cb8-67"><a href="#cb8-67"></a>params_star &lt;-<span class="st"> </span>lg5_optimization_output<span class="op">$</span>par</span>
+<span id="cb8-68"><a href="#cb8-68"></a>params_star</span>
+<span id="cb8-69"><a href="#cb8-69"></a></span>
+<span id="cb8-70"><a href="#cb8-70"></a><span class="co"># Let&#39;s plot what the generalized logistic function looks like for these optimal</span></span>
+<span id="cb8-71"><a href="#cb8-71"></a><span class="co"># values. Not bad!</span></span>
+<span id="cb8-72"><a href="#cb8-72"></a>base_plot <span class="op">+</span></span>
+<span id="cb8-73"><a href="#cb8-73"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> lg5, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">params =</span> params_star), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">n =</span> <span class="dv">500</span>)</span></code></pre></div>
 </div>
 <div id="for-next-week-3" class="section level2">
 <h2>For next week</h2>
@@ -1421,41 +1429,41 @@ Two models for the effect of competitor biomass.
 </center>
 <p></br></p>
 <p>Corresponding code:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r klippy"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Lec03 Code</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">library</span>(tsibble)</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw">library</span>(lubridate)</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="kw">library</span>(fpp3)</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">weatherdata &lt;-</a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="st">  </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/NCDC_NOAA_precip_temp.csv&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">    <span class="co"># Convert to variable of type date</span></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">    <span class="dt">date =</span> <span class="kw">dmy</span>(DATE), </a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">    <span class="co"># This will be used for the group_by() below</span></a>
-<a class="sourceLine" id="cb9-13" data-line-number="13">    <span class="dt">month =</span> <span class="kw">floor_date</span>(date, <span class="dt">unit =</span> <span class="st">&quot;month&quot;</span>),</a>
-<a class="sourceLine" id="cb9-14" data-line-number="14">    <span class="co"># Using special function from fpp package to define yearmonth units</span></a>
-<a class="sourceLine" id="cb9-15" data-line-number="15">    <span class="dt">month =</span> <span class="kw">yearmonth</span>(month)</a>
-<a class="sourceLine" id="cb9-16" data-line-number="16">  ) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="st">  </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">TMAX_avg =</span> <span class="kw">mean</span>(TMAX, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">PRCP_avg =</span> <span class="kw">mean</span>(PRCP, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-19" data-line-number="19"><span class="st">  </span><span class="co"># Convert to tsibble = time series tibble data type</span></a>
-<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="st">  </span><span class="kw">as_tsibble</span>(<span class="dt">index =</span> month) </a>
-<a class="sourceLine" id="cb9-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb9-22" data-line-number="22"><span class="co"># FPP3 2.2 Fig 2.1</span></a>
-<a class="sourceLine" id="cb9-23" data-line-number="23">weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>(TMAX_avg)</a>
-<a class="sourceLine" id="cb9-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb9-25" data-line-number="25"><span class="co"># FPP3 2.4 Fig 2.4</span></a>
-<a class="sourceLine" id="cb9-26" data-line-number="26">weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_season</span>(TMAX_avg, <span class="dt">labels =</span> <span class="st">&quot;both&quot;</span>)</a>
-<a class="sourceLine" id="cb9-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb9-28" data-line-number="28"><span class="co"># FPP3 2.5 Fig 2.5 </span></a>
-<a class="sourceLine" id="cb9-29" data-line-number="29">weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_subseries</span>(TMAX_avg)</a>
-<a class="sourceLine" id="cb9-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb9-31" data-line-number="31"><span class="co"># FPP3 2.7 Fig 2.16 </span></a>
-<a class="sourceLine" id="cb9-32" data-line-number="32">weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_lag</span>(TMAX_avg, <span class="dt">lags =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb9-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb9-34" data-line-number="34"><span class="co"># Update after Lec03: FPP3 2.8 Fig 2.17</span></a>
-<a class="sourceLine" id="cb9-35" data-line-number="35">weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ACF</span>(TMAX_avg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r klippy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Lec03 Code</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">library</span>(tsibble)</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="kw">library</span>(fpp3)</span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a>weatherdata &lt;-</span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="st">  </span><span class="kw">read_csv</span>(<span class="st">&quot;https://rudeboybert.github.io/SDS390/static/data/NCDC_NOAA_precip_temp.csv&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb9-10"><a href="#cb9-10"></a>    <span class="co"># Convert to variable of type date</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a>    <span class="dt">date =</span> <span class="kw">dmy</span>(DATE), </span>
+<span id="cb9-12"><a href="#cb9-12"></a>    <span class="co"># This will be used for the group_by() below</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a>    <span class="dt">month =</span> <span class="kw">floor_date</span>(date, <span class="dt">unit =</span> <span class="st">&quot;month&quot;</span>),</span>
+<span id="cb9-14"><a href="#cb9-14"></a>    <span class="co"># Using special function from fpp package to define yearmonth units</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a>    <span class="dt">month =</span> <span class="kw">yearmonth</span>(month)</span>
+<span id="cb9-16"><a href="#cb9-16"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="st">  </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">TMAX_avg =</span> <span class="kw">mean</span>(TMAX, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">PRCP_avg =</span> <span class="kw">mean</span>(PRCP, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="st">  </span><span class="co"># Convert to tsibble = time series tibble data type</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="st">  </span><span class="kw">as_tsibble</span>(<span class="dt">index =</span> month) </span>
+<span id="cb9-21"><a href="#cb9-21"></a></span>
+<span id="cb9-22"><a href="#cb9-22"></a><span class="co"># FPP3 2.2 Fig 2.1</span></span>
+<span id="cb9-23"><a href="#cb9-23"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>(TMAX_avg)</span>
+<span id="cb9-24"><a href="#cb9-24"></a></span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="co"># FPP3 2.4 Fig 2.4</span></span>
+<span id="cb9-26"><a href="#cb9-26"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_season</span>(TMAX_avg, <span class="dt">labels =</span> <span class="st">&quot;both&quot;</span>)</span>
+<span id="cb9-27"><a href="#cb9-27"></a></span>
+<span id="cb9-28"><a href="#cb9-28"></a><span class="co"># FPP3 2.5 Fig 2.5 </span></span>
+<span id="cb9-29"><a href="#cb9-29"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_subseries</span>(TMAX_avg)</span>
+<span id="cb9-30"><a href="#cb9-30"></a></span>
+<span id="cb9-31"><a href="#cb9-31"></a><span class="co"># FPP3 2.7 Fig 2.16 </span></span>
+<span id="cb9-32"><a href="#cb9-32"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gg_lag</span>(TMAX_avg, <span class="dt">lags =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</span>
+<span id="cb9-33"><a href="#cb9-33"></a></span>
+<span id="cb9-34"><a href="#cb9-34"></a><span class="co"># Update after Lec03: FPP3 2.8 Fig 2.17</span></span>
+<span id="cb9-35"><a href="#cb9-35"></a>weatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ACF</span>(TMAX_avg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">autoplot</span>()</span></code></pre></div>
 </div>
 </div>
 <div id="class-meeting-time-11" class="section level2">

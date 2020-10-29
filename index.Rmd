@@ -59,11 +59,6 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=1373353942&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600"></iframe>
 
 <!--
-{target="_blank"}
--->
-
-
-<!--
 * Oh shit, Git
     1. Undoing commits: locally and online
     1. Merge conflicts
@@ -74,6 +69,8 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 1. Underneath it all podcast
 1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
+
+{target="_blank"}
 --> 
 
 
@@ -84,9 +81,13 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 # Lec 17: Thu 10/29 {#Lec17}
 
-1. If you haven't already, please fill out the Mid-Semester Assessment survey posted on Slack on Sunday 10/25 at 7:45pm eastern.
-1. Group 2 (parameter estimation) update
-1. Underneath it all podcast
+1. *Tentative* plan for next week:
+    1. Tue 11/3 Group 1 - Time Series Forecasting
+    1. Thu 11/5 Group 3 - Wildfire Biomass Estimation
+1. Today: Group 2 - Parameter Estimation
+1. Breakout rooms: Underneath it all podcast
+1. "What's holding you back?"
+1. Fill out [MSA survey](https://smithcollege.qualtrics.com/jfe/form/SV_ey8fSCWwFZs7oe9){target="_blank"}.
 
 
 
