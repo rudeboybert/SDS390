@@ -79,20 +79,33 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 
 
-# Lec 17: Thu 10/29 {#Lec17}
+# Lec 18: Tue 11/3 {#Lec18}
 
-1. *Tentative* plan for next week:
-    1. Tue 11/3 Group 1 - Time Series Forecasting
-    1. Thu 11/5 Group 3 - Wildfire Biomass Estimation
-1. Today: Group 2 - Parameter Estimation
-1. Breakout rooms: Underneath it all podcast
-1. "What's holding you back?"
-1. Fill out [MSA survey](https://smithcollege.qualtrics.com/jfe/form/SV_ey8fSCWwFZs7oe9){target="_blank"}.
+*Tentative* plan:
+
+1. Before lecture, think for 5 minutes about any of the obstacles in the ["What's holding you back?"](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/dd31a906-b475-4fcc-82d8-bd0ace7ee077-WhatsHoldingYouBack.pdf){target="_blank"} slide we discussed in Lec 17.
+1. Presentation by Group 1 - Time Series Forecasting
 
 
 
 ***
 
+
+
+# Lec 17: Thu 10/29 {#Lec17}
+
+1. *Tentative* plan for next week:
+    1. Tue 11/3 Group 1 - Time Series Forecasting
+    1. Thu 11/5 Group 3 - Wildfire Biomass Estimation
+1. Presentation by Group 2 - Parameter Estimation
+1. Breakout rooms: Underneath it all podcast
+1. ["What's holding you back?"](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/dd31a906-b475-4fcc-82d8-bd0ace7ee077-WhatsHoldingYouBack.pdf){target="_blank"}
+1. Fill out [MSA survey](https://smithcollege.qualtrics.com/jfe/form/SV_ey8fSCWwFZs7oe9){target="_blank"}.
+1. [Link](https://smith.zoom.us/rec/share/bo4oTN3l-tajolw7GH5S-wIDs_aNTpS0qmjpgYpfeIDpPrD62HRO0InSUGRIOqTG.YTGhgLqys5W1A3kJ){target="_blank"} to video recording.
+
+
+
+***
 
 
 
