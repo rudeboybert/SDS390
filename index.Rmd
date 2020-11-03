@@ -81,9 +81,11 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 # Lec 18: Tue 11/3 {#Lec18}
 
-*Tentative* plan:
-
-1. Before lecture, think for 5 minutes about any of the obstacles in the ["What's holding you back?"](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/dd31a906-b475-4fcc-82d8-bd0ace7ee077-WhatsHoldingYouBack.pdf){target="_blank"} slide we discussed in Lec 17.
+1. Announcements:
+    1. I will make another MP grading push later today/early on Wednesday
+    1. Plan for Thursday's lecture
+1. Breakout rooms:
+    1. Before lecture, think for 5 minutes about any of the obstacles in the ["What's holding you back?"](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/dd31a906-b475-4fcc-82d8-bd0ace7ee077-WhatsHoldingYouBack.pdf){target="_blank"} slide we discussed in Lec 17.
 1. Presentation by Group 1 - Time Series Forecasting
 
 
