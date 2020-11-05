@@ -81,9 +81,9 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 # Lec 19: Thu 11/5 {#Lec19}
 
-1. Lecture to be held as scheduled, but depending on the next few days we'll either
-    1. Have a presentation by Group 2 - Wildfire biomass estimation
-    1. Class discussion
+1. Mid-semester assessment survey
+1. Presentation by Group 2 - Wildfire biomass estimation
+1. Virtuo-spatial classroom demo part 2. Click [here](https://gather.town/app/LBDYE6rQpFibibq6/classroom-24){target="_blank"} to access classroom. 
 
 
 
