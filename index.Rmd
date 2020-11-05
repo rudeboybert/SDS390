@@ -72,13 +72,26 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 ***
 
 
+# Lec 20: Tue 11/10 {#Lec20}
+
+1. Presentation by Group 2 - Parameter Estimation
+1. Virtuo-spatial classroom demo part 2. Click [here](https://gather.town/app/LBDYE6rQpFibibq6/classroom-24){target="_blank"} to access classroom. See Slack for password.
+1. Continue discussion on [mentor map](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/219/Mentor%20Maps%202019%20Filliable.pdf){target="_blank"}. 
+
+
+
+***
+
+
 
 # Lec 19: Thu 11/5 {#Lec19}
 
 1. Mid-semester assessment survey
-1. Presentation by Group 2 - Wildfire biomass estimation
-1. Virtuo-spatial classroom demo part 2. Click [here](https://gather.town/app/LBDYE6rQpFibibq6/classroom-24){target="_blank"} to access classroom. 
-1. Time permitting: "What do I need?" Download this [mentor map](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/219/Mentor%20Maps%202019%20Filliable.pdf){target="_blank"} and start filling it in. 
+1. Presentation by Group 3 - Wildfire biomass estimation
+1. ~~Virtuo-spatial classroom demo part 2. Click [here](https://gather.town/app/LBDYE6rQpFibibq6/classroom-24){target="_blank"} to access classroom.~~
+1. "What do I need?" Download this [mentor map](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/219/Mentor%20Maps%202019%20Filliable.pdf){target="_blank"} and start filling it in. 
+1. [Link](https://smith.zoom.us/rec/share/J5DeqNnvtoJInb0vmyeriDP_FydwtCk8W8MGC_wlVqDSyCMrfcidGCSG-qwRkbH_.DwcSmDDlms6p-xRk?startTime=1604587487000){target="_blank"} to video recording.
+
 
 
 
@@ -93,7 +106,6 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
     1. Plan for Thursday's lecture
 1. Breakout rooms: Before lecture, think for 5 minutes about any of the obstacles in the ["What's holding you back?"](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/dd31a906-b475-4fcc-82d8-bd0ace7ee077-WhatsHoldingYouBack.pdf){target="_blank"} slide we discussed in Lec 17.
 1. Presentation by Group 1 - Time Series Forecasting
-1. [Link](https://smith.zoom.us/rec/share/4IYoinl4Qdvz3opD5b25YozExQGciLAUpuZ3hguHPM_a86goeYgtpZuYBfYNAw33.2zE0p6knoEuQwHe1?startTime=1604414711000){target="_blank"} to video recording.
 
 
 
