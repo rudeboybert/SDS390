@@ -84,6 +84,7 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 1. Mid-semester assessment survey
 1. Presentation by Group 2 - Wildfire biomass estimation
 1. Virtuo-spatial classroom demo part 2. Click [here](https://gather.town/app/LBDYE6rQpFibibq6/classroom-24){target="_blank"} to access classroom. 
+1. Time permitting: "What do I need?" Download this [mentor map](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/219/Mentor%20Maps%202019%20Filliable.pdf){target="_blank"} and start filling it in. 
 
 
 
