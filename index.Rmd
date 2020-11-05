@@ -59,15 +59,9 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=1373353942&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="625"></iframe>
 
 <!--
-* Oh shit, Git
-    1. Undoing commits: locally and online
-    1. Merge conflicts
-* NCFDD topics:
+1. NCFDD topics:
     1. Week 5: Assess and Adjust. Show "What's holding you back?" PDF
     1. Week 7: Mentoring Networks. "What do I need?"
-
-
-1. Underneath it all podcast
 1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
 
 {target="_blank"}
