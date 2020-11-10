@@ -86,7 +86,7 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 # Lec 20: Tue 11/10 {#Lec20}
 
-No lecture. I encourage you to participate in [(Otelia) Cromwell Day 2020](https://www.smith.edu/about-smith/college-events/cromwell-day/events-2020){target="_blank"} programming. 
+No lecture. I encourage you to participate in [Cromwell Day 2020](https://www.smith.edu/about-smith/college-events/cromwell-day/events-2020){target="_blank"} programming. 
 
 
 
