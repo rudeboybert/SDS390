@@ -72,11 +72,21 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 ***
 
 
-# Lec 20: Tue 11/10 {#Lec20}
+# Lec 22: Thu 11/12 {#Lec21}
 
 1. Presentation by Group 2 - Parameter Estimation
 1. Virtuo-spatial classroom demo part 2. Click [here](https://gather.town/app/LBDYE6rQpFibibq6/classroom-24){target="_blank"} to access classroom. See Slack for password.
-1. Continue discussion on [mentor map](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/219/Mentor%20Maps%202019%20Filliable.pdf){target="_blank"}. 
+1. "Close the loop" on discussions about [mentor map](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/219/Mentor%20Maps%202019%20Filliable.pdf){target="_blank"}. 
+
+
+
+***
+
+
+
+# Lec 20: Tue 11/10 {#Lec20}
+
+No lecture. I encourage you to participate in [(Otelia) Cromwell Day 2020](https://www.smith.edu/about-smith/college-events/cromwell-day/events-2020){target="_blank"} programming. 
 
 
 
