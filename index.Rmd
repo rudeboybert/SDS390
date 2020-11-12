@@ -72,11 +72,32 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 ***
 
 
-# Lec 22: Thu 11/12 {#Lec21}
+# Lec 23: Thu 11/19 {#Lec23}
+
+1. Presentation by Group 3 - Wildfire biomass estimation
+
+
+
+***
+
+
+
+# Lec 22: Tue 11/17 {#Lec22}
+
+1. Presentation by Group 1 - Time Series Forecasting
+
+
+
+***
+
+
+
+# Lec 21: Thu 11/12 {#Lec21}
 
 1. Presentation by Group 2 - Parameter Estimation
 1. Virtuo-spatial classroom demo part 2. Click [here](https://gather.town/app/LBDYE6rQpFibibq6/classroom-24){target="_blank"} to access classroom. See Slack for password.
 1. "Close the loop" on discussions about [mentor map](https://ncfdd-production-file-uploads.s3.amazonaws.com/media/219/Mentor%20Maps%202019%20Filliable.pdf){target="_blank"}. 
+1. [Link](https://smith.zoom.us/rec/share/oR2c3ZInpKWJLaVec9UR4tM9G9B2l7Wr2xN0are0FuI1_MAgM9geyzG7MAb-Slrv.uByJkIrYjK5wvPbW?startTime=1605192296000){target="_blank"} to video recording.
 
 
 
