@@ -85,6 +85,7 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 # Lec 22: Tue 11/17 {#Lec22}
 
 1. Presentation by Group 1 - Time Series Forecasting
+1. Discussion on starting blogpost: The importance of writing
 
 
 
