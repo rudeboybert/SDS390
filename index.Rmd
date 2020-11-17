@@ -87,6 +87,7 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 # Lec 22: Tue 11/17 {#Lec22}
 
 1. Presentation by Group 1 - Time Series Forecasting
+1. [Link](https://smith.zoom.us/rec/share/qOCKBl02NUfvCkR65BMUIL7-56mN7ulEbTRAgz2o_p9uk7EDTz3_ASl7h9MlLa1l.ssR8UE_BRCG20GH-?startTime=1605624280000){target="_blank"} to video recording.
 
 
 
