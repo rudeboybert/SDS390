@@ -76,7 +76,10 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 1. Presentation by Group 3 - Wildfire biomass estimation
 1. Presentation by Group 4
-1. Discussion on starting blogpost: The importance of writing
+1. In-class activity involving voice memos. Please have your phone and following app ready
+    + Android: Voice Recorder
+    + iOS: Voice Memos
+1. [Link](){target="_blank"} to video recording.
 
 
 
