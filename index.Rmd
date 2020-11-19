@@ -72,14 +72,30 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 ***
 
 
-# Lec 23: Thu 11/19 {#Lec23}
+# Lec 24: Tue 11/24 {#Lec24}
 
-1. Presentation by Group 3 - Wildfire biomass estimation
-1. Presentation by Group 4
+## Before class preparation
+
+I will post things you need to do in advance of lecture here by Mon 11/23 6pm EST.
+
+## Class meeting time
+
+1. Presentation by Group 2 - Parameter Estimation
 1. In-class activity involving voice memos. Please have your phone and following app ready
     + Android: Voice Recorder
     + iOS: Voice Memos
-1. [Link](){target="_blank"} to video recording.
+
+
+
+***
+
+
+
+# Lec 23: Thu 11/19 {#Lec23}
+
+1. Presentation by Group 3 - Wildfire biomass estimation
+1. Presentation by Group 4 - Competitor/neighbor modeling
+1. [Link](https://smith.zoom.us/rec/share/yTl4TVKELIYwDB628FUfQs_N3r1pX76RJ6XzTUqraIOBqnIf4f4UTd51ouHc4GxM.oZfJ_9C5D2G7_G9I?startTime=1605797115000){target="_blank"} to video recording.
 
 
 
