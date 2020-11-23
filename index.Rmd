@@ -81,8 +81,8 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
         + Android: Voice Recorder
         + iOS: Voice Memos
     1. Record a test 10 second clip of you speaking
-    1. Share it with me via email: akim04@smith.edu
-1. Create a new Google Doc from your Smith Google Drive, title it "BFD - <YOUR NAME>", and share it with me: akim04@smith.edu
+    1. Send it to me via email: akim04@smith.edu
+1. Create a new Google Doc from your Smith Google Drive, title it "BFD - <YOUR NAME>", share it with me at akim04@smith.edu, and then send me a link to it in a private Slack DM (not the group channel). 
 
 ## Class meeting time
 
