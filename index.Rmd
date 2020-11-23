@@ -76,14 +76,18 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 ## Before class preparation
 
-I will post things you need to do in advance of lecture here by Mon 11/23 6pm EST.
+1. Test out voice recording:
+    1. Open your phone's voice recorder app:
+        + Android: Voice Recorder
+        + iOS: Voice Memos
+    1. Record a test 10 second clip of you speaking
+    1. Share it with me via email: akim04@smith.edu
+1. Create a new Google Doc from your Smith Google Drive, title it "BFD - <YOUR NAME>", and share it with me: akim04@smith.edu
 
 ## Class meeting time
 
 1. Presentation by Group 2 - Parameter Estimation
-1. In-class activity involving voice memos. Please have your phone and following app ready
-    + Android: Voice Recorder
-    + iOS: Voice Memos
+1. In-class activity
 
 
 
