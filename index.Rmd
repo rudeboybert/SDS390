@@ -82,10 +82,11 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
         + iOS: Voice Memos
     1. Record a test 10 second clip of you speaking
     1. Send it to me via email.
-1. Create a new Google Doc from your Smith Google Drive, title it "BFD - <YOUR NAME>", share it with me so that I can edit it, and then send me a link to it in a private Slack DM (not the group channel). 
+1. Create a new Google Doc from your Smith Google Drive, title it "🤮1️⃣📝 - YOUR NAME", share it with me so that I can edit it, and then send me a link to it in a private Slack DM (not the group channel). 
 
 ## Class meeting time
 
+1. Announcement: I finished another pass of MP grading yesterday. The last day to submit/resubmit is Tue 12/8. 
 1. Presentation by Group 2 - Parameter Estimation
 1. In-class activity
 
