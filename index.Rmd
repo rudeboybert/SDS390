@@ -88,8 +88,8 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 1. Announcement: I finished another pass of MP grading yesterday. The last day to submit/resubmit is Tue 12/8. 
 1. Presentation by Group 2 - Parameter Estimation
-1. In-class activity
-
+1. In-class activity: Bad first draft!
+1. [Link](https://smith.zoom.us/rec/share/RCAiqbCOvZll34jjbf_TLLhJyWRYl3WZG8DIZB0li2kb1O43zopr9FyNwfzZIUUP.Kb1Zrv6wglHuXtHG?startTime=1606229052000){target="_blank"} to video recording.
 
 
 ***
