@@ -72,6 +72,20 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 ***
 
 
+# Lec 25: Tue 12/1 {#Lec25}
+
+## Class meeting time
+
+1. Presentation by Group 3 - Wildfire biomass estimation
+1. Blogpost
+    1. Create an account on medium.com
+    
+
+
+***
+
+
+
 # Lec 24: Tue 11/24 {#Lec24}
 
 ## Before class preparation
