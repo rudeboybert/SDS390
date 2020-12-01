@@ -77,9 +77,33 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 ## Class meeting time
 
 1. Presentation by Group 3 - Wildfire biomass estimation
-1. Blogpost
+
+
+## Blogpost
+
+**By the end of today:**
+
+1. Blogpost:
     1. Create an account on medium.com
-    
+    1. Fill out your profile
+    1. Click your profile pic -> Write a story
+    1. Copy and paste the contents of your 🤮1️⃣📝
+    1. Click ... -> Share draft link -> Copy and paste link in Slack DM to me
+1. [Jacobson Writing Center](https://www.smith.edu/academics/jacobson-center/student-services#tutorial){target="_blank"}:
+    1. Click on schedule a writing appointment
+    1. Create an account
+    1. Book an appointment to see any writing counselor (other than Lauren).
+    1. Forward me confirmation email
+
+**Blogpost should**:
+
+1. State what your group's research goal was.  
+1. Target an audience that has seen linear regression before, but is not necessarily a stats/data science major.
+1. Be between a 5-7 minute read as calculated by medium.com. See this [example](https://eidolon.pub/x-fiddled-while-y-burned-80abf13e7c08){target="_blank"}.
+1. Should use text formating, images, links.
+1. Close with a reflection on not just the *outcome* of your research, but on the *process* your research. What went well, what didn't, etc.
+
+
 
 
 ***
