@@ -73,24 +73,26 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 
 
-<!--
-
 # Lec 27: Tue 12/8 {#Lec27}
 
 ## Class meeting time
 
-1. Show LIDAR
-1. "Closing the loop": Mini-version of capstone. Please let me know how your experiences compare!
+1. "Closing the loop"
+
+<!--
+: Mini-version of capstone. Please let me know how your experiences compare!
 1. Shout out to Lauren L. from Jacobson Center for voice memo idea
 1. Exit survey
     + Had you been to jacobson before
     + What did you think?
     + Describe your contributions
     + Ok if I tweet your blogpost?
+-->
+
 
 
 ***
--->
+
 
 
 
@@ -104,6 +106,8 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
     1. I'll go over all MP's one last time and give feedback to blogposts on Monday morning
 1. Presentation by Group 3 - Wildfire biomass estimation
 1. Presentation by Group 4 - Competitor/neighbor modeling
+1. [Link](https://smith.zoom.us/rec/share/8O1vLZ9FymzN1O3aE6Ce0rxVQdbZ7ioJGh85Oqo2iduH9DWtQEFInOS3koeorXqo.1mDgv09Wt-Q_jLEh){target="_blank"} to video recording.
+
 
 
 
