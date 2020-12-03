@@ -79,7 +79,6 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 ## Class meeting time
 
-1. Ask if anyone is willing to SCBI pull request
 1. Show LIDAR
 1. "Closing the loop": Mini-version of capstone. Please let me know how your experiences compare!
 1. Shout out to Lauren L. from Jacobson Center for voice memo idea
@@ -87,7 +86,7 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
     + Had you been to jacobson before
     + What did you think?
     + Describe your contributions
-1. 
+    + Ok if I tweet your blogpost?
 
 
 ***
@@ -99,7 +98,10 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 ## Class meeting time
 
-1. Announcement: data cleaning work
+1. Announcements:
+    1. If anyone is interested in SCBI data cleaning work, DM me.
+    1. See note added to [blogpost instructions](#blogpost)
+    1. I'll go over all MP's one last time and give feedback to blogposts on Monday morning
 1. Presentation by Group 3 - Wildfire biomass estimation
 1. Presentation by Group 4 - Competitor/neighbor modeling
 
@@ -117,7 +119,7 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 1. [Link](https://smith.zoom.us/rec/share/YNIwt_rP4IVdtf3jba-RqzQEzap3_VshM6STcLlbXUjBWmp9JATh_Zgprn-L2M_q.cqRYvOlJHYsuIUQS){target="_blank"} to video recording.
 
 
-## Blogpost
+## Blogpost instructions {#blogpost}
 
 ### a) By the end of today
 
@@ -138,8 +140,9 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 1. State what your group's research goal was.  
 1. Target an audience that has seen linear regression before, but is not necessarily a stats/data science major.
 1. Be between a 5-7 minute read as calculated by medium.com. See this [example](https://eidolon.pub/x-fiddled-while-y-burned-80abf13e7c08){target="_blank"}. **Added after lecture**: the 5-7 minute guide is a rough principle. If you feel you need to exceed, please do. Note that if this limit is too restrictive, please let me know and we can discuss revisiting. 
-1. Should use text formating, images, links.
+1. Should use text formating, images, links, quotes, etc.
 1. **Edited after lecture**: Focus not just on the *outcome* of your research, but on a reflection on the *process* your research. By process I mean you are telling a *holistic story* on any of the aspects of the research half of this course: picking the project, what went well, what didn't, what problems you encountered, the group work format, the presentations, the weekly meetings, etc.
+1. **Added Thu 12/3**: Be sure to cite all sources, either via hyperlinks or a reference section at the end.
 
 
 ### c) Deliverable
