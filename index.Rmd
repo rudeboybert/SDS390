@@ -62,7 +62,6 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 1. NCFDD topics:
     1. Week 5: Assess and Adjust. Show "What's holding you back?" PDF
     1. Week 7: Mentoring Networks. "What do I need?"
-1. Round two of testing new [gather.town](https://gather.town/app/EwDPdjUZOVUU7YrK/rudeboybert){target="_blank"} breakout room format. Password is the same as for lectures.
 
 {target="_blank"}
 --> 
@@ -77,17 +76,28 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 ## Class meeting time
 
-1. "Closing the loop"
-
 <!--
-: Mini-version of capstone. Please let me know how your experiences compare!
-1. Shout out to Lauren L. from Jacobson Center for voice memo idea
-1. Exit survey
-    + Had you been to jacobson before
-    + What did you think?
-    + Describe your contributions
-    + Ok if I tweet your blogpost?
+closing the loop
+- I was a little bit worried at the beginning of the semester. New discipline, no established curriculum
+- Mentor map: Peter de Villiers
+- Projects, research group. Take advantage of small number of students
+- Turned into mini-capstone
+
+shout outs
+- Lauren L
+- Graduating 2021J: Candy and Starry
 -->
+
+1. Announcements:
+    1. Be sure to *publish* and DM me a link to your medium.com article by 11pm eastern tonight.
+    1. Resubmissions to Mini-Projects due at 11pm tonight.
+1. "Closing the loop" - An expression I learned from NCFDD:
+    1. If you ask someone for something, be sure to follow up afterwards.
+    1. Taking stock
+1. Shout outs
+1. Fill out
+    1. [Exit Survey Google Form](https://docs.google.com/forms/d/e/1FAIpQLSf9WPTp8Da4QQjdYi8jRrskpaBfDj8fKgJozpm6fV6QyxUPgQ/viewform){target="_blank"}
+    1. Please, please, please also fill out teaching evaluations from Smith College!
 
 
 
@@ -151,7 +161,7 @@ students <- c("Candy", "Emma S.", "Emma K.", "Haley", "Lauren", "Olivia", "Seren
 
 ### c) Deliverable
 
-**Added after lecture**: By Tuesday 12/8, a published blogpost on medium.com that you can add to your professional portfolio. Also you can show your friends and family!
+**Added after lecture**: By Tuesday 12/8 11pm eastern, a published blogpost on medium.com that you can add to your professional portfolio. Also you can show your friends and family!
 
 
 
