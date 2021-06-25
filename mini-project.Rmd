@@ -22,7 +22,7 @@ h1{font-weight: 400;}
 
 Have students create a time series decomposition plot like [Figure 3.7](https://otexts.com/fpp3/components.html#fig:emplstl){target="_blank"} from Forecasting Principles and Practice 3rd Edition (FPP3) using ecological data and write a medium.com blogpost on analysis.
 
-This website can be found at [bit.ly/EFI_FPP](){target="_blank"}
+This website can be found at [bit.ly/EFI_forecasting](https://bit.ly/EFI_forecasting){target="_blank"}
 
 
 # The code
