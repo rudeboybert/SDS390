@@ -107,6 +107,7 @@ This will encourage your students to work on their writing as well as their pres
 1. Have students build their first time series decomposition plot **as soon as possible**. Hadley Wickham calls this the "race to the first data visualization." The `fpp3` package has a lot of custom functions that allow users to make plots and run basic analyses without being overly familiar with the `tidyverse`
 1. I argue that initially it's more important to focus on a minimally viable product: that students get a feel for time series thinking and know how to interpret results. This rather than expecting them to completely understand the mathematics and the code at first; gaps can be filled later on. 
 1. Then go through the preceding chapters in FPP3. Skip chapters as needed depending on your students' background.
+1. Then have students create similar plots using ecological data that they find and wrangle. **This will likely be the trickiest portion of the project.**
 
 
 # Power move
