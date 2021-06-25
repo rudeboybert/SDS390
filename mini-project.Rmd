@@ -17,12 +17,15 @@ h1{font-weight: 400;}
 </style>
 
 
+This website can be found at [bit.ly/EFI_forecasting](https://bit.ly/EFI_forecasting){target="_blank"}.
 
 # Summary
 
 Have students create a time series decomposition plot like [Figure 3.7](https://otexts.com/fpp3/components.html#fig:emplstl){target="_blank"} from Forecasting Principles and Practice 3rd Edition (FPP3) using ecological data and write a medium.com blogpost on analysis.
 
-This website can be found at [bit.ly/EFI_forecasting](https://bit.ly/EFI_forecasting){target="_blank"}
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("static/images/FPP3_Fig3_7.png")
+```
 
 
 # The code

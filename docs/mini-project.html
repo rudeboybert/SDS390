@@ -451,10 +451,11 @@ div.tocify {
 <style>
 h1{font-weight: 400;}
 </style>
+<p>This website can be found at <a href="https://bit.ly/EFI_forecasting" target="_blank">bit.ly/EFI_forecasting</a>.</p>
 <div id="summary" class="section level1">
 <h1>Summary</h1>
 <p>Have students create a time series decomposition plot like <a href="https://otexts.com/fpp3/components.html#fig:emplstl" target="_blank">Figure 3.7</a> from Forecasting Principles and Practice 3rd Edition (FPP3) using ecological data and write a medium.com blogpost on analysis.</p>
-<p>This website can be found at <a href="https://bit.ly/EFI_forecasting" target="_blank">bit.ly/EFI_forecasting</a></p>
+<p><img src="static/images/FPP3_Fig3_7.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="the-code" class="section level1">
 <h1>The code</h1>
@@ -469,7 +470,7 @@ h1{font-weight: 400;}
 <span id="cb1-8"><a href="#cb1-8"></a><span class="kw">autoplot</span>(us_retail_employment, Employed) <span class="op">+</span></span>
 <span id="cb1-9"><a href="#cb1-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Persons (thousands)&quot;</span>, </span>
 <span id="cb1-10"><a href="#cb1-10"></a>       <span class="dt">title =</span> <span class="st">&quot;Total employment in US retail&quot;</span>)</span></code></pre></div>
-<p><img src="mini-project_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="mini-project_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>… and show that you can separate the <strong>signal</strong> from the <strong>noise</strong>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>dcmp &lt;-<span class="st"> </span>us_retail_employment <span class="op">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="st">  </span><span class="kw">model</span>(<span class="dt">stl =</span> <span class="kw">STL</span>(Employed))</span>
@@ -482,7 +483,7 @@ h1{font-weight: 400;}
 <span id="cb2-9"><a href="#cb2-9"></a>    <span class="dt">y =</span> <span class="st">&quot;Persons (thousands)&quot;</span>,</span>
 <span id="cb2-10"><a href="#cb2-10"></a>    <span class="dt">title =</span> <span class="st">&quot;Total employment in US retail&quot;</span></span>
 <span id="cb2-11"><a href="#cb2-11"></a>  )</span></code></pre></div>
-<p><img src="mini-project_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="mini-project_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>i.e. the blue trend line is the <strong>signal</strong> and the variation of the times series in grey around this blue line is the <strong>noise</strong>.</p>
 <p>Furthermore this noise can be broken down into a portion that is cyclical (here following an annual pattern) and a residual portion. In other words the original time series can be be broken down into three components:</p>
 <ol style="list-style-type: decimal">
@@ -492,7 +493,7 @@ h1{font-weight: 400;}
 </ol>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">components</span>(dcmp) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span><span class="kw">autoplot</span>()</span></code></pre></div>
-<p><img src="mini-project_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="mini-project_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>i.e. the “Employed” time series on top is equal to the sum of the three bottom times series. Note the vertical grey bars on the left-hand side of all four plots are the same absolute height (about 200 persons) and thus can be used to compare the unit scale on all four plots.</p>
 <p>Observe that after accounting for the overall trend and seasonality patterns in employments, US retail employment was particularly low in January 2010.</p>
 </div>
@@ -545,7 +546,7 @@ h1{font-weight: 400;}
 <span id="cb4-17"><a href="#cb4-17"></a>    <span class="dt">title =</span> <span class="st">&quot;Forecasts for US retail employment&quot;</span></span>
 <span id="cb4-18"><a href="#cb4-18"></a>  ) <span class="op">+</span></span>
 <span id="cb4-19"><a href="#cb4-19"></a><span class="st">  </span><span class="kw">guides</span>(<span class="dt">colour =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="st">&quot;Forecast&quot;</span>))</span></code></pre></div>
-<p><img src="mini-project_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="mini-project_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 
 
