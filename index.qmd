@@ -11,11 +11,13 @@ title: "SDS390: Ecological Forecasting"
 
 # Lec 2.1: Tue 9/12
 
-Developing a python/jupyter notebook workflow
-
-- Open a jupyter notebook
-- Start "Manipulating Time Series Data in Python" DataCamp course, to be completed by Tue 9/19 before class
--
+1. Join `#questions` channel on Slack
+1. Fill in your information on roster
+1. ChatGPT citation mechanism: share link
+1. Developing a python/jupyter notebook workflow
+    1. Open a jupyter notebook
+    1. Start "Manipulating Time Series Data in Python" DataCamp course, to be completed by Tue 9/19 before     class
+    1. 
 
 
 
