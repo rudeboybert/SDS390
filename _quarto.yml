@@ -6,9 +6,18 @@ website:
   title: "SDS390"
   favicon: 390.png
   navbar:
+    left:
+      - text: "FPP3"
+        href: https://otexts.com/fpp3/
+      - text: "DC"
+        href: https://app.datacamp.com/learn/assignments
+      - text: "ChatGPT"
+        href: https://chat.openai.com/
     right:
       - text: "Syllabus"
         href: https://docs.google.com/document/d/1pYACVZ91x21ffbMDfCgFGqvjM0v9YFiTSGX2-TwHUNE/edit#heading=h.amnifumas6q
+
+
 
 
 format:
