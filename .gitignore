@@ -3,9 +3,6 @@
 .RData
 .Ruserdata
 .DS_Store
-*_cache/
-.httr-oauth
-*.log
-*.synctex.gz
-*-concordance.tex
+
+/.quarto/
 

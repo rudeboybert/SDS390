@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "SDS390"
+  favicon: 390.png
+  navbar:
+    right:
+      - text: "Syllabus"
+        href: https://docs.google.com/document/d/1pYACVZ91x21ffbMDfCgFGqvjM0v9YFiTSGX2-TwHUNE/edit#heading=h.amnifumas6q
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    highlight: tango
+    toc: true
+    toc_float: true
+    toc_collapsed: false
+    toc_depth: 1
+    df_print: paged
+
+
+editor: visual
+
