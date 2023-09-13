@@ -9,6 +9,71 @@ title: "SDS390: Ecological Forecasting"
 
 
 
+# Lec 2.2: Thu 9/14
+
+- Slido results from [last time](https://analytics.slido.com/share/XIJcW_05mEyupBJ2tuIT0cTYhCVNaSKt_S6IXFz9P_85KW39KIJcX_0zn_0tn_0sn_04mEwpT_cBSQUZ7NfeRoClIynj_ST2bmxub3FsZXFubP0vmHyIUAu_SVrj9mYafEeNA6EIvbcFZweiMI4O1A7kdCS5bg)
+- ChatGPT result on global temperature
+- Install `fpp3` R package
+- Chalk talk on FPP Chapter 2: Time Series Graphics. During chalk talk I will refer to "code blocks" below. Feel free to copy to a `playground.qmd` file.
+
+
+```{r eval=FALSE, echo=TRUE}
+library(fpp3)
+
+# Code block 1 ----
+# Compare meta-data of data_tibble and data_tsibble
+data_tibble <- tibble(
+  Year = 2015:2019,
+  Observation = c(123, 39, 78, 52, 110)
+)
+data_tibble
+
+# Set variable that indexes the data: Year
+data_tsibble <- tsibble(data_tibble, index = "Year")
+data_tsibble
+
+
+# Code block 2 ----
+# Scatterplot of relationship between two time series
+# Code for Fig. 2.14:
+vic_elec |>
+  filter(year(Time) == 2014) |>
+  ggplot(aes(x = Temperature, y = Demand)) +
+  geom_point() +
+  labs(x = "Temperature (degrees Celsius)",
+       y = "Electricity demand (GW)")
+
+# Code for Fig 2.14 with (simplified) notion of time
+vic_elec |>
+  filter(year(Time) == 2014) |>
+  # Add this:
+  mutate(month = factor(month(Date))) |>
+  # Add color scale
+  ggplot(aes(x = Temperature, y = Demand, col = month)) +
+  geom_point() +
+  labs(x = "Temperature (degrees Celsius)",
+       y = "Electricity demand (GW)")
+
+
+# Code block 3 ----
+# Lag plots: relationship of a TS variable with itself in the past
+# Create regular TS plot of data in Fig 2.19 Beer production over time
+recent_production <- aus_production |>
+  filter(year(Quarter) >= 2000)
+
+# Note time index meta-data = 1Q = quarter
+recent_production
+
+# Note patterns
+recent_production |> autoplot(Beer)
+```
+
+
+
+***
+
+
+
 # Lec 2.1: Tue 9/12
 
 1. Join `#questions` channel on Slack
@@ -16,8 +81,8 @@ title: "SDS390: Ecological Forecasting"
 1. ChatGPT citation mechanism: share link
 1. Developing a python/jupyter notebook workflow
     1. Open a jupyter notebook
-    1. Start "Manipulating Time Series Data in Python" DataCamp course, to be completed by Tue 9/19 before     class
-    1. 
+    1. Start "Manipulating Time Series Data in Python" DataCamp course, to be completed by Tue 9/19 before class
+
 
 
 
