@@ -7,6 +7,28 @@ title: "SDS390: Ecological Forecasting"
 
 
 
+# Lec 3.1: Tue 9/19
+
+```{r eval=FALSE, echo=TRUE}
+library(fpp3)
+
+# Code block 1 ----
+# Lag plots: relationship of a TS variable with itself in the past
+# Create regular TS plot of data in Fig 2.19 Beer production over time
+recent_production <- aus_production |>
+  filter(year(Quarter) >= 2000)
+
+# Note time index meta-data = 1Q = quarter
+recent_production
+
+# Note patterns
+recent_production |> autoplot(Beer)
+```
+
+
+
+***
+
 
 
 # Lec 2.2: Thu 9/14
@@ -15,9 +37,13 @@ title: "SDS390: Ecological Forecasting"
 - ChatGPT result on global temperature
 - Install `fpp3` R package
 - Chalk talk on FPP Chapter 2: Time Series Graphics. During chalk talk I will refer to "code blocks" below. Feel free to copy to a `playground.qmd` file.
+- Canada wins gold medal in ice hockey in overtime at 2010 Vancouver Winter Olympics
+    - The [Golden Goal 🥇](https://www.youtube.com/watch?v=GBMriA6maIU&t=18s)
+    - A clear [cyclical pattern](https://www.zdnet.com/a/img/resize/51e841b3331a3340a2b95219ddc1a7826fcaee31/2013/11/13/e384930f-4c5f-11e3-90a0-0291187ef9b6/epcor_edmonton_water_usage_flush_olympic_gold_game.jpg?auto=webp&fit=crop&height=1200&width=1200) in water consumption (from 🚽🚾🧻)
 
 
 ```{r eval=FALSE, echo=TRUE}
+# Lec 2.2 Code
 library(fpp3)
 
 # Code block 1 ----
@@ -53,19 +79,6 @@ vic_elec |>
   geom_point() +
   labs(x = "Temperature (degrees Celsius)",
        y = "Electricity demand (GW)")
-
-
-# Code block 3 ----
-# Lag plots: relationship of a TS variable with itself in the past
-# Create regular TS plot of data in Fig 2.19 Beer production over time
-recent_production <- aus_production |>
-  filter(year(Quarter) >= 2000)
-
-# Note time index meta-data = 1Q = quarter
-recent_production
-
-# Note patterns
-recent_production |> autoplot(Beer)
 ```
 
 
