@@ -9,6 +9,11 @@ title: "SDS390: Ecological Forecasting"
 
 # Lec 3.1: Tue 9/19
 
+- Fill out DC info on Roster Google Sheet
+- Finish chalk talk on FPP Chapter 2. See code below
+- 
+
+
 ```{r eval=FALSE, echo=TRUE}
 library(fpp3)
 
