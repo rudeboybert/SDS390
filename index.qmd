@@ -95,7 +95,7 @@ vic_elec |>
 1. Developing a python/jupyter notebook workflow
     1. Open a jupyter notebook
     1. Start "Manipulating Time Series Data in Python" DataCamp course, to be completed by Tue 9/19 before class
-
+    1. Screencast recording [here](https://drive.google.com/file/d/1kHVmegmsxClToWpUjak6s2cwcRZJ8vJ8/view?usp=sharing)
 
 
 
