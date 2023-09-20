@@ -7,11 +7,14 @@ title: "SDS390: Ecological Forecasting"
 
 
 
-# Lec 3.1: Tue 9/19
+# Lec 3.2: Thu 9/21
 
-- Fill out DC info on Roster Google Sheet
+- Mountain Day recap
 - Finish chalk talk on FPP Chapter 2. See code below
-- 
+- DataCamp
+    1. Go to Roster Google Sheet (top right of page) and fill in both DC columns
+    1. Original ["Manipulating Time Series Data in Python"]() course due next Tue 9/26 before class
+    1. Next course in [Time Series with Python](https://app.datacamp.com/learn/skill-tracks/time-series-with-python) skill track, ["Time Series Analysis in Python"]()
 
 
 ```{r eval=FALSE, echo=TRUE}
