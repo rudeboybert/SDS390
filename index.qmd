@@ -9,20 +9,23 @@ title: "SDS390: Ecological Forecasting"
 
 # Lec 3.2: Thu 9/21
 
-- Mountain Day recap
-- Finish chalk talk on FPP Chapter 2. See code below
-- DataCamp
-    1. Go to Roster Google Sheet (top right of page) and fill in both DC columns
-    1. Poll class on sli.do about DC
+## Announcements
+
+1. First problem set assigned on Tue, which will build into first mini-presentation
+1. Mountain Day recap
+1. Originally assigned course ["Manipulating Time Series Data in Python"](https://app.datacamp.com/learn/courses/manipulating-time-series-data-in-python) due next Tue 9/26 before class 
+1. Go to Roster Google Sheet (top right of page) and fill DC columns
+
+
+## Lecture
+
+1. DataCamp
+    1. Poll class on [sli.do](https://app.sli.do/event/hF9K8zvE9KGPCwexfM1YJu) about DC
     1. DC exercise numbering system: Ex 2.1.3 = Chapter 2, Video 1, Exercise 3.
-    1. Prof. Kim gets vulnerable and does MTSD course Ex 2.1.3
-    1. Screencast location
-    1. Continuing [Time Series with Python](https://app.datacamp.com/learn/skill-tracks/time-series-with-python) skill track:
-        1. Originally assigned course ["Manipulating Time Series Data in Python"](https://app.datacamp.com/learn/courses/manipulating-time-series-data-in-python) due next Tue 9/26 before class
-        1. Next course in track ["Time Series Analysis in Python"](https://app.datacamp.com/learn/courses/time-series-analysis-in-python) due Tue 10/3. If you have any exercise you'd like me to do in class, let me know. 
-
-- 
-
+    1. Prof. Kim gets vulnerable and does MTSD course Ex 1.3.1 and 2.1.3
+    1. Screencasts location
+    1. Continuing [Time Series with Python](https://app.datacamp.com/learn/skill-tracks/time-series-with-python) skill track, the next course ["Time Series Analysis in Python"](https://app.datacamp.com/learn/courses/time-series-analysis-in-python) due Tue 10/3. If there is an Exercise you'd like me to do in class, let me know. 
+1. Finish chalk talk on FPP Chapter 2: 2.7 and 2.8. See code below
 
 ```{r eval=FALSE, echo=TRUE}
 library(fpp3)
