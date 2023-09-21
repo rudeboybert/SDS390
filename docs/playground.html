@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SDS390 - SDS390: Ecological Forecasting</title>
+<title>SDS390 - Manipulating Time Series Data in Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -150,23 +150,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#lec-3.2-thu-921" id="toc-lec-3.2-thu-921" class="nav-link active" data-scroll-target="#lec-3.2-thu-921">Lec 3.2: Thu 9/21</a></li>
-  <li><a href="#lec-2.2-thu-914" id="toc-lec-2.2-thu-914" class="nav-link" data-scroll-target="#lec-2.2-thu-914">Lec 2.2: Thu 9/14</a></li>
-  <li><a href="#lec-2.1-tue-912" id="toc-lec-2.1-tue-912" class="nav-link" data-scroll-target="#lec-2.1-tue-912">Lec 2.1: Tue 9/12</a></li>
-  <li><a href="#lec-1.2-thu-97" id="toc-lec-1.2-thu-97" class="nav-link" data-scroll-target="#lec-1.2-thu-97">Lec 1.2: Thu 9/7</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SDS390: Ecological Forecasting</h1>
+<h1 class="title">Manipulating Time Series Data in Python</h1>
 </div>
 
 
@@ -181,119 +172,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=538580312&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="800">
-</iframe>
-<section id="lec-3.2-thu-921" class="level1">
-<h1>Lec 3.2: Thu 9/21</h1>
-<ul>
-<li>Mountain Day recap</li>
-<li>Finish chalk talk on FPP Chapter 2. See code below</li>
-<li>DataCamp
-<ol type="1">
-<li>Go to Roster Google Sheet (top right of page) and fill in both DC columns</li>
-<li>Poll class on sli.do about DC</li>
-<li>DC exercise numbering system: Ex 2.1.3 = Chapter 2, Video 1, Exercise 3.</li>
-<li>Prof.&nbsp;Kim gets vulnerable and does MTSD course Ex 2.1.3</li>
-<li>Screencast location</li>
-<li>Continuing <a href="https://app.datacamp.com/learn/skill-tracks/time-series-with-python">Time Series with Python</a> skill track:
-<ol type="1">
-<li>Originally assigned course <a href="https://app.datacamp.com/learn/courses/manipulating-time-series-data-in-python">“Manipulating Time Series Data in Python”</a> due next Tue 9/26 before class</li>
-<li>Next course in track <a href="https://app.datacamp.com/learn/courses/time-series-analysis-in-python">“Time Series Analysis in Python”</a> due Tue 10/3. If you have any exercise you’d like me to do in class, let me know.</li>
-</ol></li>
-</ol></li>
-<li></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp3)</span>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Code block 1 ----</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Lag plots: relationship of a TS variable with itself in the past</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create regular TS plot of data in Fig 2.19 Beer production over time</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>recent_production <span class="ot">&lt;-</span> aus_production <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(Quarter) <span class="sc">&gt;=</span> <span class="dv">2000</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Note time index meta-data = 1Q = quarter</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>recent_production</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Note patterns</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>recent_production <span class="sc">|&gt;</span> <span class="fu">autoplot</span>(Beer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the range of dates here</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>seven_days <span class="op">=</span> pd.date_range(start <span class="op">=</span> <span class="st">'2017-1-1'</span>, periods<span class="op">=</span><span class="dv">7</span>, freq<span class="op">=</span><span class="st">'D'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate over the dates and print the number and name of the weekday</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> day <span class="kw">in</span> seven_days:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(day.dayofweek, day.day_name())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6 Sunday
+0 Monday
+1 Tuesday
+2 Wednesday
+3 Thursday
+4 Friday
+5 Saturday</code></pre>
 </div>
-<hr>
-</section>
-<section id="lec-2.2-thu-914" class="level1">
-<h1>Lec 2.2: Thu 9/14</h1>
-<ul>
-<li>Slido results from <a href="https://analytics.slido.com/share/XIJcW_05mEyupBJ2tuIT0cTYhCVNaSKt_S6IXFz9P_85KW39KIJcX_0zn_0tn_0sn_04mEwpT_cBSQUZ7NfeRoClIynj_ST2bmxub3FsZXFubP0vmHyIUAu_SVrj9mYafEeNA6EIvbcFZweiMI4O1A7kdCS5bg">last time</a></li>
-<li>ChatGPT result on global temperature</li>
-<li>Install <code>fpp3</code> R package</li>
-<li>Chalk talk on FPP Chapter 2: Time Series Graphics. During chalk talk I will refer to “code blocks” below. Feel free to copy to a <code>playground.qmd</code> file.</li>
-<li>Canada wins gold medal in ice hockey in overtime at 2010 Vancouver Winter Olympics
-<ul>
-<li>The <a href="https://www.youtube.com/watch?v=GBMriA6maIU&amp;t=18s">Golden Goal 🥇</a></li>
-<li>A clear <a href="https://www.zdnet.com/a/img/resize/51e841b3331a3340a2b95219ddc1a7826fcaee31/2013/11/13/e384930f-4c5f-11e3-90a0-0291187ef9b6/epcor_edmonton_water_usage_flush_olympic_gold_game.jpg?auto=webp&amp;fit=crop&amp;height=1200&amp;width=1200">cyclical pattern</a> in water consumption (from 🚽🚾🧻)</li>
-</ul></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lec 2.2 Code</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp3)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Code block 1 ----</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare meta-data of data_tibble and data_tsibble</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>data_tibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2019</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Observation =</span> <span class="fu">c</span>(<span class="dv">123</span>, <span class="dv">39</span>, <span class="dv">78</span>, <span class="dv">52</span>, <span class="dv">110</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>data_tibble</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Set variable that indexes the data: Year</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>data_tsibble <span class="ot">&lt;-</span> <span class="fu">tsibble</span>(data_tibble, <span class="at">index =</span> <span class="st">"Year"</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>data_tsibble</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Code block 2 ----</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of relationship between two time series</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for Fig. 2.14:</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>vic_elec <span class="sc">|&gt;</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(Time) <span class="sc">==</span> <span class="dv">2014</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Temperature, <span class="at">y =</span> Demand)) <span class="sc">+</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperature (degrees Celsius)"</span>,</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Electricity demand (GW)"</span>)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for Fig 2.14 with (simplified) notion of time</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>vic_elec <span class="sc">|&gt;</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(Time) <span class="sc">==</span> <span class="dv">2014</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add this:</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">factor</span>(<span class="fu">month</span>(Date))) <span class="sc">|&gt;</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add color scale</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Temperature, <span class="at">y =</span> Demand, <span class="at">col =</span> month)) <span class="sc">+</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperature (degrees Celsius)"</span>,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Electricity demand (GW)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<hr>
-</section>
-<section id="lec-2.1-tue-912" class="level1">
-<h1>Lec 2.1: Tue 9/12</h1>
-<ol type="1">
-<li>Join <code>#questions</code> channel on Slack</li>
-<li>Fill in your information on roster</li>
-<li>ChatGPT citation mechanism: share link</li>
-<li>Developing a python/jupyter notebook workflow
-<ol type="1">
-<li>Open a jupyter notebook</li>
-<li>Start “Manipulating Time Series Data in Python” DataCamp course, to be completed by Tue 9/19 before class</li>
-<li>Screencast recording <a href="https://drive.google.com/file/d/1kHVmegmsxClToWpUjak6s2cwcRZJ8vJ8/view?usp=sharing">here</a></li>
-</ol></li>
-</ol>
-<hr>
-</section>
-<section id="lec-1.2-thu-97" class="level1">
-<h1>Lec 1.2: Thu 9/7</h1>
-<p>Install software and computing: See syllabus</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

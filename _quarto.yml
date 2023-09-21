@@ -16,6 +16,8 @@ website:
     right:
       - text: "Roster"
         href: https://docs.google.com/spreadsheets/d/12GJWpG53UQgVwG-TEms5uT88HKSkh-m3g81k63SV_YA/edit#gid=0
+#      - text: "Screencasts"
+#        href: https://drive.google.com/drive/u/1/folders/1ctkp8FthWTOSvCZfEZAl63XtCZA5c8KV
       - text: "Syllabus"
         href: https://docs.google.com/document/d/1pYACVZ91x21ffbMDfCgFGqvjM0v9YFiTSGX2-TwHUNE/edit#heading=h.amnifumas6q
 
