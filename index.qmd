@@ -7,6 +7,23 @@ title: "SDS390: Ecological Forecasting"
 
 
 
+# Lec 4.1: Thu 9/26
+
+## Announcements
+
+1. 
+
+
+## Lecture
+
+1. DataCamp Chap 3, Video 4, Exercise 1
+
+
+
+***
+
+
+
 # Lec 3.2: Thu 9/21
 
 ## Announcements
