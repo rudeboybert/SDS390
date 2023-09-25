@@ -11,12 +11,13 @@ title: "SDS390: Ecological Forecasting"
 
 ## Announcements
 
-1. 
+1. The next course ["Time Series Analysis in Python"](https://app.datacamp.com/learn/courses/time-series-analysis-in-python) due ~~Tue 10/3~~ Thu 10/5.
 
 
 ## Lecture
 
 1. DataCamp Chap 3, Video 4, Exercise 1
+1. 
 
 
 
