@@ -38,6 +38,13 @@ title: "SDS390: Ecological Forecasting"
     1. You will show each other your code and prepare a single mini-presentation `.ipynb`
     1. I will pick 2-3 pairs at random to present their work in front of the class
     1. You will rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
+    
+Clarifications added afterwards:
+
+1. Dataset should be at least 100 rows
+1. For mini-presentation, you will have to choose of the two datasets
+
+
 
 
 
