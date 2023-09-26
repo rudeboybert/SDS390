@@ -11,13 +11,37 @@ title: "SDS390: Ecological Forecasting"
 
 ## Announcements
 
-1. The next course ["Time Series Analysis in Python"](https://app.datacamp.com/learn/courses/time-series-analysis-in-python) due ~~Tue 10/3~~ Thu 10/5.
+1. The next course ["Time Series Analysis in Python"](https://app.datacamp.com/learn/courses/time-series-analysis-in-python) due ~~Tue 10/3~~ Thu 10/5 9:25am.
+1. I'm keeping up with screencasts, still need to finish Chapter 4. 
+1. Slido [responses](https://admin.sli.do/event/hF9K8zvE9KGPCwexfM1YJu/analytics):
+    1. "I wish the examples were a bit more grounded, as in, the datasets we used were a topic I found interesting. It keeps feeling like I'm doing a small portion of a data analysis. I find myself "going through the motions" and feeling it is tedious because I don't think I'm really comprehending the importance of each step."
+    1. "Making stupid mistakes on the syntax and kind of confused about the difference between `[]` and `.` when calling an attribute"
+    1. "Worried I won't retain my understanding"
+    1. "I prefer this over problems sets because it gives an instant response and allow me to improve my work before finally submitting it"
+1. Main tip: "Optimal frustration"
 
 
 ## Lecture
 
-1. DataCamp Chap 3, Video 4, Exercise 1
-1. 
+1. FPP 3.1 Transformations. $\log10$ transformations:
+    1. What are $\log$ (base $e$) and $\log10$ (base 10) tranformations? [Example table](https://moderndive.com/A-appendixA.html#appendix-log10-transformations)
+    1. Effect on visualizations: [Example figure](https://moderndive.com/11-thinking-with-data.html#fig:log10-price-viz)
+1. FPP 3.2 Time series decompositions
+
+
+## Problem Set 1
+
+1. Posted on Slack under `#questions`
+1. Individual `.ipynb` files due Thu 10/5 9:25am. Submission format TBD
+1. In-class on Thu 10/5: "Think, Pair, Share" exercise
+    1. I will randomly create teams of pairs. Any remaining odd number student will be paired with me.
+    1. You will show each other your code and prepare a single mini-presentation `.ipynb`
+    1. I will pick 2-3 pairs at random to present their work in front of the class
+    1. You will rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
+
+
+
+
 
 
 

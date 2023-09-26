@@ -1,23 +1,51 @@
 [
   {
-    "objectID": "playground.html",
-    "href": "playground.html",
-    "title": "Manipulating Time Series Data in Python",
+    "objectID": "PS/PS01.html",
+    "href": "PS/PS01.html",
+    "title": "Problem Set 01",
     "section": "",
-    "text": "import pandas as pd\n\n# Create the range of dates here\nseven_days = pd.date_range(start = '2017-1-1', periods=7, freq='D')\n\n# Iterate over the dates and print the number and name of the weekday\nfor day in seven_days:\n    print(day.dayofweek, day.day_name())\n\n6 Sunday\n0 Monday\n1 Tuesday\n2 Wednesday\n3 Thursday\n4 Friday\n5 Saturday"
+    "text": "Name:\nField that you’re interested in applying TS and forecasting to (ecology, econ, weather, etc):\n\n\nObtain a CSV of time series data\n\nBy whatever means, get a .csv file of time series data relating to any topic: ecological, financial, etc.\nThere should be at least three variables of data\nIf you download from the web, include a link. If you use ChatGPT, include a link to your shared search\n\n\n\n1. Time series plots\n\nPlot the raw time series data\nIdentify any time series patterns\nIdentify any interesting trends insight\n\n\n\n2. Scatterplots\n\nPlot a 3x3 grid of all pairwise scatterplots\nIdentify any interesting trends insight\n\n\n\n3. Lag & autocorrelation plots\n\nPlot a lag plot of any variable of your choice to visualize its relationship to itself in the past. Use a maximum \\(k\\) value of your choice\nPlot an autocorrelation plot of this same variable to quantify its relationship to itself in the past. Use a maximum \\(k\\) value of your choice"
   },
   {
     "objectID": "index.html#announcements",
     "href": "index.html#announcements",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
-    "text": "Announcements\n\nFirst problem set assigned on Tue, which will build into first mini-presentation\nMountain Day recap\nOriginally assigned course “Manipulating Time Series Data in Python” due next Tue 9/26 before class\nGo to Roster Google Sheet (top right of page) and fill DC columns"
+    "text": "Announcements\n\nThe next course “Time Series Analysis in Python” due Tue 10/3 Thu 10/5 9:25am.\nI’m keeping up with screencasts, still need to finish Chapter 4.\nSlido responses:\n\n“I wish the examples were a bit more grounded, as in, the datasets we used were a topic I found interesting. It keeps feeling like I’m doing a small portion of a data analysis. I find myself”going through the motions” and feeling it is tedious because I don’t think I’m really comprehending the importance of each step.”\n“Making stupid mistakes on the syntax and kind of confused about the difference between [] and . when calling an attribute”\n“Worried I won’t retain my understanding”\n“I prefer this over problems sets because it gives an instant response and allow me to improve my work before finally submitting it”\n\nMain tip: “Optimal frustration”"
   },
   {
     "objectID": "index.html#lecture",
     "href": "index.html#lecture",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
+    "text": "Lecture\n\nFPP 3.1 Transformations. \\(\\log10\\) transformations:\n\nWhat are \\(\\log\\) (base \\(e\\)) and \\(\\log10\\) (base 10) tranformations? Example table\nEffect on visualizations: Example figure\n\nFPP 3.2 Time series decompositions"
+  },
+  {
+    "objectID": "index.html#problem-set-1",
+    "href": "index.html#problem-set-1",
+    "title": "SDS390: Ecological Forecasting",
+    "section": "Problem Set 1",
+    "text": "Problem Set 1\n\nPosted on Slack under #questions\nIndividual .ipynb files due Thu 10/5 9:25am. Submission format TBD\nIn-class on Thu 10/5: “Think, Pair, Share” exercise\n\nI will randomly create teams of pairs. Any remaining odd number student will be paired with me.\nYou will show each other your code and prepare a single mini-presentation .ipynb\nI will pick 2-3 pairs at random to present their work in front of the class\nYou will rate your peer’s preparation using this Google Form"
+  },
+  {
+    "objectID": "index.html#announcements-1",
+    "href": "index.html#announcements-1",
+    "title": "SDS390: Ecological Forecasting",
+    "section": "Announcements",
+    "text": "Announcements\n\nFirst problem set assigned on Tue, which will build into first mini-presentation\nMountain Day recap\nOriginally assigned course “Manipulating Time Series Data in Python” due next Tue 9/26 before class\nGo to Roster Google Sheet (top right of page) and fill DC columns"
+  },
+  {
+    "objectID": "index.html#lecture-1",
+    "href": "index.html#lecture-1",
+    "title": "SDS390: Ecological Forecasting",
+    "section": "Lecture",
     "text": "Lecture\n\nDataCamp\n\nPoll class on sli.do about DC\nDC exercise numbering system: Ex 2.1.3 = Chapter 2, Video 1, Exercise 3.\nProf. Kim gets vulnerable and does MTSD course Ex 1.3.1 and 2.1.3\nScreencasts location\nContinuing Time Series with Python skill track, the next course “Time Series Analysis in Python” due Tue 10/3. If there is an Exercise you’d like me to do in class, let me know.\n\nFinish chalk talk on FPP Chapter 2: 2.7 and 2.8. See code below\n\n\nlibrary(fpp3)\n\n# Code block 1 ----\n# Lag plots: relationship of a TS variable with itself in the past\n# Create regular TS plot of data in Fig 2.19 Beer production over time\nrecent_production &lt;- aus_production |&gt;\n  filter(year(Quarter) &gt;= 2000)\n\n# Note time index meta-data = 1Q = quarter\nrecent_production\n\n# Note patterns\nrecent_production |&gt; autoplot(Beer)"
+  },
+  {
+    "objectID": "playground.html",
+    "href": "playground.html",
+    "title": "Manipulating Time Series Data in Python",
+    "section": "",
+    "text": "import pandas as pd\n\n# Create the range of dates here\nseven_days = pd.date_range(start = '2017-1-1', periods=7, freq='D')\n\n# Iterate over the dates and print the number and name of the weekday\nfor day in seven_days:\n    print(day.dayofweek, day.day_name())\n\n6 Sunday\n0 Monday\n1 Tuesday\n2 Wednesday\n3 Thursday\n4 Friday\n5 Saturday"
   }
 ]
