@@ -6,6 +6,16 @@ title: "SDS390: Ecological Forecasting"
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=538580312&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="800"></iframe>
 
 
+# Lec 5.1: Tue
+
+1. What is m in this example
+1. How is seasonal component S_t computed? What is assumed seasonality
+
+
+
+
+
+
 
 # Lec 4.2: Thu 9/28
 
@@ -31,7 +41,7 @@ aus_exports <- global_economy |>
 aus_exports
 
 # Set m and plot
-m <- 2
+m <- 28
 aus_exports |>
   mutate(
     `m-MA` = slider::slide_dbl(Exports, mean,
