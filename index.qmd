@@ -7,7 +7,105 @@ title: "SDS390: Ecological Forecasting"
 
 
 
-# Lec 4.1: Thu 9/26
+# Lec 4.2: Thu 9/28
+
+## Announcements
+
+1. Comment on the generalizability of everything I say
+1. 
+
+
+## Lecture
+
+1. 
+
+```{r eval=FALSE, echo=TRUE}
+library(fpp3)
+
+# Code block 1 ----
+# Modified version of code to produce FPP Fig 3.10
+aus_exports <- global_economy |>
+  filter(Country == "Australia") 
+
+# Note number of rows
+aus_exports
+
+# Set m and plot
+m <- 2
+aus_exports |>
+  mutate(
+    `m-MA` = slider::slide_dbl(Exports, mean,
+                .before = m, .after = m, .complete = TRUE)
+  ) |>
+  autoplot(Exports) +
+  geom_line(aes(y = `m-MA`), colour = "#D55E00") +
+  labs(y = "% of GDP",
+       title = "Total Australian exports") +
+  guides(colour = guide_legend(title = "series"))
+
+
+# Code block 2 ----
+# Classical decomposition breakdown
+
+# Plot TS data in questions
+us_retail_employment <- us_employment |>
+  filter(year(Month) >= 1990, Title == "Retail Trade") |>
+  select(-Series_ID)
+us_retail_employment
+
+# Code to create full Fig 3.13
+us_retail_employment |>
+  model(
+    classical_decomposition(Employed, type = "additive")
+  ) |>
+  components() |>
+  autoplot() +
+  labs(title = "Classical additive decomposition of total
+                  US retail employment")
+
+# Get data frame with all the decomposition parts
+full_decomposition <- us_retail_employment |>
+  model(
+    classical_decomposition(Employed, type = "additive")
+  ) |>
+  components()
+
+full_decomposition
+
+# Original TS data
+ggplot(full_decomposition, aes(x=Month, y = Employed)) +
+  geom_line() +
+  labs(title = "Original data")
+
+# Step 1: trend-cycle via MA average method. 2nd plot of Fig. 3.13
+ggplot(full_decomposition, aes(x=Month, y = trend)) +
+  geom_line() +
+  labs(title = "trend-cycle component")
+
+# Step 2: Subtract trend-cycle from original data
+ggplot(full_decomposition, aes(x=Month, y = Employed - trend)) +
+  geom_line() +
+  labs(title = "Original data minus trend-cycle component")
+
+# Step 3: Compute seasonal averages. 3rd plot of Fig. 3.13
+ggplot(full_decomposition, aes(x=Month, y = seasonal)) +
+  geom_line() +
+  labs(title = "For each season compute average")
+
+# Step 4: Compute remainders. 4th plot of Fig 3.13
+ggplot(full_decomposition, aes(x=Month, y = Employed - trend - seasonal)) +
+  geom_line() +
+  labs(title = "Remainder i.e. noise")
+```
+
+
+
+
+***
+
+
+
+# Lec 4.1: Tue 9/26
 
 ## Announcements
 
@@ -42,13 +140,8 @@ title: "SDS390: Ecological Forecasting"
 Clarifications added afterwards:
 
 1. Dataset should be at least 100 rows
-1. For mini-presentation, you will have to choose of the two datasets
-
-
-
-
-
-
+1. For mini-presentation, you will have to choose one of the two datasets
+1. Do problem set in python
 
 
 

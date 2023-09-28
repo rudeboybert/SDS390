@@ -4,18 +4,32 @@
     "href": "PS/PS01.html",
     "title": "Problem Set 01",
     "section": "",
-    "text": "Name:\nField that you’re interested in applying TS and forecasting to (ecology, econ, weather, etc):\n\n\nObtain a CSV of time series data\n\nBy whatever means, get a .csv file of time series data relating to any topic: ecological, financial, etc.\nThere should be at least three variables of data\nIf you download from the web, include a link. If you use ChatGPT, include a link to your shared search\n\n\n\n1. Time series plots\n\nPlot the raw time series data\nIdentify any time series patterns\nIdentify any interesting trends insight\n\n\n\n2. Scatterplots\n\nPlot a 3x3 grid of all pairwise scatterplots\nIdentify any interesting trends insight\n\n\n\n3. Lag & autocorrelation plots\n\nPlot a lag plot of any variable of your choice to visualize its relationship to itself in the past. Use a maximum \\(k\\) value of your choice\nPlot an autocorrelation plot of this same variable to quantify its relationship to itself in the past. Use a maximum \\(k\\) value of your choice"
+    "text": "Name:\nField that you’re interested in applying TS and forecasting to (ecology, econ, weather, etc):\n\n\nObtain a CSV of time series data\n\nBy whatever means, get a .csv file of time series data relating to any topic: ecological, financial, etc.\nThere should be at least three variables of data\nIf you download from the web, include a link. If you use ChatGPT, include a link to your shared search\n\n\nimport pandas as pd\nimport matplotlib as plt\nimport requests\nimport pandas as pd\n\n\n# Code from https://chat.openai.com/share/572f7333-82a9-411f-95df-4f543fd3ae96\n\n# CoinGecko API endpoint for historical market data\nurl = \"https://api.coingecko.com/api/v3/coins/bitcoin/market_chart\"\n\n# Specify the number of days to retrieve (180 days for 6 months)\nparams = {\n    \"vs_currency\": \"usd\",\n    \"days\": \"180\",\n}\n\n# Send GET request to the API\nresponse = requests.get(url, params=params)\n\n# Get the BTC price data from the API response\nbtc_price_data = response.json()[\"prices\"]\n\n# Convert the price data to a Pandas DataFrame\ndf = pd.DataFrame(btc_price_data, columns=[\"Timestamp\", \"Price\"])\n\n# Convert the timestamp to datetime\ndf[\"Timestamp\"] = pd.to_datetime(df[\"Timestamp\"], unit=\"ms\")\n\n# Export the DataFrame to a CSV file\ndf.to_csv(\"btc_price_data.csv\", index=False)\n\n\n\n\ndf\n\n\n\n\n\n\n\n\nTimestamp\nPrice\n\n\n\n\n0\n2023-03-31 00:00:00\n28041.123080\n\n\n1\n2023-04-01 00:00:00\n28516.784730\n\n\n2\n2023-04-02 00:00:00\n28498.944633\n\n\n3\n2023-04-03 00:00:00\n28236.508739\n\n\n4\n2023-04-04 00:00:00\n27815.426531\n\n\n...\n...\n...\n\n\n176\n2023-09-23 00:00:00\n26572.038112\n\n\n177\n2023-09-24 00:00:00\n26573.923480\n\n\n178\n2023-09-25 00:00:00\n26249.562898\n\n\n179\n2023-09-26 00:00:00\n26298.634678\n\n\n180\n2023-09-26 06:55:49\n26270.169699\n\n\n\n\n181 rows × 2 columns\n\n\n\n\n\n1. Time series plots\n\nPlot the raw time series data\nIdentify any time series patterns\nIdentify any interesting trends insight\n\n\n\n2. Scatterplots\n\nPlot a 3x3 grid of all pairwise scatterplots\nIdentify any interesting trends insight\n\n\n\n3. Lag & autocorrelation plots\n\nPlot a lag plot of any variable of your choice to visualize its relationship to itself in the past. Use a maximum \\(k\\) value of your choice\nPlot an autocorrelation plot of this same variable to quantify its relationship to itself in the past. Use a maximum \\(k\\) value of your choice"
   },
   {
     "objectID": "index.html#announcements",
     "href": "index.html#announcements",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
-    "text": "Announcements\n\nThe next course “Time Series Analysis in Python” due Tue 10/3 Thu 10/5 9:25am.\nI’m keeping up with screencasts, still need to finish Chapter 4.\nSlido responses:\n\n“I wish the examples were a bit more grounded, as in, the datasets we used were a topic I found interesting. It keeps feeling like I’m doing a small portion of a data analysis. I find myself”going through the motions” and feeling it is tedious because I don’t think I’m really comprehending the importance of each step.”\n“Making stupid mistakes on the syntax and kind of confused about the difference between [] and . when calling an attribute”\n“Worried I won’t retain my understanding”\n“I prefer this over problems sets because it gives an instant response and allow me to improve my work before finally submitting it”\n\nMain tip: “Optimal frustration”"
+    "text": "Announcements\n\nComment on the generalizability of everything I say"
   },
   {
     "objectID": "index.html#lecture",
     "href": "index.html#lecture",
+    "title": "SDS390: Ecological Forecasting",
+    "section": "Lecture",
+    "text": "Lecture\n\n\n\n\nlibrary(fpp3)\n\n# Code block 1 ----\n# Modified version of code to produce FPP Fig 3.10\naus_exports &lt;- global_economy |&gt;\n  filter(Country == \"Australia\") \n\n# Note number of rows\naus_exports\n\n# Set m and plot\nm &lt;- 2\naus_exports |&gt;\n  mutate(\n    `m-MA` = slider::slide_dbl(Exports, mean,\n                .before = m, .after = m, .complete = TRUE)\n  ) |&gt;\n  autoplot(Exports) +\n  geom_line(aes(y = `m-MA`), colour = \"#D55E00\") +\n  labs(y = \"% of GDP\",\n       title = \"Total Australian exports\") +\n  guides(colour = guide_legend(title = \"series\"))\n\n\n# Code block 2 ----\n# Classical decomposition breakdown\n\n# Plot TS data in questions\nus_retail_employment &lt;- us_employment |&gt;\n  filter(year(Month) &gt;= 1990, Title == \"Retail Trade\") |&gt;\n  select(-Series_ID)\nus_retail_employment\n\n# Code to create full Fig 3.13\nus_retail_employment |&gt;\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components() |&gt;\n  autoplot() +\n  labs(title = \"Classical additive decomposition of total\n                  US retail employment\")\n\n# Get data frame with all the decomposition parts\nfull_decomposition &lt;- us_retail_employment |&gt;\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components()\n\nfull_decomposition\n\n# Original TS data\nggplot(full_decomposition, aes(x=Month, y = Employed)) +\n  geom_line() +\n  labs(title = \"Original data\")\n\n# Step 1: trend-cycle via MA average method. 2nd plot of Fig. 3.13\nggplot(full_decomposition, aes(x=Month, y = trend)) +\n  geom_line() +\n  labs(title = \"trend-cycle component\")\n\n# Step 2: Subtract trend-cycle from original data\nggplot(full_decomposition, aes(x=Month, y = Employed - trend)) +\n  geom_line() +\n  labs(title = \"Original data minus trend-cycle component\")\n\n# Step 3: Compute seasonal averages. 3rd plot of Fig. 3.13\nggplot(full_decomposition, aes(x=Month, y = seasonal)) +\n  geom_line() +\n  labs(title = \"For each season compute average\")\n\n# Step 4: Compute remainders. 4th plot of Fig 3.13\nggplot(full_decomposition, aes(x=Month, y = Employed - trend - seasonal)) +\n  geom_line() +\n  labs(title = \"Remainder i.e. noise\")"
+  },
+  {
+    "objectID": "index.html#announcements-1",
+    "href": "index.html#announcements-1",
+    "title": "SDS390: Ecological Forecasting",
+    "section": "Announcements",
+    "text": "Announcements\n\nThe next course “Time Series Analysis in Python” due Tue 10/3 Thu 10/5 9:25am.\nI’m keeping up with screencasts, still need to finish Chapter 4.\nSlido responses:\n\n“I wish the examples were a bit more grounded, as in, the datasets we used were a topic I found interesting. It keeps feeling like I’m doing a small portion of a data analysis. I find myself”going through the motions” and feeling it is tedious because I don’t think I’m really comprehending the importance of each step.”\n“Making stupid mistakes on the syntax and kind of confused about the difference between [] and . when calling an attribute”\n“Worried I won’t retain my understanding”\n“I prefer this over problems sets because it gives an instant response and allow me to improve my work before finally submitting it”\n\nMain tip: “Optimal frustration”"
+  },
+  {
+    "objectID": "index.html#lecture-1",
+    "href": "index.html#lecture-1",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
     "text": "Lecture\n\nFPP 3.1 Transformations. \\(\\log10\\) transformations:\n\nWhat are \\(\\log\\) (base \\(e\\)) and \\(\\log10\\) (base 10) tranformations? Example table\nEffect on visualizations: Example figure\n\nFPP 3.2 Time series decompositions"
@@ -25,18 +39,18 @@
     "href": "index.html#problem-set-1",
     "title": "SDS390: Ecological Forecasting",
     "section": "Problem Set 1",
-    "text": "Problem Set 1\n\nPosted on Slack under #questions\nIndividual .ipynb files due Thu 10/5 9:25am. Submission format TBD\nIn-class on Thu 10/5: “Think, Pair, Share” exercise\n\nI will randomly create teams of pairs. Any remaining odd number student will be paired with me.\nYou will show each other your code and prepare a single mini-presentation .ipynb\nI will pick 2-3 pairs at random to present their work in front of the class\nYou will rate your peer’s preparation using this Google Form\n\n\nClarifications added afterwards:\n\nDataset should be at least 100 rows\nFor mini-presentation, you will have to choose of the two datasets"
+    "text": "Problem Set 1\n\nPosted on Slack under #questions\nIndividual .ipynb files due Thu 10/5 9:25am. Submission format TBD\nIn-class on Thu 10/5: “Think, Pair, Share” exercise\n\nI will randomly create teams of pairs. Any remaining odd number student will be paired with me.\nYou will show each other your code and prepare a single mini-presentation .ipynb\nI will pick 2-3 pairs at random to present their work in front of the class\nYou will rate your peer’s preparation using this Google Form\n\n\nClarifications added afterwards:\n\nDataset should be at least 100 rows\nFor mini-presentation, you will have to choose one of the two datasets\nDo problem set in python"
   },
   {
-    "objectID": "index.html#announcements-1",
-    "href": "index.html#announcements-1",
+    "objectID": "index.html#announcements-2",
+    "href": "index.html#announcements-2",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
     "text": "Announcements\n\nFirst problem set assigned on Tue, which will build into first mini-presentation\nMountain Day recap\nOriginally assigned course “Manipulating Time Series Data in Python” due next Tue 9/26 before class\nGo to Roster Google Sheet (top right of page) and fill DC columns"
   },
   {
-    "objectID": "index.html#lecture-1",
-    "href": "index.html#lecture-1",
+    "objectID": "index.html#lecture-2",
+    "href": "index.html#lecture-2",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
     "text": "Lecture\n\nDataCamp\n\nPoll class on sli.do about DC\nDC exercise numbering system: Ex 2.1.3 = Chapter 2, Video 1, Exercise 3.\nProf. Kim gets vulnerable and does MTSD course Ex 1.3.1 and 2.1.3\nScreencasts location\nContinuing Time Series with Python skill track, the next course “Time Series Analysis in Python” due Tue 10/3. If there is an Exercise you’d like me to do in class, let me know.\n\nFinish chalk talk on FPP Chapter 2: 2.7 and 2.8. See code below\n\n\nlibrary(fpp3)\n\n# Code block 1 ----\n# Lag plots: relationship of a TS variable with itself in the past\n# Create regular TS plot of data in Fig 2.19 Beer production over time\nrecent_production &lt;- aus_production |&gt;\n  filter(year(Quarter) &gt;= 2000)\n\n# Note time index meta-data = 1Q = quarter\nrecent_production\n\n# Note patterns\nrecent_production |&gt; autoplot(Beer)"
