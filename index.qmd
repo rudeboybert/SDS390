@@ -6,14 +6,79 @@ title: "SDS390: Ecological Forecasting"
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=538580312&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="800"></iframe>
 
 
-# Lec 5.1: Tue
+
+# Lec 5.1: Tue 10/3
+
+## Announcements
+
+1. 
+
+
+## Lecture
 
 1. What is m in this example
-1. How is seasonal component S_t computed? What is assumed seasonality
+1. How is seasonal component S_t computed? What is assumed seasonality?
+
+```{r eval=FALSE, echo=TRUE}
+library(fpp3)
+
+# Code block 1 ----
+# Classical decomposition breakdown
+
+# Plot TS data in questions
+us_retail_employment <- us_employment |>
+  filter(year(Month) >= 1990, Title == "Retail Trade") |>
+  select(-Series_ID)
+us_retail_employment
+
+# Code to create full Fig 3.13
+us_retail_employment |>
+  model(
+    classical_decomposition(Employed, type = "additive")
+  ) |>
+  components() |>
+  autoplot() +
+  labs(title = "Classical additive decomposition of total
+                  US retail employment")
+
+# Get data frame with all the decomposition parts
+full_decomposition <- us_retail_employment |>
+  model(
+    classical_decomposition(Employed, type = "additive")
+  ) |>
+  components()
+
+full_decomposition
+
+# Original TS data
+ggplot(full_decomposition, aes(x=Month, y = Employed)) +
+  geom_line() +
+  labs(title = "Original data")
+
+# Step 1: trend-cycle via MA average method. 2nd plot of Fig. 3.13
+ggplot(full_decomposition, aes(x=Month, y = trend)) +
+  geom_line() +
+  labs(title = "trend-cycle component")
+
+# Step 2: Subtract trend-cycle from original data
+ggplot(full_decomposition, aes(x=Month, y = Employed - trend)) +
+  geom_line() +
+  labs(title = "Original data minus trend-cycle component")
+
+# Step 3: Compute seasonal averages. 3rd plot of Fig. 3.13
+ggplot(full_decomposition, aes(x=Month, y = seasonal)) +
+  geom_line() +
+  labs(title = "For each season compute average")
+
+# Step 4: Compute remainders. 4th plot of Fig 3.13
+ggplot(full_decomposition, aes(x=Month, y = Employed - trend - seasonal)) +
+  geom_line() +
+  labs(title = "Remainder i.e. noise")
+```
 
 
 
-
+***
 
 
 
@@ -22,7 +87,6 @@ title: "SDS390: Ecological Forecasting"
 ## Announcements
 
 1. Comment on the generalizability of everything I say
-1. 
 
 
 ## Lecture
