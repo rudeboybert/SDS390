@@ -7,17 +7,28 @@ title: "SDS390: Ecological Forecasting"
 
 
 
+
+
+
+
+
+
 # Lec 5.1: Tue 10/3
 
 ## Announcements
 
-1. 
+1. PS1 submission format posted
+1. PS1 mini-presentations on Thursday
 
 
 ## Lecture
 
-1. What is m in this example
-1. How is seasonal component S_t computed? What is assumed seasonality?
+1. Clean up and finish Lec 4.2 on FPP 3.4 Classical Decomposition
+    1. What is $m$ used in example
+    1. How is seasonal component $S_t$ computed? What is assumed seasonality?
+    1. Code over code block below
+1. FFP 3.5 Briefly discuss other decomposition methods used
+1. FFP 3.6 STL decomposition
 
 ```{r eval=FALSE, echo=TRUE}
 library(fpp3)
@@ -204,13 +215,17 @@ ggplot(full_decomposition, aes(x=Month, y = Employed - trend - seasonal)) +
 ## Problem Set 1
 
 1. Posted on Slack under `#questions`
-1. Individual `.ipynb` files due Thu 10/5 9:25am. Submission format TBD
+1. Individual `PS01.ipynb` files
+    1. Due Thu 10/5 9:25am on moodle (see Moodle link on top right of page)
+    1. Submit both a `PS01.ipynb` where all code is reproducible and a `.csv` file of your data
 1. In-class on Thu 10/5: "Think, Pair, Share" exercise
     1. I will randomly create teams of pairs. Any remaining odd number student will be paired with me.
     1. You will show each other your code and prepare a single mini-presentation `.ipynb`
     1. I will pick 2-3 pairs at random to present their work in front of the class
     1. You will rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
     
+    
+  
 Clarifications added afterwards:
 
 1. Dataset should be at least 100 rows
