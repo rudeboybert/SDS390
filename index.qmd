@@ -23,8 +23,8 @@ title: "SDS390: Ecological Forecasting"
 
 ## Lecture
 
-1. Clean up and finish Lec 4.2 on FPP 3.4 Classical Decomposition
-    1. What is $m$ used in example
+1. Lec 4.2 on FPP 3.4 Classical Decomposition, second attempt
+    1. What is $m$ used in example?
     1. How is seasonal component $S_t$ computed? What is assumed seasonality?
     1. Code over code block below
 1. FFP 3.5 Briefly discuss other decomposition methods used
@@ -33,16 +33,16 @@ title: "SDS390: Ecological Forecasting"
 ```{r eval=FALSE, echo=TRUE}
 library(fpp3)
 
-# Code block 1 ----
-# Classical decomposition breakdown
-
-# Plot TS data in questions
+# Code block 1: Recreate Fig 3.13 ----
+# 1.a) Get data
 us_retail_employment <- us_employment |>
   filter(year(Month) >= 1990, Title == "Retail Trade") |>
   select(-Series_ID)
+
+# Note index is 1M = monthly. This sets m=12 in m-MA method below
 us_retail_employment
 
-# Code to create full Fig 3.13
+# 1.b) Recreate Fig 3.13
 us_retail_employment |>
   model(
     classical_decomposition(Employed, type = "additive")
@@ -52,39 +52,77 @@ us_retail_employment |>
   labs(title = "Classical additive decomposition of total
                   US retail employment")
 
-# Get data frame with all the decomposition parts
-full_decomposition <- us_retail_employment |>
-  model(
-    classical_decomposition(Employed, type = "additive")
-  ) |>
-  components()
 
-full_decomposition
 
-# Original TS data
+# Code block 2: Recreate all 4 subplots in Fig 3.13 ----
+# 2.a) Fig 3.13 top plot: Original TS data
 ggplot(full_decomposition, aes(x=Month, y = Employed)) +
   geom_line() +
   labs(title = "Original data")
 
-# Step 1: trend-cycle via MA average method. 2nd plot of Fig. 3.13
+# 2.b) Fig 3.13 2nd plot: trend-cycle via MA average method
 ggplot(full_decomposition, aes(x=Month, y = trend)) +
   geom_line() +
   labs(title = "trend-cycle component")
 
-# Step 2: Subtract trend-cycle from original data
+# 2.c) Extra: detrended plot
 ggplot(full_decomposition, aes(x=Month, y = Employed - trend)) +
   geom_line() +
-  labs(title = "Original data minus trend-cycle component")
+  labs(title = "Detrended data Original data minus trend-cycle component") +
+  geom_hline(yintercept = 0, col = "red")
 
-# Step 3: Compute seasonal averages. 3rd plot of Fig. 3.13
+# 2.d) Fig 3.13 3rd plot: seasonality (values repeat every 12 months)
 ggplot(full_decomposition, aes(x=Month, y = seasonal)) +
   geom_line() +
-  labs(title = "For each season compute average")
+  labs(title = "Seasonality")
 
-# Step 4: Compute remainders. 4th plot of Fig 3.13
-ggplot(full_decomposition, aes(x=Month, y = Employed - trend - seasonal)) +
+# 2.e) Fig 3.13 4th plot: Compute remainders
+ggplot(full_decomposition, aes(x=Month, y = random)) +
   geom_line() +
-  labs(title = "Remainder i.e. noise")
+  labs(title = "Remainder i.e. noise") +
+  geom_hline(yintercept = 0, col = "red")
+
+
+
+# Code block 3:  Compute full breakdown for one row: 1990 July ----
+# 3.a) Get data frame with full breakdown of decomposition
+full_decomposition <- us_retail_employment |>
+  model(
+    classical_decomposition(Employed, type = "additive")
+  ) |>
+  components() %>% 
+  # Convert from tsibble to regular tibble for data wrangling
+  as_tibble()
+
+# IMO most important function in RStudio: View()
+# Focus on Row 7 1990 July: where do all these values come from?
+View(full_decomposition)
+
+# 3.b) Step 1: Compute T_hat_t = trend = 13177.76 using 2x12-MA
+# Compute mean of first 12 values
+full_decomposition %>% 
+  slice(1:12) %>% 
+  summarize(mean = mean(Employed))
+# Compute mean of next 12 values
+full_decomposition %>% 
+  slice(2:13) %>% 
+  summarize(mean = mean(Employed))
+# Now do second averaging of 2 values
+(13186 + 13170)/2
+
+# 3.c) Step 2: Compute detrended values D_hat_t = -7.6625
+full_decomposition <- full_decomposition %>% 
+  mutate(detrended = Employed - trend)
+
+# 3.d) Step 3: Compute seasonal averages S_hat_t = -13.311661
+full_decomposition %>% 
+  mutate(month_num = month(Month)) %>% 
+  group_by(month_num) %>% 
+  summarize(St = mean(detrended, na.rm = TRUE))
+
+# 3.d) Step 4: Compute remainder R_hat_t = 5.6491610
+# y_t - T_hat_t - S_hat_t
+13170.1 - 13177.76 - (-13.311661)
 ```
 
 
