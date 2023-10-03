@@ -57,6 +57,7 @@ us_retail_employment %>%
 
 
 # Code block 2: Recreate all 4 subplots in Fig 3.13 ----
+# Get data frame with full breakdown of decomposition
 full_decomposition <- us_retail_employment |>
   model(
     classical_decomposition(Employed, type = "additive")
@@ -95,9 +96,7 @@ ggplot(full_decomposition, aes(x=Month, y = random)) +
 
 
 # Code block 3:  Compute full breakdown for one row: 1990 July ----
-# 3.a) Get data frame with full breakdown of decomposition
-# Moved this code here
-
+# 3.a) LOOK at data
 # IMO most important function in RStudio: View()
 # Focus on Row 7 1990 July: where do all these values come from?
 View(full_decomposition)
