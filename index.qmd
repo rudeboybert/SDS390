@@ -45,7 +45,7 @@ us_retail_employment <- us_employment |>
 us_retail_employment
 
 # 1.b) Recreate Fig 3.13
-us_retail_employment |>
+us_retail_employment %>%
   model(
     classical_decomposition(Employed, type = "additive")
   ) |>
@@ -57,6 +57,14 @@ us_retail_employment |>
 
 
 # Code block 2: Recreate all 4 subplots in Fig 3.13 ----
+full_decomposition <- us_retail_employment |>
+  model(
+    classical_decomposition(Employed, type = "additive")
+  ) |>
+  components() %>% 
+  # Convert from tsibble to regular tibble for data wrangling
+  as_tibble()
+
 # 2.a) Top plot: Original TS data
 ggplot(full_decomposition, aes(x=Month, y = Employed)) +
   geom_line() +
@@ -88,13 +96,7 @@ ggplot(full_decomposition, aes(x=Month, y = random)) +
 
 # Code block 3:  Compute full breakdown for one row: 1990 July ----
 # 3.a) Get data frame with full breakdown of decomposition
-full_decomposition <- us_retail_employment |>
-  model(
-    classical_decomposition(Employed, type = "additive")
-  ) |>
-  components() %>% 
-  # Convert from tsibble to regular tibble for data wrangling
-  as_tibble()
+# Moved this code here
 
 # IMO most important function in RStudio: View()
 # Focus on Row 7 1990 July: where do all these values come from?
@@ -122,7 +124,7 @@ full_decomposition %>%
   group_by(month_num) %>% 
   summarize(St = mean(detrended, na.rm = TRUE))
 
-# 3.d) Step 4: Compute remainder R_hat_t = 5.6491610
+# 3.e) Step 4: Compute remainder R_hat_t = 5.6491610
 # y_t - T_hat_t - S_hat_t
 13170.1 - 13177.76 - (-13.311661)
 ```
