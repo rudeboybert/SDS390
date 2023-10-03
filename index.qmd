@@ -10,6 +10,21 @@ title: "SDS390: Ecological Forecasting"
 
 
 
+# Lec 5.2: Thu 10/5
+
+## Announcements
+
+1. 
+
+
+## Lecture
+
+1. Difference between pandas series and pandas data frame
+1. `df.var` vs `df[var]` vs `df[[var]]`
+
+
+
+***
 
 
 
