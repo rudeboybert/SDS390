@@ -17,8 +17,8 @@ title: "SDS390: Ecological Forecasting"
 
 ## Announcements
 
-1. PS1 submission format posted
 1. PS1 mini-presentations on Thursday
+1. PS1 submission format posted [below](#problem-set-1)
 
 
 ## Lecture
@@ -28,7 +28,9 @@ title: "SDS390: Ecological Forecasting"
     1. How is seasonal component $S_t$ computed? What is assumed seasonality?
     1. Code over code block below
 1. FFP 3.5 Briefly discuss other decomposition methods used
-1. FFP 3.6 STL decomposition
+1. FFP 3.6 STL decomposition which uses LOESS = LOcal regrESSion smoothing instead of $m$-MA smoothing like for classical decomposition
+    ![LOESS](https://raw.githubusercontent.com/simplystats/simplystats.github.io/master/_images/loess.gif) 
+
 
 ```{r eval=FALSE, echo=TRUE}
 library(fpp3)
@@ -55,12 +57,12 @@ us_retail_employment |>
 
 
 # Code block 2: Recreate all 4 subplots in Fig 3.13 ----
-# 2.a) Fig 3.13 top plot: Original TS data
+# 2.a) Top plot: Original TS data
 ggplot(full_decomposition, aes(x=Month, y = Employed)) +
   geom_line() +
   labs(title = "Original data")
 
-# 2.b) Fig 3.13 2nd plot: trend-cycle via MA average method
+# 2.b) 2nd plot: trend-cycle via MA average method
 ggplot(full_decomposition, aes(x=Month, y = trend)) +
   geom_line() +
   labs(title = "trend-cycle component")
@@ -71,12 +73,12 @@ ggplot(full_decomposition, aes(x=Month, y = Employed - trend)) +
   labs(title = "Detrended data Original data minus trend-cycle component") +
   geom_hline(yintercept = 0, col = "red")
 
-# 2.d) Fig 3.13 3rd plot: seasonality (values repeat every 12 months)
+# 2.d) 3rd plot: seasonality (values repeat every 12 months)
 ggplot(full_decomposition, aes(x=Month, y = seasonal)) +
   geom_line() +
   labs(title = "Seasonality")
 
-# 2.e) Fig 3.13 4th plot: Compute remainders
+# 2.e) 4th plot: Compute remainders
 ggplot(full_decomposition, aes(x=Month, y = random)) +
   geom_line() +
   labs(title = "Remainder i.e. noise") +
