@@ -8,6 +8,26 @@ title: "SDS390: Ecological Forecasting"
 
 
 
+# Lec 6.2: Thu 10/2
+
+## Announcements
+
+1. Discuss slido [responses](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
+1.
+
+
+## Lecture
+
+1. Theory covered in "Time Series Analysis in Python" DataCamp course
+
+
+
+## Problem Set 2
+
+
+
+***
+
 
 
 # Lec 5.2: Thu 10/5
@@ -27,7 +47,6 @@ read_csv("390.csv") %>%
   mutate(team = rep(1:9, length = 17)) %>% 
   arrange(team)
 
-
 read_csv("390.csv") %>% 
   filter(First != "Albert") %>% 
   sample_n(2)
@@ -41,15 +60,27 @@ read_csv("390.csv") %>%
 1. Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
 
 
-<!--
+## PS01 Groups
 
--->
-
-
-
-
-
-
+```
+ 1 Yang           Christy        1
+ 2 O'Meara        Abbey          1
+ 3 Slosser        Tillie         2 ***
+ 4 Murray         Kiera          2 ***
+ 5 Khan           Nubraz         3
+ 6 Ding           Jenny          3
+ 7 Anesko         Greta          4
+ 8 Martin         Teddy          4
+ 9 Xu             Xiaoman        5
+10 An             Rachael        5
+11 Kogalovski     Aleksandra     6
+12 Qiu            Chi            6
+13 Knecht         Beata          7 ***
+14 Basnet Chettri Charavee       7 ***
+15 Tha Ra Wun     Tint           8
+16 Huang          Juniper        8
+17 Pu             Betty          9
+```
 
 
 ***
