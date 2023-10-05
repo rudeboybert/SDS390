@@ -19,7 +19,7 @@ title: "SDS390: Ecological Forecasting"
 
 ## Lecture
 
-```{r}
+```{r, eval = FALSE}
 library(tidyverse)
 read_csv("390.csv") %>% 
   filter(First != "Albert") %>% 

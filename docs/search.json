@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "PS/PS01.html",
+    "href": "PS/PS01.html",
+    "title": "Problem Set 01",
+    "section": "",
+    "text": "Name:\nField that you’re interested in applying TS and forecasting to (ecology, econ, weather, etc):\n\n\nObtain a CSV of time series data\n\nBy whatever means, get a .csv file of time series data relating to any topic: ecological, financial, etc.\nThere should be at least three variables of data\nIf you download from the web, include a link. If you use ChatGPT, include a link to your shared search\n\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport requests\nimport pandas as pd\n\n\n\n1. Time series plots\n\nPlot the raw time series data\nIdentify any obvious patterns in your time series\nIdentify, if any, interesting insights these patterns suggest\n\n\n\n2. Scatterplots\n\nPlot a 3x3 grid of all pairwise scatterplots\nIdentify, if any, interesting trends or insight\n\n\n\n3. Lag & autocorrelation plots\n\nPlot a lag plot of any variable of your choice to visualize its relationship to itself in the past. Use a maximum \\(k\\) value of your choice\nPlot an autocorrelation plot of this same variable to quantify its relationship to itself in the past. Use a maximum \\(k\\) value of your choice\nIdentify, if any, interesting insight from these lag plots"
+  },
+  {
+    "objectID": "playground.html",
+    "href": "playground.html",
+    "title": "Manipulating Time Series Data in Python",
+    "section": "",
+    "text": "import pandas as pd\n\n# Create the range of dates here\nseven_days = pd.date_range(start = '2017-1-1', periods=7, freq='D')\n\n# Iterate over the dates and print the number and name of the weekday\nfor day in seven_days:\n    print(day.dayofweek, day.day_name())\n\n6 Sunday\n0 Monday\n1 Tuesday\n2 Wednesday\n3 Thursday\n4 Friday\n5 Saturday"
+  },
+  {
     "objectID": "index.html#announcements",
     "href": "index.html#announcements",
     "title": "SDS390: Ecological Forecasting",
@@ -11,7 +25,7 @@
     "href": "index.html#lecture",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
-    "text": "Lecture\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_frac(1) %&gt;% \n  mutate(team = rep(1:9, length = 17)) %&gt;% \n  arrange(team)\n\nRows: 18 Columns: 2\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Last, First\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n# A tibble: 17 × 3\n   Last           First       team\n   &lt;chr&gt;          &lt;chr&gt;      &lt;int&gt;\n 1 Khan           Nubraz         1\n 2 Kogalovski     Aleksandra     1\n 3 Tha Ra Wun     Tint           2\n 4 O'Meara        Abbey          2\n 5 Slosser        Tillie         3\n 6 Knecht         Beata          3\n 7 Huang          Juniper        4\n 8 Anesko         Greta          4\n 9 Basnet Chettri Charavee       5\n10 Qiu            Chi            5\n11 Yang           Christy        6\n12 Martin         Teddy          6\n13 Murray         Kiera          7\n14 Ding           Jenny          7\n15 Xu             Xiaoman        8\n16 An             Rachael        8\n17 Pu             Betty          9\n\n\n\nI will make groups at random using code above. I will join a group if there is an odd person left out.\nWork together for 20 minutes to come up with single .ipynb\nI will pick two teams at random to present to the class\nI will present my work to the class\nAnswer the sli.do poll here\nRate your peer’s preparation using this Google Form"
+    "text": "Lecture\n\nlibrary(tidyverse)\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_frac(1) %&gt;% \n  mutate(team = rep(1:9, length = 17)) %&gt;% \n  arrange(team)\n\n\nI will make groups at random using code above. I will join a group if there is an odd person left out.\nWork together for 20 minutes to come up with single .ipynb\nI will pick two teams at random to present to the class\nI will present my work to the class\nAnswer the sli.do poll here\nRate your peer’s preparation using this Google Form"
   },
   {
     "objectID": "index.html#announcements-1",
@@ -77,13 +91,6 @@
     "text": "Lecture\n\nDataCamp\n\nPoll class on sli.do about DC\nDC exercise numbering system: Ex 2.1.3 = Chapter 2, Video 1, Exercise 3.\nProf. Kim gets vulnerable and does MTSD course Ex 1.3.1 and 2.1.3\nScreencasts location\nContinuing Time Series with Python skill track, the next course “Time Series Analysis in Python” due Tue 10/3. If there is an Exercise you’d like me to do in class, let me know.\n\nFinish chalk talk on FPP Chapter 2: 2.7 and 2.8. See code below\n\n\nlibrary(fpp3)\n\n# Code block 1 ----\n# Lag plots: relationship of a TS variable with itself in the past\n# Create regular TS plot of data in Fig 2.19 Beer production over time\nrecent_production &lt;- aus_production |&gt;\n  filter(year(Quarter) &gt;= 2000)\n\n# Note time index meta-data = 1Q = quarter\nrecent_production\n\n# Note patterns\nrecent_production |&gt; autoplot(Beer)"
   },
   {
-    "objectID": "playground.html",
-    "href": "playground.html",
-    "title": "Manipulating Time Series Data in Python",
-    "section": "",
-    "text": "import pandas as pd\n\n# Create the range of dates here\nseven_days = pd.date_range(start = '2017-1-1', periods=7, freq='D')\n\n# Iterate over the dates and print the number and name of the weekday\nfor day in seven_days:\n    print(day.dayofweek, day.day_name())\n\n6 Sunday\n0 Monday\n1 Tuesday\n2 Wednesday\n3 Thursday\n4 Friday\n5 Saturday"
-  },
-  {
     "objectID": "PS/PS01_albert.html#get-btc-data",
     "href": "PS/PS01_albert.html#get-btc-data",
     "title": "Problem Set 01",
@@ -103,12 +110,5 @@
     "title": "Problem Set 01",
     "section": "Get SOL data",
     "text": "Get SOL data\n\n# CoinGecko API endpoint for historical market data\nurl = \"https://api.coingecko.com/api/v3/coins/solana/market_chart\"\n\n# Specify the number of days to retrieve (180 days for 6 months)\nparams = {\n    \"vs_currency\": \"usd\",\n    \"days\": \"180\",\n}\n\n# Send GET request to the API\nresponse = requests.get(url, params=params)\n\n# Get the BTC price data from the API response\nsol_price_data = response.json()[\"prices\"]\n\n# Convert the price data to a Pandas DataFrame\ndf = pd.DataFrame(sol_price_data, columns=[\"Timestamp\", \"Price\"])\n\n# Convert the timestamp to datetime\ndf[\"Timestamp\"] = pd.to_datetime(df[\"Timestamp\"], unit=\"ms\")\n\n\n# Set index of data frame to be date\nsol_df = df.set_index('Timestamp')\nsol_df.rename(columns={\"Price\": \"SOL\"}, inplace = True)\n\nsol_df.info()\nsol_df.head()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nDatetimeIndex: 181 entries, 2023-04-08 00:00:00 to 2023-10-04 18:59:15\nData columns (total 1 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   SOL     181 non-null    float64\ndtypes: float64(1)\nmemory usage: 2.8 KB\n\n\n\n\n\n\n\n\n\nSOL\n\n\nTimestamp\n\n\n\n\n\n2023-04-08\n20.483785\n\n\n2023-04-09\n20.042581\n\n\n2023-04-10\n20.304337\n\n\n2023-04-11\n20.875123\n\n\n2023-04-12\n23.005655\n\n\n\n\n\n\n\n\n# Merge all three data frames and save to csv\n# Export the DataFrame to a CSV file\ncrypto_df = btc_df.join(eth_df, how = 'inner').join(sol_df, how = 'inner')\ncrypto_df.info()\ncrypto_df.to_csv(\"crypto_price_data.csv\", index=False)\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nDatetimeIndex: 180 entries, 2023-04-08 to 2023-10-04\nData columns (total 3 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   BTC     180 non-null    float64\n 1   ETH     180 non-null    float64\n 2   SOL     180 non-null    float64\ndtypes: float64(3)\nmemory usage: 5.6 KB\n\n\n\ncrypto_df.head()\n\n\n\n\n\n\n\n\nBTC\nETH\nSOL\n\n\nTimestamp\n\n\n\n\n\n\n\n2023-04-08\n27934.438713\n1866.657545\n20.483785\n\n\n2023-04-09\n27968.128047\n1851.050671\n20.042581\n\n\n2023-04-10\n28351.236994\n1859.940387\n20.304337\n\n\n2023-04-11\n29657.974137\n1909.882061\n20.875123\n\n\n2023-04-12\n30260.936109\n1892.938911\n23.005655"
-  },
-  {
-    "objectID": "PS/PS01.html",
-    "href": "PS/PS01.html",
-    "title": "Problem Set 01",
-    "section": "",
-    "text": "Name:\nField that you’re interested in applying TS and forecasting to (ecology, econ, weather, etc):\n\n\nObtain a CSV of time series data\n\nBy whatever means, get a .csv file of time series data relating to any topic: ecological, financial, etc.\nThere should be at least three variables of data\nIf you download from the web, include a link. If you use ChatGPT, include a link to your shared search\n\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport requests\nimport pandas as pd\n\n\n\n1. Time series plots\n\nPlot the raw time series data\nIdentify any obvious patterns in your time series\nIdentify, if any, interesting insights these patterns suggest\n\n\n\n2. Scatterplots\n\nPlot a 3x3 grid of all pairwise scatterplots\nIdentify, if any, interesting trends or insight\n\n\n\n3. Lag & autocorrelation plots\n\nPlot a lag plot of any variable of your choice to visualize its relationship to itself in the past. Use a maximum \\(k\\) value of your choice\nPlot an autocorrelation plot of this same variable to quantify its relationship to itself in the past. Use a maximum \\(k\\) value of your choice\nIdentify, if any, interesting insight from these lag plots"
   }
 ]
