@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -90,13 +90,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -208,130 +204,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code from https://chat.openai.com/share/572f7333-82a9-411f-95df-4f543fd3ae96</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># CoinGecko API endpoint for historical market data</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://api.coingecko.com/api/v3/coins/bitcoin/market_chart"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the number of days to retrieve (180 days for 6 months)</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"vs_currency"</span>: <span class="st">"usd"</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"days"</span>: <span class="st">"180"</span>,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Send GET request to the API</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, params<span class="op">=</span>params)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the BTC price data from the API response</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>btc_price_data <span class="op">=</span> response.json()[<span class="st">"prices"</span>]</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the price data to a Pandas DataFrame</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(btc_price_data, columns<span class="op">=</span>[<span class="st">"Timestamp"</span>, <span class="st">"Price"</span>])</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the timestamp to datetime</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Timestamp"</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">"Timestamp"</span>], unit<span class="op">=</span><span class="st">"ms"</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Export the DataFrame to a CSV file</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"btc_price_data.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-outputid="19fa0c81-d03c-4617-aaa0-bfff4caf5fef">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Timestamp</th>
-<th data-quarto-table-cell-role="th">Price</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2023-03-31 00:00:00</td>
-<td>28041.123080</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2023-04-01 00:00:00</td>
-<td>28516.784730</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2023-04-02 00:00:00</td>
-<td>28498.944633</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2023-04-03 00:00:00</td>
-<td>28236.508739</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2023-04-04 00:00:00</td>
-<td>27815.426531</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">176</td>
-<td>2023-09-23 00:00:00</td>
-<td>26572.038112</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">177</td>
-<td>2023-09-24 00:00:00</td>
-<td>26573.923480</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">178</td>
-<td>2023-09-25 00:00:00</td>
-<td>26249.562898</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">179</td>
-<td>2023-09-26 00:00:00</td>
-<td>26298.634678</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">180</td>
-<td>2023-09-26 06:55:49</td>
-<td>26270.169699</td>
-</tr>
-</tbody>
-</table>
-
-<p>181 rows × 2 columns</p>
-</div>
-</div>
 </div>
 </section>
 <section id="time-series-plots" class="level1">
 <h1>1. Time series plots</h1>
 <ol type="1">
 <li>Plot the raw time series data</li>
-<li>Identify any time series patterns</li>
-<li>Identify any interesting trends insight</li>
+<li>Identify any obvious patterns in your time series</li>
+<li>Identify, if any, interesting insights these patterns suggest</li>
 </ol>
 </section>
 <section id="scatterplots" class="level1">
 <h1>2. Scatterplots</h1>
 <ol type="1">
 <li>Plot a 3x3 grid of all pairwise scatterplots</li>
-<li>Identify any interesting trends insight</li>
+<li>Identify, if any, interesting trends or insight</li>
 </ol>
 </section>
 <section id="lag-autocorrelation-plots" class="level1">
@@ -339,6 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Plot a lag plot of any variable of your choice to <em>visualize</em> its relationship to itself in the past. Use a maximum <span class="math inline">\(k\)</span> value of your choice</li>
 <li>Plot an autocorrelation plot of this same variable to <em>quantify</em> its relationship to itself in the past. Use a maximum <span class="math inline">\(k\)</span> value of your choice</li>
+<li>Identify, if any, interesting insight from these lag plots</li>
 </ol>
 
 
