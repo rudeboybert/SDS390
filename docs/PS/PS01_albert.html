@@ -175,6 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#time-series-plots" id="toc-time-series-plots" class="nav-link" data-scroll-target="#time-series-plots">1. Time series plots</a></li>
   <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots">2. Scatterplots</a></li>
   <li><a href="#lag-autocorrelation-plots" id="toc-lag-autocorrelation-plots" class="nav-link" data-scroll-target="#lag-autocorrelation-plots">3. Lag &amp; autocorrelation plots</a></li>
+  <li><a href="#extra" id="toc-extra" class="nav-link" data-scroll-target="#extra">4. Extra</a></li>
   </ul>
 </nav>
     </div>
@@ -198,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><a href="https://colab.research.google.com/github/rudeboybert/SDS390/blob/master/PS/PS01.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<p><a href="https://colab.research.google.com/github/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
 <ol type="1">
 <li>Name: Albert Y. Kim</li>
 <li>Field that you’re interested in applying TS and forecasting to (ecology, econ, weather, etc): ecology and econ</li>
@@ -210,16 +211,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>There should be at least three variables of data</li>
 <li>If you download from the web, include a link. If you use ChatGPT, include a link to your shared search</li>
 </ol>
-<div class="cell" data-execution_count="68">
+<div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels <span class="im">as</span> sm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="get-btc-data" class="level2">
 <h2 class="anchored" data-anchor-id="get-btc-data">Get BTC data</h2>
-<div class="cell" data-execution_count="25">
+<div class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ChatGPT Code from https://chat.openai.com/share/572f7333-82a9-411f-95df-4f543fd3ae96</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># CoinGecko API endpoint for historical market data</span></span>
@@ -243,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the timestamp to datetime</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Timestamp"</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">"Timestamp"</span>], unit<span class="op">=</span><span class="st">"ms"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="33">
+<div class="cell" data-outputid="18076007-fe20-4c07-e147-3c389da02d1b" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set index of data frame to be date</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>btc_df <span class="op">=</span> df.set_index(<span class="st">'Timestamp'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>btc_df.rename(columns<span class="op">=</span>{<span class="st">"Price"</span>: <span class="st">"BTC"</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
@@ -252,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>btc_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-DatetimeIndex: 181 entries, 2023-04-08 00:00:00 to 2023-10-04 07:07:57
+DatetimeIndex: 181 entries, 2023-04-08 00:00:00 to 2023-10-04 19:08:03
 Data columns (total 1 columns):
  #   Column  Non-Null Count  Dtype  
 ---  ------  --------------  -----  
@@ -260,7 +261,7 @@ Data columns (total 1 columns):
 dtypes: float64(1)
 memory usage: 2.8 KB</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div class="cell-output cell-output-display" data-execution_count="32">
 <div>
 
 
@@ -305,7 +306,7 @@ memory usage: 2.8 KB</code></pre>
 </section>
 <section id="get-eth-data" class="level2">
 <h2 class="anchored" data-anchor-id="get-eth-data">Get ETH data</h2>
-<div class="cell" data-execution_count="58">
+<div class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CoinGecko API endpoint for historical market data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://api.coingecko.com/api/v3/coins/ethereum/market_chart"</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -327,7 +328,7 @@ memory usage: 2.8 KB</code></pre>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the timestamp to datetime</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Timestamp"</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">"Timestamp"</span>], unit<span class="op">=</span><span class="st">"ms"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-outputid="19fa0c81-d03c-4617-aaa0-bfff4caf5fef" data-execution_count="59">
+<div class="cell" data-outputid="19fa0c81-d03c-4617-aaa0-bfff4caf5fef" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set index of data frame to be date</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>eth_df <span class="op">=</span> df.set_index(<span class="st">'Timestamp'</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>eth_df.rename(columns<span class="op">=</span>{<span class="st">"Price"</span>: <span class="st">"ETH"</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
@@ -336,7 +337,7 @@ memory usage: 2.8 KB</code></pre>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>eth_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-DatetimeIndex: 181 entries, 2023-04-08 00:00:00 to 2023-10-04 05:20:01
+DatetimeIndex: 181 entries, 2023-04-08 00:00:00 to 2023-10-04 17:22:04
 Data columns (total 1 columns):
  #   Column  Non-Null Count  Dtype  
 ---  ------  --------------  -----  
@@ -344,7 +345,7 @@ Data columns (total 1 columns):
 dtypes: float64(1)
 memory usage: 2.8 KB</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="59">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <div>
 
 
@@ -389,7 +390,7 @@ memory usage: 2.8 KB</code></pre>
 </section>
 <section id="get-sol-data" class="level2">
 <h2 class="anchored" data-anchor-id="get-sol-data">Get SOL data</h2>
-<div class="cell" data-execution_count="60">
+<div class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CoinGecko API endpoint for historical market data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://api.coingecko.com/api/v3/coins/solana/market_chart"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -411,7 +412,7 @@ memory usage: 2.8 KB</code></pre>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the timestamp to datetime</span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Timestamp"</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">"Timestamp"</span>], unit<span class="op">=</span><span class="st">"ms"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="61">
+<div class="cell" data-outputid="59be43d2-560e-493b-be37-4e791371e880" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set index of data frame to be date</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sol_df <span class="op">=</span> df.set_index(<span class="st">'Timestamp'</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sol_df.rename(columns<span class="op">=</span>{<span class="st">"Price"</span>: <span class="st">"SOL"</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
@@ -420,7 +421,7 @@ memory usage: 2.8 KB</code></pre>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>sol_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-DatetimeIndex: 181 entries, 2023-04-08 00:00:00 to 2023-10-04 06:36:37
+DatetimeIndex: 181 entries, 2023-04-08 00:00:00 to 2023-10-04 18:59:15
 Data columns (total 1 columns):
  #   Column  Non-Null Count  Dtype  
 ---  ------  --------------  -----  
@@ -428,7 +429,7 @@ Data columns (total 1 columns):
 dtypes: float64(1)
 memory usage: 2.8 KB</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <div>
 
 
@@ -470,7 +471,7 @@ memory usage: 2.8 KB</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="62">
+<div class="cell" data-outputid="feed18b6-5c47-45f8-f117-1f8ebf8086f6" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge all three data frames and save to csv</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Export the DataFrame to a CSV file</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>crypto_df <span class="op">=</span> btc_df.join(eth_df, how <span class="op">=</span> <span class="st">'inner'</span>).join(sol_df, how <span class="op">=</span> <span class="st">'inner'</span>)</span>
@@ -489,9 +490,9 @@ dtypes: float64(3)
 memory usage: 5.6 KB</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="63">
+<div class="cell" data-outputid="fa30aae7-f82e-4ecd-a3cf-6525894d313c" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>crypto_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="63">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <div>
 
 
@@ -556,7 +557,7 @@ memory usage: 5.6 KB</code></pre>
 <li>Identify any time series patterns</li>
 <li>Identify any interesting trends insight</li>
 </ol>
-<div class="cell" data-execution_count="64">
+<div class="cell" data-outputid="2c080bc2-f89f-4a82-b0b3-dec0771d8f95" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>crypto_df.plot(subplots <span class="op">=</span> <span class="va">True</span>, title <span class="op">=</span> <span class="st">""</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -571,9 +572,9 @@ memory usage: 5.6 KB</code></pre>
 <li>Plot a 3x3 grid of all pairwise scatterplots</li>
 <li>Identify any interesting trends insight</li>
 </ol>
-<div class="cell" data-execution_count="65">
+<div class="cell" data-outputid="6934bc4b-7e92-494a-da63-b1e2f0fd9d16" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>pd.plotting.scatter_matrix(crypto_df, alpha<span class="op">=</span><span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="65">
+<div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>array([[&lt;AxesSubplot:xlabel='BTC', ylabel='BTC'&gt;,
         &lt;AxesSubplot:xlabel='ETH', ylabel='BTC'&gt;,
         &lt;AxesSubplot:xlabel='SOL', ylabel='BTC'&gt;],
@@ -589,9 +590,9 @@ memory usage: 5.6 KB</code></pre>
 </div>
 </div>
 <p>As suggested above there seems to be a strong positive correlation between Bitcoin and Etherum, but not as strong with Solana. This suggest to me that investing in Solana is a good hedge to investing in the other two coins. Let’s confirm this with numerical values:</p>
-<div class="cell" data-execution_count="66">
+<div class="cell" data-outputid="28889d67-3d6c-44fc-b685-b48a91f5c462" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>crypto_df.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="66">
+<div class="cell-output cell-output-display" data-execution_count="41">
 <div>
 
 
@@ -644,22 +645,22 @@ memory usage: 5.6 KB</code></pre>
 </ol>
 <p>Growth mindset!</p>
 <p>Looking at the plots below, we see that as the lag increases, the strength of the positive correlation weakens, suggesting less and less predictive information in earlier and earlier past values.</p>
-<div class="cell" data-execution_count="119">
+<div class="cell" data-outputid="47eaef3c-1b9f-4af8-b2c8-830466d583da" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"figure.figsize"</span>] <span class="op">=</span> [<span class="dv">12</span>,<span class="dv">8</span>]</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>,<span class="dv">3</span>,i<span class="op">+</span><span class="dv">1</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Lag k = "</span> <span class="op">+</span> <span class="bu">str</span>(i<span class="op">+</span><span class="dv">1</span>))</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    pd.plotting.lag_plot(crypto_df[<span class="st">'ETH'</span>], lag <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>plt.show()    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="PS01_albert_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="85">
+<div class="cell" data-outputid="741e33de-4221-4d65-ea76-296f7301823d" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Autocorrelation</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sm.graphics.tsaplots.plot_acf(crypto_df[<span class="st">'ETH'</span>], lags<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sm.graphics.tsa.plot_acf(crypto_df[<span class="st">'ETH'</span>], lags<span class="op">=</span><span class="dv">30</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Ethereum autocorrelation (days)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="85">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>Text(0.5, 1.0, 'Ethereum autocorrelation (days)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -667,6 +668,36 @@ memory usage: 5.6 KB</code></pre>
 </div>
 </div>
 <p>The autocorrelation is high at first as we would expect (values of <span class="math inline">\(k\)</span> days less than 20 say), but eventually this decays to 0. This suggests that in this time period, there is little predictive value for Ethereum in past values past <span class="math inline">\(k\)</span> = 20 days around. Note the second DataCamp course will instruct us that the blue bands are 95% confidence intervals since the default <code>alpha</code> value for <code>plot_acf()</code> is 0.05.</p>
+</section>
+<section id="extra" class="level1">
+<h1>4. Extra</h1>
+<p>What’s the difference between the first and second output?</p>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>crypto_df[<span class="st">'BTC'</span>].info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.series.Series'&gt;
+DatetimeIndex: 180 entries, 2023-04-08 to 2023-10-04
+Series name: BTC
+Non-Null Count  Dtype  
+--------------  -----  
+180 non-null    float64
+dtypes: float64(1)
+memory usage: 2.8 KB</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>crypto_df[[<span class="st">'BTC'</span>]].info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 180 entries, 2023-04-08 to 2023-10-04
+Data columns (total 1 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   BTC     180 non-null    float64
+dtypes: float64(1)
+memory usage: 2.8 KB</code></pre>
+</div>
+</div>
 
 
 </section>
