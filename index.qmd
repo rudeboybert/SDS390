@@ -26,18 +26,23 @@ read_csv("390.csv") %>%
   sample_frac(1) %>% 
   mutate(team = rep(1:9, length = 17)) %>% 
   arrange(team)
+
+
+read_csv("390.csv") %>% 
+  filter(First != "Albert") %>% 
+  sample_n(2)
 ```
 
 1. I will make groups at random using code above. I will join a group if there is an odd person left out.
 1. Work together for 20 minutes to come up with single `.ipynb`
 1. I will pick two teams at random to present to the class
-1. I will present my work to the class
+1. I will present my work to the class. click [here](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb)
 1. Answer the sli.do poll [here](https://app.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF)
 1. Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
 
 
 <!--
-https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb
+
 -->
 
 
