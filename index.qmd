@@ -19,6 +19,7 @@ Things to do next time:
 
 ## Announcements
 
+1. Still missing a few [PS01 peer evalutions](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
 1. Discuss slido [responses](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
 1.
 
@@ -26,14 +27,21 @@ Things to do next time:
 ## Lecture
 
 1. Theory covered in "Time Series Analysis in Python" DataCamp course
-
+1. Context and background about PS02 data
 
 
 
 
 ## Problem Set 2
 
-1. 
+Prof. Kim's thoughts about ChatGPT. It is a very powerful tool, but you need to be:
+
+1. Knowledgeable enough to understand the code
+1. Experienced enough in your domain and programming to know what to prompt
+1. Disciplined enough to sanity check your results
+
+
+
 
 
 
