@@ -4,14 +4,14 @@
     "href": "PS.html",
     "title": "Problem Sets",
     "section": "",
-    "text": "Slides on PS02 data’s context. Prof Kim quote: “Numbers are numbers, but data has context”\nMy thoughts about ChatGPT. It is a very powerful tool, but you need to be:\n\nKnowledgeable enough to understand the code\nExperienced enough in your domain and programming to know what to prompt\nDisciplined enough to sanity check your results\n\n\n\n\n\nPosted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable."
+    "text": "Slides on PS02 data’s context. Prof Kim quote: “Numbers are numbers, but data has context”\nMy thoughts about ChatGPT. It is a very powerful tool, but you need to be:\n\nKnowledgeable enough to understand the code\nExperienced enough in your domain and programming to know what to prompt\nDisciplined enough to sanity check your results\n\n\n\n\n\nPosted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02."
   },
   {
     "objectID": "PS.html#instructions",
     "href": "PS.html#instructions",
     "title": "Problem Sets",
     "section": "",
-    "text": "Posted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable."
+    "text": "Posted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02."
   },
   {
     "objectID": "PS.html#instructions-1",
