@@ -14,7 +14,20 @@ Things to do next time:
 -->
 ```
 
-# Lec 6.2: Thu 10/2
+
+# Lec 7.1: Tue 10/17s
+
+## Announcements
+
+1.  Discuss PS02 in-class presentation format on Tue 10/24 using PS01 feedback from [slido](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
+
+
+
+------------------------------------------------------------------------
+
+
+
+# Lec 6.2: Thu 10/12
 
 ## Announcements
 
