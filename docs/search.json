@@ -4,21 +4,21 @@
     "href": "PS.html",
     "title": "Problem Sets",
     "section": "",
-    "text": "Slides on PS02 data’s context. Prof Kim quote: “Numbers are numbers, but data has context”\nMy thoughts about ChatGPT. It is a very powerful tool, but you need to be:\n\nKnowledgeable enough to understand the code\nExperienced enough in your domain and programming to know what to prompt\nDisciplined enough to sanity check your results\n\n\n\n\n\nPosted on Slack under #questions\nIndividual PS01.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Thu 10/5: “Think, Pair, Share” exercise"
+    "text": "Slides on PS02 data’s context. Prof Kim quote: “Numbers are numbers, but data has context”\nMy thoughts about ChatGPT. It is a very powerful tool, but you need to be:\n\nKnowledgeable enough to understand the code\nExperienced enough in your domain and programming to know what to prompt\nDisciplined enough to sanity check your results\n\n\n\n\n\nPosted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise"
   },
   {
     "objectID": "PS.html#instructions",
     "href": "PS.html#instructions",
     "title": "Problem Sets",
     "section": "",
-    "text": "Posted on Slack under #questions\nIndividual PS01.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Thu 10/5: “Think, Pair, Share” exercise"
+    "text": "Posted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise"
   },
   {
     "objectID": "PS.html#instructions-1",
     "href": "PS.html#instructions-1",
     "title": "Problem Sets",
     "section": "Instructions",
-    "text": "Instructions\n\nPosted on Slack under #questions\nIndividual PS01.ipynb files\n\nDue Thu 10/5 9:25am on moodle (see Moodle link on top right of page)\nSubmit both a PS01.ipynb where all code is reproducible and a .csv file of your data\n\nIn-class on Thu 10/5: “Think, Pair, Share” exercise\n\nI will randomly create teams of pairs. Any remaining odd number student will be paired with me.\nYou will show each other your code and prepare a single mini-presentation .ipynb\nI will pick 2-3 pairs at random to present their work in front of the class\nYou will rate your peer’s preparation using this Google Form\n\n\nClarifications added afterwards:\n\nDataset should be at least 100 rows\nFor mini-presentation, you will have to choose one of the two datasets\nDo problem set in python"
+    "text": "Instructions\n\nPosted on Slack under #general\nIndividual PS01.ipynb files\n\nDue Thu 10/5 9:25am on moodle (see Moodle link on top right of page)\nSubmit both a PS01.ipynb where all code is reproducible and a .csv file of your data\n\nIn-class on Thu 10/5: “Think, Pair, Share” exercise\n\nI will randomly create teams of pairs. Any remaining odd number student will be paired with me.\nYou will show each other your code and prepare a single mini-presentation .ipynb\nI will pick 2-3 pairs at random to present their work in front of the class\nYou will rate your peer’s preparation using this Google Form\n\n\nClarifications added afterwards:\n\nDataset should be at least 100 rows\nFor mini-presentation, you will have to choose one of the two datasets\nDo problem set in python"
   },
   {
     "objectID": "PS.html#in-class-presentations",

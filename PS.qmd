@@ -15,11 +15,11 @@ title: "Problem Sets"
 
 ## Instructions
 
-1. Posted on Slack under `#questions`
-1. Individual `PS01.ipynb` files
+1. Posted on Slack under `#general`
+1. Individual `PS02.ipynb` files
     1. Complete `PS02.ipynb` by Tue 10/24 class time
     1. Due Thu 10/26 9:25am on Moodle
-1. In-class on Thu 10/5: "Think, Pair, Share" exercise
+1. In-class on Tue 10/24: "Think, Pair, Share" exercise
 
 
 
@@ -31,7 +31,7 @@ title: "Problem Sets"
 
 ## Instructions
 
-1.  Posted on Slack under `#questions`
+1.  Posted on Slack under `#general`
 2.  Individual `PS01.ipynb` files
     1.  Due Thu 10/5 9:25am on moodle (see Moodle link on top right of page)
     2.  Submit both a `PS01.ipynb` where all code is reproducible and a `.csv` file of your data
