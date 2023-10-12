@@ -13,6 +13,8 @@ website:
         href: https://app.datacamp.com/learn/assignments
       - text: "ChatGPT"
         href: https://chat.openai.com/
+      - text: "Problem Sets"
+        href: PS.html      
     right:
       - text: "Roster"
         href: https://docs.google.com/spreadsheets/d/12GJWpG53UQgVwG-TEms5uT88HKSkh-m3g81k63SV_YA/edit#gid=0

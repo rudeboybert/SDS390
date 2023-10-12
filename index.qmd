@@ -2,132 +2,74 @@
 title: "SDS390: Ecological Forecasting"
 ---
 
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=538580312&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="800">
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8rrRUpbMRdy01pwUDw4C65XK1ekgQZWUeWN66L5KrAwtXuWMuo1EEk-2qULxsYPforSIAIsEI1dY/pubhtml?gid=538580312&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="800"></iframe>
+</iframe>
 
-
+```{=html}
 <!--
 Things to do next time:
 1. Do second DataCamp class after you've covered AR and MA process in class
 1. 
 -->
-
-
-
+```
 
 # Lec 6.2: Thu 10/2
 
 ## Announcements
 
-1. Still missing a few [PS01 peer evalutions](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
-1. Discuss slido [responses](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
-1.
-
+1.  Still missing a few [PS01 peer evalutions](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
+2.  Discuss slido [responses](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
 
 ## Lecture
 
-1. Theory covered in "Time Series Analysis in Python" DataCamp course
-1. Context and background about PS02 data
+1.  "Time Series Analysis in Python" DataCamp course Chapters 3-5 of this course focused on "autoregressive integrated moving average" (ARIMA) models. This is covered in:
+    1.  [FPP Chapter 9](https://otexts.com/fpp3/arima.html)
+    2.  The 4th of 5 courses in "Time Series with Python" DC skill track (see schedule above).
+2.  Chalk talk
+3.  Start PS02 (on new "Problem Sets" tab of webpage)
+
+```{=html}
+<!--
+1. Sometimes it doesn't make sense to study TS original values, but instead differences or % changes or returns of values. For example stock returns.
+1. If for a lag value of $k$ the autocorrelation function is statistically indistinguishable from 0, then there is no information for forecasting.
+1. Chapter 3, Video 1, Exercise 1 and Video 2, Exercise 1: Purpose of a simulation study
+1. Chapter 3, Video 4, Exercise 2: Model selection
+1. Chapter 4, Video 2, Exercise 2: in-sample and out-of-sample forecasting
+-->
+```
 
 
 
-
-## Problem Set 2
-
-Prof. Kim's thoughts about ChatGPT. It is a very powerful tool, but you need to be:
-
-1. Knowledgeable enough to understand the code
-1. Experienced enough in your domain and programming to know what to prompt
-1. Disciplined enough to sanity check your results
-
-
-
-
-
-
-
-***
-
-
+------------------------------------------------------------------------
 
 # Lec 5.2: Thu 10/5
 
 ## Announcements
 
-1. 
-
+1.  
 
 ## Lecture
 
-```{r, eval = FALSE}
-library(tidyverse)
-read_csv("390.csv") %>% 
-  filter(First != "Albert") %>% 
-  sample_frac(1) %>% 
-  mutate(team = rep(1:9, length = 17)) %>% 
-  arrange(team)
+1. Problem Set 01 in-class presentations
 
-read_csv("390.csv") %>% 
-  filter(First != "Albert") %>% 
-  sample_n(2)
-```
-
-1. I will make groups at random using code above. I will join a group if there is an odd person left out.
-1. Work together for 20 minutes to come up with single `.ipynb`
-1. I will pick two teams at random to present to the class
-1. I will present my work to the class. click [here](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb)
-1. Answer the sli.do poll [here](https://app.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF)
-1. Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
-
-
-## PS01 Groups
-
-`***` = presented
-
-```
- 1 Yang           Christy        1
- 2 O'Meara        Abbey          1
- 3 Slosser        Tillie         2 ***
- 4 Murray         Kiera          2 ***
- 5 Khan           Nubraz         3
- 6 Ding           Jenny          3
- 7 Anesko         Greta          4
- 8 Martin         Teddy          4
- 9 Xu             Xiaoman        5
-10 An             Rachael        5
-11 Kogalovski     Aleksandra     6
-12 Qiu            Chi            6
-13 Knecht         Beata          7 ***
-14 Basnet Chettri Charavee       7 ***
-15 Tha Ra Wun     Tint           8
-16 Huang          Juniper        8
-17 Pu             Betty          9
-```
-
-
-
-***
-
-
+------------------------------------------------------------------------
 
 # Lec 5.1: Tue 10/3
 
 ## Announcements
 
-1. PS1 mini-presentations on Thursday
-1. PS1 submission format posted [below](#problem-set-1)
-
+1.  PS1 mini-presentations on Thursday
+2.  PS1 submission format posted [below](#problem-set-1)
 
 ## Lecture
 
-1. Lec 4.2 on FPP 3.4 Classical Decomposition, second attempt
-    1. What is $m$ used in example?
-    1. How is seasonal component $S_t$ computed? What is assumed seasonality?
-    1. Code over code block below
-1. FFP 3.5 Briefly discuss other decomposition methods used
-1. FFP 3.6 STL decomposition which uses LOESS = LOcal regrESSion smoothing instead of $m$-MA smoothing like for classical decomposition
-    ![LOESS](https://raw.githubusercontent.com/simplystats/simplystats.github.io/master/_images/loess.gif) 
-
+1.  Lec 4.2 on FPP 3.4 Classical Decomposition, second attempt
+    1.  What is $m$ used in example?
+    2.  How is seasonal component $S_t$ computed? What is assumed seasonality?
+    3.  Code over code block below
+2.  FFP 3.5 Briefly discuss other decomposition methods used
+3.  FFP 3.6 STL decomposition which uses LOESS = LOcal regrESSion smoothing instead of $m$-MA smoothing like for classical decomposition ![LOESS](https://raw.githubusercontent.com/simplystats/simplystats.github.io/master/_images/loess.gif)
 
 ```{r eval=FALSE, echo=TRUE}
 library(fpp3)
@@ -225,22 +167,17 @@ full_decomposition %>%
 13170.1 - 13177.76 - (-13.311661)
 ```
 
-
-
-***
-
-
+------------------------------------------------------------------------
 
 # Lec 4.2: Thu 9/28
 
 ## Announcements
 
-1. Comment on the generalizability of everything I say
-
+1.  Comment on the generalizability of everything I say
 
 ## Lecture
 
-1. 
+1.  
 
 ```{r eval=FALSE, echo=TRUE}
 library(fpp3)
@@ -321,80 +258,53 @@ ggplot(full_decomposition, aes(x=Month, y = Employed - trend - seasonal)) +
   labs(title = "Remainder i.e. noise")
 ```
 
-
-
-
-***
-
-
+------------------------------------------------------------------------
 
 # Lec 4.1: Tue 9/26
 
 ## Announcements
 
-1. The next course ["Time Series Analysis in Python"](https://app.datacamp.com/learn/courses/time-series-analysis-in-python) due ~~Tue 10/3~~ Thu 10/5 9:25am.
-1. I'm keeping up with screencasts, still need to finish Chapter 4. 
-1. Slido [responses](https://admin.sli.do/event/hF9K8zvE9KGPCwexfM1YJu/analytics):
-    1. "I wish the examples were a bit more grounded, as in, the datasets we used were a topic I found interesting. It keeps feeling like I'm doing a small portion of a data analysis. I find myself "going through the motions" and feeling it is tedious because I don't think I'm really comprehending the importance of each step."
-    1. "Making stupid mistakes on the syntax and kind of confused about the difference between `[]` and `.` when calling an attribute"
-    1. "Worried I won't retain my understanding"
-    1. "I prefer this over problems sets because it gives an instant response and allow me to improve my work before finally submitting it"
-1. Main tip: "Optimal frustration"
-
+1.  The next course ["Time Series Analysis in Python"](https://app.datacamp.com/learn/courses/time-series-analysis-in-python) due ~~Tue 10/3~~ Thu 10/5 9:25am.
+2.  I'm keeping up with screencasts, still need to finish Chapter 4.
+3.  Slido [responses](https://admin.sli.do/event/hF9K8zvE9KGPCwexfM1YJu/analytics):
+    1.  "I wish the examples were a bit more grounded, as in, the datasets we used were a topic I found interesting. It keeps feeling like I'm doing a small portion of a data analysis. I find myself"going through the motions" and feeling it is tedious because I don't think I'm really comprehending the importance of each step."
+    2.  "Making stupid mistakes on the syntax and kind of confused about the difference between `[]` and `.` when calling an attribute"
+    3.  "Worried I won't retain my understanding"
+    4.  "I prefer this over problems sets because it gives an instant response and allow me to improve my work before finally submitting it"
+4.  Main tip: "Optimal frustration"
 
 ## Lecture
 
-1. FPP 3.1 Transformations. $\log10$ transformations:
-    1. What are $\log$ (base $e$) and $\log10$ (base 10) tranformations? [Example table](https://moderndive.com/A-appendixA.html#appendix-log10-transformations)
-    1. Effect on visualizations: [Example figure](https://moderndive.com/11-thinking-with-data.html#fig:log10-price-viz)
-1. FPP 3.2 Time series decompositions
+1.  FPP 3.1 Transformations. $\log10$ transformations:
+    1.  What are $\log$ (base $e$) and $\log10$ (base 10) tranformations? [Example table](https://moderndive.com/A-appendixA.html#appendix-log10-transformations)
+    2.  Effect on visualizations: [Example figure](https://moderndive.com/11-thinking-with-data.html#fig:log10-price-viz)
+2.  FPP 3.2 Time series decompositions
+3. Problem Set 1 posted
 
-
-## Problem Set 1
-
-1. Posted on Slack under `#questions`
-1. Individual `PS01.ipynb` files
-    1. Due Thu 10/5 9:25am on moodle (see Moodle link on top right of page)
-    1. Submit both a `PS01.ipynb` where all code is reproducible and a `.csv` file of your data
-1. In-class on Thu 10/5: "Think, Pair, Share" exercise
-    1. I will randomly create teams of pairs. Any remaining odd number student will be paired with me.
-    1. You will show each other your code and prepare a single mini-presentation `.ipynb`
-    1. I will pick 2-3 pairs at random to present their work in front of the class
-    1. You will rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
-    
-    
-  
-Clarifications added afterwards:
-
-1. Dataset should be at least 100 rows
-1. For mini-presentation, you will have to choose one of the two datasets
-1. Do problem set in python
+## Problem Set 1 {#problem-set-1}
 
 
 
-***
-
-
+------------------------------------------------------------------------
 
 # Lec 3.2: Thu 9/21
 
 ## Announcements
 
-1. First problem set assigned on Tue, which will build into first mini-presentation
-1. Mountain Day recap
-1. Originally assigned course ["Manipulating Time Series Data in Python"](https://app.datacamp.com/learn/courses/manipulating-time-series-data-in-python) due next Tue 9/26 before class 
-1. Go to Roster Google Sheet (top right of page) and fill DC columns
-
+1.  First problem set assigned on Tue, which will build into first mini-presentation
+2.  Mountain Day recap
+3.  Originally assigned course ["Manipulating Time Series Data in Python"](https://app.datacamp.com/learn/courses/manipulating-time-series-data-in-python) due next Tue 9/26 before class
+4.  Go to Roster Google Sheet (top right of page) and fill DC columns
 
 ## Lecture
 
-1. DataCamp
-    1. Poll class on [sli.do](https://app.sli.do/event/hF9K8zvE9KGPCwexfM1YJu) about DC
-    1. DC exercise numbering system: Ex 2.1.3 = Chapter 2, Video 1, Exercise 3.
-    1. Prof. Kim gets vulnerable and does MTSD course Ex 1.3.1 and 2.1.3
-    1. Screencasts location
-    1. Continuing [Time Series with Python](https://app.datacamp.com/learn/skill-tracks/time-series-with-python) skill track, the next course ["Time Series Analysis in Python"](https://app.datacamp.com/learn/courses/time-series-analysis-in-python) due Tue 10/3. If there is an Exercise you'd like me to do in class, let me know. 
-1. Finish chalk talk on FPP Chapter 2: 2.7 and 2.8. See code below
+1.  DataCamp
+    1.  Poll class on [sli.do](https://app.sli.do/event/hF9K8zvE9KGPCwexfM1YJu) about DC
+    2.  DC exercise numbering system: Ex 2.1.3 = Chapter 2, Video 1, Exercise 3.
+    3.  Prof. Kim gets vulnerable and does MTSD course Ex 1.3.1 and 2.1.3
+    4.  Screencasts location
+    5.  Continuing [Time Series with Python](https://app.datacamp.com/learn/skill-tracks/time-series-with-python) skill track, the next course ["Time Series Analysis in Python"](https://app.datacamp.com/learn/courses/time-series-analysis-in-python) due Tue 10/3. If there is an Exercise you'd like me to do in class, let me know.
+2.  Finish chalk talk on FPP Chapter 2: 2.7 and 2.8. See code below
 
 ```{r eval=FALSE, echo=TRUE}
 library(fpp3)
@@ -412,22 +322,17 @@ recent_production
 recent_production |> autoplot(Beer)
 ```
 
-
-
-***
-
-
+------------------------------------------------------------------------
 
 # Lec 2.2: Thu 9/14
 
-- Slido results from [last time](https://analytics.slido.com/share/XIJcW_05mEyupBJ2tuIT0cTYhCVNaSKt_S6IXFz9P_85KW39KIJcX_0zn_0tn_0sn_04mEwpT_cBSQUZ7NfeRoClIynj_ST2bmxub3FsZXFubP0vmHyIUAu_SVrj9mYafEeNA6EIvbcFZweiMI4O1A7kdCS5bg)
-- ChatGPT result on global temperature
-- Install `fpp3` R package
-- Chalk talk on FPP Chapter 2: Time Series Graphics. During chalk talk I will refer to "code blocks" below. Feel free to copy to a `playground.qmd` file.
-- Canada wins gold medal in ice hockey in overtime at 2010 Vancouver Winter Olympics
-    - The [Golden Goal 🥇](https://www.youtube.com/watch?v=GBMriA6maIU&t=18s)
-    - A clear [cyclical pattern](https://www.zdnet.com/a/img/resize/51e841b3331a3340a2b95219ddc1a7826fcaee31/2013/11/13/e384930f-4c5f-11e3-90a0-0291187ef9b6/epcor_edmonton_water_usage_flush_olympic_gold_game.jpg?auto=webp&fit=crop&height=1200&width=1200) in water consumption (from 🚽🚾🧻)
-
+-   Slido results from [last time](https://analytics.slido.com/share/XIJcW_05mEyupBJ2tuIT0cTYhCVNaSKt_S6IXFz9P_85KW39KIJcX_0zn_0tn_0sn_04mEwpT_cBSQUZ7NfeRoClIynj_ST2bmxub3FsZXFubP0vmHyIUAu_SVrj9mYafEeNA6EIvbcFZweiMI4O1A7kdCS5bg)
+-   ChatGPT result on global temperature
+-   Install `fpp3` R package
+-   Chalk talk on FPP Chapter 2: Time Series Graphics. During chalk talk I will refer to "code blocks" below. Feel free to copy to a `playground.qmd` file.
+-   Canada wins gold medal in ice hockey in overtime at 2010 Vancouver Winter Olympics
+    -   The [Golden Goal 🥇](https://www.youtube.com/watch?v=GBMriA6maIU&t=18s)
+    -   A clear [cyclical pattern](https://www.zdnet.com/a/img/resize/51e841b3331a3340a2b95219ddc1a7826fcaee31/2013/11/13/e384930f-4c5f-11e3-90a0-0291187ef9b6/epcor_edmonton_water_usage_flush_olympic_gold_game.jpg?auto=webp&fit=crop&height=1200&width=1200) in water consumption (from 🚽🚾🧻)
 
 ```{r eval=FALSE, echo=TRUE}
 # Lec 2.2 Code
@@ -468,27 +373,19 @@ vic_elec |>
        y = "Electricity demand (GW)")
 ```
 
-
-
-***
-
-
+------------------------------------------------------------------------
 
 # Lec 2.1: Tue 9/12
 
-1. Join `#questions` channel on Slack
-1. Fill in your information on roster
-1. ChatGPT citation mechanism: share link
-1. Developing a python/jupyter notebook workflow
-    1. Open a jupyter notebook
-    1. Start "Manipulating Time Series Data in Python" DataCamp course, to be completed by Tue 9/19 before class
-    1. Screencast recording [here](https://drive.google.com/file/d/1kHVmegmsxClToWpUjak6s2cwcRZJ8vJ8/view?usp=sharing)
+1.  Join `#questions` channel on Slack
+2.  Fill in your information on roster
+3.  ChatGPT citation mechanism: share link
+4.  Developing a python/jupyter notebook workflow
+    1.  Open a jupyter notebook
+    2.  Start "Manipulating Time Series Data in Python" DataCamp course, to be completed by Tue 9/19 before class
+    3.  Screencast recording [here](https://drive.google.com/file/d/1kHVmegmsxClToWpUjak6s2cwcRZJ8vJ8/view?usp=sharing)
 
-
-
-***
-
-
+------------------------------------------------------------------------
 
 # Lec 1.2: Thu 9/7
 
