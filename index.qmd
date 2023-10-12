@@ -15,7 +15,7 @@ Things to do next time:
 ```
 
 
-# Lec 7.1: Tue 10/17s
+# Lec 7.1: Tue 10/17
 
 ## Announcements
 
