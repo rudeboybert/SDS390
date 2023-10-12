@@ -21,6 +21,9 @@ title: "Problem Sets"
     1. Due Thu 10/26 9:25am on Moodle
 1. In-class on Tue 10/24: "Think, Pair, Share" exercise
 
+Clarifications:
+
+1. Use the `dbh` variable, not the `dbh_orig` variable.
 
 
 ***
