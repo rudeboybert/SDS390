@@ -22,6 +22,53 @@ Things to do next time:
 1.  Discuss PS02 in-class presentation format on Tue 10/24 using PS01 feedback from [slido](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
 
 
+```{r, eval=FALSE, echo=FALSE}
+library(fpp3)
+library(feasts)
+
+tourism |> 
+  features(Trips, feat_acf)
+
+
+top_row <- tourism %>% 
+  filter(Region == "Adelaide", State == "South Australia", Purpose == "Business")
+
+top_row %>% 
+  autoplot(Trips)
+
+top_row %>% 
+  ACF(Trips) %>% 
+  autoplot()
+
+# https://otexts.com/fpp3/stationarity.html#differencing
+top_row %>% 
+  autoplot(difference(Trips))
+
+top_row %>% 
+  ACF(difference(Trips)) %>% 
+  autoplot()
+
+
+
+
+
+tourism %>% 
+  model(
+    classical_decomposition(Trips, type = "additive")
+  ) |>
+  components() |>
+  autoplot() +
+  labs(title = "Classical additive decomposition of total
+                  US retail employment")
+
+tourism |>
+  features(Trips, feat_stl)
+
+```
+
+
+
+
 
 ------------------------------------------------------------------------
 
