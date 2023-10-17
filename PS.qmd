@@ -27,6 +27,17 @@ Clarifications:
 1. D'oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you're done your PS02. 
 
 
+## In-Class Presentations
+
+1. Groups still made at random, presenters still chosen at random
+1. No need to merge two files, can select only one person's and modify (if at all)
+1. Reminder: submission due on Moodle before next class
+
+
+## Example Solutions
+
+
+
 ***
 
 

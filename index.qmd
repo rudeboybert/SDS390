@@ -15,6 +15,25 @@ Things to do next time:
 ```
 
 
+# Lec 7.2: Thu 10/19
+
+## Announcements
+
+1. Update PS02 in-class presentation format in [Problem Sets](PS.html)
+1. 
+
+## Lecture
+
+1. 
+
+
+------------------------------------------------------------------------
+
+
+
+
+
+
 # Lec 7.1: Tue 10/17
 
 ## Announcements
@@ -22,6 +41,7 @@ Things to do next time:
 1. Next DC course "Visualizing Time Series Data in Python" assigned due Tue 10/31
 1. Discuss PS02 in-class presentation format on Tue 10/24 using PS01 feedback from [slido](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
 
+## Lecture
 
 ```{r, eval=FALSE, echo=TRUE}
 library(fpp3)

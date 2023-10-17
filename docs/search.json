@@ -4,7 +4,7 @@
     "href": "PS.html",
     "title": "Problem Sets",
     "section": "",
-    "text": "Slides on PS02 data’s context. Prof Kim quote: “Numbers are numbers, but data has context”\nMy thoughts about ChatGPT. It is a very powerful tool, but you need to be:\n\nKnowledgeable enough to understand the code\nExperienced enough in your domain and programming to know what to prompt\nDisciplined enough to sanity check your results\n\n\n\n\n\nPosted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02."
+    "text": "Slides on PS02 data’s context. Prof Kim quote: “Numbers are numbers, but data has context”\nMy thoughts about ChatGPT. It is a very powerful tool, but you need to be:\n\nKnowledgeable enough to understand the code\nExperienced enough in your domain and programming to know what to prompt\nDisciplined enough to sanity check your results\n\n\n\n\n\nPosted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02.\n\n\n\n\n\nGroups still made at random, presenters still chosen at random\nNo need to merge two files, can select only one person’s and modify (if at all)\nReminder: submission due on Moodle before next class"
   },
   {
     "objectID": "PS.html#instructions",
@@ -14,6 +14,13 @@
     "text": "Posted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02."
   },
   {
+    "objectID": "PS.html#in-class-presentations",
+    "href": "PS.html#in-class-presentations",
+    "title": "Problem Sets",
+    "section": "",
+    "text": "Groups still made at random, presenters still chosen at random\nNo need to merge two files, can select only one person’s and modify (if at all)\nReminder: submission due on Moodle before next class"
+  },
+  {
     "objectID": "PS.html#instructions-1",
     "href": "PS.html#instructions-1",
     "title": "Problem Sets",
@@ -21,15 +28,15 @@
     "text": "Instructions\n\nPosted on Slack under #general\nIndividual PS01.ipynb files\n\nDue Thu 10/5 9:25am on moodle (see Moodle link on top right of page)\nSubmit both a PS01.ipynb where all code is reproducible and a .csv file of your data\n\nIn-class on Thu 10/5: “Think, Pair, Share” exercise\n\nI will randomly create teams of pairs. Any remaining odd number student will be paired with me.\nYou will show each other your code and prepare a single mini-presentation .ipynb\nI will pick 2-3 pairs at random to present their work in front of the class\nYou will rate your peer’s preparation using this Google Form\n\n\nClarifications added afterwards:\n\nDataset should be at least 100 rows\nFor mini-presentation, you will have to choose one of the two datasets\nDo problem set in python"
   },
   {
-    "objectID": "PS.html#in-class-presentations",
-    "href": "PS.html#in-class-presentations",
+    "objectID": "PS.html#in-class-presentations-1",
+    "href": "PS.html#in-class-presentations-1",
     "title": "Problem Sets",
     "section": "In-Class Presentations",
     "text": "In-Class Presentations\n\nI will make groups at random using code below. I will join a group if there is an odd person left out.\nWork together for 20 minutes to come up with single .ipynb\nI will pick two teams at random to present to the class\nI will present my work to the class. click here\nAnswer the sli.do poll here\nRate your peer’s preparation using this Google Form Code to generate groups:\n\n\nlibrary(tidyverse)\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_frac(1) %&gt;% \n  mutate(team = rep(1:9, length = 17)) %&gt;% \n  arrange(team)\n\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_n(2)\n\n*** = presented\n 1 Yang           Christy        1\n 2 O'Meara        Abbey          1\n 3 Slosser        Tillie         2 ***\n 4 Murray         Kiera          2 ***\n 5 Khan           Nubraz         3\n 6 Ding           Jenny          3\n 7 Anesko         Greta          4\n 8 Martin         Teddy          4\n 9 Xu             Xiaoman        5\n10 An             Rachael        5\n11 Kogalovski     Aleksandra     6\n12 Qiu            Chi            6\n13 Knecht         Beata          7 ***\n14 Basnet Chettri Charavee       7 ***\n15 Tha Ra Wun     Tint           8\n16 Huang          Juniper        8\n17 Pu             Betty          9"
   },
   {
-    "objectID": "PS.html#example-solutions",
-    "href": "PS.html#example-solutions",
+    "objectID": "PS.html#example-solutions-1",
+    "href": "PS.html#example-solutions-1",
     "title": "Problem Sets",
     "section": "Example Solutions",
     "text": "Example Solutions\n\nTillie + Kiera and Beata + Charavee’s solutions here\nProf Kim’s solution"
@@ -67,74 +74,95 @@
     "href": "index.html#announcements",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
-    "text": "Announcements\n\nNext DC course “Visualizing Time Series Data in Python” assigned due Tue 10/31\nDiscuss PS02 in-class presentation format on Tue 10/24 using PS01 feedback from slido\n\n\nlibrary(fpp3)\nlibrary(feasts)\n\n# Code block 1: FPP 4.2 ACF features ----\n# Reprint output from book\ntourism |&gt; \n  features(Trips, feat_acf)\n\n# a) Focus on only top row of output from book\ntop_row &lt;- tourism %&gt;% \n  filter(Region == \"Adelaide\", State == \"South Australia\", Purpose == \"Business\")\n\ntop_row |&gt; \n  features(Trips, feat_acf)\n\n# LOOK AT YOUR DATA!!\ntop_row %&gt;% \n  autoplot(Trips)\n\n# b) ACF at k=1 is acf1 in output from book\ntop_row %&gt;% \n  ACF(Trips) %&gt;% \n  autoplot()\n\n# c) Take differences of data using difference() from FPP 9.1\n# https://otexts.com/fpp3/stationarity.html#differencing\n# For example switch from size to growth\ntop_row %&gt;% \n  autoplot(difference(Trips))\n\n# ACF at k=1 is diff1_acf1 in output from book\ntop_row %&gt;% \n  ACF(difference(Trips)) %&gt;% \n  autoplot()\n\n\n\n# Code block 2: FPP 4.3 ACF features ----\n# Compare and contrast two classical decomposition features\n\n# a) FPP 4.3 Australia trips\ntop_row %&gt;% \n  model(\n    classical_decomposition(Trips, type = \"additive\")\n  ) |&gt;\n  components() |&gt;\n  autoplot() +\n  labs(title = \"Classical additive decomposition of total trips\")\n\n# b) FPP 3.4 Fig 3.13 from Lec 5.1\nus_retail_employment &lt;- us_employment |&gt;\n  filter(year(Month) &gt;= 1990, Title == \"Retail Trade\") |&gt;\n  select(-Series_ID)\n\nus_retail_employment %&gt;%\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components() |&gt;\n  autoplot() +\n  labs(title = \"Classical additive decomposition of total\n                  US retail employment\")\n\n# c) compare trend_strength and seasonal_strength_year\ntop_row |&gt;\n  features(Trips, feat_stl) %&gt;% \n  View()\n\nus_retail_employment |&gt;\n  features(Employed, feat_stl) %&gt;% \n  View()"
-  },
-  {
-    "objectID": "index.html#announcements-1",
-    "href": "index.html#announcements-1",
-    "title": "SDS390: Ecological Forecasting",
-    "section": "Announcements",
-    "text": "Announcements\n\nStill missing a few PS01 peer evalutions\nDiscuss slido responses"
+    "text": "Announcements\n\nUpdate PS02 in-class presentation format in Problem Sets"
   },
   {
     "objectID": "index.html#lecture",
     "href": "index.html#lecture",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
-    "text": "Lecture\n\n“Time Series Analysis in Python” DataCamp course Chapters 3-5 of this course focused on “autoregressive integrated moving average” (ARIMA) models. This is covered in:\n\nFPP Chapter 9\nThe 4th of 5 courses in “Time Series with Python” DC skill track (see schedule above).\n\nChalk talk\nStart PS02 (on new “Problem Sets” tab of webpage)"
+    "text": "Lecture"
   },
   {
-    "objectID": "index.html#announcements-2",
-    "href": "index.html#announcements-2",
+    "objectID": "index.html#announcements-1",
+    "href": "index.html#announcements-1",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
-    "text": "Announcements"
+    "text": "Announcements\n\nNext DC course “Visualizing Time Series Data in Python” assigned due Tue 10/31\nDiscuss PS02 in-class presentation format on Tue 10/24 using PS01 feedback from slido"
   },
   {
     "objectID": "index.html#lecture-1",
     "href": "index.html#lecture-1",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
-    "text": "Lecture\n\nProblem Set 01 in-class presentations"
+    "text": "Lecture\n\nlibrary(fpp3)\nlibrary(feasts)\n\n# Code block 1: FPP 4.2 ACF features ----\n# Reprint output from book\ntourism |&gt; \n  features(Trips, feat_acf)\n\n# a) Focus on only top row of output from book\ntop_row &lt;- tourism %&gt;% \n  filter(Region == \"Adelaide\", State == \"South Australia\", Purpose == \"Business\")\n\ntop_row |&gt; \n  features(Trips, feat_acf)\n\n# LOOK AT YOUR DATA!!\ntop_row %&gt;% \n  autoplot(Trips)\n\n# b) ACF at k=1 is acf1 in output from book\ntop_row %&gt;% \n  ACF(Trips) %&gt;% \n  autoplot()\n\n# c) Take differences of data using difference() from FPP 9.1\n# https://otexts.com/fpp3/stationarity.html#differencing\n# For example switch from size to growth\ntop_row %&gt;% \n  autoplot(difference(Trips))\n\n# ACF at k=1 is diff1_acf1 in output from book\ntop_row %&gt;% \n  ACF(difference(Trips)) %&gt;% \n  autoplot()\n\n\n\n# Code block 2: FPP 4.3 ACF features ----\n# Compare and contrast two classical decomposition features\n\n# a) FPP 4.3 Australia trips\ntop_row %&gt;% \n  model(\n    classical_decomposition(Trips, type = \"additive\")\n  ) |&gt;\n  components() |&gt;\n  autoplot() +\n  labs(title = \"Classical additive decomposition of total trips\")\n\n# b) FPP 3.4 Fig 3.13 from Lec 5.1\nus_retail_employment &lt;- us_employment |&gt;\n  filter(year(Month) &gt;= 1990, Title == \"Retail Trade\") |&gt;\n  select(-Series_ID)\n\nus_retail_employment %&gt;%\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components() |&gt;\n  autoplot() +\n  labs(title = \"Classical additive decomposition of total\n                  US retail employment\")\n\n# c) compare trend_strength and seasonal_strength_year\ntop_row |&gt;\n  features(Trips, feat_stl) %&gt;% \n  View()\n\nus_retail_employment |&gt;\n  features(Employed, feat_stl) %&gt;% \n  View()"
   },
   {
-    "objectID": "index.html#announcements-3",
-    "href": "index.html#announcements-3",
+    "objectID": "index.html#announcements-2",
+    "href": "index.html#announcements-2",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
-    "text": "Announcements\n\nPS1 mini-presentations on Thursday\nPS1 submission format posted below"
+    "text": "Announcements\n\nStill missing a few PS01 peer evalutions\nDiscuss slido responses"
   },
   {
     "objectID": "index.html#lecture-2",
     "href": "index.html#lecture-2",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
-    "text": "Lecture\n\nLec 4.2 on FPP 3.4 Classical Decomposition, second attempt\n\nWhat is \\(m\\) used in example?\nHow is seasonal component \\(S_t\\) computed? What is assumed seasonality?\nCode over code block below\n\nFFP 3.5 Briefly discuss other decomposition methods used\nFFP 3.6 STL decomposition which uses LOESS = LOcal regrESSion smoothing instead of \\(m\\)-MA smoothing like for classical decomposition \n\n\nlibrary(fpp3)\n\n# Code block 1: Recreate Fig 3.13 ----\n# 1.a) Get data\nus_retail_employment &lt;- us_employment |&gt;\n  filter(year(Month) &gt;= 1990, Title == \"Retail Trade\") |&gt;\n  select(-Series_ID)\n\n# Note index is 1M = monthly. This sets m=12 in m-MA method below\nus_retail_employment\n\n# 1.b) Recreate Fig 3.13\nus_retail_employment %&gt;%\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components() |&gt;\n  autoplot() +\n  labs(title = \"Classical additive decomposition of total\n                  US retail employment\")\n\n\n\n# Code block 2: Recreate all 4 subplots in Fig 3.13 ----\n# Get data frame with full breakdown of decomposition\nfull_decomposition &lt;- us_retail_employment |&gt;\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components() %&gt;% \n  # Convert from tsibble to regular tibble for data wrangling\n  as_tibble()\n\n# 2.a) Top plot: Original TS data\nggplot(full_decomposition, aes(x=Month, y = Employed)) +\n  geom_line() +\n  labs(title = \"Original data\")\n\n# 2.b) 2nd plot: trend-cycle via MA average method\nggplot(full_decomposition, aes(x=Month, y = trend)) +\n  geom_line() +\n  labs(title = \"trend-cycle component\")\n\n# 2.c) Extra: detrended plot\nggplot(full_decomposition, aes(x=Month, y = Employed - trend)) +\n  geom_line() +\n  labs(title = \"Detrended data Original data minus trend-cycle component\") +\n  geom_hline(yintercept = 0, col = \"red\")\n\n# 2.d) 3rd plot: seasonality (values repeat every 12 months)\nggplot(full_decomposition, aes(x=Month, y = seasonal)) +\n  geom_line() +\n  labs(title = \"Seasonality\")\n\n# 2.e) 4th plot: Compute remainders\nggplot(full_decomposition, aes(x=Month, y = random)) +\n  geom_line() +\n  labs(title = \"Remainder i.e. noise\") +\n  geom_hline(yintercept = 0, col = \"red\")\n\n\n\n# Code block 3:  Compute full breakdown for one row: 1990 July ----\n# 3.a) LOOK at data\n# IMO most important function in RStudio: View()\n# Focus on Row 7 1990 July: where do all these values come from?\nView(full_decomposition)\n\n# 3.b) Step 1: Compute T_hat_t = trend = 13177.76 using 2x12-MA\n# Compute mean of first 12 values\nfull_decomposition %&gt;% \n  slice(1:12) %&gt;% \n  summarize(mean = mean(Employed))\n# Compute mean of next 12 values\nfull_decomposition %&gt;% \n  slice(2:13) %&gt;% \n  summarize(mean = mean(Employed))\n# Now do second averaging of 2 values\n(13186 + 13170)/2\n\n# 3.c) Step 2: Compute detrended values D_hat_t = -7.6625\nfull_decomposition &lt;- full_decomposition %&gt;% \n  mutate(detrended = Employed - trend)\n\n# 3.d) Step 3: Compute seasonal averages S_hat_t = -13.311661\nfull_decomposition %&gt;% \n  mutate(month_num = month(Month)) %&gt;% \n  group_by(month_num) %&gt;% \n  summarize(St = mean(detrended, na.rm = TRUE))\n\n# 3.e) Step 4: Compute remainder R_hat_t = 5.6491610\n# y_t - T_hat_t - S_hat_t\n13170.1 - 13177.76 - (-13.311661)"
+    "text": "Lecture\n\n“Time Series Analysis in Python” DataCamp course Chapters 3-5 of this course focused on “autoregressive integrated moving average” (ARIMA) models. This is covered in:\n\nFPP Chapter 9\nThe 4th of 5 courses in “Time Series with Python” DC skill track (see schedule above).\n\nChalk talk\nStart PS02 (on new “Problem Sets” tab of webpage)"
   },
   {
-    "objectID": "index.html#announcements-4",
-    "href": "index.html#announcements-4",
+    "objectID": "index.html#announcements-3",
+    "href": "index.html#announcements-3",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
-    "text": "Announcements\n\nComment on the generalizability of everything I say"
+    "text": "Announcements"
   },
   {
     "objectID": "index.html#lecture-3",
     "href": "index.html#lecture-3",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
-    "text": "Lecture\n\n\n\n\nlibrary(fpp3)\n\n# Code block 1 ----\n# Modified version of code to produce FPP Fig 3.10\naus_exports &lt;- global_economy |&gt;\n  filter(Country == \"Australia\") \n\n# Note number of rows\naus_exports\n\n# Set m and plot\nm &lt;- 28\naus_exports |&gt;\n  mutate(\n    `m-MA` = slider::slide_dbl(Exports, mean,\n                .before = m, .after = m, .complete = TRUE)\n  ) |&gt;\n  autoplot(Exports) +\n  geom_line(aes(y = `m-MA`), colour = \"#D55E00\") +\n  labs(y = \"% of GDP\",\n       title = \"Total Australian exports\") +\n  guides(colour = guide_legend(title = \"series\"))\n\n\n# Code block 2 ----\n# Classical decomposition breakdown\n\n# Plot TS data in questions\nus_retail_employment &lt;- us_employment |&gt;\n  filter(year(Month) &gt;= 1990, Title == \"Retail Trade\") |&gt;\n  select(-Series_ID)\nus_retail_employment\n\n# Code to create full Fig 3.13\nus_retail_employment |&gt;\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components() |&gt;\n  autoplot() +\n  labs(title = \"Classical additive decomposition of total\n                  US retail employment\")\n\n# Get data frame with all the decomposition parts\nfull_decomposition &lt;- us_retail_employment |&gt;\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components()\n\nfull_decomposition\n\n# Original TS data\nggplot(full_decomposition, aes(x=Month, y = Employed)) +\n  geom_line() +\n  labs(title = \"Original data\")\n\n# Step 1: trend-cycle via MA average method. 2nd plot of Fig. 3.13\nggplot(full_decomposition, aes(x=Month, y = trend)) +\n  geom_line() +\n  labs(title = \"trend-cycle component\")\n\n# Step 2: Subtract trend-cycle from original data\nggplot(full_decomposition, aes(x=Month, y = Employed - trend)) +\n  geom_line() +\n  labs(title = \"Original data minus trend-cycle component\")\n\n# Step 3: Compute seasonal averages. 3rd plot of Fig. 3.13\nggplot(full_decomposition, aes(x=Month, y = seasonal)) +\n  geom_line() +\n  labs(title = \"For each season compute average\")\n\n# Step 4: Compute remainders. 4th plot of Fig 3.13\nggplot(full_decomposition, aes(x=Month, y = Employed - trend - seasonal)) +\n  geom_line() +\n  labs(title = \"Remainder i.e. noise\")"
+    "text": "Lecture\n\nProblem Set 01 in-class presentations"
+  },
+  {
+    "objectID": "index.html#announcements-4",
+    "href": "index.html#announcements-4",
+    "title": "SDS390: Ecological Forecasting",
+    "section": "Announcements",
+    "text": "Announcements\n\nPS1 mini-presentations on Thursday\nPS1 submission format posted below"
+  },
+  {
+    "objectID": "index.html#lecture-4",
+    "href": "index.html#lecture-4",
+    "title": "SDS390: Ecological Forecasting",
+    "section": "Lecture",
+    "text": "Lecture\n\nLec 4.2 on FPP 3.4 Classical Decomposition, second attempt\n\nWhat is \\(m\\) used in example?\nHow is seasonal component \\(S_t\\) computed? What is assumed seasonality?\nCode over code block below\n\nFFP 3.5 Briefly discuss other decomposition methods used\nFFP 3.6 STL decomposition which uses LOESS = LOcal regrESSion smoothing instead of \\(m\\)-MA smoothing like for classical decomposition \n\n\nlibrary(fpp3)\n\n# Code block 1: Recreate Fig 3.13 ----\n# 1.a) Get data\nus_retail_employment &lt;- us_employment |&gt;\n  filter(year(Month) &gt;= 1990, Title == \"Retail Trade\") |&gt;\n  select(-Series_ID)\n\n# Note index is 1M = monthly. This sets m=12 in m-MA method below\nus_retail_employment\n\n# 1.b) Recreate Fig 3.13\nus_retail_employment %&gt;%\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components() |&gt;\n  autoplot() +\n  labs(title = \"Classical additive decomposition of total\n                  US retail employment\")\n\n\n\n# Code block 2: Recreate all 4 subplots in Fig 3.13 ----\n# Get data frame with full breakdown of decomposition\nfull_decomposition &lt;- us_retail_employment |&gt;\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components() %&gt;% \n  # Convert from tsibble to regular tibble for data wrangling\n  as_tibble()\n\n# 2.a) Top plot: Original TS data\nggplot(full_decomposition, aes(x=Month, y = Employed)) +\n  geom_line() +\n  labs(title = \"Original data\")\n\n# 2.b) 2nd plot: trend-cycle via MA average method\nggplot(full_decomposition, aes(x=Month, y = trend)) +\n  geom_line() +\n  labs(title = \"trend-cycle component\")\n\n# 2.c) Extra: detrended plot\nggplot(full_decomposition, aes(x=Month, y = Employed - trend)) +\n  geom_line() +\n  labs(title = \"Detrended data Original data minus trend-cycle component\") +\n  geom_hline(yintercept = 0, col = \"red\")\n\n# 2.d) 3rd plot: seasonality (values repeat every 12 months)\nggplot(full_decomposition, aes(x=Month, y = seasonal)) +\n  geom_line() +\n  labs(title = \"Seasonality\")\n\n# 2.e) 4th plot: Compute remainders\nggplot(full_decomposition, aes(x=Month, y = random)) +\n  geom_line() +\n  labs(title = \"Remainder i.e. noise\") +\n  geom_hline(yintercept = 0, col = \"red\")\n\n\n\n# Code block 3:  Compute full breakdown for one row: 1990 July ----\n# 3.a) LOOK at data\n# IMO most important function in RStudio: View()\n# Focus on Row 7 1990 July: where do all these values come from?\nView(full_decomposition)\n\n# 3.b) Step 1: Compute T_hat_t = trend = 13177.76 using 2x12-MA\n# Compute mean of first 12 values\nfull_decomposition %&gt;% \n  slice(1:12) %&gt;% \n  summarize(mean = mean(Employed))\n# Compute mean of next 12 values\nfull_decomposition %&gt;% \n  slice(2:13) %&gt;% \n  summarize(mean = mean(Employed))\n# Now do second averaging of 2 values\n(13186 + 13170)/2\n\n# 3.c) Step 2: Compute detrended values D_hat_t = -7.6625\nfull_decomposition &lt;- full_decomposition %&gt;% \n  mutate(detrended = Employed - trend)\n\n# 3.d) Step 3: Compute seasonal averages S_hat_t = -13.311661\nfull_decomposition %&gt;% \n  mutate(month_num = month(Month)) %&gt;% \n  group_by(month_num) %&gt;% \n  summarize(St = mean(detrended, na.rm = TRUE))\n\n# 3.e) Step 4: Compute remainder R_hat_t = 5.6491610\n# y_t - T_hat_t - S_hat_t\n13170.1 - 13177.76 - (-13.311661)"
   },
   {
     "objectID": "index.html#announcements-5",
     "href": "index.html#announcements-5",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
+    "text": "Announcements\n\nComment on the generalizability of everything I say"
+  },
+  {
+    "objectID": "index.html#lecture-5",
+    "href": "index.html#lecture-5",
+    "title": "SDS390: Ecological Forecasting",
+    "section": "Lecture",
+    "text": "Lecture\n\n\n\n\nlibrary(fpp3)\n\n# Code block 1 ----\n# Modified version of code to produce FPP Fig 3.10\naus_exports &lt;- global_economy |&gt;\n  filter(Country == \"Australia\") \n\n# Note number of rows\naus_exports\n\n# Set m and plot\nm &lt;- 28\naus_exports |&gt;\n  mutate(\n    `m-MA` = slider::slide_dbl(Exports, mean,\n                .before = m, .after = m, .complete = TRUE)\n  ) |&gt;\n  autoplot(Exports) +\n  geom_line(aes(y = `m-MA`), colour = \"#D55E00\") +\n  labs(y = \"% of GDP\",\n       title = \"Total Australian exports\") +\n  guides(colour = guide_legend(title = \"series\"))\n\n\n# Code block 2 ----\n# Classical decomposition breakdown\n\n# Plot TS data in questions\nus_retail_employment &lt;- us_employment |&gt;\n  filter(year(Month) &gt;= 1990, Title == \"Retail Trade\") |&gt;\n  select(-Series_ID)\nus_retail_employment\n\n# Code to create full Fig 3.13\nus_retail_employment |&gt;\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components() |&gt;\n  autoplot() +\n  labs(title = \"Classical additive decomposition of total\n                  US retail employment\")\n\n# Get data frame with all the decomposition parts\nfull_decomposition &lt;- us_retail_employment |&gt;\n  model(\n    classical_decomposition(Employed, type = \"additive\")\n  ) |&gt;\n  components()\n\nfull_decomposition\n\n# Original TS data\nggplot(full_decomposition, aes(x=Month, y = Employed)) +\n  geom_line() +\n  labs(title = \"Original data\")\n\n# Step 1: trend-cycle via MA average method. 2nd plot of Fig. 3.13\nggplot(full_decomposition, aes(x=Month, y = trend)) +\n  geom_line() +\n  labs(title = \"trend-cycle component\")\n\n# Step 2: Subtract trend-cycle from original data\nggplot(full_decomposition, aes(x=Month, y = Employed - trend)) +\n  geom_line() +\n  labs(title = \"Original data minus trend-cycle component\")\n\n# Step 3: Compute seasonal averages. 3rd plot of Fig. 3.13\nggplot(full_decomposition, aes(x=Month, y = seasonal)) +\n  geom_line() +\n  labs(title = \"For each season compute average\")\n\n# Step 4: Compute remainders. 4th plot of Fig 3.13\nggplot(full_decomposition, aes(x=Month, y = Employed - trend - seasonal)) +\n  geom_line() +\n  labs(title = \"Remainder i.e. noise\")"
+  },
+  {
+    "objectID": "index.html#announcements-6",
+    "href": "index.html#announcements-6",
+    "title": "SDS390: Ecological Forecasting",
+    "section": "Announcements",
     "text": "Announcements\n\nThe next course “Time Series Analysis in Python” due Tue 10/3 Thu 10/5 9:25am.\nI’m keeping up with screencasts, still need to finish Chapter 4.\nSlido responses:\n\n“I wish the examples were a bit more grounded, as in, the datasets we used were a topic I found interesting. It keeps feeling like I’m doing a small portion of a data analysis. I find myself”going through the motions” and feeling it is tedious because I don’t think I’m really comprehending the importance of each step.”\n“Making stupid mistakes on the syntax and kind of confused about the difference between [] and . when calling an attribute”\n“Worried I won’t retain my understanding”\n“I prefer this over problems sets because it gives an instant response and allow me to improve my work before finally submitting it”\n\nMain tip: “Optimal frustration”"
   },
   {
-    "objectID": "index.html#lecture-4",
-    "href": "index.html#lecture-4",
+    "objectID": "index.html#lecture-6",
+    "href": "index.html#lecture-6",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
     "text": "Lecture\n\nFPP 3.1 Transformations. \\(\\log10\\) transformations:\n\nWhat are \\(\\log\\) (base \\(e\\)) and \\(\\log10\\) (base 10) tranformations? Example table\nEffect on visualizations: Example figure\n\nFPP 3.2 Time series decompositions\nProblem Set 1 posted"
@@ -147,15 +175,15 @@
     "text": "Problem Set 1"
   },
   {
-    "objectID": "index.html#announcements-6",
-    "href": "index.html#announcements-6",
+    "objectID": "index.html#announcements-7",
+    "href": "index.html#announcements-7",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
     "text": "Announcements\n\nFirst problem set assigned on Tue, which will build into first mini-presentation\nMountain Day recap\nOriginally assigned course “Manipulating Time Series Data in Python” due next Tue 9/26 before class\nGo to Roster Google Sheet (top right of page) and fill DC columns"
   },
   {
-    "objectID": "index.html#lecture-5",
-    "href": "index.html#lecture-5",
+    "objectID": "index.html#lecture-7",
+    "href": "index.html#lecture-7",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
     "text": "Lecture\n\nDataCamp\n\nPoll class on sli.do about DC\nDC exercise numbering system: Ex 2.1.3 = Chapter 2, Video 1, Exercise 3.\nProf. Kim gets vulnerable and does MTSD course Ex 1.3.1 and 2.1.3\nScreencasts location\nContinuing Time Series with Python skill track, the next course “Time Series Analysis in Python” due Tue 10/3. If there is an Exercise you’d like me to do in class, let me know.\n\nFinish chalk talk on FPP Chapter 2: 2.7 and 2.8. See code below\n\n\nlibrary(fpp3)\n\n# Code block 1 ----\n# Lag plots: relationship of a TS variable with itself in the past\n# Create regular TS plot of data in Fig 2.19 Beer production over time\nrecent_production &lt;- aus_production |&gt;\n  filter(year(Quarter) &gt;= 2000)\n\n# Note time index meta-data = 1Q = quarter\nrecent_production\n\n# Note patterns\nrecent_production |&gt; autoplot(Beer)"
