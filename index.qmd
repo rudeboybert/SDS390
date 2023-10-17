@@ -23,7 +23,7 @@ Things to do next time:
 1. Discuss PS02 in-class presentation format on Tue 10/24 using PS01 feedback from [slido](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
 
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=FALSE, echo=TRUE}
 library(fpp3)
 library(feasts)
 
