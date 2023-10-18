@@ -2,8 +2,6 @@
 title: "Problem Sets"
 ---
 
-
-
 # Problem Set 2
 
 1.  [Slides](PS/dendrobands.pdf) on PS02 data's context. Prof Kim quote: "Numbers are numbers, but data has context"
@@ -12,35 +10,36 @@ title: "Problem Sets"
     2.  Experienced enough in your domain and programming to know what to prompt
     3.  Disciplined enough to sanity check your results
 
-
 ## Instructions
 
-1. Posted on Slack under `#general`
-1. Individual `PS02.ipynb` files
-    1. Complete `PS02.ipynb` by Tue 10/24 class time
-    1. Due Thu 10/26 9:25am on Moodle
-1. In-class on Tue 10/24: "Think, Pair, Share" exercise
+1.  Posted on Slack under `#general`
+2.  Individual `PS02.ipynb` files
+    1.  Complete `PS02.ipynb` by Tue 10/24 class time
+    2.  Due Thu 10/26 9:25am on Moodle
+3.  In-class on Tue 10/24: "Think, Pair, Share" exercise
 
 Clarifications:
 
-1. Use the `dbh` variable, not the `dbh_orig` variable.
-1. D'oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you're done your PS02. 
+1.  Use the `dbh` variable, not the `dbh_orig` variable.
+2.  D'oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you're done your PS02.
 
 
 ## In-Class Presentations
 
-1. Groups still made at random, presenters still chosen at random
-1. No need to merge two files, can select only one person's and modify (if at all)
-1. Reminder: submission due on Moodle before next class
-
-
-## Example Solutions
+1.  Groups still made at random, presenters still chosen at random
+2.  No need to merge two files, you can select only one person's and modify it (if at all)
+3.  Reminder: submission due on Moodle before next class
 
 
 
-***
 
 
+
+
+
+
+
+------------------------------------------------------------------------
 
 # Problem Set 1
 
@@ -62,7 +61,6 @@ Clarifications added afterwards:
 2.  For mini-presentation, you will have to choose one of the two datasets
 3.  Do problem set in python
 
-
 ## In-Class Presentations
 
 1.  I will make groups at random using code below. I will join a group if there is an odd person left out.
@@ -70,8 +68,7 @@ Clarifications added afterwards:
 3.  I will pick two teams at random to present to the class
 4.  I will present my work to the class. click [here](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb)
 5.  Answer the sli.do poll [here](https://app.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF)
-6.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
-Code to generate groups:
+6.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform) Code to generate groups:
 
 ```{r, eval = FALSE}
 library(tidyverse)
@@ -108,10 +105,7 @@ read_csv("390.csv") %>%
 17 Pu             Betty          9
 ```
 
-
 ## Example Solutions
 
-1. Tillie + Kiera and Beata + Charavee's solutions [here](PS/PS01_presentations.zip)
-1. Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb)
-
-
+1.  Tillie + Kiera and Beata + Charavee's solutions [here](PS/PS01_presentations.zip)
+2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb)

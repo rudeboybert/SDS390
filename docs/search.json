@@ -1,87 +1,17 @@
 [
   {
-    "objectID": "PS.html",
-    "href": "PS.html",
-    "title": "Problem Sets",
-    "section": "",
-    "text": "Slides on PS02 data’s context. Prof Kim quote: “Numbers are numbers, but data has context”\nMy thoughts about ChatGPT. It is a very powerful tool, but you need to be:\n\nKnowledgeable enough to understand the code\nExperienced enough in your domain and programming to know what to prompt\nDisciplined enough to sanity check your results\n\n\n\n\n\nPosted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02.\n\n\n\n\n\nGroups still made at random, presenters still chosen at random\nNo need to merge two files, can select only one person’s and modify (if at all)\nReminder: submission due on Moodle before next class"
-  },
-  {
-    "objectID": "PS.html#instructions",
-    "href": "PS.html#instructions",
-    "title": "Problem Sets",
-    "section": "",
-    "text": "Posted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02."
-  },
-  {
-    "objectID": "PS.html#in-class-presentations",
-    "href": "PS.html#in-class-presentations",
-    "title": "Problem Sets",
-    "section": "",
-    "text": "Groups still made at random, presenters still chosen at random\nNo need to merge two files, can select only one person’s and modify (if at all)\nReminder: submission due on Moodle before next class"
-  },
-  {
-    "objectID": "PS.html#instructions-1",
-    "href": "PS.html#instructions-1",
-    "title": "Problem Sets",
-    "section": "Instructions",
-    "text": "Instructions\n\nPosted on Slack under #general\nIndividual PS01.ipynb files\n\nDue Thu 10/5 9:25am on moodle (see Moodle link on top right of page)\nSubmit both a PS01.ipynb where all code is reproducible and a .csv file of your data\n\nIn-class on Thu 10/5: “Think, Pair, Share” exercise\n\nI will randomly create teams of pairs. Any remaining odd number student will be paired with me.\nYou will show each other your code and prepare a single mini-presentation .ipynb\nI will pick 2-3 pairs at random to present their work in front of the class\nYou will rate your peer’s preparation using this Google Form\n\n\nClarifications added afterwards:\n\nDataset should be at least 100 rows\nFor mini-presentation, you will have to choose one of the two datasets\nDo problem set in python"
-  },
-  {
-    "objectID": "PS.html#in-class-presentations-1",
-    "href": "PS.html#in-class-presentations-1",
-    "title": "Problem Sets",
-    "section": "In-Class Presentations",
-    "text": "In-Class Presentations\n\nI will make groups at random using code below. I will join a group if there is an odd person left out.\nWork together for 20 minutes to come up with single .ipynb\nI will pick two teams at random to present to the class\nI will present my work to the class. click here\nAnswer the sli.do poll here\nRate your peer’s preparation using this Google Form Code to generate groups:\n\n\nlibrary(tidyverse)\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_frac(1) %&gt;% \n  mutate(team = rep(1:9, length = 17)) %&gt;% \n  arrange(team)\n\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_n(2)\n\n*** = presented\n 1 Yang           Christy        1\n 2 O'Meara        Abbey          1\n 3 Slosser        Tillie         2 ***\n 4 Murray         Kiera          2 ***\n 5 Khan           Nubraz         3\n 6 Ding           Jenny          3\n 7 Anesko         Greta          4\n 8 Martin         Teddy          4\n 9 Xu             Xiaoman        5\n10 An             Rachael        5\n11 Kogalovski     Aleksandra     6\n12 Qiu            Chi            6\n13 Knecht         Beata          7 ***\n14 Basnet Chettri Charavee       7 ***\n15 Tha Ra Wun     Tint           8\n16 Huang          Juniper        8\n17 Pu             Betty          9"
-  },
-  {
-    "objectID": "PS.html#example-solutions-1",
-    "href": "PS.html#example-solutions-1",
-    "title": "Problem Sets",
-    "section": "Example Solutions",
-    "text": "Example Solutions\n\nTillie + Kiera and Beata + Charavee’s solutions here\nProf Kim’s solution"
-  },
-  {
-    "objectID": "PS/PS01_albert.html#get-btc-data",
-    "href": "PS/PS01_albert.html#get-btc-data",
-    "title": "Problem Set 01",
-    "section": "Get BTC data",
-    "text": "Get BTC data\n\n# ChatGPT Code from https://chat.openai.com/share/572f7333-82a9-411f-95df-4f543fd3ae96\n\n# CoinGecko API endpoint for historical market data\nurl = \"https://api.coingecko.com/api/v3/coins/bitcoin/market_chart\"\n\n# Specify the number of days to retrieve (180 days for 6 months)\nparams = {\n    \"vs_currency\": \"usd\",\n    \"days\": \"180\",\n}\n\n# Send GET request to the API\nresponse = requests.get(url, params=params)\n\n# Get the BTC price data from the API response\nbtc_price_data = response.json()[\"prices\"]\n\n# Convert the price data to a Pandas DataFrame\ndf = pd.DataFrame(btc_price_data, columns=[\"Timestamp\", \"Price\"])\n\n# Convert the timestamp to datetime\ndf[\"Timestamp\"] = pd.to_datetime(df[\"Timestamp\"], unit=\"ms\")\n\n\n# Set index of data frame to be date\nbtc_df = df.set_index('Timestamp')\nbtc_df.rename(columns={\"Price\": \"BTC\"}, inplace = True)\n\nbtc_df.info()\nbtc_df.head()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nDatetimeIndex: 181 entries, 2023-04-09 00:00:00 to 2023-10-05 07:09:11\nData columns (total 1 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   BTC     181 non-null    float64\ndtypes: float64(1)\nmemory usage: 2.8 KB\n\n\n\n\n\n\n\n\n\nBTC\n\n\nTimestamp\n\n\n\n\n\n2023-04-09\n27968.128047\n\n\n2023-04-10\n28351.236994\n\n\n2023-04-11\n29657.974137\n\n\n2023-04-12\n30260.936109\n\n\n2023-04-13\n29904.138695"
-  },
-  {
-    "objectID": "PS/PS01_albert.html#get-eth-data",
-    "href": "PS/PS01_albert.html#get-eth-data",
-    "title": "Problem Set 01",
-    "section": "Get ETH data",
-    "text": "Get ETH data\n\n# CoinGecko API endpoint for historical market data\nurl = \"https://api.coingecko.com/api/v3/coins/ethereum/market_chart\"\n\n# Specify the number of days to retrieve (180 days for 6 months)\nparams = {\n    \"vs_currency\": \"usd\",\n    \"days\": \"180\",\n}\n\n# Send GET request to the API\nresponse = requests.get(url, params=params)\n\n# Get the BTC price data from the API response\neth_price_data = response.json()[\"prices\"]\n\n# Convert the price data to a Pandas DataFrame\ndf = pd.DataFrame(eth_price_data, columns=[\"Timestamp\", \"Price\"])\n\n# Convert the timestamp to datetime\ndf[\"Timestamp\"] = pd.to_datetime(df[\"Timestamp\"], unit=\"ms\")\n\n\n# Set index of data frame to be date\neth_df = df.set_index('Timestamp')\neth_df.rename(columns={\"Price\": \"ETH\"}, inplace = True)\n\neth_df.info()\neth_df.head()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nDatetimeIndex: 181 entries, 2023-04-09 00:00:00 to 2023-10-05 05:28:41\nData columns (total 1 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   ETH     181 non-null    float64\ndtypes: float64(1)\nmemory usage: 2.8 KB\n\n\n\n\n\n\n\n\n\nETH\n\n\nTimestamp\n\n\n\n\n\n2023-04-09\n1851.050671\n\n\n2023-04-10\n1859.940387\n\n\n2023-04-11\n1909.882061\n\n\n2023-04-12\n1892.938911\n\n\n2023-04-13\n1920.223031"
-  },
-  {
-    "objectID": "PS/PS01_albert.html#get-sol-data",
-    "href": "PS/PS01_albert.html#get-sol-data",
-    "title": "Problem Set 01",
-    "section": "Get SOL data",
-    "text": "Get SOL data\n\n# CoinGecko API endpoint for historical market data\nurl = \"https://api.coingecko.com/api/v3/coins/solana/market_chart\"\n\n# Specify the number of days to retrieve (180 days for 6 months)\nparams = {\n    \"vs_currency\": \"usd\",\n    \"days\": \"180\",\n}\n\n# Send GET request to the API\nresponse = requests.get(url, params=params)\n\n# Get the BTC price data from the API response\nsol_price_data = response.json()[\"prices\"]\n\n# Convert the price data to a Pandas DataFrame\ndf = pd.DataFrame(sol_price_data, columns=[\"Timestamp\", \"Price\"])\n\n# Convert the timestamp to datetime\ndf[\"Timestamp\"] = pd.to_datetime(df[\"Timestamp\"], unit=\"ms\")\n\n\n# Set index of data frame to be date\nsol_df = df.set_index('Timestamp')\nsol_df.rename(columns={\"Price\": \"SOL\"}, inplace = True)\n\nsol_df.info()\nsol_df.head()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nDatetimeIndex: 181 entries, 2023-04-09 00:00:00 to 2023-10-05 07:22:21\nData columns (total 1 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   SOL     181 non-null    float64\ndtypes: float64(1)\nmemory usage: 2.8 KB\n\n\n\n\n\n\n\n\n\nSOL\n\n\nTimestamp\n\n\n\n\n\n2023-04-09\n20.042581\n\n\n2023-04-10\n20.304337\n\n\n2023-04-11\n20.875123\n\n\n2023-04-12\n23.005655\n\n\n2023-04-13\n23.830533\n\n\n\n\n\n\n\n\n# Merge all three data frames and save to csv\n# Export the DataFrame to a CSV file\ncrypto_df = btc_df.join(eth_df, how = 'inner').join(sol_df, how = 'inner')\ncrypto_df.info()\ncrypto_df.to_csv(\"crypto_price_data.csv\", index=False)\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nDatetimeIndex: 180 entries, 2023-04-09 to 2023-10-05\nData columns (total 3 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   BTC     180 non-null    float64\n 1   ETH     180 non-null    float64\n 2   SOL     180 non-null    float64\ndtypes: float64(3)\nmemory usage: 5.6 KB\n\n\n\ncrypto_df.head()\n\n\n\n\n\n\n\n\nBTC\nETH\nSOL\n\n\nTimestamp\n\n\n\n\n\n\n\n2023-04-09\n27968.128047\n1851.050671\n20.042581\n\n\n2023-04-10\n28351.236994\n1859.940387\n20.304337\n\n\n2023-04-11\n29657.974137\n1909.882061\n20.875123\n\n\n2023-04-12\n30260.936109\n1892.938911\n23.005655\n\n\n2023-04-13\n29904.138695\n1920.223031\n23.830533"
-  },
-  {
-    "objectID": "playground.html",
-    "href": "playground.html",
-    "title": "Manipulating Time Series Data in Python",
-    "section": "",
-    "text": "import pandas as pd\n\n# Create the range of dates here\nseven_days = pd.date_range(start = '2017-1-1', periods=7, freq='D')\n\n# Iterate over the dates and print the number and name of the weekday\nfor day in seven_days:\n    print(day.dayofweek, day.day_name())\n\n6 Sunday\n0 Monday\n1 Tuesday\n2 Wednesday\n3 Thursday\n4 Friday\n5 Saturday"
-  },
-  {
     "objectID": "index.html#announcements",
     "href": "index.html#announcements",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
-    "text": "Announcements\n\nUpdate PS02 in-class presentation format in Problem Sets"
+    "text": "Announcements\n\nUpdate PS02 in-class presentation format in Problem Sets\nPS02 mini-presentations this coming Tuesday"
   },
   {
     "objectID": "index.html#lecture",
     "href": "index.html#lecture",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
-    "text": "Lecture"
+    "text": "Lecture\n\nCode blocks below\nRefresher on conditions for inference for linear regression\n\n\nlibrary(fpp3)\n\n# Code block 1: Fit model to data and generate forecasts ----\nfull_data &lt;- aus_production %&gt;% \n  filter_index(\"1992 Q1\" ~ \"2010 Q2\")\n\nfull_data %&gt;% \n  autoplot(Beer)\n\n# Take full data and fit 3 models\nbeer_fit_1 &lt;- full_data |&gt;\n  model(\n    Mean = MEAN(Beer),\n    `Naïve` = NAIVE(Beer),\n    `Seasonal naïve` = SNAIVE(Beer)\n  )\n\n# Generate forecasts 14 time periods (quarters) into future\nbeer_forecast_1 &lt;- beer_fit_1 |&gt; \n  forecast(h = 14)\n\n# Plot full data and forecasts\nplot1 &lt;- beer_forecast_1 |&gt;\n  autoplot(full_data, level = NULL) +\n  labs(\n    y = \"Megalitres\",\n    title = \"Forecasts for quarterly beer production\"\n  ) +\n  guides(colour = guide_legend(title = \"Forecast\"))\n\nplot1\n\n\n# Code block 2: Training test set approach ----\n# Define training data to be up to 2007: fit the model to this data\ntraining_data &lt;- full_data |&gt;\n  filter_index(\"1992 Q1\" ~ \"2006 Q4\")\n\n# Define test data to be 2007 and beyond:\ntest_data &lt;- full_data |&gt;\n  filter_index(\"2007 Q1\" ~ \"2010 Q2\")\n\n# Fit 3 models only to training data\nbeer_fit_2 &lt;- training_data |&gt;\n  model(\n    Mean = MEAN(Beer),\n    `Naïve` = NAIVE(Beer),\n    `Seasonal naïve` = SNAIVE(Beer)\n  )\n\n# Generate forecasts for 14 quarters\nbeer_forecast_2 &lt;- beer_fit_2 |&gt; \n  forecast(h = 14)\n\n# Plot training data and forecasts only\nplot2 &lt;- beer_forecast_2 |&gt;\n  autoplot(training_data, level = NULL) +\n  labs(\n    y = \"Megalitres\",\n    title = \"Forecasts for quarterly beer production\"\n  ) +\n  guides(colour = guide_legend(title = \"Forecast\"))\nplot2\n\n# Add the test data. We can now evaluate quality of predictions\nplot2 +\n  autolayer(test_data, colour = \"black\")\n\n\n# Code block 3: \n# Get residuals\naugment(beer_fit_1) %&gt;% \n  View()\n\n# Focus only on seasonal naive method:\nseasonal_naive_augment &lt;- augment(beer_fit_1) %&gt;% \n  filter(.model == \"Seasonal naïve\")\n\n# Check 2 and 3: Mean 0 and constant variance\nseasonal_naive_augment %&gt;% \n  autoplot(.resid) +\n  geom_hline(yintercept=0, linetype = \"dashed\")\n\n# Check 1: Uncorrelated residuals\nseasonal_naive_augment %&gt;% \n  ACF(.resid) %&gt;% \n  autoplot() +\n  labs(title = \"Residuals from the naïve method\")\n\n# Check 2 and 4: Zero mean and normally distributed\nggplot(seasonal_naive_augment, aes(x = .resid)) +\n  geom_histogram(bins = 15)"
   },
   {
     "objectID": "index.html#announcements-1",
@@ -189,6 +119,13 @@
     "text": "Lecture\n\nDataCamp\n\nPoll class on sli.do about DC\nDC exercise numbering system: Ex 2.1.3 = Chapter 2, Video 1, Exercise 3.\nProf. Kim gets vulnerable and does MTSD course Ex 1.3.1 and 2.1.3\nScreencasts location\nContinuing Time Series with Python skill track, the next course “Time Series Analysis in Python” due Tue 10/3. If there is an Exercise you’d like me to do in class, let me know.\n\nFinish chalk talk on FPP Chapter 2: 2.7 and 2.8. See code below\n\n\nlibrary(fpp3)\n\n# Code block 1 ----\n# Lag plots: relationship of a TS variable with itself in the past\n# Create regular TS plot of data in Fig 2.19 Beer production over time\nrecent_production &lt;- aus_production |&gt;\n  filter(year(Quarter) &gt;= 2000)\n\n# Note time index meta-data = 1Q = quarter\nrecent_production\n\n# Note patterns\nrecent_production |&gt; autoplot(Beer)"
   },
   {
+    "objectID": "playground.html",
+    "href": "playground.html",
+    "title": "Manipulating Time Series Data in Python",
+    "section": "",
+    "text": "import pandas as pd\n\n# Create the range of dates here\nseven_days = pd.date_range(start = '2017-1-1', periods=7, freq='D')\n\n# Iterate over the dates and print the number and name of the weekday\nfor day in seven_days:\n    print(day.dayofweek, day.day_name())\n\n6 Sunday\n0 Monday\n1 Tuesday\n2 Wednesday\n3 Thursday\n4 Friday\n5 Saturday"
+  },
+  {
     "objectID": "PS/PS02.html",
     "href": "PS/PS02.html",
     "title": "Problem Set 02",
@@ -196,10 +133,73 @@
     "text": "Instructions: 1. Name: 1. Create a new ChatGPT chat called “SDS390 PS02” that contains all the prompts you used for this problem set, click the share button, and paste the URL in Markdown format here\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n\n1. Load and explore data\n\nLoad the CSV data of biweekly dendroband measures for tree with tag 82203\nLook at the raw data (rows and variables) and meta-data as Amir always told me to do\nNote that DBH is the only non-index variable we will work with, thus simplify the data frame to only have this variable\nPlot the time series of DBH (diameter at breast height, in mm) as we’ve done numerous times in DataCamp: just using .plot() with no arguments\nNow plot the time series where each of the 147 observed data point is marked with a dot. In other words, your plot should at the very least have these points.\nWhat is the difference in information presented between the two plots?\nDescribe any patterns you observe in the time series where each observed data point is marked with a dot\n\n\n\n2. Decomposition Plots\nCreate a seasonal decomposition plot of this data to answer the following questions: 1. What is the approximate growth (in mm) per year trend for this tree 1. What is the approximate range in seasonal variation in growth around this trend? 1. When are the peaks and when are the valleys in this seasonal variation? 1. Are there periods of time where we might be skeptical of the above trend and seasonality?\nNote: You may need to do some data transformation as seen in the first DataCamp course to get a valid plot\n\n\n3. Forecasting using an AR(2) model\nIn this exercise you will use an AR(2) model as seen in the second datacamp course “Time Series Analysis in Python” to forecast this tree’s size exactly two years into the future. Unfortunately since we aren’t covering ARIMA models until later in the course, we won’t be able to:\n\nAscertain the appropriateness of using an AR(2) model. Ex: are all assumptions met?\nFully interpret the model output’s meaning\nDiagnose any issues.\n\nHowever, we will simply view this code as a minimally viable product that we will improve on later. Instructions: 1. Fit an appropriate AR(2) model 1. Print the summary of the result 1. Plot the TS data along with both in-sample fitted forecasts AND out-of-sample forecasts exactly two years into the future 1. Comment on the quality of the out-of-sample forecast. If you have any ideas on how to improve the forecast state them, if not no problem."
   },
   {
+    "objectID": "PS/PS01_albert.html#get-btc-data",
+    "href": "PS/PS01_albert.html#get-btc-data",
+    "title": "Problem Set 01",
+    "section": "Get BTC data",
+    "text": "Get BTC data\n\n# ChatGPT Code from https://chat.openai.com/share/572f7333-82a9-411f-95df-4f543fd3ae96\n\n# CoinGecko API endpoint for historical market data\nurl = \"https://api.coingecko.com/api/v3/coins/bitcoin/market_chart\"\n\n# Specify the number of days to retrieve (180 days for 6 months)\nparams = {\n    \"vs_currency\": \"usd\",\n    \"days\": \"180\",\n}\n\n# Send GET request to the API\nresponse = requests.get(url, params=params)\n\n# Get the BTC price data from the API response\nbtc_price_data = response.json()[\"prices\"]\n\n# Convert the price data to a Pandas DataFrame\ndf = pd.DataFrame(btc_price_data, columns=[\"Timestamp\", \"Price\"])\n\n# Convert the timestamp to datetime\ndf[\"Timestamp\"] = pd.to_datetime(df[\"Timestamp\"], unit=\"ms\")\n\n\n# Set index of data frame to be date\nbtc_df = df.set_index('Timestamp')\nbtc_df.rename(columns={\"Price\": \"BTC\"}, inplace = True)\n\nbtc_df.info()\nbtc_df.head()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nDatetimeIndex: 181 entries, 2023-04-09 00:00:00 to 2023-10-05 07:09:11\nData columns (total 1 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   BTC     181 non-null    float64\ndtypes: float64(1)\nmemory usage: 2.8 KB\n\n\n\n\n\n\n\n\n\nBTC\n\n\nTimestamp\n\n\n\n\n\n2023-04-09\n27968.128047\n\n\n2023-04-10\n28351.236994\n\n\n2023-04-11\n29657.974137\n\n\n2023-04-12\n30260.936109\n\n\n2023-04-13\n29904.138695"
+  },
+  {
+    "objectID": "PS/PS01_albert.html#get-eth-data",
+    "href": "PS/PS01_albert.html#get-eth-data",
+    "title": "Problem Set 01",
+    "section": "Get ETH data",
+    "text": "Get ETH data\n\n# CoinGecko API endpoint for historical market data\nurl = \"https://api.coingecko.com/api/v3/coins/ethereum/market_chart\"\n\n# Specify the number of days to retrieve (180 days for 6 months)\nparams = {\n    \"vs_currency\": \"usd\",\n    \"days\": \"180\",\n}\n\n# Send GET request to the API\nresponse = requests.get(url, params=params)\n\n# Get the BTC price data from the API response\neth_price_data = response.json()[\"prices\"]\n\n# Convert the price data to a Pandas DataFrame\ndf = pd.DataFrame(eth_price_data, columns=[\"Timestamp\", \"Price\"])\n\n# Convert the timestamp to datetime\ndf[\"Timestamp\"] = pd.to_datetime(df[\"Timestamp\"], unit=\"ms\")\n\n\n# Set index of data frame to be date\neth_df = df.set_index('Timestamp')\neth_df.rename(columns={\"Price\": \"ETH\"}, inplace = True)\n\neth_df.info()\neth_df.head()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nDatetimeIndex: 181 entries, 2023-04-09 00:00:00 to 2023-10-05 05:28:41\nData columns (total 1 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   ETH     181 non-null    float64\ndtypes: float64(1)\nmemory usage: 2.8 KB\n\n\n\n\n\n\n\n\n\nETH\n\n\nTimestamp\n\n\n\n\n\n2023-04-09\n1851.050671\n\n\n2023-04-10\n1859.940387\n\n\n2023-04-11\n1909.882061\n\n\n2023-04-12\n1892.938911\n\n\n2023-04-13\n1920.223031"
+  },
+  {
+    "objectID": "PS/PS01_albert.html#get-sol-data",
+    "href": "PS/PS01_albert.html#get-sol-data",
+    "title": "Problem Set 01",
+    "section": "Get SOL data",
+    "text": "Get SOL data\n\n# CoinGecko API endpoint for historical market data\nurl = \"https://api.coingecko.com/api/v3/coins/solana/market_chart\"\n\n# Specify the number of days to retrieve (180 days for 6 months)\nparams = {\n    \"vs_currency\": \"usd\",\n    \"days\": \"180\",\n}\n\n# Send GET request to the API\nresponse = requests.get(url, params=params)\n\n# Get the BTC price data from the API response\nsol_price_data = response.json()[\"prices\"]\n\n# Convert the price data to a Pandas DataFrame\ndf = pd.DataFrame(sol_price_data, columns=[\"Timestamp\", \"Price\"])\n\n# Convert the timestamp to datetime\ndf[\"Timestamp\"] = pd.to_datetime(df[\"Timestamp\"], unit=\"ms\")\n\n\n# Set index of data frame to be date\nsol_df = df.set_index('Timestamp')\nsol_df.rename(columns={\"Price\": \"SOL\"}, inplace = True)\n\nsol_df.info()\nsol_df.head()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nDatetimeIndex: 181 entries, 2023-04-09 00:00:00 to 2023-10-05 07:22:21\nData columns (total 1 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   SOL     181 non-null    float64\ndtypes: float64(1)\nmemory usage: 2.8 KB\n\n\n\n\n\n\n\n\n\nSOL\n\n\nTimestamp\n\n\n\n\n\n2023-04-09\n20.042581\n\n\n2023-04-10\n20.304337\n\n\n2023-04-11\n20.875123\n\n\n2023-04-12\n23.005655\n\n\n2023-04-13\n23.830533\n\n\n\n\n\n\n\n\n# Merge all three data frames and save to csv\n# Export the DataFrame to a CSV file\ncrypto_df = btc_df.join(eth_df, how = 'inner').join(sol_df, how = 'inner')\ncrypto_df.info()\ncrypto_df.to_csv(\"crypto_price_data.csv\", index=False)\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nDatetimeIndex: 180 entries, 2023-04-09 to 2023-10-05\nData columns (total 3 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   BTC     180 non-null    float64\n 1   ETH     180 non-null    float64\n 2   SOL     180 non-null    float64\ndtypes: float64(3)\nmemory usage: 5.6 KB\n\n\n\ncrypto_df.head()\n\n\n\n\n\n\n\n\nBTC\nETH\nSOL\n\n\nTimestamp\n\n\n\n\n\n\n\n2023-04-09\n27968.128047\n1851.050671\n20.042581\n\n\n2023-04-10\n28351.236994\n1859.940387\n20.304337\n\n\n2023-04-11\n29657.974137\n1909.882061\n20.875123\n\n\n2023-04-12\n30260.936109\n1892.938911\n23.005655\n\n\n2023-04-13\n29904.138695\n1920.223031\n23.830533"
+  },
+  {
     "objectID": "PS/PS01.html",
     "href": "PS/PS01.html",
     "title": "Problem Set 01",
     "section": "",
     "text": "Name:\nField that you’re interested in applying TS and forecasting to (ecology, econ, weather, etc):\n\n\nObtain a CSV of time series data\n\nBy whatever means, get a .csv file of time series data relating to any topic: ecological, financial, etc.\nThere should be at least three variables of data\nIf you download from the web, include a link. If you use ChatGPT, include a link to your shared search\n\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport requests\nimport pandas as pd\n\n\n\n1. Time series plots\n\nPlot the raw time series data\nIdentify any obvious patterns in your time series\nIdentify, if any, interesting insights these patterns suggest\n\n\n\n2. Scatterplots\n\nPlot a 3x3 grid of all pairwise scatterplots\nIdentify, if any, interesting trends or insight\n\n\n\n3. Lag & autocorrelation plots\n\nPlot a lag plot of any variable of your choice to visualize its relationship to itself in the past for all values of \\(k\\) between 1 and a maximum \\(k\\). Use a maximum \\(k\\) value of your choice\nPlot an autocorrelation plot of this same variable to quantify its relationship to itself in the past for all values of \\(k\\) between 1 and a maximum \\(k\\). Use a maximum \\(k\\) value of your choice\nIdentify, if any, interesting insight from these lag plots"
+  },
+  {
+    "objectID": "PS.html",
+    "href": "PS.html",
+    "title": "Problem Sets",
+    "section": "",
+    "text": "Slides on PS02 data’s context. Prof Kim quote: “Numbers are numbers, but data has context”\nMy thoughts about ChatGPT. It is a very powerful tool, but you need to be:\n\nKnowledgeable enough to understand the code\nExperienced enough in your domain and programming to know what to prompt\nDisciplined enough to sanity check your results\n\n\n\n\n\nPosted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02.\n\n\n\n\n\nGroups still made at random, presenters still chosen at random\nNo need to merge two files, you can select only one person’s and modify it (if at all)\nReminder: submission due on Moodle before next class"
+  },
+  {
+    "objectID": "PS.html#instructions",
+    "href": "PS.html#instructions",
+    "title": "Problem Sets",
+    "section": "",
+    "text": "Posted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02."
+  },
+  {
+    "objectID": "PS.html#in-class-presentations",
+    "href": "PS.html#in-class-presentations",
+    "title": "Problem Sets",
+    "section": "",
+    "text": "Groups still made at random, presenters still chosen at random\nNo need to merge two files, you can select only one person’s and modify it (if at all)\nReminder: submission due on Moodle before next class"
+  },
+  {
+    "objectID": "PS.html#instructions-1",
+    "href": "PS.html#instructions-1",
+    "title": "Problem Sets",
+    "section": "Instructions",
+    "text": "Instructions\n\nPosted on Slack under #general\nIndividual PS01.ipynb files\n\nDue Thu 10/5 9:25am on moodle (see Moodle link on top right of page)\nSubmit both a PS01.ipynb where all code is reproducible and a .csv file of your data\n\nIn-class on Thu 10/5: “Think, Pair, Share” exercise\n\nI will randomly create teams of pairs. Any remaining odd number student will be paired with me.\nYou will show each other your code and prepare a single mini-presentation .ipynb\nI will pick 2-3 pairs at random to present their work in front of the class\nYou will rate your peer’s preparation using this Google Form\n\n\nClarifications added afterwards:\n\nDataset should be at least 100 rows\nFor mini-presentation, you will have to choose one of the two datasets\nDo problem set in python"
+  },
+  {
+    "objectID": "PS.html#in-class-presentations-1",
+    "href": "PS.html#in-class-presentations-1",
+    "title": "Problem Sets",
+    "section": "In-Class Presentations",
+    "text": "In-Class Presentations\n\nI will make groups at random using code below. I will join a group if there is an odd person left out.\nWork together for 20 minutes to come up with single .ipynb\nI will pick two teams at random to present to the class\nI will present my work to the class. click here\nAnswer the sli.do poll here\nRate your peer’s preparation using this Google Form Code to generate groups:\n\n\nlibrary(tidyverse)\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_frac(1) %&gt;% \n  mutate(team = rep(1:9, length = 17)) %&gt;% \n  arrange(team)\n\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_n(2)\n\n*** = presented\n 1 Yang           Christy        1\n 2 O'Meara        Abbey          1\n 3 Slosser        Tillie         2 ***\n 4 Murray         Kiera          2 ***\n 5 Khan           Nubraz         3\n 6 Ding           Jenny          3\n 7 Anesko         Greta          4\n 8 Martin         Teddy          4\n 9 Xu             Xiaoman        5\n10 An             Rachael        5\n11 Kogalovski     Aleksandra     6\n12 Qiu            Chi            6\n13 Knecht         Beata          7 ***\n14 Basnet Chettri Charavee       7 ***\n15 Tha Ra Wun     Tint           8\n16 Huang          Juniper        8\n17 Pu             Betty          9"
+  },
+  {
+    "objectID": "PS.html#example-solutions",
+    "href": "PS.html#example-solutions",
+    "title": "Problem Sets",
+    "section": "Example Solutions",
+    "text": "Example Solutions\n\nTillie + Kiera and Beata + Charavee’s solutions here\nProf Kim’s solution"
   }
 ]

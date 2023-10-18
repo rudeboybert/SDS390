@@ -20,11 +20,110 @@ Things to do next time:
 ## Announcements
 
 1. Update PS02 in-class presentation format in [Problem Sets](PS.html)
-1. 
+1. PS02 mini-presentations this coming Tuesday
 
 ## Lecture
 
-1. 
+1. Code blocks below
+1. [Refresher](https://moderndive.com/10-inference-for-regression.html#regression-conditions) on conditions for inference for linear regression
+
+
+
+```{r, eval=FALSE}
+library(fpp3)
+
+# Code block 1: Fit model to data and generate forecasts ----
+full_data <- aus_production %>% 
+  filter_index("1992 Q1" ~ "2010 Q2")
+
+full_data %>% 
+  autoplot(Beer)
+
+# Take full data and fit 3 models
+beer_fit_1 <- full_data |>
+  model(
+    Mean = MEAN(Beer),
+    `Naïve` = NAIVE(Beer),
+    `Seasonal naïve` = SNAIVE(Beer)
+  )
+
+# Generate forecasts 14 time periods (quarters) into future
+beer_forecast_1 <- beer_fit_1 |> 
+  forecast(h = 14)
+
+# Plot full data and forecasts
+plot1 <- beer_forecast_1 |>
+  autoplot(full_data, level = NULL) +
+  labs(
+    y = "Megalitres",
+    title = "Forecasts for quarterly beer production"
+  ) +
+  guides(colour = guide_legend(title = "Forecast"))
+
+plot1
+
+
+# Code block 2: Training test set approach ----
+# Define training data to be up to 2007: fit the model to this data
+training_data <- full_data |>
+  filter_index("1992 Q1" ~ "2006 Q4")
+
+# Define test data to be 2007 and beyond:
+test_data <- full_data |>
+  filter_index("2007 Q1" ~ "2010 Q2")
+
+# Fit 3 models only to training data
+beer_fit_2 <- training_data |>
+  model(
+    Mean = MEAN(Beer),
+    `Naïve` = NAIVE(Beer),
+    `Seasonal naïve` = SNAIVE(Beer)
+  )
+
+# Generate forecasts for 14 quarters
+beer_forecast_2 <- beer_fit_2 |> 
+  forecast(h = 14)
+
+# Plot training data and forecasts only
+plot2 <- beer_forecast_2 |>
+  autoplot(training_data, level = NULL) +
+  labs(
+    y = "Megalitres",
+    title = "Forecasts for quarterly beer production"
+  ) +
+  guides(colour = guide_legend(title = "Forecast"))
+plot2
+
+# Add the test data. We can now evaluate quality of predictions
+plot2 +
+  autolayer(test_data, colour = "black")
+
+
+# Code block 3: 
+# Get residuals
+augment(beer_fit_1) %>% 
+  View()
+
+# Focus only on seasonal naive method:
+seasonal_naive_augment <- augment(beer_fit_1) %>% 
+  filter(.model == "Seasonal naïve")
+
+# Check 2 and 3: Mean 0 and constant variance
+seasonal_naive_augment %>% 
+  autoplot(.resid) +
+  geom_hline(yintercept=0, linetype = "dashed")
+
+# Check 1: Uncorrelated residuals
+seasonal_naive_augment %>% 
+  ACF(.resid) %>% 
+  autoplot() +
+  labs(title = "Residuals from the naïve method")
+
+# Check 2 and 4: Zero mean and normally distributed
+ggplot(seasonal_naive_augment, aes(x = .resid)) +
+  geom_histogram(bins = 15)
+```
+
 
 
 ------------------------------------------------------------------------
