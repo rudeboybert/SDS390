@@ -33,13 +33,15 @@ Things to do next time:
 library(fpp3)
 
 # Code block 1: Fit model to data and generate forecasts ----
+# Tidy:
 full_data <- aus_production %>% 
   filter_index("1992 Q1" ~ "2010 Q2")
 
+# Visualize:
 full_data %>% 
   autoplot(Beer)
 
-# Take full data and fit 3 models
+# Specify: Take full data and fit 3 models
 beer_fit_1 <- full_data |>
   model(
     Mean = MEAN(Beer),
@@ -61,6 +63,7 @@ plot1 <- beer_forecast_1 |>
   guides(colour = guide_legend(title = "Forecast"))
 
 plot1
+
 
 
 # Code block 2: Training test set approach ----
@@ -93,13 +96,14 @@ plot2 <- beer_forecast_2 |>
   ) +
   guides(colour = guide_legend(title = "Forecast"))
 plot2
-
+`
 # Add the test data. We can now evaluate quality of predictions
 plot2 +
   autolayer(test_data, colour = "black")
 
 
-# Code block 3: 
+
+# Code block 3: Residual analysis ----
 # Get residuals
 augment(beer_fit_1) %>% 
   View()
