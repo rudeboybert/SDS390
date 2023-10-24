@@ -4,7 +4,7 @@
     "href": "PS.html",
     "title": "Problem Sets",
     "section": "",
-    "text": "Slides on PS02 data’s context. Prof Kim quote: “Numbers are numbers, but data has context”\nMy thoughts about ChatGPT. It is a very powerful tool, but you need to be:\n\nKnowledgeable enough to understand the code\nExperienced enough in your domain and programming to know what to prompt\nDisciplined enough to sanity check your results\n\n\n\n\n\nPosted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02.\n\n\n\n\n\nGroups still made at random, presenters still chosen at random\nNo need to merge two files, you can select only one person’s and modify it (if at all)\nReminder: submission due on Moodle before next class\nAnswer the sli.do poll here\nRate your peer’s preparation using this Google Form\n\n\nlibrary(tidyverse)\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_frac(1) %&gt;% \n  mutate(team = rep(1:9, length = 17)) %&gt;% \n  arrange(team)\n\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_n(2)\n\n*** = presented\n 1 Xu             Xiaoman        1\n 2 An             Rachael        1\n 3 Pu             Betty          2\n 4 Qiu            Chi            9\n 5 Tha Ra Wun     Tint           3\n 6 Martin         Teddy          3\n 7 Knecht         Beata          4\n 8 Murray         Kiera          4\n 9 O'Meara        Abbey          5\n10 Yang           Christy        5\n11 Basnet Chettri Charavee       6\n12 Huang          Juniper        6\n13 Ding           Jenny          7\n14 Slosser        Tillie         7\n15 Kogalovski     Aleksandra     8\n16 Anesko         Greta          8\n\n\n\n\nStudent presentations\nProf Kim’s solution"
+    "text": "Slides on PS02 data’s context. Prof Kim quote: “Numbers are numbers, but data has context”\nMy thoughts about ChatGPT. It is a very powerful tool, but you need to be:\n\nKnowledgeable enough to understand the code\nExperienced enough in your domain and programming to know what to prompt\nDisciplined enough to sanity check your results\n\n\n\n\n\nPosted on Slack under #general\nIndividual PS02.ipynb files\n\nComplete PS02.ipynb by Tue 10/24 class time\nDue Thu 10/26 9:25am on Moodle\n\nIn-class on Tue 10/24: “Think, Pair, Share” exercise\n\nClarifications:\n\nUse the dbh variable, not the dbh_orig variable.\nD’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02.\n\n\n\n\n\nGroups still made at random, presenters still chosen at random\nNo need to merge two files, you can select only one person’s and modify it (if at all)\nReminder: submission due on Moodle before next class\nAnswer the sli.do poll here\nRate your peer’s preparation using this Google Form\n\n\nlibrary(tidyverse)\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_frac(1) %&gt;% \n  mutate(team = rep(1:9, length = 17)) %&gt;% \n  arrange(team)\n\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_n(2)\n\n*** = presented\n 1 Xu             Xiaoman        1\n 2 An             Rachael        1\n 3 Pu             Betty          2\n 4 Qiu            Chi            9\n 5 Tha Ra Wun     Tint           3\n 6 Martin         Teddy          3\n 7 Knecht         Beata          4\n 8 Murray         Kiera          4\n 9 O'Meara        Abbey          5\n10 Yang           Christy        5\n11 Basnet Chettri Charavee       6\n12 Huang          Juniper        6\n13 Ding           Jenny          7\n14 Slosser        Tillie         7\n15 Kogalovski     Aleksandra     8\n16 Anesko         Greta          8"
   },
   {
     "objectID": "PS.html#instructions",
@@ -19,13 +19,6 @@
     "title": "Problem Sets",
     "section": "",
     "text": "Groups still made at random, presenters still chosen at random\nNo need to merge two files, you can select only one person’s and modify it (if at all)\nReminder: submission due on Moodle before next class\nAnswer the sli.do poll here\nRate your peer’s preparation using this Google Form\n\n\nlibrary(tidyverse)\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_frac(1) %&gt;% \n  mutate(team = rep(1:9, length = 17)) %&gt;% \n  arrange(team)\n\nread_csv(\"390.csv\") %&gt;% \n  filter(First != \"Albert\") %&gt;% \n  sample_n(2)\n\n*** = presented\n 1 Xu             Xiaoman        1\n 2 An             Rachael        1\n 3 Pu             Betty          2\n 4 Qiu            Chi            9\n 5 Tha Ra Wun     Tint           3\n 6 Martin         Teddy          3\n 7 Knecht         Beata          4\n 8 Murray         Kiera          4\n 9 O'Meara        Abbey          5\n10 Yang           Christy        5\n11 Basnet Chettri Charavee       6\n12 Huang          Juniper        6\n13 Ding           Jenny          7\n14 Slosser        Tillie         7\n15 Kogalovski     Aleksandra     8\n16 Anesko         Greta          8"
-  },
-  {
-    "objectID": "PS.html#example-solutions",
-    "href": "PS.html#example-solutions",
-    "title": "Problem Sets",
-    "section": "",
-    "text": "Student presentations\nProf Kim’s solution"
   },
   {
     "objectID": "PS.html#instructions-1",
@@ -81,7 +74,7 @@
     "href": "index.html#announcements",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
-    "text": "Announcements\n\nPS02 mini-presentations today"
+    "text": "Announcements\n\nPS02 mini-presentations today. Info in Problem Sets"
   },
   {
     "objectID": "index.html#lecture",
