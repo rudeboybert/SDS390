@@ -170,12 +170,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
   <li><a href="#in-class-presentations" id="toc-in-class-presentations" class="nav-link" data-scroll-target="#in-class-presentations">In-Class Presentations</a></li>
+  <li><a href="#example-solutions" id="toc-example-solutions" class="nav-link" data-scroll-target="#example-solutions">Example Solutions</a></li>
   </ul></li>
   <li><a href="#problem-set-1" id="toc-problem-set-1" class="nav-link" data-scroll-target="#problem-set-1">Problem Set 1</a>
   <ul class="collapse">
   <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1">Instructions</a></li>
   <li><a href="#in-class-presentations-1" id="toc-in-class-presentations-1" class="nav-link" data-scroll-target="#in-class-presentations-1">In-Class Presentations</a></li>
-  <li><a href="#example-solutions" id="toc-example-solutions" class="nav-link" data-scroll-target="#example-solutions">Example Solutions</a></li>
+  <li><a href="#example-solutions-1" id="toc-example-solutions-1" class="nav-link" data-scroll-target="#example-solutions-1">Example Solutions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -234,6 +235,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Groups still made at random, presenters still chosen at random</li>
 <li>No need to merge two files, you can select only one person’s and modify it (if at all)</li>
 <li>Reminder: submission due on Moodle before next class</li>
+<li>Answer the sli.do poll <a href="https://admin.sli.do/event/vdsVBebJSrnKE2mx4morQf/polls">here</a></li>
+<li>Rate your peer’s preparation using this <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform">Google Form</a></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">team =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">length =</span> <span class="dv">17</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(team)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>***</code> = presented</p>
+<pre><code> 1 Xu             Xiaoman        1
+ 2 An             Rachael        1
+ 3 Pu             Betty          2
+ 4 Qiu            Chi            9
+ 5 Tha Ra Wun     Tint           3
+ 6 Martin         Teddy          3
+ 7 Knecht         Beata          4
+ 8 Murray         Kiera          4
+ 9 O'Meara        Abbey          5
+10 Yang           Christy        5
+11 Basnet Chettri Charavee       6
+12 Huang          Juniper        6
+13 Ding           Jenny          7
+14 Slosser        Tillie         7
+15 Kogalovski     Aleksandra     8
+16 Anesko         Greta          8</code></pre>
+</section>
+<section id="example-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="example-solutions">Example Solutions</h2>
+<ol type="1">
+<li>Student presentations</li>
+<li>Prof Kim’s <a href="https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb">solution</a></li>
 </ol>
 <hr>
 </section>
@@ -275,16 +314,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Rate your peer’s preparation using this <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform">Google Form</a> Code to generate groups:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">team =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">length =</span> <span class="dv">17</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(team)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">team =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">length =</span> <span class="dv">17</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(team)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>***</code> = presented</p>
 <pre><code> 1 Yang           Christy        1
@@ -305,8 +344,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 16 Huang          Juniper        8
 17 Pu             Betty          9</code></pre>
 </section>
-<section id="example-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="example-solutions">Example Solutions</h2>
+<section id="example-solutions-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-solutions-1">Example Solutions</h2>
 <ol type="1">
 <li>Tillie + Kiera and Beata + Charavee’s solutions <a href="PS/PS01_presentations.zip">here</a></li>
 <li>Prof Kim’s <a href="https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb">solution</a></li>

@@ -18,6 +18,7 @@ title: "Problem Sets"
     2.  Due Thu 10/26 9:25am on Moodle
 3.  In-class on Tue 10/24: "Think, Pair, Share" exercise
 
+
 Clarifications:
 
 1.  Use the `dbh` variable, not the `dbh_orig` variable.
@@ -29,10 +30,48 @@ Clarifications:
 1.  Groups still made at random, presenters still chosen at random
 2.  No need to merge two files, you can select only one person's and modify it (if at all)
 3.  Reminder: submission due on Moodle before next class
+5.  Answer the sli.do poll [here](https://admin.sli.do/event/vdsVBebJSrnKE2mx4morQf/polls)
+4.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
 
 
+```{r, eval = FALSE}
+library(tidyverse)
+read_csv("390.csv") %>% 
+  filter(First != "Albert") %>% 
+  sample_frac(1) %>% 
+  mutate(team = rep(1:9, length = 17)) %>% 
+  arrange(team)
 
+read_csv("390.csv") %>% 
+  filter(First != "Albert") %>% 
+  sample_n(2)
+```
 
+`***` = presented
+
+```         
+ 1 Xu             Xiaoman        1
+ 2 An             Rachael        1
+ 3 Pu             Betty          2
+ 4 Qiu            Chi            9
+ 5 Tha Ra Wun     Tint           3
+ 6 Martin         Teddy          3
+ 7 Knecht         Beata          4
+ 8 Murray         Kiera          4
+ 9 O'Meara        Abbey          5
+10 Yang           Christy        5
+11 Basnet Chettri Charavee       6
+12 Huang          Juniper        6
+13 Ding           Jenny          7
+14 Slosser        Tillie         7
+15 Kogalovski     Aleksandra     8
+16 Anesko         Greta          8
+```
+
+## Example Solutions
+
+1.  Student presentations
+2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb)
 
 
 
