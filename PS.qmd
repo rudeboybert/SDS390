@@ -52,14 +52,14 @@ read_csv("390.csv") %>%
 ```         
  1 Xu             Xiaoman        1
  2 An             Rachael        1
- 3 Pu             Betty          2
- 4 Qiu            Chi            2
+ 3 Pu             Betty          2 ***
+ 4 Qiu            Chi            2 ***
  5 Tha Ra Wun     Tint           3
  6 Martin         Teddy          3
  7 Knecht         Beata          4
  8 Murray         Kiera          4
- 9 O'Meara        Abbey          5
-10 Yang           Christy        5
+ 9 O'Meara        Abbey          5 ***
+10 Yang           Christy        5 ***
 11 Basnet Chettri Charavee       6
 12 Huang          Juniper        6
 13 Ding           Jenny          7
@@ -71,7 +71,7 @@ read_csv("390.csv") %>%
 ## Example Solutions
 
 
-1.  Student presentations
+1.  Betty + Chi and Abbey + Chrity solutions [here](PS/PS02_presentations.zip)
 2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb)
 
 
