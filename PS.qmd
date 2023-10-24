@@ -70,10 +70,9 @@ read_csv("390.csv") %>%
 
 ## Example Solutions
 
-<!--
+
 1.  Student presentations
-2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb)
--->
+2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb)
 
 
 
