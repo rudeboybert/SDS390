@@ -23,7 +23,47 @@ Things to do next time:
 
 ## Lecture
 
-1. 
+```{r, eval=FALSE}
+library(fpp3)
+
+# Code block 1: Recreate Fig 3.18 ----
+us_retail_employment <- us_employment |>
+  filter(year(Month) >= 1990, Title == "Retail Trade") |>
+  select(-Series_ID)
+
+# 1.b) Recreate Fig 3.13
+us_retail_employment %>%
+  model(
+    STL(Employed ~ trend(window = 7) +
+                   season(window = "periodic"),
+    robust = TRUE)) |>
+  components() |>
+  autoplot() +
+  labs(title = "Classical additive decomposition of total
+                  US retail employment")
+
+
+
+# Code block 2: Recreate all 4 subplots in Fig 3.13 ----
+# Get data frame with full breakdown of decomposition
+STL_decomposition <- us_retail_employment |>
+  model(
+    STL(Employed ~ trend(window = 7) +
+                   season(window = "periodic"),
+    robust = TRUE)) |>
+  components() %>% 
+  # Convert from tsibble to regular tibble for data wrangling
+  as_tibble()
+
+
+STL_decomposition %>% 
+  mutate(seasonally_adjusted = trend + remainder) %>% 
+  autoplot(seasonally_adjusted)
+
+STL_decomposition
+
+```
+
 
 
 
