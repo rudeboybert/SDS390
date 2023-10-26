@@ -11,6 +11,14 @@ title: "SDS390: Ecological Forecasting"
 Things to do next time:
 1. Do second DataCamp class after you've covered AR and MA process in class
 1. 
+
+
+
+
+Next problem set: 
+- have students explicitly compute forecasting with decompvalues from scratch, giving them the actual solution i.e. the values in Fig 5.18
+- Also compute residuals explicitly
+
 -->
 ```
 
@@ -23,47 +31,9 @@ Things to do next time:
 
 ## Lecture
 
-```{r, eval=FALSE}
-library(fpp3)
-
-# Code block 1: Recreate Fig 3.18 ----
-us_retail_employment <- us_employment |>
-  filter(year(Month) >= 1990, Title == "Retail Trade") |>
-  select(-Series_ID)
-
-# 1.b) Recreate Fig 3.13
-us_retail_employment %>%
-  model(
-    STL(Employed ~ trend(window = 7) +
-                   season(window = "periodic"),
-    robust = TRUE)) |>
-  components() |>
-  autoplot() +
-  labs(title = "Classical additive decomposition of total
-                  US retail employment")
-
-
-
-# Code block 2: Recreate all 4 subplots in Fig 3.13 ----
-# Get data frame with full breakdown of decomposition
-STL_decomposition <- us_retail_employment |>
-  model(
-    STL(Employed ~ trend(window = 7) +
-                   season(window = "periodic"),
-    robust = TRUE)) |>
-  components() %>% 
-  # Convert from tsibble to regular tibble for data wrangling
-  as_tibble()
-
-
-STL_decomposition %>% 
-  mutate(seasonally_adjusted = trend + remainder) %>% 
-  autoplot(seasonally_adjusted)
-
-STL_decomposition
-
-```
-
+1. FPP 5.5: Prediction intervals
+1. FPP 5.7: Forecasting with STL decomposition method
+1. FPP 5.8: Assessing prediction accuracy
 
 
 
