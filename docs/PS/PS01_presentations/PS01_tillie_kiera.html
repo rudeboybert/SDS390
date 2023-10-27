@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SDS390 - Problem Set 01</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../390.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">SDS390</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://otexts.com/fpp3/" rel="" target="">
+ <span class="menu-text">FPP</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://app.datacamp.com/learn/assignments" rel="" target="">
+ <span class="menu-text">DC</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://chat.openai.com/" rel="" target="">
+ <span class="menu-text">ChatGPT</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../PS.html" rel="" target="">
+ <span class="menu-text">Problem Sets</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://docs.google.com/spreadsheets/d/12GJWpG53UQgVwG-TEms5uT88HKSkh-m3g81k63SV_YA/edit#gid=0" rel="" target="">
+ <span class="menu-text">Roster</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://drive.google.com/drive/u/1/folders/1ctkp8FthWTOSvCZfEZAl63XtCZA5c8KV" rel="" target="">
+ <span class="menu-text">Screencasts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://moodle.smith.edu/course/view.php?id=47365" rel="" target="">
+ <span class="menu-text">Moodle</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://docs.google.com/document/d/1pYACVZ91x21ffbMDfCgFGqvjM0v9YFiTSGX2-TwHUNE/edit#heading=h.amnifumas6q" rel="" target="">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#obtain-a-csv-of-time-series-data" id="toc-obtain-a-csv-of-time-series-data" class="nav-link active" data-scroll-target="#obtain-a-csv-of-time-series-data">Obtain a CSV of time series data</a></li>
+  <li><a href="#time-series-plots" id="toc-time-series-plots" class="nav-link" data-scroll-target="#time-series-plots">1. Time series plots</a></li>
+  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots">2. Scatterplots</a></li>
+  <li><a href="#lag-autocorrelation-plots" id="toc-lag-autocorrelation-plots" class="nav-link" data-scroll-target="#lag-autocorrelation-plots">3. Lag &amp; autocorrelation plots</a></li>
+  <li><a href="#appendix-choosing-cities" id="toc-appendix-choosing-cities" class="nav-link" data-scroll-target="#appendix-choosing-cities">Appendix: Choosing cities</a>
+  <ul class="collapse">
+  <li><a href="#find-some-cities-at-diverse-latitiudes-to-analyze" id="toc-find-some-cities-at-diverse-latitiudes-to-analyze" class="nav-link" data-scroll-target="#find-some-cities-at-diverse-latitiudes-to-analyze">Find some cities at diverse latitiudes to analyze:</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Problem Set 01</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<ol type="1">
+<li>Name: Kiera Murray</li>
+<li>Field that you’re interested in applying TS and forecasting to (ecology, econ, weather, etc): weather, climate, human effects on the environment</li>
+</ol>
+<section id="obtain-a-csv-of-time-series-data" class="level1">
+<h1>Obtain a CSV of time series data</h1>
+<ol type="1">
+<li>By whatever means, get a <code>.csv</code> file of time series data relating to any topic: ecological, financial, etc.</li>
+<li>There should be at least three variables of data</li>
+<li>If you download from the web, include a link. If you use ChatGPT, include a link to your shared search</li>
+</ol>
+<p>Data source: https://data.world/data-society/global-climate-change-data “Global Climate Change Data: Global Land Temperatures By Major City”</p>
+<p>ChatGPT searches: https://chat.openai.com/share/e7611222-f3a4-4acb-9104-2e7ca5258102</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> ListedColormap</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.stattools <span class="im">import</span> acf</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.graphics.tsaplots <span class="im">import</span> plot_acf</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in raw data</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'GlobalLandTemperaturesByMajorCity.csv'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Select 3 cities to analyze, and rearrange the dataframe so each city is its own column</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>dataStPetersburg <span class="op">=</span> data[data[<span class="st">'City'</span>] <span class="op">==</span> <span class="st">'Saint Petersburg'</span>]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>dataSingapore <span class="op">=</span> data[data[<span class="st">'City'</span>] <span class="op">==</span> <span class="st">'Singapore'</span>]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>dataMelbourne <span class="op">=</span> data[data[<span class="st">'City'</span>] <span class="op">==</span> <span class="st">'Melbourne'</span>]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.merge(dataStPetersburg, dataSingapore, on<span class="op">=</span><span class="st">'dt'</span>, how<span class="op">=</span><span class="st">'inner'</span>) <span class="co">#combine St. Petersburg &amp; Singapore data</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.merge(data, dataMelbourne, on<span class="op">=</span><span class="st">'dt'</span>, how<span class="op">=</span><span class="st">'inner'</span>) <span class="co">#add Melbourne data</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>data.rename(columns<span class="op">=</span>{<span class="st">'AverageTemperature_x'</span>: <span class="st">'StPetersburg_AvgTemp'</span>, <span class="st">'AverageTemperature_y'</span>: <span class="st">'Singapore_AvgTemp'</span>, <span class="st">'AverageTemperature'</span>: <span class="st">'Melbourne_AvgTemp'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data[[<span class="st">'dt'</span>, <span class="st">'StPetersburg_AvgTemp'</span>, <span class="st">'Singapore_AvgTemp'</span>, <span class="st">'Melbourne_AvgTemp'</span>]] <span class="co">#get rid of unneeded columns</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Set datetime index and filter out values before 1950 (otherwise there's too much data to visualize)</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'dt'</span>] <span class="op">=</span> pd.to_datetime(data[<span class="st">'dt'</span>])</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>data.set_index(<span class="st">'dt'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data[data.index <span class="op">&gt;</span> <span class="st">'1950'</span>]</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.dropna()</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the modified data</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">StPetersburg_AvgTemp</th>
+<th data-quarto-table-cell-role="th">Singapore_AvgTemp</th>
+<th data-quarto-table-cell-role="th">Melbourne_AvgTemp</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">dt</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1950-02-01</td>
+<td>-5.829</td>
+<td>26.368</td>
+<td>17.980</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1950-03-01</td>
+<td>-2.812</td>
+<td>26.775</td>
+<td>16.769</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1950-04-01</td>
+<td>5.366</td>
+<td>26.691</td>
+<td>13.641</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1950-05-01</td>
+<td>8.655</td>
+<td>27.268</td>
+<td>10.472</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1950-06-01</td>
+<td>13.055</td>
+<td>27.367</td>
+<td>7.962</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2013-04-01</td>
+<td>2.167</td>
+<td>27.767</td>
+<td>14.762</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2013-05-01</td>
+<td>12.355</td>
+<td>28.083</td>
+<td>11.836</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2013-06-01</td>
+<td>17.185</td>
+<td>28.662</td>
+<td>9.365</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2013-07-01</td>
+<td>17.234</td>
+<td>27.487</td>
+<td>9.774</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2013-08-01</td>
+<td>17.153</td>
+<td>27.372</td>
+<td>10.441</td>
+</tr>
+</tbody>
+</table>
+
+<p>763 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="time-series-plots" class="level1">
+<h1>1. Time series plots</h1>
+<ol type="1">
+<li>Plot the raw time series data</li>
+<li>Identify any time series patterns</li>
+<li>Identify any interesting trends insight</li>
+</ol>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">6</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'StPetersburg_AvgTemp'</span>].plot(linewidth<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'St. Petersburg'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Singapore_AvgTemp'</span>].plot(linewidth<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'Singapore'</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Melbourne_AvgTemp'</span>].plot(linewidth<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'Melbourne'</span>, color<span class="op">=</span><span class="st">'orange'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Monthly Average Temperature (C)'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Raw Time Series Data:  Monthly Average Temperature for 3 Cities, 1950-2013'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.yticks(np.arange(<span class="op">-</span><span class="dv">20</span>, <span class="dv">35</span>, <span class="dv">5</span>))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="PS01_tillie_kiera_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>All 3 city temperatures show strong seasonality, with colder temperatures in the winter and hotter temperatures in the summer. St.&nbsp;Petersburg, Russia, experiences both the coldest temperatures and the greatest seasonal changes as a consequence of its high northern latitude. Singapore, which is close to the equator, experiences both the warmest temperatures and the smallest variation. Melbourne, Australia, is located at middling latitude in the Southern Hemisphere, and so experiences moderate average temperature and variation, but with summer and winter opposite to the Northern Hemisphere cities.</p>
+<p>Because of climate change, all 3 city temperatures show a subtle upward trend starting around 1985.</p>
+</section>
+<section id="scatterplots" class="level1">
+<h1>2. Scatterplots</h1>
+<ol type="1">
+<li>Plot a 3x3 grid of all pairwise scatterplots</li>
+<li>Identify any interesting trends insight</li>
+</ol>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="PS01_tillie_kiera_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The St.&nbsp;Petersburg and Singapore average monthly temperatures are positively correlated, because both cities are in the Northern Hemisphere, meaning they experience the same season at the same time. However, all other temperature pairs are negatively correlated because Melbourne is in the Southern Hemisphere, meaning that it is always experencing the oppsite season as the other cities.</p>
+<p>The plots involving Singapore’s monthly temperatures appear to show a weaker correlation than the ones with only St.&nbsp;Petersburg and Melbourne temperatures. This may be because Singapore experiences much less seasonal variation than the other cities.</p>
+</section>
+<section id="lag-autocorrelation-plots" class="level1">
+<h1>3. Lag &amp; autocorrelation plots</h1>
+<ol type="1">
+<li>Plot a lag plot of any variable of your choice to <em>visualize</em> its relationship to itself in the past. Use a maximum <span class="math inline">\(k\)</span> value of your choice</li>
+<li>Plot an autocorrelation plot of this same variable to <em>quantify</em> its relationship to itself in the past. Use a maximum <span class="math inline">\(k\)</span> value of your choice</li>
+</ol>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lag plots of St. Petersberg average monthly temperature</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Code mostly written by ChatGPT</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the maximum lag value (k)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>max_k <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a colormap for months</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> ListedColormap([<span class="st">'blue'</span>, <span class="st">'dodgerblue'</span>, <span class="st">'green'</span>, <span class="st">'limegreen'</span>, <span class="st">'forestgreen'</span>, <span class="st">'yellow'</span>, <span class="st">'gold'</span>, <span class="st">'khaki'</span>, <span class="st">'red'</span>, <span class="st">'tomato'</span>, <span class="st">'darkred'</span>, <span class="st">'deepskyblue'</span>])</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create separate scatterplots for each lag value</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lag <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, max_k <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, lag)  <span class="co"># Create a 3x4 grid of subplots</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    lagged_col <span class="op">=</span> data[<span class="st">'StPetersburg_AvgTemp'</span>].shift(lag)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    months <span class="op">=</span> data.index.month  <span class="co"># Extract the month from the index</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    scatter <span class="op">=</span> plt.scatter(data[<span class="st">'StPetersburg_AvgTemp'</span>], lagged_col, c<span class="op">=</span>months, cmap<span class="op">=</span>cmap)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Lag </span><span class="sc">{</span>lag<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'St Peters. Temp (t)'</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="ss">f'St Peters. Temp (t-</span><span class="sc">{</span>lag<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    plt.colorbar(scatter, ticks<span class="op">=</span>np.arange(<span class="dv">1</span>, <span class="dv">13</span>), label<span class="op">=</span><span class="st">'Month'</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="PS01_tillie_kiera_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Above are lag plots for St.&nbsp;Petersburg average monthly temperature, with lags ranging from 1 (a month) to 12 (a year). Lag 12, in which a month’s average temperature is plotted against itself, shows the strongest positive correlation. The strongest negative correlation appears at Lag 6, in which a month is plotted against its seasonal opposite. The plots at Lag 3 and Lag 9 show the weakest correlation, when a month is plotted against one with a middling temperature difference. The ‘donut’ shape is caused by St.&nbsp;Petersburg’s extreme seasonal temperature variation.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Autocorrelation plot of St. Petersberg average monthly temperature</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the maximum lag value (k)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>max_k <span class="op">=</span> <span class="dv">60</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the autocorrelation plot (ACF)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>plot_acf(data[<span class="st">'StPetersburg_AvgTemp'</span>], lags<span class="op">=</span>max_k, ax<span class="op">=</span>plt.gca())</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Autocorrelation Plot: St. Petersberg Average Monthly Temperature Over 5 Years'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Lag'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Autocorrelation'</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, <span class="dv">62</span>, <span class="dv">2</span>))</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="PS01_tillie_kiera_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The autocorrelation plot of St.&nbsp;Petersburg’s average monthly temperature shows strong seasonality. A month experiences the most positive autocorrelation at Lag 0, 12, 24, etc., when the same month appears. The most negative autocorrelation occurs at Lag 6, 18, 30, ect., with the month’s seasonal opposite. Autocorrelation is positive closer to the month itself and negative closer to its seasonal opposite, since average temperature changes continuously.</p>
+<p>We can also observe over this plot of 5 years that the strength of autocorrelation always decays with increasing Lag.</p>
+</section>
+<section id="appendix-choosing-cities" class="level1">
+<h1>Appendix: Choosing cities</h1>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the raw data</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>originaldata <span class="op">=</span> pd.read_csv(<span class="st">'GlobalLandTemperaturesByMajorCity.csv'</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>originaldata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">dt</th>
+<th data-quarto-table-cell-role="th">AverageTemperature</th>
+<th data-quarto-table-cell-role="th">AverageTemperatureUncertainty</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">Country</th>
+<th data-quarto-table-cell-role="th">Latitude</th>
+<th data-quarto-table-cell-role="th">Longitude</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1849-01-01</td>
+<td>26.704</td>
+<td>1.435</td>
+<td>Abidjan</td>
+<td>Côte D'Ivoire</td>
+<td>5.63N</td>
+<td>3.23W</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1849-02-01</td>
+<td>27.434</td>
+<td>1.362</td>
+<td>Abidjan</td>
+<td>Côte D'Ivoire</td>
+<td>5.63N</td>
+<td>3.23W</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1849-03-01</td>
+<td>28.101</td>
+<td>1.612</td>
+<td>Abidjan</td>
+<td>Côte D'Ivoire</td>
+<td>5.63N</td>
+<td>3.23W</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1849-04-01</td>
+<td>26.140</td>
+<td>1.387</td>
+<td>Abidjan</td>
+<td>Côte D'Ivoire</td>
+<td>5.63N</td>
+<td>3.23W</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1849-05-01</td>
+<td>25.427</td>
+<td>1.200</td>
+<td>Abidjan</td>
+<td>Côte D'Ivoire</td>
+<td>5.63N</td>
+<td>3.23W</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">239172</td>
+<td>2013-05-01</td>
+<td>18.979</td>
+<td>0.807</td>
+<td>Xian</td>
+<td>China</td>
+<td>34.56N</td>
+<td>108.97E</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">239173</td>
+<td>2013-06-01</td>
+<td>23.522</td>
+<td>0.647</td>
+<td>Xian</td>
+<td>China</td>
+<td>34.56N</td>
+<td>108.97E</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">239174</td>
+<td>2013-07-01</td>
+<td>25.251</td>
+<td>1.042</td>
+<td>Xian</td>
+<td>China</td>
+<td>34.56N</td>
+<td>108.97E</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">239175</td>
+<td>2013-08-01</td>
+<td>24.528</td>
+<td>0.840</td>
+<td>Xian</td>
+<td>China</td>
+<td>34.56N</td>
+<td>108.97E</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">239176</td>
+<td>2013-09-01</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Xian</td>
+<td>China</td>
+<td>34.56N</td>
+<td>108.97E</td>
+</tr>
+</tbody>
+</table>
+
+<p>239177 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter dates and look at what cities have the most data for this timeframe</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>originaldata.set_index(<span class="st">'dt'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>originaldata <span class="op">=</span> originaldata[originaldata.index <span class="op">&gt;</span> <span class="st">'1960'</span>]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>originaldata[<span class="st">'City'</span>].mode()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>0         Abidjan
+1     Addis Abeba
+2       Ahmadabad
+3          Aleppo
+4      Alexandria
+         ...     
+95          Tokyo
+96        Toronto
+97     Umm Durman
+98          Wuhan
+99           Xian
+Name: City, Length: 100, dtype: object</code></pre>
+</div>
+</div>
+<section id="find-some-cities-at-diverse-latitiudes-to-analyze" class="level3">
+<h3 class="anchored" data-anchor-id="find-some-cities-at-diverse-latitiudes-to-analyze">Find some cities at diverse latitiudes to analyze:</h3>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert Latitude to a number</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert_latitude(lat_str):</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Written by ChatGPT """</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    lat_value <span class="op">=</span> <span class="bu">float</span>(lat_str.rstrip(<span class="st">'NS'</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'S'</span> <span class="kw">in</span> lat_str:</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        lat_value <span class="op">*=</span> <span class="op">-</span><span class="dv">1</span>  <span class="co"># Convert to a negative value for southern latitudes</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> lat_value</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>originaldata[<span class="st">'Latitude'</span>] <span class="op">=</span> originaldata[<span class="st">'Latitude'</span>].<span class="bu">apply</span>(convert_latitude)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/qc/qz8fv61s4xs8w475xp4n7d840000gn/T/ipykernel_54075/3019456029.py:10: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  originaldata['Latitude'] = originaldata['Latitude'].apply(convert_latitude)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find a northernmost city</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> originaldata[originaldata[<span class="st">'Latitude'</span>] <span class="op">&gt;</span> <span class="dv">60</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>test[<span class="st">'City'</span>].mode()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>0    Saint Petersburg
+Name: City, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find an equatorial city</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> originaldata[(originaldata[<span class="st">'Latitude'</span>] <span class="op">&gt;</span> <span class="op">-</span><span class="dv">1</span>) <span class="op">&amp;</span> (originaldata[<span class="st">'Latitude'</span>] <span class="op">&lt;</span> <span class="dv">1</span>)]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>test[<span class="st">'City'</span>].mode()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>0      Nairobi
+1    Singapore
+Name: City, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find a southernmost city</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> originaldata[originaldata[<span class="st">'Latitude'</span>] <span class="op">&lt;</span> <span class="op">-</span><span class="dv">35</span>]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>test[<span class="st">'City'</span>].mode()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>0    Melbourne
+Name: City, dtype: object</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
