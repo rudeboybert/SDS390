@@ -165,17 +165,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#problem-set-2" id="toc-problem-set-2" class="nav-link active" data-scroll-target="#problem-set-2">Problem Set 2</a>
+  <li><a href="#problem-set-3" id="toc-problem-set-3" class="nav-link active" data-scroll-target="#problem-set-3">Problem Set 3</a>
   <ul class="collapse">
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
   <li><a href="#in-class-presentations" id="toc-in-class-presentations" class="nav-link" data-scroll-target="#in-class-presentations">In-Class Presentations</a></li>
   <li><a href="#example-solutions" id="toc-example-solutions" class="nav-link" data-scroll-target="#example-solutions">Example Solutions</a></li>
   </ul></li>
-  <li><a href="#problem-set-1" id="toc-problem-set-1" class="nav-link" data-scroll-target="#problem-set-1">Problem Set 1</a>
+  <li><a href="#problem-set-2" id="toc-problem-set-2" class="nav-link" data-scroll-target="#problem-set-2">Problem Set 2</a>
   <ul class="collapse">
   <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1">Instructions</a></li>
   <li><a href="#in-class-presentations-1" id="toc-in-class-presentations-1" class="nav-link" data-scroll-target="#in-class-presentations-1">In-Class Presentations</a></li>
   <li><a href="#example-solutions-1" id="toc-example-solutions-1" class="nav-link" data-scroll-target="#example-solutions-1">Example Solutions</a></li>
+  </ul></li>
+  <li><a href="#problem-set-1" id="toc-problem-set-1" class="nav-link" data-scroll-target="#problem-set-1">Problem Set 1</a>
+  <ul class="collapse">
+  <li><a href="#instructions-2" id="toc-instructions-2" class="nav-link" data-scroll-target="#instructions-2">Instructions</a></li>
+  <li><a href="#in-class-presentations-2" id="toc-in-class-presentations-2" class="nav-link" data-scroll-target="#in-class-presentations-2">In-Class Presentations</a></li>
+  <li><a href="#example-solutions-2" id="toc-example-solutions-2" class="nav-link" data-scroll-target="#example-solutions-2">Example Solutions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -200,6 +206,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="problem-set-3" class="level1">
+<h1>Problem Set 3</h1>
+<ol type="1">
+<li></li>
+<li>My thoughts about ChatGPT. It is a very powerful tool, but you need to be:
+<ol type="1">
+<li>Knowledgeable enough to understand the code</li>
+<li>Experienced enough in your domain and programming to know what to prompt</li>
+<li>Disciplined enough to sanity check your results</li>
+</ol></li>
+</ol>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<ol type="1">
+<li>Posted on Slack under <code>#general</code></li>
+<li>Individual <code>PS03.ipynb</code> files
+<ol type="1">
+<li>Complete <code>PS03.ipynb</code> by Tue 11/14 class time</li>
+<li>Due Thu 11/16 9:25am on Moodle</li>
+</ol></li>
+<li>In-class on Tue 11/14: “Think, Pair, Share” exercise</li>
+</ol>
+<p>Clarifications:</p>
+<ol type="1">
+<li></li>
+</ol>
+</section>
+<section id="in-class-presentations" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-presentations">In-Class Presentations</h2>
+<ol type="1">
+<li>Groups still made at random, presenters still chosen at random</li>
+<li>No need to merge two files, you can select only one person’s and modify it (if at all)</li>
+<li>Reminder: submission due on Moodle before next class</li>
+<li>Answer the sli.do poll here</li>
+<li>Rate your peer’s preparation using this <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform">Google Form</a></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">team =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">length =</span> <span class="dv">17</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(team)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>***</code> = presented</p>
+<pre><code></code></pre>
+</section>
+<section id="example-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="example-solutions">Example Solutions</h2>
+<ol type="1">
+<li>XXX solutions <a href="PS/PS02_presentations.zip">here</a></li>
+<li>Prof Kim’s <a href="https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb">solution</a></li>
+</ol>
+<hr>
+</section>
+</section>
 <section id="problem-set-2" class="level1">
 <h1>Problem Set 2</h1>
 <ol type="1">
@@ -211,8 +277,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Disciplined enough to sanity check your results</li>
 </ol></li>
 </ol>
-<section id="instructions" class="level2">
-<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<section id="instructions-1" class="level2">
+<h2 class="anchored" data-anchor-id="instructions-1">Instructions</h2>
 <ol type="1">
 <li>Posted on Slack under <code>#general</code></li>
 <li>Individual <code>PS02.ipynb</code> files
@@ -228,8 +294,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>D’oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you’re done your PS02.</li>
 </ol>
 </section>
-<section id="in-class-presentations" class="level2">
-<h2 class="anchored" data-anchor-id="in-class-presentations">In-Class Presentations</h2>
+<section id="in-class-presentations-1" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-presentations-1">In-Class Presentations</h2>
 <ol type="1">
 <li>Groups still made at random, presenters still chosen at random</li>
 <li>No need to merge two files, you can select only one person’s and modify it (if at all)</li>
@@ -238,16 +304,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Rate your peer’s preparation using this <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform">Google Form</a></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">team =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">length =</span> <span class="dv">17</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(team)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">team =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">length =</span> <span class="dv">17</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(team)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>***</code> = presented</p>
 <pre><code> 1 Xu             Xiaoman        1
@@ -267,8 +333,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 15 Kogalovski     Aleksandra     8
 16 Anesko         Greta          8</code></pre>
 </section>
-<section id="example-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="example-solutions">Example Solutions</h2>
+<section id="example-solutions-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-solutions-1">Example Solutions</h2>
 <ol type="1">
 <li>Betty + Chi and Abbey + Chrity solutions <a href="PS/PS02_presentations.zip">here</a></li>
 <li>Prof Kim’s <a href="https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb">solution</a></li>
@@ -278,8 +344,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="problem-set-1" class="level1">
 <h1>Problem Set 1</h1>
-<section id="instructions-1" class="level2">
-<h2 class="anchored" data-anchor-id="instructions-1">Instructions</h2>
+<section id="instructions-2" class="level2">
+<h2 class="anchored" data-anchor-id="instructions-2">Instructions</h2>
 <ol type="1">
 <li>Posted on Slack under <code>#general</code></li>
 <li>Individual <code>PS01.ipynb</code> files
@@ -302,8 +368,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Do problem set in python</li>
 </ol>
 </section>
-<section id="in-class-presentations-1" class="level2">
-<h2 class="anchored" data-anchor-id="in-class-presentations-1">In-Class Presentations</h2>
+<section id="in-class-presentations-2" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-presentations-2">In-Class Presentations</h2>
 <ol type="1">
 <li>I will make groups at random using code below. I will join a group if there is an odd person left out.</li>
 <li>Work together for 20 minutes to come up with single <code>.ipynb</code></li>
@@ -313,16 +379,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Rate your peer’s preparation using this <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform">Google Form</a> Code to generate groups:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">team =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">length =</span> <span class="dv">17</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(team)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">team =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">length =</span> <span class="dv">17</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(team)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"390.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(First <span class="sc">!=</span> <span class="st">"Albert"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>***</code> = presented</p>
 <pre><code> 1 Yang           Christy        1
@@ -343,8 +409,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 16 Huang          Juniper        8
 17 Pu             Betty          9</code></pre>
 </section>
-<section id="example-solutions-1" class="level2">
-<h2 class="anchored" data-anchor-id="example-solutions-1">Example Solutions</h2>
+<section id="example-solutions-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-solutions-2">Example Solutions</h2>
 <ol type="1">
 <li>Tillie + Kiera and Beata + Charavee’s solutions <a href="PS/PS01_presentations.zip">here</a></li>
 <li>Prof Kim’s <a href="https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb">solution</a></li>
