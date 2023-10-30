@@ -25,6 +25,26 @@ Next problem set:
 ```
 
 
+# Lec 9.1: Thu 10/26
+
+## Announcements
+
+1. Fill out PS02 peer eval Google Form and slido poll
+
+## Lecture
+
+1. FPP 5.5: Prediction intervals
+1. FPP 5.7: Forecasting with STL decomposition method
+1. FPP 5.8: Assessing prediction accuracy
+
+
+
+
+------------------------------------------------------------------------
+
+
+
+
 # Lec 8.2: Thu 10/26
 
 ## Announcements

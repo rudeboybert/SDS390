@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#load-and-explore-data" id="toc-load-and-explore-data" class="nav-link active" data-scroll-target="#load-and-explore-data">1. Load and explore data</a></li>
+  <li><a href="#load-and-explore-data" id="toc-load-and-explore-data" class="nav-link active" data-scroll-target="#load-and-explore-data">0. Load and explore data</a></li>
   <li><a href="#simple-forecasting-methods" id="toc-simple-forecasting-methods" class="nav-link" data-scroll-target="#simple-forecasting-methods">2. Simple Forecasting methods</a></li>
   <li><a href="#forecasting-using-an-ar2-model" id="toc-forecasting-using-an-ar2-model" class="nav-link" data-scroll-target="#forecasting-using-an-ar2-model">3. Forecasting using an AR(2) model</a></li>
   </ul>
@@ -196,12 +196,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p><a href="https://colab.research.google.com/github/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
 <p>Instructions: 1. Name: 1. Create a new ChatGPT chat called “SDS390 PS03” that contains all the prompts you used for this problem set. <strong>After you’ve completed your assignment</strong>, click the share button and paste the URL in Markdown format <a href="https://chat.openai.com/share/7b889388-3220-4005-9cba-ed1eacf28a45">here</a> (shared ChatGPT links don’t autoupdate with subsequent queries).</p>
-<div class="cell" data-execution_count="2">
+<p>Overview of this PS: You will be recreating graphs and explicitly computing values from FPP 5 - The forecaster’s toolbox in python. Specifically</p>
+<ol type="1">
+<li>FPP 5.2 - Some simple forecasting methods: Recreate Fig 5.7</li>
+<li>FPP 5.4 - Residual diagnostics: Recreate the 3 components of Fig 5.13</li>
+<li>FPP 5.5 - Distributional forecasts and prediction intervals: Recreate Fig 5.14</li>
+<li>FPP 5.7 - Forecasting with decomposition: Recreate Fig 5.19
+<ul>
+<li>Compute forecasted values from scratch</li>
+<li>Give them the actual values</li>
+<li>Also compute residuals explicitly</li>
+</ul></li>
+<li>FPP 5.7 - Forecasting with decomposition: Recreate the 3 components of Fig 5.20 (same as above)</li>
+<li>FPP 5.8 - Evaluating point forecast accuracy: Recompute 4 RMSE values in table using data wrangling</li>
+</ol>
+<div class="cell" data-execution_count="298">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="load-and-explore-data" class="level1">
-<h1>1. Load and explore data</h1>
+<h1>0. Load and explore data</h1>
 <ol type="1">
 <li>Load the CSV data of biweekly dendroband measures for tree with tag 82203</li>
 <li>Look at the raw data (rows and variables) and meta-data as Amir always told me to do</li>
@@ -211,10 +225,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>What is the difference in information presented between the two plots?</li>
 <li>Describe any patterns you observe in the time series where each observed data point is marked with a dot</li>
 </ol>
-<div class="cell" data-outputid="d976eda4-963f-4c7a-dcfa-9bd29fb9d242">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tag_82203 <span class="op">=</span> pd.read_csv(<span class="st">'tag_82203.csv'</span>, parse_dates <span class="op">=</span> [<span class="st">'date'</span>], index_col <span class="op">=</span> <span class="st">'date'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tag_82203.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="101">
+<div class="cell" data-execution_count="310">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>aus_production <span class="op">=</span> pd.read_csv(<span class="st">"../PS/PS03_aus_production.csv"</span>, parse_dates <span class="op">=</span> [<span class="st">'Quarter'</span>], index_col <span class="op">=</span> <span class="st">'Quarter'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># aus_production = aus_production.to_period('Q')</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+
+            Beer
+Quarter         
+1992-01-01   443
+1992-04-01   410
+1992-07-01   420
+1992-10-01   532
+1993-01-01   433
+...          ...
+2009-04-01   398
+2009-07-01   419
+2009-10-01   488
+2010-01-01   414
+2010-04-01   374
+
+[74 rows x 1 columns]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="311">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split into train test</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> aus_production.loc[:<span class="st">'2006'</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(train.head())</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(train.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Beer
+Quarter         
+1992-01-01   443
+1992-04-01   410
+1992-07-01   420
+1992-10-01   532
+1993-01-01   433
+
+
+            Beer
+Quarter         
+2005-10-01   482
+2006-01-01   438
+2006-04-01   386
+2006-07-01   405
+2006-10-01   491</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="312">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> aus_production.loc[<span class="st">'2007'</span>:]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test.head())</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Beer
+Quarter         
+2007-01-01   427
+2007-04-01   383
+2007-07-01   394
+2007-10-01   473
+2008-01-01   420
+
+
+            Beer
+Quarter         
+2009-04-01   398
+2009-07-01   419
+2009-10-01   488
+2010-01-01   414
+2010-04-01   374</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="323">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>test[<span class="st">"mean_method"</span>] <span class="op">=</span> train[<span class="st">'Beer'</span>].mean()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>test[<span class="st">"naive_method"</span>] <span class="op">=</span> train.iloc[<span class="op">-</span><span class="dv">1</span>, ].Beer</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/54/1mv52mws0b56dd101c9z44r40000gn/T/ipykernel_3240/3639978134.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test["mean_method"] = train['Beer'].mean()
+/var/folders/54/1mv52mws0b56dd101c9z44r40000gn/T/ipykernel_3240/3639978134.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test["naive_method"] = train.iloc[-1, ].Beer</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="323">
 <div>
 
 
@@ -222,45 +325,135 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">tag</th>
-<th data-quarto-table-cell-role="th">stemtag</th>
-<th data-quarto-table-cell-role="th">survey.ID</th>
-<th data-quarto-table-cell-role="th">year</th>
-<th data-quarto-table-cell-role="th">month</th>
-<th data-quarto-table-cell-role="th">day</th>
-<th data-quarto-table-cell-role="th">intraannual</th>
-<th data-quarto-table-cell-role="th">sp</th>
-<th data-quarto-table-cell-role="th">measure</th>
-<th data-quarto-table-cell-role="th">codes</th>
-<th data-quarto-table-cell-role="th">notes</th>
-<th data-quarto-table-cell-role="th">status</th>
-<th data-quarto-table-cell-role="th">stemID</th>
-<th data-quarto-table-cell-role="th">dendDiam</th>
-<th data-quarto-table-cell-role="th">dbh_orig</th>
-<th data-quarto-table-cell-role="th">new.band</th>
-<th data-quarto-table-cell-role="th">dendroID</th>
-<th data-quarto-table-cell-role="th">dbh</th>
-<th data-quarto-table-cell-role="th">scenario</th>
-<th data-quarto-table-cell-role="th">data_source</th>
+<th data-quarto-table-cell-role="th">Beer</th>
+<th data-quarto-table-cell-role="th">mean_method</th>
+<th data-quarto-table-cell-role="th">naive_method</th>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">Quarter</th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2007-01-01</td>
+<td>427</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2007-04-01</td>
+<td>383</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2007-07-01</td>
+<td>394</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2007-10-01</td>
+<td>473</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2008-01-01</td>
+<td>420</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2008-04-01</td>
+<td>390</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2008-07-01</td>
+<td>410</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2008-10-01</td>
+<td>488</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2009-01-01</td>
+<td>415</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2009-04-01</td>
+<td>398</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2009-07-01</td>
+<td>419</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2009-10-01</td>
+<td>488</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-01</td>
+<td>414</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-04-01</td>
+<td>374</td>
+<td>436.45</td>
+<td>491</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="329">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>test2 <span class="op">=</span> test</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>test2[<span class="st">'Month'</span>] <span class="op">=</span> test2.index.month</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>test2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/54/1mv52mws0b56dd101c9z44r40000gn/T/ipykernel_3240/3075722285.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test2['Month'] = test2.index.month</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="329">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Beer</th>
+<th data-quarto-table-cell-role="th">mean_method</th>
+<th data-quarto-table-cell-role="th">naive_method</th>
+<th data-quarto-table-cell-role="th">Month</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Quarter</th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
@@ -269,119 +462,102 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2010-01-27</td>
-<td>82203</td>
+<td data-quarto-table-cell-role="th">2007-01-01</td>
+<td>427</td>
+<td>436.45</td>
+<td>491</td>
 <td>1</td>
-<td>2010.01</td>
-<td>2010</td>
-<td>1</td>
-<td>27</td>
-<td>1</td>
-<td>litu</td>
-<td>26.20</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>alive</td>
-<td>10045</td>
-<td>610.0</td>
-<td>611.3</td>
-<td>1</td>
-<td>106</td>
-<td>611.300000</td>
-<td>0</td>
-<td>biweekly_dbh</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">2011-01-15</td>
-<td>82203</td>
-<td>1</td>
-<td>2011.01</td>
-<td>2011</td>
-<td>1</td>
-<td>15</td>
-<td>1</td>
-<td>litu</td>
-<td>41.10</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>alive</td>
-<td>10045</td>
-<td>NaN</td>
-<td>611.3</td>
-<td>0</td>
-<td>106</td>
-<td>616.049980</td>
-<td>1</td>
-<td>biweekly_dbh</td>
+<td data-quarto-table-cell-role="th">2007-04-01</td>
+<td>383</td>
+<td>436.45</td>
+<td>491</td>
+<td>4</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2011-05-09</td>
-<td>82203</td>
-<td>1</td>
-<td>2011.02</td>
-<td>2011</td>
-<td>5</td>
-<td>9</td>
-<td>1</td>
-<td>litu</td>
-<td>40.62</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>alive</td>
-<td>10045</td>
-<td>NaN</td>
-<td>611.3</td>
-<td>0</td>
-<td>106</td>
-<td>615.896874</td>
-<td>1</td>
-<td>biweekly_dbh</td>
+<td data-quarto-table-cell-role="th">2007-07-01</td>
+<td>394</td>
+<td>436.45</td>
+<td>491</td>
+<td>7</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">2011-05-13</td>
-<td>82203</td>
-<td>1</td>
-<td>2011.03</td>
-<td>2011</td>
-<td>5</td>
-<td>13</td>
-<td>1</td>
-<td>litu</td>
-<td>40.21</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>alive</td>
-<td>10045</td>
-<td>NaN</td>
-<td>611.3</td>
-<td>0</td>
-<td>106</td>
-<td>615.766085</td>
-<td>1</td>
-<td>biweekly_dbh</td>
+<td data-quarto-table-cell-role="th">2007-10-01</td>
+<td>473</td>
+<td>436.45</td>
+<td>491</td>
+<td>10</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2011-05-16</td>
-<td>82203</td>
+<td data-quarto-table-cell-role="th">2008-01-01</td>
+<td>420</td>
+<td>436.45</td>
+<td>491</td>
 <td>1</td>
-<td>2011.04</td>
-<td>2011</td>
-<td>5</td>
-<td>16</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2008-04-01</td>
+<td>390</td>
+<td>436.45</td>
+<td>491</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2008-07-01</td>
+<td>410</td>
+<td>436.45</td>
+<td>491</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2008-10-01</td>
+<td>488</td>
+<td>436.45</td>
+<td>491</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2009-01-01</td>
+<td>415</td>
+<td>436.45</td>
+<td>491</td>
 <td>1</td>
-<td>litu</td>
-<td>42.55</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>alive</td>
-<td>10045</td>
-<td>NaN</td>
-<td>611.3</td>
-<td>0</td>
-<td>106</td>
-<td>616.512610</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2009-04-01</td>
+<td>398</td>
+<td>436.45</td>
+<td>491</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2009-07-01</td>
+<td>419</td>
+<td>436.45</td>
+<td>491</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2009-10-01</td>
+<td>488</td>
+<td>436.45</td>
+<td>491</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-01</td>
+<td>414</td>
+<td>436.45</td>
+<td>491</td>
 <td>1</td>
-<td>biweekly_dbh</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-04-01</td>
+<td>374</td>
+<td>436.45</td>
+<td>491</td>
+<td>4</td>
 </tr>
 </tbody>
 </table>
@@ -389,61 +565,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-outputid="d65074ac-699c-427f-903f-6739c3402e5b">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tag_82203.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-DatetimeIndex: 147 entries, 2010-01-27 to 2020-05-31
-Data columns (total 20 columns):
- #   Column       Non-Null Count  Dtype  
----  ------       --------------  -----  
- 0   tag          147 non-null    int64  
- 1   stemtag      147 non-null    int64  
- 2   survey.ID    147 non-null    float64
- 3   year         147 non-null    int64  
- 4   month        147 non-null    int64  
- 5   day          147 non-null    int64  
- 6   intraannual  147 non-null    int64  
- 7   sp           147 non-null    object 
- 8   measure      147 non-null    float64
- 9   codes        1 non-null      object 
- 10  notes        4 non-null      object 
- 11  status       147 non-null    object 
- 12  stemID       147 non-null    int64  
- 13  dendDiam     6 non-null      float64
- 14  dbh_orig     147 non-null    float64
- 15  new.band     147 non-null    int64  
- 16  dendroID     147 non-null    int64  
- 17  dbh          147 non-null    float64
- 18  scenario     147 non-null    int64  
- 19  data_source  147 non-null    object 
-dtypes: float64(5), int64(10), object(5)
-memory usage: 24.1+ KB</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recall to select a variable but return a data frame, not a series, you need to specify your variables as a list.</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>tag_82203 <span class="op">=</span> tag_82203[[<span class="st">'dbh'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-outputid="06369f1b-0672-48cb-e10e-3624392e8bc8">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tag_82203.plot()</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="328">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.plot(train.index, train[<span class="st">"Beer"</span>])</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.plot(test.index, test[<span class="st">"Beer"</span>])</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.plot(test.index, test[<span class="st">"mean_method"</span>])</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.plot(test.index, test[<span class="st">"naive_method"</span>])</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="PS03_albert_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+<p><img src="PS03_albert_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-outputid="565e9e97-e6b1-4b46-e04b-f1f8e553c4f6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tag_82203.plot(marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="PS03_albert_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>The original plot connects each consecutive point, so we have a hard time seeing at what interval the data is collected. The plot with the observed points marked with dots shows:</p>
-<ol type="1">
-<li>There was one value in 2010 and then a jump</li>
-<li>Values are not collected in winter</li>
-</ol>
 </section>
 <section id="simple-forecasting-methods" class="level1">
 <h1>2. Simple Forecasting methods</h1>
@@ -460,51 +593,114 @@ memory usage: 24.1+ KB</code></pre>
 <figcaption class="figure-caption">tidy forecasting workflow</figcaption>
 </figure>
 </div>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>aus_production <span class="op">=</span> pd.read_csv(<span class="st">"https://rudeboybert.github.io/SDS390/PS/PS03_aus_production.csv"</span>, parse_dates <span class="op">=</span> [<span class="st">'Quarter'</span>], index_col <span class="op">=</span> <span class="st">'Quarter'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>HTTPError: HTTP Error 404: Not Found</code></pre>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Beer</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Quarter</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1992-01-01</td>
+<td>443</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1992-04-01</td>
+<td>410</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1992-07-01</td>
+<td>420</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1992-10-01</td>
+<td>532</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1993-01-01</td>
+<td>433</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2009-04-01</td>
+<td>398</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2009-07-01</td>
+<td>419</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2009-10-01</td>
+<td>488</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-01</td>
+<td>414</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-04-01</td>
+<td>374</td>
+</tr>
+</tbody>
+</table>
+
+<p>74 rows × 1 columns</p>
+</div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Downsample data from daily to monthly by taking average</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tag_82203_monthly <span class="op">=</span> tag_82203.resample(<span class="st">'m'</span>).mean()</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpolate all missing values</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>tag_82203_monthly.interpolate(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Downsample data from daily to monthly by taking average</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>tag_82203_monthly <span class="op">=</span> tag_82203.resample(<span class="st">'m'</span>).mean()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpolate all missing values</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>tag_82203_monthly.interpolate(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.seasonal <span class="im">import</span> seasonal_decompose</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>decomposition <span class="op">=</span> seasonal_decompose(tag_82203_monthly, model<span class="op">=</span><span class="st">'additive'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.seasonal <span class="im">import</span> seasonal_decompose</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>decomposition <span class="op">=</span> seasonal_decompose(tag_82203_monthly, model<span class="op">=</span><span class="st">'additive'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-outputid="681425b6-2559-4098-dc3b-d99145d4c790">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">411</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.plot(tag_82203_monthly, label<span class="op">=</span><span class="st">'Original'</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Original Time Series'</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">412</span>)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.plot(decomposition.trend, label<span class="op">=</span><span class="st">'Trend'</span>)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Trend Component'</span>)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">413</span>)</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>plt.plot(decomposition.seasonal, label<span class="op">=</span><span class="st">'Seasonality'</span>)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Seasonal Component'</span>)</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">414</span>)</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>plt.plot(decomposition.resid, label<span class="op">=</span><span class="st">'Residuals'</span>)</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Residual Component'</span>)</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">411</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.plot(tag_82203_monthly, label<span class="op">=</span><span class="st">'Original'</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Original Time Series'</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">412</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>plt.plot(decomposition.trend, label<span class="op">=</span><span class="st">'Trend'</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Trend Component'</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">413</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>plt.plot(decomposition.seasonal, label<span class="op">=</span><span class="st">'Seasonality'</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Seasonal Component'</span>)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">414</span>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>plt.plot(decomposition.resid, label<span class="op">=</span><span class="st">'Residuals'</span>)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Residual Component'</span>)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="PS03_albert_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+<p><img src="PS03_albert_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <ol type="1">
@@ -524,8 +720,8 @@ memory usage: 24.1+ KB</code></pre>
 </ol>
 <p>However, we will simply view this code as a minimally viable product that we will improve on later. Instructions: 1. Fit an appropriate AR(2) model 1. Print the summary of the result 1. Plot the TS data along with both in-sample fitted forecasts AND out-of-sample forecasts exactly two years into the future 1. Comment on the quality of the out-of-sample forecast. If you have any ideas on how to improve the forecast state them, if not no problem.</p>
 <div class="cell" data-outputid="cb1d4608-706d-439b-96a3-45ea5728d5f4">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Earliste date recorded is 2010-01-31</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>tag2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Earliste date recorded is 2010-01-31</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>tag2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="109">
 <div>
 
@@ -569,8 +765,8 @@ memory usage: 24.1+ KB</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="8496e74d-efd9-480e-b198-2e1e87a7baed">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Last date recorded is 2020-05-31, so we will forecast upto 2022-05-31</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>tag2.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Last date recorded is 2020-05-31, so we will forecast upto 2022-05-31</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>tag2.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="110">
 <div>
 
@@ -614,13 +810,13 @@ memory usage: 24.1+ KB</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="645f6447-4616-4bdc-8f06-9cb6cfc67dc1">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code from DataCamp "Time Series Analysis in Python" course, Chapter 3, Video 2, Exercise 2</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.arima.model <span class="im">import</span> ARIMA</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.graphics.tsaplots <span class="im">import</span> plot_predict</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> ARIMA(tag2, order<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> mod.fit()</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>result.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code from DataCamp "Time Series Analysis in Python" course, Chapter 3, Video 2, Exercise 2</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.arima.model <span class="im">import</span> ARIMA</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.graphics.tsaplots <span class="im">import</span> plot_predict</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> ARIMA(tag2, order<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> mod.fit()</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>result.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="111">
 <table class="simpletable table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>SARIMAX Results</caption>
@@ -750,27 +946,27 @@ memory usage: 24.1+ KB</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="da26b09d-075d-4afb-c340-99e545856cc5">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>tag2.plot(ax<span class="op">=</span>ax)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plot_predict(result, start<span class="op">=</span><span class="st">'2010-01-31'</span>, end<span class="op">=</span><span class="st">'2021-05-31'</span>, ax<span class="op">=</span>ax)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>tag2.plot(ax<span class="op">=</span>ax)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>plot_predict(result, start<span class="op">=</span><span class="st">'2010-01-31'</span>, end<span class="op">=</span><span class="st">'2021-05-31'</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="PS03_albert_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+<p><img src="PS03_albert_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>We observe that for in-sample values from 2011 and onwards up until the last observation on 2020-05-31, the AR(2) model fits the data reasonably well. However the out-of-sample forecasts into the future make little sense.</p>
 <p>Making taking differences will return better results? i.e.&nbsp;growth per month?</p>
 <div class="cell" data-outputid="e374628f-2068-448e-fa74-2718b3ca8f7e">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> ARIMA(tag2.diff(), order<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> mod.fit()</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>tag2.diff().plot(ax<span class="op">=</span>ax)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plot_predict(result, start<span class="op">=</span><span class="st">'2010-01-31'</span>, end<span class="op">=</span><span class="st">'2021-05-31'</span>, ax<span class="op">=</span>ax)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> ARIMA(tag2.diff(), order<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> mod.fit()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>tag2.diff().plot(ax<span class="op">=</span>ax)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plot_predict(result, start<span class="op">=</span><span class="st">'2010-01-31'</span>, end<span class="op">=</span><span class="st">'2021-05-31'</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="PS03_albert_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+<p><img src="PS03_albert_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>The forecast of growth seems a little more reasonable, especially when forecasting out-of-sample. We could then undo the difference to get DBH size values. However, we are trusting the appropriateness of AR(2) on blind faith; hopefually we can revisit later in the semester.</p>

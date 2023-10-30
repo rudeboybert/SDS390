@@ -150,8 +150,10 @@ read_csv("390.csv") %>%
 
 ## Example Solutions
 
-
-1.  Betty + Chi and Abbey + Chrity solutions [here](PS/PS02_presentations.zip)
+1.  Presentations:
+    1. Betty + Chi [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_presentations/PS02_betty_chi.ipynb)
+    1. Abbey + Christy [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_presentations/PS02_abbey_christy.ipynb)
+    1. .zip file of both [here](PS/PS02_presentations.zip)
 2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb)
 
 
@@ -226,5 +228,8 @@ read_csv("390.csv") %>%
 
 ## Example Solutions
 
-1.  Tillie + Kiera and Beata + Charavee's solutions [here](PS/PS01_presentations.zip)
+1.  Presentations:
+    1. Tillie + Kiera [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_presentations/PS01_tillie_kiera.ipynb)
+    1. Beata + Charavee [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_presentations/PS01_charavee_beata.ipynb)
+    1. .zip file of both [here](PS/PS01_presentations.zip)
 2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb)
