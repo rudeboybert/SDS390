@@ -9,15 +9,17 @@ title: "SDS390: Ecological Forecasting"
 ```{=html}
 <!--
 Things to do next time:
-1. Do second DataCamp class after you've covered AR and MA process in class
+1. DC:
+    1. Don't do first DC class first. Maybe second?
+    1. Do second DataCamp class after you've covered AR and MA process in class
+    1. Do third DC class first? Data viz is important
 1. 
 
 
 
 
 Next problem set: 
-- have students explicitly compute forecasting with decompvalues from scratch, giving them the actual solution i.e. the values in Fig 5.18
-- Also compute residuals explicitly
+
 
 -->
 ```
