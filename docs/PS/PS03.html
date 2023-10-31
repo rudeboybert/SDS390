@@ -200,15 +200,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Instructions: 1. Name: 1. Create a new ChatGPT chat called “SDS390 PS03” that contains all the prompts you used for this problem set. <strong>After you’ve completed your assignment</strong>, click the share button and paste the URL in Markdown format <a href="https://chat.openai.com/share/7b889388-3220-4005-9cba-ed1eacf28a45">here</a> (shared ChatGPT links don’t auto-update with subsequent queries).</p>
 <p>Overview of this PS: You will be recreating graphs and explicitly computing values from “FPP 5 - The forecaster’s toolbox” in python. Specifically</p>
 <ol type="1">
-<li>FPP 5.2 - Some simple forecasting methods: Recreate Fig 5.7</li>
-<li>FPP 5.4 - Residual diagnostics: Recreate the 3 components of Fig 5.13</li>
-<li>FPP 5.8 - Evaluating point forecast accuracy: Recompute 4 RMSE values in table using data wrangling</li>
+<li>FPP 5.2 - Some simple forecasting methods: Recreate <a href="https://otexts.com/fpp3/simple-methods.html#fig:beerf">Fig 5.7</a></li>
+<li>FPP 5.4 - Residual diagnostics: Recreate the 3 components of <a href="https://otexts.com/fpp3/diagnostics.html">Fig 5.13</a></li>
+<li>FPP 5.8 - Evaluating point forecast accuracy: Recompute the 3 RMSE and 3 MAE values (corresponding to naive, mean, and seasonal naive methods) in <a href="https://otexts.com/fpp3/accuracy.html#fig:beeraccuracy">table</a> using data wrangling</li>
 <li><del>FPP 5.7 - Forecasting with decomposition: Recreate Fig 5.19 by computing all values using data wrangling</del></li>
 </ol>
 <p>Overall instructions:</p>
 <ul>
 <li>Do not use a function from a specialized time series forecasting specific python library to do this PS. Rather use pandas data wrangling, matplotlib, or any other package we’ve used to date (like for autocorrelation functions)</li>
-<li>Depending on your data wrangling approach for the questions below, you <em>may</em> get a warning that says “A value is trying to be set on a copy of a slice from a DataFrame.” As long as your values are correct, you may ignore this warning</li>
+<li>Depending on your data wrangling approach for the questions below, you <em>may</em> get a warning that says <code>A value is trying to be set on a copy of a slice from a DataFrame.</code> As long as your values are correct, you may ignore this warning</li>
 <li>Using the lessons you learned in the 3rd DataCamp on Data Viz, Chapters 1 and 2:
 <ul>
 <li>Give all your plots titles</li>
@@ -216,13 +216,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Make any other cosmetic changes you like</li>
 </ul></li>
 </ul>
-<div class="cell" data-execution_count="94">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="load-and-explore-data" class="level1">
 <h1>Load and explore data</h1>
-<div class="cell" data-execution_count="95">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>aus_production <span class="op">=</span> pd.read_csv(<span class="st">"PS03_aus_production.csv"</span>, parse_dates <span class="op">=</span> [<span class="st">'Quarter'</span>], index_col <span class="op">=</span> <span class="st">'Quarter'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># aus_production = aus_production.to_period('Q')</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_production.head())</span>

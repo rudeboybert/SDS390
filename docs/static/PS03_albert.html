@@ -203,15 +203,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Instructions: 1. Name: 1. Create a new ChatGPT chat called “SDS390 PS03” that contains all the prompts you used for this problem set. <strong>After you’ve completed your assignment</strong>, click the share button and paste the URL in Markdown format <a href="https://chat.openai.com/share/7b889388-3220-4005-9cba-ed1eacf28a45">here</a> (shared ChatGPT links don’t auto-update with subsequent queries).</p>
 <p>Overview of this PS: You will be recreating graphs and explicitly computing values from “FPP 5 - The forecaster’s toolbox” in python. Specifically</p>
 <ol type="1">
-<li>FPP 5.2 - Some simple forecasting methods: Recreate Fig 5.7</li>
-<li>FPP 5.4 - Residual diagnostics: Recreate the 3 components of Fig 5.13</li>
-<li>FPP 5.8 - Evaluating point forecast accuracy: Recompute 4 RMSE values in table using data wrangling</li>
+<li>FPP 5.2 - Some simple forecasting methods: Recreate <a href="https://otexts.com/fpp3/simple-methods.html#fig:beerf">Fig 5.7</a></li>
+<li>FPP 5.4 - Residual diagnostics: Recreate the 3 components of <a href="https://otexts.com/fpp3/diagnostics.html">Fig 5.13</a></li>
+<li>FPP 5.8 - Evaluating point forecast accuracy: Recompute the 3 RMSE and 3 MAE values (corresponding to naive, mean, and seasonal naive methods) in <a href="https://otexts.com/fpp3/accuracy.html#fig:beeraccuracy">table</a> using data wrangling</li>
 <li><del>FPP 5.7 - Forecasting with decomposition: Recreate Fig 5.19 by computing all values using data wrangling</del></li>
 </ol>
 <p>Overall instructions:</p>
 <ul>
 <li>Do not use a function from a specialized time series forecasting specific python library to do this PS. Rather use pandas data wrangling, matplotlib, or any other package we’ve used to date (like for autocorrelation functions)</li>
-<li>Depending on your data wrangling approach for the questions below, you <em>may</em> get a warning that says “A value is trying to be set on a copy of a slice from a DataFrame.” As long as your values are correct, you may ignore this warning</li>
+<li>Depending on your data wrangling approach for the questions below, you <em>may</em> get a warning that says <code>A value is trying to be set on a copy of a slice from a DataFrame.</code> As long as your values are correct, you may ignore this warning</li>
 <li>Using the lessons you learned in the 3rd DataCamp on Data Viz, Chapters 1 and 2:
 <ul>
 <li>Give all your plots titles</li>
@@ -219,13 +219,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Make any other cosmetic changes you like</li>
 </ul></li>
 </ul>
-<div class="cell" data-execution_count="94">
+<div class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="load-and-explore-data" class="level1">
 <h1>Load and explore data</h1>
-<div class="cell" data-execution_count="95">
+<div class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>aus_production <span class="op">=</span> pd.read_csv(<span class="st">"PS03_aus_production.csv"</span>, parse_dates <span class="op">=</span> [<span class="st">'Quarter'</span>], index_col <span class="op">=</span> <span class="st">'Quarter'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># aus_production = aus_production.to_period('Q')</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_production.head())</span>
@@ -256,7 +256,7 @@ Quarter
 <ul>
 <li>Recall from Lec 7.2 this requires training (1992 Q1 - 2006 Q4) vs test set (2007 Q1 - 2010 Q2) splitting of data</li>
 </ul>
-<div class="cell" data-execution_count="96">
+<div class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create training set and verify dates</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> aus_production.loc[:<span class="st">'2006'</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(train.head())</span>
@@ -281,7 +281,7 @@ Quarter
 2006-10-01   491</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="97">
+<div class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create test set and verify dates</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> aus_production.loc[<span class="st">'2007'</span>:]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test.head())</span>
@@ -306,25 +306,25 @@ Quarter
 2010-04-01   374</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="98">
+<div class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>test[<span class="st">"mean_method"</span>] <span class="op">=</span> train[<span class="st">'Beer'</span>].mean()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>test[<span class="st">"naive_method"</span>] <span class="op">=</span> train.iloc[<span class="op">-</span><span class="dv">1</span>, ].Beer</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_15724/3639978134.py:1: SettingWithCopyWarning: 
+<pre><code>/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_19900/3639978134.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   test["mean_method"] = train['Beer'].mean()
-/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_15724/3639978134.py:2: SettingWithCopyWarning: 
+/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_19900/3639978134.py:2: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   test["naive_method"] = train.iloc[-1, ].Beer</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="98">
+<div class="cell-output cell-output-display" data-execution_count="42">
 <div>
 
 
@@ -434,18 +434,18 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="99">
+<div class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>test[<span class="st">'month'</span>] <span class="op">=</span> test.index.month</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_15724/2545785027.py:1: SettingWithCopyWarning: 
+<pre><code>/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_19900/2545785027.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   test['month'] = test.index.month</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="99">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <div>
 
 
@@ -571,10 +571,10 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="100">
+<div class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>seasonal <span class="op">=</span> test.groupby(<span class="st">'month'</span>).mean()[[<span class="st">'Beer'</span>]].rename(columns <span class="op">=</span> {<span class="st">'Beer'</span>:<span class="st">'seasonal_naive'</span>})</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>seasonal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="100">
+<div class="cell-output cell-output-display" data-execution_count="44">
 <div>
 
 
@@ -612,12 +612,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="101">
+<div class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> test.join(seasonal, on <span class="op">=</span> <span class="st">'month'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="102">
+<div class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="102">
+<div class="cell-output cell-output-display" data-execution_count="46">
 <div>
 
 
@@ -759,7 +759,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="103">
+<div class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot what we do have</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.plot(train.index, train[<span class="st">"Beer"</span>])</span>
@@ -784,26 +784,26 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <li>Explain why the pattern you observe is consistent with the fact that there are much better choices than the naive method for forecasting</li>
 </ul></li>
 </ul>
-<div class="cell" data-execution_count="104">
+<div class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>train[<span class="st">"mean_method"</span>] <span class="op">=</span> train[<span class="st">'Beer'</span>].mean()</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>train[<span class="st">"naive_method"</span>] <span class="op">=</span> train.iloc[<span class="op">-</span><span class="dv">1</span>, ].Beer</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>train[<span class="st">'month'</span>] <span class="op">=</span> train.index.month</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> train.join(seasonal, on <span class="op">=</span> <span class="st">'month'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_15724/2917350215.py:1: SettingWithCopyWarning: 
+<pre><code>/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_19900/2917350215.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   train["mean_method"] = train['Beer'].mean()
-/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_15724/2917350215.py:2: SettingWithCopyWarning: 
+/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_19900/2917350215.py:2: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   train["naive_method"] = train.iloc[-1, ].Beer
-/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_15724/2917350215.py:4: SettingWithCopyWarning: 
+/var/folders/d_/6fhql14j7hd93zfzcn1x3ttxn8st2y/T/ipykernel_19900/2917350215.py:4: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -811,9 +811,9 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   train['month'] = train.index.month</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="105">
+<div class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>train.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="105">
+<div class="cell-output cell-output-display" data-execution_count="49">
 <div>
 
 
@@ -883,10 +883,10 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="106">
+<div class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>train[<span class="st">'residual'</span>] <span class="op">=</span> train[<span class="st">'Beer'</span>] <span class="op">-</span> train[<span class="st">'naive_method'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="107">
+<div class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.plot(train.index, train[<span class="st">'residual'</span>], color<span class="op">=</span><span class="st">'blue'</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(train.index, train[<span class="st">'residual'</span>], color<span class="op">=</span><span class="st">'blue'</span>, marker<span class="op">=</span><span class="st">'o'</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
@@ -900,7 +900,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p><img src="PS03_albert_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="108">
+<div class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>max_k <span class="op">=</span> <span class="dv">30</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.stattools <span class="im">import</span> acf</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.graphics.tsaplots <span class="im">import</span> plot_acf</span>
@@ -912,7 +912,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p><img src="PS03_albert_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="109">
+<div class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>train.hist(column <span class="op">=</span> <span class="st">'residual'</span>, bins <span class="op">=</span> <span class="dv">30</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -929,20 +929,21 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </ul>
 <p>which gives a single numerical measure of the overall error of the model.</p>
 <p>Note that the table in FPP 5.8 uses a slightly different training set 1992 Q1 - 2007 Q4, instead of 1992 Q1 - 2006 Q4, so you will get slightly different error values, but they should still be close.</p>
-<div class="cell" data-execution_count="110">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>test[<span class="st">'residual'</span>] <span class="op">=</span> test[<span class="st">'Beer'</span>] <span class="op">-</span> test[<span class="st">'naive_method'</span>]</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>MSE <span class="op">=</span> test[<span class="st">'residual'</span>].<span class="bu">pow</span>(<span class="dv">2</span>).mean()</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>RMSE <span class="op">=</span> math.sqrt(MSE)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>MAE <span class="op">=</span> test[<span class="st">'residual'</span>].<span class="bu">abs</span>().mean()</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(RMSE)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(MAE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>test[<span class="st">'residual'</span>] <span class="op">=</span> test[<span class="st">'Beer'</span>] <span class="op">-</span> test[<span class="st">'naive_method'</span>]</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>MSE <span class="op">=</span> test[<span class="st">'residual'</span>].<span class="bu">pow</span>(<span class="dv">2</span>).mean()</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>RMSE <span class="op">=</span> math.sqrt(MSE)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>MAE <span class="op">=</span> test[<span class="st">'residual'</span>].<span class="bu">abs</span>().mean()</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(RMSE)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(MAE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>78.62251585900823
 70.07142857142857</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="111">
+<div class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>test[<span class="st">'residual'</span>] <span class="op">=</span> test[<span class="st">'Beer'</span>] <span class="op">-</span> test[<span class="st">'mean_method'</span>]</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>MSE <span class="op">=</span> test[<span class="st">'residual'</span>].<span class="bu">pow</span>(<span class="dv">2</span>).mean()</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>RMSE <span class="op">=</span> math.sqrt(MSE)</span>
@@ -955,7 +956,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 35.47142857142857</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="112">
+<div class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>test[<span class="st">'residual'</span>] <span class="op">=</span> test[<span class="st">'Beer'</span>] <span class="op">-</span> test[<span class="st">'seasonal_naive'</span>]</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>MSE <span class="op">=</span> test[<span class="st">'residual'</span>].<span class="bu">pow</span>(<span class="dv">2</span>).mean()</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>RMSE <span class="op">=</span> math.sqrt(MSE)</span>
