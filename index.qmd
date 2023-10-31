@@ -13,7 +13,7 @@ Things to do next time:
     1. Don't do first DC class first. Maybe second?
     1. Do second DataCamp class after you've covered AR and MA process in class
     1. Do third DC class first? Data viz is important
-1. 
+1. PS03: Finish forecasting with decomposition question
 
 
 
@@ -25,17 +25,19 @@ Next problem set:
 ```
 
 
-# Lec 9.1: Thu 10/26
+# Lec 9.1: Tue 10/31
 
 ## Announcements
 
-1. Fill out PS02 peer eval Google Form and slido poll
+1. No lecture on Thursday
+1. Zoom lecture on Tuesday 10/7
+1. In-class lecture on Thursday 10/9 with Prof. Will Hopper
+
 
 ## Lecture
 
-1. FPP 5.5: Prediction intervals
-1. FPP 5.7: Forecasting with STL decomposition method
-1. FPP 5.8: Assessing prediction accuracy
+1. Start PS3
+1. 
 
 
 
