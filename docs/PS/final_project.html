@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SDS390 - Problem Set 01</title>
+<title>SDS390 - Final Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -94,8 +60,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -163,23 +127,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#obtain-a-csv-of-time-series-data" id="toc-obtain-a-csv-of-time-series-data" class="nav-link active" data-scroll-target="#obtain-a-csv-of-time-series-data">Obtain a CSV of time series data</a></li>
-  <li><a href="#time-series-plots" id="toc-time-series-plots" class="nav-link" data-scroll-target="#time-series-plots">1. Time series plots</a></li>
-  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots">2. Scatterplots</a></li>
-  <li><a href="#lag-autocorrelation-plots" id="toc-lag-autocorrelation-plots" class="nav-link" data-scroll-target="#lag-autocorrelation-plots">3. Lag &amp; autocorrelation plots</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Problem Set 01</h1>
+<h1 class="title">Final Project</h1>
 </div>
 
 
@@ -194,50 +149,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><a href="https://colab.research.google.com/github/rudeboybert/SDS390/blob/master/PS/PS01.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
-<ol type="1">
-<li>Name:</li>
-<li>Field that you’re interested in applying TS and forecasting to (ecology, econ, weather, etc):</li>
-</ol>
-<section id="obtain-a-csv-of-time-series-data" class="level1">
-<h1>Obtain a CSV of time series data</h1>
-<ol type="1">
-<li>By whatever means, get a <code>.csv</code> file of time series data relating to any topic: ecological, financial, etc.</li>
-<li>There should be at least three variables of data</li>
-<li>If you download from the web, include a link. If you use ChatGPT, include a link to your shared search</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="time-series-plots" class="level1">
-<h1>1. Time series plots</h1>
-<ol type="1">
-<li>Plot the raw time series data</li>
-<li>Identify any obvious patterns in your time series</li>
-<li>Identify, if any, interesting insights these patterns suggest</li>
-</ol>
-</section>
-<section id="scatterplots" class="level1">
-<h1>2. Scatterplots</h1>
-<ol type="1">
-<li>Plot a 3x3 grid of all pairwise scatterplots</li>
-<li>Identify, if any, interesting trends or insight</li>
-</ol>
-</section>
-<section id="lag-autocorrelation-plots" class="level1">
-<h1>3. Lag &amp; autocorrelation plots</h1>
-<ol type="1">
-<li>Plot a lag plot of any variable of your choice to <em>visualize</em> its relationship to itself in the past for all values of <span class="math inline">\(k\)</span> between 1 and a maximum <span class="math inline">\(k\)</span>. Use a maximum <span class="math inline">\(k\)</span> value of your choice</li>
-<li>Plot an autocorrelation plot of this same variable to <em>quantify</em> its relationship to itself in the past for all values of <span class="math inline">\(k\)</span> between 1 and a maximum <span class="math inline">\(k\)</span>. Use a maximum <span class="math inline">\(k\)</span> value of your choice</li>
-<li>Identify, if any, interesting insight from these lag plots</li>
-</ol>
+<p>Instructions: 1. Name: 1. Create a new ChatGPT chat called “Final Project” that contains all the prompts you used for this problem set. <strong>After you’ve completed your assignment</strong>, click the share button and paste the URL in Markdown format <a href="https://chat.openai.com/share/7b889388-3220-4005-9cba-ed1eacf28a45">here</a> (shared ChatGPT links don’t auto-update with subsequent queries).</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

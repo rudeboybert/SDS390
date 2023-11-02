@@ -13,23 +13,57 @@ Things to do next time:
     1. Don't do first DC class first. Maybe second?
     1. Do second DataCamp class after you've covered AR and MA process in class
     1. Do third DC class first? Data viz is important
-1. PS03: Finish forecasting with decomposition question
+1. PS03: Finish forecasting with decomposition data wrangling question
 
 
 
 
-Next problem set: 
 
+Things to do this semester:
+1. Talk about DC grades, check-in
+1. 
 
 -->
 ```
+
+
+# Lec 10.2: Thu 11/9
+
+## Announcements
+
+1. In-class guest lecture today with Prof. Will Hopper
+1. Work on PS3. Note link to rendered output of all previous PS `.ipynb` files have been posted in [Problem Sets](PS.html)
+
+
+
+
+------------------------------------------------------------------------
+
+
+
+
+# Lec 10.1: Tue 11/7
+
+## Announcements
+
+1. Zoom lecture today starting at regular class time (Zoom link sent on Slack)
+1. Answer Poll Everywhere question in Slack `#general` on whether you prefer group or individual final projects
+1. Discuss final project. Info in [Problem Sets](PS.html)
+
+
+
+
+
+------------------------------------------------------------------------
+
+
 
 
 # Lec 9.1: Tue 10/31
 
 ## Announcements
 
-1. No lecture on Thursday
+1. No lecture on Thursday from Cromwell Day
 1. Zoom lecture on Tuesday 10/7
 1. In-class lecture on Thursday 10/9 with Prof. Will Hopper
 
