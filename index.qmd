@@ -46,7 +46,7 @@ Things to do this semester:
 
 ## Announcements
 
-1. Zoom lecture today starting at regular class time (Zoom link sent on Slack)
+1. Zoom lecture today starting at ~~regular class time~~ 10am (Zoom link sent on Slack)
 1. Answer Poll Everywhere question in Slack `#general` on whether you prefer group or individual final projects
 1. Discuss final project. Info in [Problem Sets](PS.html)
 
