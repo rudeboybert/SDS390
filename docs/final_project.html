@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SDS390 - Problem Set 03</title>
+<title>SDS390 - Final Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,60 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../390.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./390.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -94,10 +60,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -107,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">SDS390</span>
     </a>
   </div>
@@ -130,11 +94,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">ChatGPT</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../PS.html" rel="" target="">
+    <a class="nav-link" href="./PS.html" rel="" target="">
  <span class="menu-text">Problem Sets</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../final_project.html" rel="" target="">
+    <a class="nav-link active" href="./final_project.html" rel="" target="" aria-current="page">
  <span class="menu-text">Final Project</span></a>
   </li>  
 </ul>
@@ -171,11 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#load-and-explore-data" id="toc-load-and-explore-data" class="nav-link active" data-scroll-target="#load-and-explore-data">Load and explore data</a></li>
-  <li><a href="#fpp-5.2-recreate-fig-5.7" id="toc-fpp-5.2-recreate-fig-5.7" class="nav-link" data-scroll-target="#fpp-5.2-recreate-fig-5.7">FPP 5.2: Recreate Fig 5.7</a></li>
-  <li><a href="#fpp-5.4---residual-diagnostics-recreate-the-3-components-of-fig-5.13" id="toc-fpp-5.4---residual-diagnostics-recreate-the-3-components-of-fig-5.13" class="nav-link" data-scroll-target="#fpp-5.4---residual-diagnostics-recreate-the-3-components-of-fig-5.13">FPP 5.4 - Residual diagnostics: Recreate the 3 components of Fig 5.13</a></li>
-  <li><a href="#fpp-5.8---evaluating-point-forecast-accuracy-recompute-rmse-and-mae-values-in-table-using-data-wrangling" id="toc-fpp-5.8---evaluating-point-forecast-accuracy-recompute-rmse-and-mae-values-in-table-using-data-wrangling" class="nav-link" data-scroll-target="#fpp-5.8---evaluating-point-forecast-accuracy-recompute-rmse-and-mae-values-in-table-using-data-wrangling">FPP 5.8 - Evaluating point forecast accuracy: Recompute RMSE and MAE values in table using data wrangling</a></li>
-  <li><a href="#fpp-5.7---forecasting-with-decomposition-recreate-fig-5.19-by-computing-all-values-using-data-wrangling" id="toc-fpp-5.7---forecasting-with-decomposition-recreate-fig-5.19-by-computing-all-values-using-data-wrangling" class="nav-link" data-scroll-target="#fpp-5.7---forecasting-with-decomposition-recreate-fig-5.19-by-computing-all-values-using-data-wrangling"><del>FPP 5.7 - Forecasting with decomposition: Recreate Fig 5.19 by computing all values using data wrangling</del></a></li>
+  <li><a href="#final-project" id="toc-final-project" class="nav-link active" data-scroll-target="#final-project">Final Project</a></li>
   </ul>
 </nav>
     </div>
@@ -184,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Problem Set 03</h1>
+<h1 class="title">Final Project</h1>
 </div>
 
 
@@ -199,89 +159,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><a href="https://colab.research.google.com/github/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
-<p>Instructions: 1. Name: 1. Create a new ChatGPT chat called “SDS390 PS03” that contains all the prompts you used for this problem set. <strong>After you’ve completed your assignment</strong>, click the share button and paste the URL in Markdown format <a href="https://chat.openai.com/share/7b889388-3220-4005-9cba-ed1eacf28a45">here</a> (shared ChatGPT links don’t auto-update with subsequent queries).</p>
-<p>Overview of this PS: You will be recreating graphs and explicitly computing values from “FPP 5 - The forecaster’s toolbox” in python. Specifically</p>
-<ol type="1">
-<li>FPP 5.2 - Some simple forecasting methods: Recreate <a href="https://otexts.com/fpp3/simple-methods.html#fig:beerf">Fig 5.7</a></li>
-<li>FPP 5.4 - Residual diagnostics: Recreate the 3 components of <a href="https://otexts.com/fpp3/diagnostics.html">Fig 5.13</a></li>
-<li>FPP 5.8 - Evaluating point forecast accuracy: Recompute the 3 RMSE and 3 MAE values (corresponding to naive, mean, and seasonal naive methods) in <a href="https://otexts.com/fpp3/accuracy.html#fig:beeraccuracy">table</a> using data wrangling</li>
-<li><del>FPP 5.7 - Forecasting with decomposition: Recreate Fig 5.19 by computing all values using data wrangling</del></li>
-</ol>
-<p>Overall instructions:</p>
-<ul>
-<li>Do not use a function from a specialized time series forecasting specific python library to do this PS. Rather use pandas data wrangling, matplotlib, or any other package we’ve used to date (like for autocorrelation functions)</li>
-<li>Depending on your data wrangling approach for the questions below, you <em>may</em> get a warning that says <code>A value is trying to be set on a copy of a slice from a DataFrame.</code> As long as your values are correct, you may ignore this warning</li>
-<li>Using the lessons you learned in the 3rd DataCamp on Data Viz, Chapters 1 and 2:
-<ul>
-<li>Give all your plots titles</li>
-<li>Label all axes</li>
-<li>Make any other cosmetic changes you like</li>
-</ul></li>
-</ul>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="load-and-explore-data" class="level1">
-<h1>Load and explore data</h1>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>aus_production <span class="op">=</span> pd.read_csv(<span class="st">"PS03_aus_production.csv"</span>, parse_dates <span class="op">=</span> [<span class="st">'Quarter'</span>], index_col <span class="op">=</span> <span class="st">'Quarter'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># aus_production = aus_production.to_period('Q')</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_production.head())</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_production.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Beer
-Quarter         
-1992-01-01   443
-1992-04-01   410
-1992-07-01   420
-1992-10-01   532
-1993-01-01   433
-
-
-            Beer
-Quarter         
-2009-04-01   398
-2009-07-01   419
-2009-10-01   488
-2010-01-01   414
-2010-04-01   374</code></pre>
-</div>
-</div>
-</section>
-<section id="fpp-5.2-recreate-fig-5.7" class="level1">
-<h1>FPP 5.2: Recreate Fig 5.7</h1>
-<ul>
-<li>Recall from Lec 7.2 this requires training (1992 Q1 - 2006 Q4) vs test set (2007 Q1 - 2010 Q2) splitting of data</li>
-</ul>
-</section>
-<section id="fpp-5.4---residual-diagnostics-recreate-the-3-components-of-fig-5.13" class="level1">
-<h1>FPP 5.4 - Residual diagnostics: Recreate the 3 components of Fig 5.13</h1>
-<ul>
-<li>Compute the three residuals diagnostics plot in Fig 5.13 for the naive method forecasts</li>
-<li>Do this for the training data in the Beer data above. This is because when doing a residual diagnostic of a model, you want to compare observed values <span class="math inline">\(y_t\)</span> and fitted / predicted / forecasted values <span class="math inline">\(\hat{y}_t\)</span> for the data you used to fit the model.</li>
-<li>It’s already obvious that there are much better choices than the naive method for forecasting. For each of the three residual diagnostics plots:
-<ul>
-<li>Comment on the residuals pattern you observe</li>
-<li>Explain why the pattern you observe is consistent with the fact that there are much better choices than the naive method for forecasting</li>
-</ul></li>
-</ul>
-</section>
-<section id="fpp-5.8---evaluating-point-forecast-accuracy-recompute-rmse-and-mae-values-in-table-using-data-wrangling" class="level1">
-<h1>FPP 5.8 - Evaluating point forecast accuracy: Recompute RMSE and MAE values in table using data wrangling</h1>
-<p>For the three forecasting methods above, compute the:</p>
-<ul>
-<li>Root mean squared error</li>
-<li>Mean absolute error</li>
-</ul>
-<p>which gives a single numerical measure of the overall error of the model.</p>
-<p>Note that the table in FPP 5.8 uses a slightly different training set 1992 Q1 - 2007 Q4, instead of 1992 Q1 - 2006 Q4, so you will get slightly different error values, but they should still be close.</p>
-</section>
-<section id="fpp-5.7---forecasting-with-decomposition-recreate-fig-5.19-by-computing-all-values-using-data-wrangling" class="level1">
-<h1><del>FPP 5.7 - Forecasting with decomposition: Recreate Fig 5.19 by computing all values using data wrangling</del></h1>
-<p>I didn’t have time to scaffold this question appropriately.</p>
+<hr>
+<section id="final-project" class="level1">
+<h1>Final Project</h1>
+<p>I will have this cleaned up by Tue 11/14, then let students pick groups google form. Please reply in thread if you have questions or comments.</p>
+<p>Todos: - Put out google form for groups/individuaals - Write out precise dates and expectations - Difference in expectations between group and individual projects? - Grading will be based on does student incorporate feedback: - Research question is somewhat limited bc this is a forecasting course, but you will have choice of which visualizations to use, bc there will be a set limit of 4-5. - Loose guidelines as to what constitutes a single visualization - Structure: Fill in Jupyter notebook - Don’t bang head on wall finding data that has pre-conceived patterns, but it has to be protein’y enough to be able to apply methods we’ve learned</p>
+<p>Criteria Is presentation clean: do you use markdown, are axes and titles labeled, are images standalone Does student adequately but also succinctly convey context of data and problem? Does student apply methods and code learned in PS to their own data in python? Does student go above and beyond just describing the what of results and try to provide insight going above and beyond</p>
+<p>Video: - Not expecting complete polish - 4-5min recorded zoom. Be sure to test for 10s first - Narrate the markdown</p>
 
 
 </section>

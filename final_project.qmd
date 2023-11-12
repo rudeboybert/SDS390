@@ -1,0 +1,32 @@
+---
+title: "Final Project"
+---
+
+
+***
+
+# Final Project
+
+
+I will have this cleaned up by Tue 11/14, then let students pick groups google form. Please reply in thread if you have questions or comments.
+
+Todos:
+- Put out google form for groups/individuaals
+- Write out precise dates and expectations
+- Difference in expectations between group and individual projects?
+- Grading will be based on does student incorporate feedback:
+- Research question is somewhat limited bc this is a forecasting course, but you will have choice of which visualizations to use, bc there will be a set limit of 4-5. 
+- Loose guidelines as to what constitutes a single visualization
+- Structure: Fill in Jupyter notebook
+- Don’t bang head on wall finding data that has pre-conceived patterns, but it has to be protein’y enough to be able to apply methods we’ve learned
+
+Criteria
+Is presentation clean: do you use markdown, are axes and titles labeled, are images standalone
+Does student adequately but also succinctly convey context of data and problem?
+Does student apply methods and code learned in PS to their own data in python?
+Does student go above and beyond just describing the what of results and try to provide insight going above and beyond
+
+Video:
+- Not expecting complete polish
+- 4-5min recorded zoom. Be sure to test for 10s first
+- Narrate the markdown 

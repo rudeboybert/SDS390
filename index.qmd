@@ -13,7 +13,7 @@ Things to do next time:
     1. Don't do first DC class first. Maybe second?
     1. Do second DataCamp class after you've covered AR and MA process in class
     1. Do third DC class first? Data viz is important
-1. PS03: Finish forecasting with decomposition data wrangling question
+1. PS3: Finish forecasting with decomposition data wrangling question
 
 
 
@@ -25,6 +25,20 @@ Things to do this semester:
 
 -->
 ```
+
+
+# Lec 11.1: Tue 11/14
+
+## Announcements
+
+1. PS3 mini-presentations today. Info in [Problem Sets](PS.html)
+1. Finalized final project information posted in [Final Project](final_project.html ) 
+
+
+
+------------------------------------------------------------------------
+
+
 
 
 # Lec 10.2: Thu 11/9
@@ -85,7 +99,7 @@ Things to do this semester:
 
 ## Announcements
 
-1. Fill out PS02 peer eval Google Form and slido poll
+1. Fill out PS2 peer eval Google Form and slido poll
 
 ## Lecture
 
@@ -105,7 +119,7 @@ Things to do this semester:
 
 ## Announcements
 
-1. PS02 mini-presentations today. Info in [Problem Sets](PS.html)
+1. PS2 mini-presentations today. Info in [Problem Sets](PS.html)
 
 ## Lecture
 
@@ -123,8 +137,8 @@ Things to do this semester:
 
 ## Announcements
 
-1. Update PS02 in-class presentation format in [Problem Sets](PS.html)
-1. PS02 mini-presentations this coming Tuesday
+1. Update PS2 in-class presentation format in [Problem Sets](PS.html)
+1. PS2 mini-presentations this coming Tuesday
 
 ## Lecture
 
@@ -246,7 +260,7 @@ ggplot(seasonal_naive_augment, aes(x = .resid)) +
 ## Announcements
 
 1. Next DC course "Visualizing Time Series Data in Python" assigned due Tue 10/31
-1. Discuss PS02 in-class presentation format on Tue 10/24 using PS01 feedback from [slido](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
+1. Discuss PS2 in-class presentation format on Tue 10/24 using PS1 feedback from [slido](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
 
 ## Lecture
 
@@ -336,7 +350,7 @@ us_retail_employment |>
 
 ## Announcements
 
-1.  Still missing a few [PS01 peer evalutions](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
+1.  Still missing a few [PS1 peer evalutions](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
 2.  Discuss slido [responses](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
 
 ## Lecture
@@ -345,7 +359,7 @@ us_retail_employment |>
     1.  [FPP Chapter 9](https://otexts.com/fpp3/arima.html)
     2.  The 4th of 5 courses in "Time Series with Python" DC skill track (see schedule above).
 2.  Chalk talk
-3.  Start PS02 (on new "Problem Sets" tab of webpage)
+3.  Start PS2 (on new "Problem Sets" tab of webpage)
 
 ```{=html}
 <!--
