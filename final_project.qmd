@@ -2,31 +2,50 @@
 title: "Final Project"
 ---
 
-
 ***
 
-# Final Project
+# Basic info
+
+- Major due dates:
+    1. Thu 12/14 5pm: 5min video presentation on Moodle
+    1. Mon 12/18 8am: Feedback on video presentations returned by Prof. Kim
+    1. Thu 12/21 3pm: Final version of notebook due on Moodle
+- Groups:
+    - Google form for [group member](https://docs.google.com/forms/d/e/1FAIpQLSfbdcAjfvomKOpPO1BKjewYtgVR6RXfhSL57Ae8xxLqxbcnlw/viewform) preferences. Complete by Wed 11/15 9pm. 
+    - No difference in expectation between group and individual projects 
 
 
-I will have this cleaned up by Tue 11/14, then let students pick groups google form. Please reply in thread if you have questions or comments.
+# Criteria 
 
-Todos:
-- Put out google form for groups/individuaals
-- Write out precise dates and expectations
-- Difference in expectations between group and individual projects?
-- Grading will be based on does student incorporate feedback:
-- Research question is somewhat limited bc this is a forecasting course, but you will have choice of which visualizations to use, bc there will be a set limit of 4-5. 
-- Loose guidelines as to what constitutes a single visualization
-- Structure: Fill in Jupyter notebook
-- Don’t bang head on wall finding data that has pre-conceived patterns, but it has to be protein’y enough to be able to apply methods we’ve learned
+This project will be graded much like a paper written for a humanities class: this is both a quantitative and qualitative analysis where there isn't a right answer.
 
-Criteria
-Is presentation clean: do you use markdown, are axes and titles labeled, are images standalone
-Does student adequately but also succinctly convey context of data and problem?
-Does student apply methods and code learned in PS to their own data in python?
-Does student go above and beyond just describing the what of results and try to provide insight going above and beyond
+1. Did you incorporate feedback for video presentation in your final report?
+1. You are not being graded on finding "statistically significant" results i.e. the outcome. You are being graded on the quality of your analysis i.e. the process. 
+1. Is your analysis reproducible? If I run the notebook on my computer, will I be able to generate your results?
+1. Is presentation clean?
+    1. Did you use markdown text formatting?
+    1. Are all image axes and titles labeled?
+    1. Are all images "standalone" in that you could use them in a slide deck or share them on social media?
+    1. Is code commented?
+1. Do you adequately but also succinctly convey the context of data and the problem at hand?
+1. Do you appropriately apply the methods and code learned in problem sets?
+1. Do you go above and beyond literal descriptions of the results and focus on providing insight? In other words, did you not just focus on the "what", but also focus on the "why"?
 
-Video:
-- Not expecting complete polish
-- 4-5min recorded zoom. Be sure to test for 10s first
-- Narrate the markdown 
+
+# Format
+
+- Follow structure of `final_project.ipynb` shared on Slack, which in turn follows the [tidy forecasting workflow](https://otexts.com/fpp3/a-tidy-forecasting-workflow.html)
+- Find your own data. No specific requirements to the data, but it has to have enough protein to apply what you've learned this semester.
+- Research question: Somewhat limited since you will be forecasting into the future
+- Length of analysis:
+    - No more than 5 visualizations (visualization of raw data + 4 more). Ask questions for what constitutes a visualization in `#questions` on Slack
+    - "Ink to information" ratio should be kept low
+
+
+# Video presentation
+
+This is an opportunity to get feedback before the final paper is due. You will be narrating your notebook in a 5min max screencast.
+
+- Be sure to test and watch your recording first
+- Notebook doesn't have to be 100% polished, but it has to be polished enough for me to give feedback
+
