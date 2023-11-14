@@ -27,17 +27,30 @@ Things to do this semester:
 ```
 
 
-# Lec 11.1: Tue 11/14
+# Lec 11.2: Thu 11/16
 
 ## Announcements
 
-1. PS3 mini-presentations today. Info in [Problem Sets](PS.html)
-1. Finalized final project information posted in [Final Project](final_project.html ) 
+1. Residual analysis: on which data? train or test or both?
+1. Updated `final_project.ipynb` file
 
 
 
 ------------------------------------------------------------------------
 
+
+
+
+# Lec 11.1: Tue 11/14
+
+## Announcements
+
+1. PS3 mini-presentations today. Info in [Problem Sets](PS.html)
+1. Finalized final project information posted in [Final Project](final_project.html) 
+
+
+
+------------------------------------------------------------------------
 
 
 

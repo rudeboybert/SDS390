@@ -38,7 +38,7 @@ This project will be graded much like a paper written for a humanities class: th
 - Find your own data. No specific requirements to the data, but it has to have enough protein to apply what you've learned this semester.
 - Research question: Somewhat limited since you will be forecasting into the future
 - Length of analysis:
-    - No more than 5 visualizations (visualization of raw data + 4 more). Ask questions for what constitutes a visualization in `#questions` on Slack
+    - No more than 4 visualizations (visualization of raw data + 4 more). Ask questions for what constitutes a visualization in `#questions` on Slack
     - "Ink to information" ratio should be kept low
 
 
