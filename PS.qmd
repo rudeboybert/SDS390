@@ -46,7 +46,7 @@ Clarifications:
 1.  Groups still made at random, presenters still chosen at random
 2.  No need to merge two files, you can select only one person's and modify it (if at all)
 3.  Reminder: submission due on Moodle before next class
-5.  Answer the sli.do poll here
+5.  Answer the sli.do poll [here](https://app.sli.do/event/eEmSUqd1nm8d8WwbW84aJ1/embed/polls/674c19b7-d93f-49f6-840f-7c247c7df308)
 4.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
 
 
@@ -87,8 +87,8 @@ Khan           Nubraz         X
 
 ## Example Solutions
 
-1.  XXX solutions [here](PS/PS02_presentations.zip)
-2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb)
+1.  XXX solutions [here](PS/PS03_presentations.zip)
+2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS03_albert.ipynb)
 
 
 
@@ -125,7 +125,7 @@ Clarifications:
 1.  Groups still made at random, presenters still chosen at random
 2.  No need to merge two files, you can select only one person's and modify it (if at all)
 3.  Reminder: submission due on Moodle before next class
-5.  Answer the sli.do poll [here](https://app.sli.do/event/eEmSUqd1nm8d8WwbW84aJ1/embed/polls/674c19b7-d93f-49f6-840f-7c247c7df308)
+5.  Answer the sli.do poll [here](https://app.sli.do/event/vdsVBebJSrnKE2mx4morQf/embed/polls/611ff80c-6e35-4148-98ad-9247d3da80f0)
 4.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
 
 
