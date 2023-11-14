@@ -66,7 +66,23 @@ read_csv("390.csv") %>%
 `***` = presented
 
 ```         
-
+Ding           Jenny          1
+An             Rachael        1
+Slosser        Tillie         2
+O'Meara        Abbey          2
+Anesko         Greta          3
+Huang          Juniper        3
+Murray         Kiera          4
+Khan           Nubraz         4
+Tha Ra Wun     Tint           5
+Yang           Christy        5
+Xu             Xiaoman        6
+Pu             Betty          6
+Knecht         Beata          7
+Qiu            Chi            7
+Martin         Teddy          8
+Kogalovski     Aleksandra     8
+Basnet Chettri Charavee       9
 ```
 
 ## Example Solutions
