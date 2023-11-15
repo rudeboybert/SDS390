@@ -82,8 +82,8 @@ Khan           Nubraz         X3
 
 1.  Presentations:
     1.  Charavee + Rachel [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS03_presentations/PS03_charavee_rachel.ipynb)
-    2.  Kiera + Juniper solutions
-    3.  .zip file of both here (coming soon)
+    2.  Kiera + Juniper [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS03_presentations/PS03_kiera_juniper.ipynb)
+    3.  .zip file of both [here](PS/PS03_presentations.zip)
 2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS03_albert.ipynb). Note a couple of things I did have time to address b/c of my conference last week:
     1. I didn't polish my graphs. (An example of bad role modeling on my part: "Do as I say, not do as I do." Apologies)
     1. I realized I calculated the seasonal naive forecast wrong! Where as you were supposed to using only the prior year's worth of seasons (i.e. 4 time points each corresponding to the last four quarters), I computed the average for all past quarters! i.e. all springs, all summers, etc. And thus my solution was more complicated than necessary. 
