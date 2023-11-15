@@ -333,7 +333,7 @@
     "href": "PS.html#example-solutions",
     "title": "Problem Sets",
     "section": "Example Solutions",
-    "text": "Example Solutions\n\nPresentations:\n\nCharavee + Rachel solutions\nKiera + Juniper solutions\n.zip file of both here\n\nProf Kim’s solution"
+    "text": "Example Solutions\n\nPresentations:\n\nCharavee + Rachel solutions\nKiera + Juniper solutions\n.zip file of both here (coming soon)\n\nProf Kim’s solution. Note a couple of things I did have time to address b/c of my conference last week:\n\nI didn’t polish my graphs. (An example of bad role modeling on my part: “Do as I say, not do as I do.” Apologies)\nI realized I calculated the seasonal naive forecast wrong! Where as you were supposed to using only the prior year’s worth of seasons (i.e. 4 time points each corresponding to the last four quarters), I computed the average for all past quarters! i.e. all springs, all summers, etc. And thus my solution was more complicated than necessary."
   },
   {
     "objectID": "PS.html#instructions-1",
