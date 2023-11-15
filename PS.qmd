@@ -2,10 +2,7 @@
 title: "Problem Sets"
 ---
 
-
-***
-
-
+------------------------------------------------------------------------
 
 # Problem Set 3
 
@@ -26,7 +23,6 @@ aus_production %>%
 
 ![MVP](https://rudeboybert.github.io/SDS192/static/images/MVP_2.png)
 
-
 ## Instructions
 
 1.  Posted on Slack under `#general`
@@ -35,20 +31,17 @@ aus_production %>%
     2.  Due Thu 11/16 9:25am on Moodle
 3.  In-class on Tue 11/14: "Think, Pair, Share" exercise
 
-
 Clarifications:
 
 1.  
-
 
 ## In-Class Presentations
 
 1.  Groups still made at random, presenters still chosen at random
 2.  No need to merge two files, you can select only one person's and modify it (if at all)
 3.  Reminder: submission due on Moodle before next class
-5.  Answer the sli.do poll [here](https://app.sli.do/event/eEmSUqd1nm8d8WwbW84aJ1/embed/polls/674c19b7-d93f-49f6-840f-7c247c7df308)
-4.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
-
+4.  Answer the sli.do poll [here](https://app.sli.do/event/eEmSUqd1nm8d8WwbW84aJ1/embed/polls/674c19b7-d93f-49f6-840f-7c247c7df308)
+5.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
 
 ```{r, eval = FALSE}
 library(tidyverse)
@@ -70,9 +63,9 @@ Basnet Chettri Charavee       1 ***
 An             Rachael        1 ***
 Slosser        Tillie         2
 O'Meara        Abbey          2
-Huang          Juniper        3
+Huang          Juniper        3 ***
 Murray         Kiera          3 ***
-Tha Ra Wun     Tint           4 *** 
+Tha Ra Wun     Tint           4  
 Yang           Christy        4
 Xu             Xiaoman        5
 Pu             Betty          5
@@ -87,15 +80,14 @@ Khan           Nubraz         X3
 
 ## Example Solutions
 
-1.  XXX solutions [here](PS/PS03_presentations.zip)
+1.  Presentations:
+    1.  Charavee + Rachel [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS03_presentations/PS03_charavee_rachel.ipynb)
+    2.  Kiera + Juniper solutions
+    3.  .zip file of both here
 2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS03_albert.ipynb)
 
 
-
-
-
 ------------------------------------------------------------------------
-
 
 # Problem Set 2
 
@@ -113,21 +105,18 @@ Khan           Nubraz         X3
     2.  Due Thu 10/26 9:25am on Moodle
 3.  In-class on Tue 10/24: "Think, Pair, Share" exercise
 
-
 Clarifications:
 
 1.  Use the `dbh` variable, not the `dbh_orig` variable.
 2.  D'oh! Say you do 5 queries on ChatGPT and then get the share URL link. Now saw you do a 6th query. The share URL does NOT reflect this 6th search. So you will need to get the share URL link AFTER you're done your PS02.
-
 
 ## In-Class Presentations
 
 1.  Groups still made at random, presenters still chosen at random
 2.  No need to merge two files, you can select only one person's and modify it (if at all)
 3.  Reminder: submission due on Moodle before next class
-5.  Answer the sli.do poll [here](https://app.sli.do/event/vdsVBebJSrnKE2mx4morQf/embed/polls/611ff80c-6e35-4148-98ad-9247d3da80f0)
-4.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
-
+4.  Answer the sli.do poll [here](https://app.sli.do/event/vdsVBebJSrnKE2mx4morQf/embed/polls/611ff80c-6e35-4148-98ad-9247d3da80f0)
+5.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
 
 ```{r, eval = FALSE}
 library(tidyverse)
@@ -166,14 +155,10 @@ read_csv("390.csv") %>%
 ## Example Solutions
 
 1.  Presentations:
-    1. Betty + Chi [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_presentations/PS02_betty_chi.ipynb)
-    1. Abbey + Christy [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_presentations/PS02_abbey_christy.ipynb)
-    1. .zip file of both [here](PS/PS02_presentations.zip)
+    1.  Betty + Chi [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_presentations/PS02_betty_chi.ipynb)
+    2.  Abbey + Christy [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_presentations/PS02_abbey_christy.ipynb)
+    3.  .zip file of both [here](PS/PS02_presentations.zip)
 2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb)
-
-
-
-
 
 ------------------------------------------------------------------------
 
@@ -244,7 +229,7 @@ read_csv("390.csv") %>%
 ## Example Solutions
 
 1.  Presentations:
-    1. Tillie + Kiera [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_presentations/PS01_tillie_kiera.ipynb)
-    1. Beata + Charavee [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_presentations/PS01_charavee_beata.ipynb)
-    1. .zip file of both [here](PS/PS01_presentations.zip)
+    1.  Tillie + Kiera [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_presentations/PS01_tillie_kiera.ipynb)
+    2.  Beata + Charavee [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_presentations/PS01_charavee_beata.ipynb)
+    3.  .zip file of both [here](PS/PS01_presentations.zip)
 2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS01_albert.ipynb)
