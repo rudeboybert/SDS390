@@ -9,14 +9,12 @@ title: "SDS390: Ecological Forecasting"
 ```{=html}
 <!--
 Things to do next time:
+1. Syllabus: clarify policy for when students can't make presentation
 1. DC:
     1. Don't do first DC class first. Maybe second?
     1. Do second DataCamp class after you've covered AR and MA process in class
     1. Do third DC class first? Data viz is important
 1. PS3: Finish forecasting with decomposition data wrangling question
-
-
-
 
 
 Things to do this semester:
@@ -32,7 +30,57 @@ Things to do this semester:
 ## Announcements
 
 1. Residual analysis: on which data? train or test or both?
-1. Updated `final_project.ipynb` file
+1. Simple exponential smoothing
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(fpp3)
+
+# Code block 1: Study weights in an exponential model ----
+# Choose 0 < alpha <= 1
+alpha <- 0.9
+k <- 1:11
+
+# Inspect and visualize weights:
+alpha*(1-alpha)^(k-1)
+plot(k, alpha*(1-alpha)^(k-1))
+
+# As consider more and more weights, weights sum to 1
+sum(alpha*(1-alpha)^(k-1))
+
+
+
+# Code block 2: Example from FPP 8.1 ----
+# Get and visualize data
+algeria_economy <- global_economy |>
+  filter(Country == "Algeria")
+algeria_economy |>
+  autoplot(Exports) +
+  labs(y = "% of GDP", title = "Exports: Algeria")
+
+# Fit exponential smoothing model using ETS() function:
+# Additive, not multiplicative model. No trend or season for now.
+fit <- algeria_economy |>
+  model(ETS(Exports ~ error("A") + trend("N") + season("N")))
+
+# NOT IN BOOK: get the fitted alpha and l0 values
+report(fit)
+
+# Forecast 5 time points into the future
+fc <- fit |>
+  forecast(h = 5)
+
+# Fitted values in orange, forecasts in blue.
+# Note:
+# 1. LARGE forecast error interval
+# 2. This is only simple exponential smoothing
+fc |>
+  autoplot(algeria_economy) +
+  geom_line(aes(y = .fitted), col="#D55E00", data = augment(fit)) +
+  labs(y="% of GDP", title="Exports: Algeria") +
+  guides(colour = "none")
+```
+
 
 
 

@@ -4,6 +4,81 @@ title: "Problem Sets"
 
 ------------------------------------------------------------------------
 
+<!--
+
+# Problem Set 4
+
+```{r, echo = FALSE, eval = FALSE}
+# Code to create .csv of aus_production data from FPP 5.2
+# https://otexts.com/fpp3/simple-methods.html#fig:beerf
+library(fpp3)
+library(tidyverse)
+
+# Code block 1: Fit model to data and generate forecasts ----
+# Tidy:
+aus_production %>% 
+  filter_index("1992 Q1" ~ "2010 Q2") %>% 
+  mutate(Quarter = as.Date(Quarter)) %>% 
+  select(Quarter, Beer) %>% 
+  write_csv("PS/PS03_aus_production.csv")
+```
+
+![MVP](https://rudeboybert.github.io/SDS192/static/images/MVP_2.png)
+
+## Instructions
+
+1.  Posted on Slack under `#general`
+2.  Individual `PS03.ipynb` files
+    1.  Complete `PS03.ipynb` by Tue 11/14 class time
+    2.  Due Thu 11/16 9:25am on Moodle
+3.  In-class on Tue 11/14: "Think, Pair, Share" exercise
+
+Clarifications:
+
+1.  
+
+## In-Class Presentations
+
+1.  Groups still made at random, presenters still chosen at random
+2.  No need to merge two files, you can select only one person's and modify it (if at all)
+3.  Reminder: submission due on Moodle before next class
+4.  Answer the sli.do poll [here](https://app.sli.do/event/eEmSUqd1nm8d8WwbW84aJ1/embed/polls/674c19b7-d93f-49f6-840f-7c247c7df308)
+5.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
+6. If you can't make it, it is your responsibility to send a screencast recording of you narrating your work by the end of the day.
+
+```{r, eval = FALSE}
+library(tidyverse)
+read_csv("390.csv") %>% 
+  filter(First != "Albert") %>% 
+  sample_frac(1) %>% 
+  mutate(team = rep(1:9, length = 17)) %>% 
+  arrange(team)
+
+read_csv("390.csv") %>% 
+  filter(First != "Albert") %>% 
+  sample_n(2)
+```
+
+`***` = presented
+
+
+
+## Example Solutions
+
+1.  Presentations:
+    1.  Charavee + Rachel [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS03_presentations/PS03_charavee_rachel.ipynb)
+    2.  Kiera + Juniper [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS03_presentations/PS03_kiera_juniper.ipynb)
+    3.  .zip file of both [here](PS/PS03_presentations.zip)
+2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS03_albert.ipynb). Note a couple of things I did have time to address b/c of my conference last week:
+    1. I didn't polish my graphs. (An example of bad role modeling on my part: "Do as I say, not do as I do." Apologies)
+    1. I realized I calculated the seasonal naive forecast wrong! Where as you were supposed to using only the prior year's worth of seasons (i.e. 4 time points each corresponding to the last four quarters), I computed the average for all past quarters! i.e. all springs, all summers, etc. And thus my solution was more complicated than necessary. 
+
+-->
+
+------------------------------------------------------------------------
+
+
+
 # Problem Set 3
 
 ```{r, echo = FALSE, eval = FALSE}
