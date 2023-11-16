@@ -58,7 +58,7 @@ algeria_economy |>
   autoplot(Exports) +
   labs(y = "% of GDP", title = "Exports: Algeria")
 
-# Fit exponential smoothing model using ETS() function:
+# Fit simple exponential smoothing model using ETS() function:
 # Additive, not multiplicative model. No trend or season for now.
 fit <- algeria_economy |>
   model(ETS(Exports ~ error("A") + trend("N") + season("N")))
@@ -74,6 +74,7 @@ fc <- fit |>
 # Note:
 # 1. LARGE forecast error interval
 # 2. This is only simple exponential smoothing
+# 3. Comparing orange and black lines, we see degree of smoothing is not that high
 fc |>
   autoplot(algeria_economy) +
   geom_line(aes(y = .fitted), col="#D55E00", data = augment(fit)) +
