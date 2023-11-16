@@ -25,11 +25,32 @@ Things to do this semester:
 ```
 
 
+# Lec 12.1: Tue 11/21
+
+## Announcements
+
+1. What to do about PS5?
+
+## Lecture
+
+1. FPP 8.2 Exponential smoothing with trend
+1. FPP 8.3 Exponential smoothing with seasonality
+1. PS4
+
+
+
+------------------------------------------------------------------------
+
+
+
 # Lec 11.2: Thu 11/16
 
 ## Announcements
 
 1. Residual analysis: on which data? train or test or both?
+
+## Lecture
+
 1. Simple exponential smoothing
 
 ```{r, eval=FALSE}
