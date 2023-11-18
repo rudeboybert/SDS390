@@ -29,13 +29,17 @@ Things to do this semester:
 
 ## Announcements
 
-1. What to do about PS5?
+1. No in-class lecture
+1. Final project extra notes
+    1. Do a residual analysis
+    1. Fit between 2-4 models, one of which needs to be an ARIMA model
 
 ## Lecture
 
-1. FPP 8.2 Exponential smoothing with trend
-1. FPP 8.3 Exponential smoothing with seasonality
-1. PS4
+1. Recorded lecture on 
+    1. FPP 8.2 Exponential smoothing with trend
+    1. FPP 8.3 Exponential smoothing with seasonality
+1. PS4 posted
 
 
 
