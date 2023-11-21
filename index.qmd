@@ -40,7 +40,7 @@ Things to do this semester:
 1. Recorded lecture posted in Screencasts tab of webpage (top right). Please post questions in Slack under `#questions` including the point in time in video your question corresponds to. Topics:
     1. FPP 8.2 Exponential smoothing with trend
     1. FPP 8.3 Exponential smoothing with seasonality
-1. PS4 to be posted by the end of today
+1. PS4 files posted on Slack, please read instructions on Problem Sets page 
 
 ```{r, eval=FALSE}
 library(tidyverse)

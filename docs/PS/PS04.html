@@ -171,11 +171,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#load-and-explore-data" id="toc-load-and-explore-data" class="nav-link active" data-scroll-target="#load-and-explore-data">Load and explore data</a></li>
-  <li><a href="#fpp-5.2-recreate-fig-5.7" id="toc-fpp-5.2-recreate-fig-5.7" class="nav-link" data-scroll-target="#fpp-5.2-recreate-fig-5.7">FPP 5.2: Recreate Fig 5.7</a></li>
-  <li><a href="#fpp-5.4---residual-diagnostics-recreate-the-3-components-of-fig-5.13" id="toc-fpp-5.4---residual-diagnostics-recreate-the-3-components-of-fig-5.13" class="nav-link" data-scroll-target="#fpp-5.4---residual-diagnostics-recreate-the-3-components-of-fig-5.13">FPP 5.4 - Residual diagnostics: Recreate the 3 components of Fig 5.13</a></li>
-  <li><a href="#fpp-5.8---evaluating-point-forecast-accuracy-recompute-rmse-and-mae-values-in-table-using-data-wrangling" id="toc-fpp-5.8---evaluating-point-forecast-accuracy-recompute-rmse-and-mae-values-in-table-using-data-wrangling" class="nav-link" data-scroll-target="#fpp-5.8---evaluating-point-forecast-accuracy-recompute-rmse-and-mae-values-in-table-using-data-wrangling">FPP 5.8 - Evaluating point forecast accuracy: Recompute RMSE and MAE values in table using data wrangling</a></li>
-  <li><a href="#fpp-5.7---forecasting-with-decomposition-recreate-fig-5.19-by-computing-all-values-using-data-wrangling" id="toc-fpp-5.7---forecasting-with-decomposition-recreate-fig-5.19-by-computing-all-values-using-data-wrangling" class="nav-link" data-scroll-target="#fpp-5.7---forecasting-with-decomposition-recreate-fig-5.19-by-computing-all-values-using-data-wrangling"><del>FPP 5.7 - Forecasting with decomposition: Recreate Fig 5.19 by computing all values using data wrangling</del></a></li>
+  <li><a href="#load-and-explore-data" id="toc-load-and-explore-data" class="nav-link active" data-scroll-target="#load-and-explore-data">Load and explore data</a>
+  <ul class="collapse">
+  <li><a href="#us-consumption" id="toc-us-consumption" class="nav-link" data-scroll-target="#us-consumption">US Consumption</a></li>
+  <li><a href="#algeria-exports" id="toc-algeria-exports" class="nav-link" data-scroll-target="#algeria-exports">Algeria Exports</a></li>
+  <li><a href="#australia-population" id="toc-australia-population" class="nav-link" data-scroll-target="#australia-population">Australia Population</a></li>
+  <li><a href="#australia-tourism" id="toc-australia-tourism" class="nav-link" data-scroll-target="#australia-tourism">Australia Tourism</a></li>
+  </ul></li>
+  <li><a href="#time-series-regression-model" id="toc-time-series-regression-model" class="nav-link" data-scroll-target="#time-series-regression-model">Time Series Regression Model</a></li>
+  <li><a href="#simple-exponential-smoothing" id="toc-simple-exponential-smoothing" class="nav-link" data-scroll-target="#simple-exponential-smoothing">Simple Exponential Smoothing</a></li>
+  <li><a href="#exponential-smoothing-with-trend" id="toc-exponential-smoothing-with-trend" class="nav-link" data-scroll-target="#exponential-smoothing-with-trend">Exponential smoothing with trend</a></li>
+  <li><a href="#exponential-smoothing-with-seasonality" id="toc-exponential-smoothing-with-seasonality" class="nav-link" data-scroll-target="#exponential-smoothing-with-seasonality">Exponential smoothing with seasonality</a></li>
   </ul>
 </nav>
     </div>
@@ -201,87 +207,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p><a href="https://colab.research.google.com/github/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
 <p>Instructions: 1. Name: 1. Create a new ChatGPT chat called “SDS390 PS04” that contains all the prompts you used for this problem set. <strong>After you’ve completed your assignment</strong>, click the share button and paste the URL in Markdown format <a href="https://chat.openai.com/share/7b889388-3220-4005-9cba-ed1eacf28a45">here</a> (shared ChatGPT links don’t auto-update with subsequent queries).</p>
-<p>Overview of this PS: You will be recreating graphs and explicitly computing values from “FPP 5 - The forecaster’s toolbox” in python. Specifically</p>
-<ol type="1">
-<li>FPP 5.2 - Some simple forecasting methods: Recreate <a href="https://otexts.com/fpp3/simple-methods.html#fig:beerf">Fig 5.7</a></li>
-<li>FPP 5.4 - Residual diagnostics: Recreate the 3 components of <a href="https://otexts.com/fpp3/diagnostics.html">Fig 5.13</a></li>
-<li>FPP 5.8 - Evaluating point forecast accuracy: Recompute the 3 RMSE and 3 MAE values (corresponding to naive, mean, and seasonal naive methods) in <a href="https://otexts.com/fpp3/accuracy.html#fig:beeraccuracy">table</a> using data wrangling</li>
-<li><del>FPP 5.7 - Forecasting with decomposition: Recreate Fig 5.19 by computing all values using data wrangling</del></li>
-</ol>
-<p>Overall instructions:</p>
-<ul>
-<li>Do not use a function from a specialized time series forecasting specific python library to do this PS. Rather use pandas data wrangling, matplotlib, or any other package we’ve used to date (like for autocorrelation functions)</li>
-<li>Depending on your data wrangling approach for the questions below, you <em>may</em> get a warning that says <code>A value is trying to be set on a copy of a slice from a DataFrame.</code> As long as your values are correct, you may ignore this warning</li>
-<li>Using the lessons you learned in the 3rd DataCamp on Data Viz, Chapters 1 and 2:
-<ul>
-<li>Give all your plots titles</li>
-<li>Label all axes</li>
-<li>Make any other cosmetic changes you like</li>
-</ul></li>
-</ul>
-<div class="cell" data-execution_count="1">
+<p>Overview of this PS: You will be recreating graphs and explicitly computing values from “FPP 7 and 8 - The forecaster’s toolbox” in python.</p>
+<div class="cell" data-execution_count="142">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="load-and-explore-data" class="level1">
 <h1>Load and explore data</h1>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>aus_production <span class="op">=</span> pd.read_csv(<span class="st">"PS03_aus_production.csv"</span>, parse_dates <span class="op">=</span> [<span class="st">'Quarter'</span>], index_col <span class="op">=</span> <span class="st">'Quarter'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># aus_production = aus_production.to_period('Q')</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_production.head())</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_production.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Beer
-Quarter         
-1992-01-01   443
-1992-04-01   410
-1992-07-01   420
-1992-10-01   532
-1993-01-01   433
-
-
-            Beer
-Quarter         
-2009-04-01   398
-2009-07-01   419
-2009-10-01   488
-2010-01-01   414
-2010-04-01   374</code></pre>
-</div>
-</div>
+<section id="us-consumption" class="level2">
+<h2 class="anchored" data-anchor-id="us-consumption">US Consumption</h2>
+<p>Load and wrangle the us_consumption data set, explore the raw values, and plot the time series in an informative fashion.</p>
 </section>
-<section id="fpp-5.2-recreate-fig-5.7" class="level1">
-<h1>FPP 5.2: Recreate Fig 5.7</h1>
+<section id="algeria-exports" class="level2">
+<h2 class="anchored" data-anchor-id="algeria-exports">Algeria Exports</h2>
+<p>Load and wrangle the Algeria economy data set, explore the raw values, and plot the time series in an informative fashion.</p>
+</section>
+<section id="australia-population" class="level2">
+<h2 class="anchored" data-anchor-id="australia-population">Australia Population</h2>
+<p>Load and wrangle the Australia economy data set, explore the raw values, and plot the time series in an informative fashion.</p>
+</section>
+<section id="australia-tourism" class="level2">
+<h2 class="anchored" data-anchor-id="australia-tourism">Australia Tourism</h2>
+<p>Load and wrangle the Australia Holidays data set, explore the raw values, and plot the time series in an informative fashion.</p>
+</section>
+</section>
+<section id="time-series-regression-model" class="level1">
+<h1>Time Series Regression Model</h1>
 <ul>
-<li>Recall from Lec 7.2 this requires training (1992 Q1 - 2006 Q4) vs test set (2007 Q1 - 2010 Q2) splitting of data</li>
+<li>FPP 7.2 - Simple exponential smoothing: Recreate <a href="https://otexts.com/fpp3/least-squares.html#fig:usfitted1">Fig 7.6</a></li>
 </ul>
 </section>
-<section id="fpp-5.4---residual-diagnostics-recreate-the-3-components-of-fig-5.13" class="level1">
-<h1>FPP 5.4 - Residual diagnostics: Recreate the 3 components of Fig 5.13</h1>
+<section id="simple-exponential-smoothing" class="level1">
+<h1>Simple Exponential Smoothing</h1>
 <ul>
-<li>Compute the three residuals diagnostics plot in Fig 5.13 for the naive method forecasts</li>
-<li>Do this for the training data in the Beer data above. This is because when doing a residual diagnostic of a model, you want to compare observed values <span class="math inline">\(y_t\)</span> and fitted / predicted / forecasted values <span class="math inline">\(\hat{y}_t\)</span> for the data you used to fit the model.</li>
-<li>It’s already obvious that there are much better choices than the naive method for forecasting. For each of the three residual diagnostics plots:
-<ul>
-<li>Comment on the residuals pattern you observe</li>
-<li>Explain why the pattern you observe is consistent with the fact that there are much better choices than the naive method for forecasting</li>
-</ul></li>
+<li>FPP 8.1 - Simple exponential smoothing: Recreate <a href="https://otexts.com/fpp3/ses.html#fig:ses">Fig 8.2</a></li>
+<li>You only need to plot the forecasts into the future. The fitted values for observed time points is optional.</li>
+<li>Do the plot without forecasting/error bands as an MVP. Optional: include the forecasting/error bands.</li>
 </ul>
 </section>
-<section id="fpp-5.8---evaluating-point-forecast-accuracy-recompute-rmse-and-mae-values-in-table-using-data-wrangling" class="level1">
-<h1>FPP 5.8 - Evaluating point forecast accuracy: Recompute RMSE and MAE values in table using data wrangling</h1>
-<p>For the three forecasting methods above, compute the:</p>
+<section id="exponential-smoothing-with-trend" class="level1">
+<h1>Exponential smoothing with trend</h1>
 <ul>
-<li>Root mean squared error</li>
-<li>Mean absolute error</li>
+<li>FPP 8.2 - Exponential smoothing with trend: Recreate <a href="https://otexts.com/fpp3/holt.html#fig:dampedtrend">Fig 8.4</a></li>
+<li>You only need to plot the forecasts into the future. The fitted values for observed time points is optional.</li>
+<li>Do the plot without forecasting/error bands as an MVP. Optional: include the forecasting/error bands.</li>
+<li>Optional: include a dampening effect (parameter <span class="math inline">\(\phi\)</span> from Lec 12.1)</li>
 </ul>
-<p>which gives a single numerical measure of the overall error of the model.</p>
-<p>Note that the table in FPP 5.8 uses a slightly different training set 1992 Q1 - 2007 Q4, instead of 1992 Q1 - 2006 Q4, so you will get slightly different error values, but they should still be close.</p>
 </section>
-<section id="fpp-5.7---forecasting-with-decomposition-recreate-fig-5.19-by-computing-all-values-using-data-wrangling" class="level1">
-<h1><del>FPP 5.7 - Forecasting with decomposition: Recreate Fig 5.19 by computing all values using data wrangling</del></h1>
-<p>I didn’t have time to scaffold this question appropriately.</p>
+<section id="exponential-smoothing-with-seasonality" class="level1">
+<h1>Exponential smoothing with seasonality</h1>
+<ul>
+<li>FPP 8.3 - Exponential smoothing with seasonality: Recreate <a href="https://otexts.com/fpp3/holt-winters.html#fig:7-HW">Fig 8.7</a></li>
+<li>You only need to plot the forecasts into the future. The fitted values for observed time points is optional.</li>
+<li>Include only the additive model</li>
+<li>Do the plot without forecasting/error bands as an MVP. Optional: include the forecasting/error bands.</li>
+</ul>
 
 
 </section>

@@ -21,12 +21,13 @@ Clarifications:
 
 ## In-Class Presentations
 
+1. **If you can't make it to lecture**, it is your responsibility to send a screencast recording of you narrating your work by the end of the day.
 1.  Groups still made at random, presenters still chosen at random
-2.  No need to merge two files, you can select only one person's and modify it (if at all)
-3.  Reminder: submission due on Moodle before next class
-4.  Answer the sli.do poll [here](https://app.sli.do/event/eEmSUqd1nm8d8WwbW84aJ1/embed/polls/674c19b7-d93f-49f6-840f-7c247c7df308)
-5.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
-6. If you can't make it, it is your responsibility to send a screencast recording of you narrating your work by the end of the day.
+1.  No need to merge two files, you can select only one person's and modify it (if at all)
+1.  Reminder: submission due on Moodle before next class
+1.  Answer the sli.do poll [here](https://app.sli.do/event/eEmSUqd1nm8d8WwbW84aJ1/embed/polls/674c19b7-d93f-49f6-840f-7c247c7df308)
+1.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
+
 
 ```{r, eval = FALSE}
 library(tidyverse)
