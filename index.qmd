@@ -37,7 +37,7 @@ Things to do this semester:
 
 ## Lecture
 
-1. Recorded lecture posted in Screencasts tab of webpage (top right):
+1. Recorded lecture posted in Screencasts tab of webpage (top right). Please post questions in Slack under `#questions` including the point in time in video your question corresponds to. Topics:
     1. FPP 8.2 Exponential smoothing with trend
     1. FPP 8.3 Exponential smoothing with seasonality
 1. PS4 to be posted by the end of today
@@ -88,9 +88,9 @@ fit <- aus_economy |>
     # Previous model: Additive (i.e. non-multiplicative) error and trend, no seasonality:
     # AAN = ETS(Pop ~ error("A") + trend("A") + season("N"))
     # Dampened model with given phi: Additive error, dampened trend with given phi parameter, no seasonality:
-    AAN = ETS(Pop ~ error("A") + trend("Ad", phi = 0.7) + season("N"))
+    # AAN = ETS(Pop ~ error("A") + trend("Ad", phi = 0.8) + season("N"))
     # Dampened model letting phi be estimated:
-    # AAN = ETS(Pop ~ error("A") + trend("Ad") + season("N"))
+    AAN = ETS(Pop ~ error("A") + trend("Ad") + season("N"))
   )
 
 # Forecast ten times points into future
@@ -118,14 +118,17 @@ aus_holidays <- tourism |>
   filter(Purpose == "Holiday") |>
   summarise(Trips = sum(Trips)/1e3)
 
+autoplot(aus_holidays, Trips) +
+  labs(y = "Thousands", title = "Australian trips")
+
 fit <- aus_holidays |>
   model(
     # Additive and multiplicative models:
-    additive = ETS(Trips ~ error("A") + trend("A") + season("A")),
-    multiplicative = ETS(Trips ~ error("M") + trend("A") + season("M"))
+    #additive = ETS(Trips ~ error("A") + trend("A") + season("A")),
+    #multiplicative = ETS(Trips ~ error("M") + trend("A") + season("M"))
     # Additive and multiplicative models with dampening:
-    # additive = ETS(Trips ~ error("A") + trend("Ad") + season("A")),
-    # multiplicative = ETS(Trips ~ error("M") + trend("Ad") + season("M"))
+    additive = ETS(Trips ~ error("A") + trend("Ad", phi = 0.2) + season("A")),
+    multiplicative = ETS(Trips ~ error("M") + trend("Ad", phi = 0.2) + season("M"))
   )
 
 # NOT IN BOOK: get the fitted alpha/beta and l0/b0 values
