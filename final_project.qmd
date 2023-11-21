@@ -13,6 +13,9 @@ title: "Final Project"
 - Groups:
     - Google form for [group member](https://docs.google.com/forms/d/e/1FAIpQLSfbdcAjfvomKOpPO1BKjewYtgVR6RXfhSL57Ae8xxLqxbcnlw/viewform) preferences. Complete by Wed 11/15 9pm. 
     - No difference in expectation between group and individual projects 
+- Instructions/clarifications added afterwards:
+    1. 11/21: Fit between 2-4 models, one of which needs to be an ARIMA model
+    1. 11/21: Do a residual analysis of the model selected for forecasting into the future using all the available data
 
 
 # Criteria 

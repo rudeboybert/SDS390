@@ -4,7 +4,6 @@ title: "Problem Sets"
 
 ------------------------------------------------------------------------
 
-<!--
 
 # Problem Set 4
 
@@ -12,7 +11,7 @@ title: "Problem Sets"
 
 1.  Posted on Slack under `#general`
 2.  Individual `PS04.ipynb` files
-    1.  Complete `PS04.ipynb` by Tue 11/14 class time
+    1.  Complete `PS04.ipynb` by Thu 12/7 class time
     2.  Due Tue 12/12 9:25am on Moodle
 3.  In-class on Thu 12/7: "Think, Pair, Share" exercise
 
@@ -49,7 +48,7 @@ read_csv("390.csv") %>%
 ## Example Solutions
 
 
--->
+
 
 ------------------------------------------------------------------------
 

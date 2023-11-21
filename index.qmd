@@ -31,15 +31,120 @@ Things to do this semester:
 
 1. No in-class lecture
 1. Final project extra notes
-    1. Do a residual analysis
     1. Fit between 2-4 models, one of which needs to be an ARIMA model
+    1. Do a residual analysis of the model selected for forecasting into the future using all the available data
+
 
 ## Lecture
 
-1. Recorded lecture on 
+1. Recorded lecture posted in Screencasts tab of webpage (top right):
     1. FPP 8.2 Exponential smoothing with trend
     1. FPP 8.3 Exponential smoothing with seasonality
-1. PS4 posted
+1. PS4 to be posted by the end of today
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(fpp3)
+
+# Code block 1: Example from FPP 8.2 on exponential smoothing with trend ----
+# a) Get and visualize data
+aus_economy <- global_economy |>
+  filter(Code == "AUS") |>
+  mutate(Pop = Population / 1e6)
+autoplot(aus_economy, Pop) +
+  labs(y = "Millions", title = "Australian population")
+
+
+# b) Regular exponential smoothing with trend
+fit <- aus_economy |>
+  model(
+    # Additive (i.e. non-multiplicative) error and trend, no seasonality:
+    AAN = ETS(Pop ~ error("A") + trend("A") + season("N"))
+  )
+
+# Forecast ten times points into future
+fc <- fit |> 
+  forecast(h = 10)
+
+# NOT IN BOOK: get the fitted alpha/beta and l0/b0 values
+# NOTE: CRAZY high alpha! Very high weight on previous observation!
+report(fit)
+tidy(fit)
+
+# Fitted values in orange, forecasts in blue.
+# Note:
+# 1. Confidence band is narrow
+# 1. Problem forecast increases forever into the future
+fc |>
+  autoplot(aus_economy) +
+  geom_line(aes(y = .fitted), col="#D55E00", data = augment(fit)) +
+  labs(y = "Millions", title = "Australian population") +
+  guides(colour = "none")
+
+
+# c) Dampened exponential smoothing with trend
+fit <- aus_economy |>
+  model(
+    # Previous model: Additive (i.e. non-multiplicative) error and trend, no seasonality:
+    # AAN = ETS(Pop ~ error("A") + trend("A") + season("N"))
+    # Dampened model with given phi: Additive error, dampened trend with given phi parameter, no seasonality:
+    AAN = ETS(Pop ~ error("A") + trend("Ad", phi = 0.7) + season("N"))
+    # Dampened model letting phi be estimated:
+    # AAN = ETS(Pop ~ error("A") + trend("Ad") + season("N"))
+  )
+
+# Forecast ten times points into future
+fc <- fit |> 
+  forecast(h = 10)
+
+# NOT IN BOOK: get the fitted alpha/beta and l0/b0 values
+# NOTE: Another high value of alpha
+report(fit)
+tidy(fit)
+
+# Fitted values in orange, forecasts in blue.
+# Note:
+# 1. How dampening parameter flattens out forecast curve.
+fc |>
+  autoplot(aus_economy) +
+  geom_line(aes(y = .fitted), col="#D55E00", data = augment(fit)) +
+  labs(y = "Millions", title = "Australian population") +
+  guides(colour = "none")
+
+
+
+# Code block 2: Example from FPP 8.3 on exponential smoothing with seasonality ----
+aus_holidays <- tourism |>
+  filter(Purpose == "Holiday") |>
+  summarise(Trips = sum(Trips)/1e3)
+
+fit <- aus_holidays |>
+  model(
+    # Additive and multiplicative models:
+    additive = ETS(Trips ~ error("A") + trend("A") + season("A")),
+    multiplicative = ETS(Trips ~ error("M") + trend("A") + season("M"))
+    # Additive and multiplicative models with dampening:
+    # additive = ETS(Trips ~ error("A") + trend("Ad") + season("A")),
+    # multiplicative = ETS(Trips ~ error("M") + trend("Ad") + season("M"))
+  )
+
+# NOT IN BOOK: get the fitted alpha/beta and l0/b0 values
+report(fit)
+tidy(fit)
+
+fc <- fit |> 
+  forecast(h = "3 years")
+
+# Plot both models:
+# NOTE
+fc |>
+  autoplot(aus_holidays, level = NULL) +
+  labs(title="Australian domestic tourism",
+       y="Overnight trips (millions)") +
+  guides(colour = guide_legend(title = "Forecast"))
+```
+
+
 
 
 
@@ -90,6 +195,7 @@ fit <- algeria_economy |>
 
 # NOT IN BOOK: get the fitted alpha and l0 values
 report(fit)
+tidy(fit)
 
 # Forecast 5 time points into the future
 fc <- fit |>
