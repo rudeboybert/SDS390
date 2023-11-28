@@ -47,7 +47,7 @@ library(tidyverse)
 library(fpp3)
 library(patchwork)
 
-# Code block 1: Fig 9.1 a) data Google Stocks
+# Code block 1: Fig 9.1 a) and b) data Google Stocks
 google_2015 <- gafa_stock |>
   filter(Symbol == "GOOG", year(Date) == 2015)
 
@@ -69,9 +69,9 @@ AR1_ex <- rep(0, 100)
 # Set first value
 AR1_ex[1] <- 11.5
 
-for(i in 2:100){
+for(t in 2:100){
   # Intercept 18 + slope of previous obs -0.8 + epsilon random noise
-  AR1_ex[i] = 18 - 0.8*AR1_ex[i-1] + rnorm(n=1, mean=0, sd=1)
+  AR1_ex[t] = 18 - 0.8*AR1_ex[t-1] + rnorm(n=1, mean=0, sd=1)
 }
 plot(AR1_ex, type = 'l')
 ```
