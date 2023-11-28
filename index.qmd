@@ -25,6 +25,65 @@ Things to do this semester:
 ```
 
 
+# Lec 13.1: Tue 11/28
+
+## Announcements
+
+1. PS4 attendance policy
+1. Final project added instructions
+
+
+## Lecture
+
+1. FPP 9.1 Stationarity and differencing
+1. FPP 9.2 Backshift notation    
+1. FPP 9.3 Autoregressive model
+    1. Random walk [example](https://stats.stackexchange.com/questions/159650/why-does-the-variance-of-the-random-walk-increase/159653#159653)
+    1. Random walk with drift [example](https://fisher.stats.uwo.ca/faculty/aim/2018/3859A/RNotebooks/05_TimeSeriesVis/05C_RandomWalk_Nov21.html)
+    1. Recall [PS2](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb)
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(fpp3)
+library(patchwork)
+
+# Code block 1: Fig 9.1 a) data Google Stocks
+google_2015 <- gafa_stock |>
+  filter(Symbol == "GOOG", year(Date) == 2015)
+
+# Not stationary:
+google_2015 %>% autoplot(Close)
+
+# Differences are stationary:
+google_2015 %>% autoplot(difference(Close))
+
+# Compare autocorrelation functions:
+plot1 <- google_2015 %>% ACF(Close) %>% autoplot()
+plot2 <- google_2015 %>% ACF(difference(Close)) %>% autoplot()
+plot1 + plot2
+
+
+# Code block 2: FPP 9.3 Fig 9.5a) Simulate 100 values of AR1 process
+AR1_ex <- rep(0, 100)
+
+# Set first value
+AR1_ex[1] <- 11.5
+
+for(i in 2:100){
+  # Intercept 18 + slope of previous obs -0.8 + epsilon random noise
+  AR1_ex[i] = 18 - 0.8*AR1_ex[i-1] + rnorm(n=1, mean=0, sd=1)
+}
+plot(AR1_ex, type = 'l')
+```
+
+
+
+
+
+------------------------------------------------------------------------
+
+
+
 # Lec 12.1: Tue 11/21
 
 ## Announcements

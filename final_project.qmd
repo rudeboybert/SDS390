@@ -2,53 +2,49 @@
 title: "Final Project"
 ---
 
-***
+------------------------------------------------------------------------
 
 # Basic info
 
-- Major due dates:
-    1. Thu 12/14 5pm: 5min video presentation on Moodle
-    1. Mon 12/18 8am: Feedback on video presentations returned by Prof. Kim
-    1. Thu 12/21 3pm: Final version of notebook due on Moodle
-- Groups:
-    - Google form for [group member](https://docs.google.com/forms/d/e/1FAIpQLSfbdcAjfvomKOpPO1BKjewYtgVR6RXfhSL57Ae8xxLqxbcnlw/viewform) preferences. Complete by Wed 11/15 9pm. 
-    - No difference in expectation between group and individual projects 
-- Instructions/clarifications added afterwards:
-    1. 11/21: Fit between 2-4 models, one of which needs to be an ARIMA model
-    1. 11/21: Do a residual analysis of the model selected for forecasting into the future using all the available data
+-   Major due dates:
+    1.  Thu 12/14 5pm: 5min video presentation on Moodle
+    2.  Mon 12/18 8am: Feedback on video presentations returned by Prof. Kim
+    3.  Thu 12/21 3pm: Final version of notebook due on Moodle
+-   Groups:
+    -   Google form for [group member](https://docs.google.com/forms/d/e/1FAIpQLSfbdcAjfvomKOpPO1BKjewYtgVR6RXfhSL57Ae8xxLqxbcnlw/viewform) preferences. Complete by Wed 11/15 9pm.
+    -   No difference in expectation between group and individual projects
+-   **Instructions/clarifications added afterwards**:
+    1.  11/21: Fit between 2-4 models, one of which needs to be an ARIMA model
+    2.  11/21: Do a residual analysis of the model selected for forecasting into the future using all the available data
 
-
-# Criteria 
+# Criteria
 
 This project will be graded much like a paper written for a humanities class: this is both a quantitative and qualitative analysis where there isn't a right answer.
 
-1. Did you incorporate feedback for video presentation in your final report?
-1. You are not being graded on finding "statistically significant" results i.e. the outcome. You are being graded on the quality of your analysis i.e. the process. 
-1. Is your analysis reproducible? If I run the notebook on my computer, will I be able to generate your results?
-1. Is presentation clean?
-    1. Did you use markdown text formatting?
-    1. Are all image axes and titles labeled?
-    1. Are all images "standalone" in that you could use them in a slide deck or share them on social media?
-    1. Is code commented?
-1. Do you adequately but also succinctly convey the context of data and the problem at hand?
-1. Do you appropriately apply the methods and code learned in problem sets?
-1. Do you go above and beyond literal descriptions of the results and focus on providing insight? In other words, did you not just focus on the "what", but also focus on the "why"?
-
+1.  Did you incorporate feedback for video presentation in your final report?
+2.  You are not being graded on finding "statistically significant" results i.e. the outcome. You are being graded on the quality of your analysis i.e. the process.
+3.  Is your analysis reproducible? If I run the notebook on my computer, will I be able to generate your results?
+4.  Is presentation clean?
+    1.  Did you use markdown text formatting?
+    2.  Are all image axes and titles labeled?
+    3.  Are all images "standalone" in that you could use them in a slide deck or share them on social media?
+    4.  Is code commented?
+5.  Do you adequately but also succinctly convey the context of data and the problem at hand?
+6.  Do you appropriately apply the methods and code learned in problem sets?
+7.  Do you go above and beyond literal descriptions of the results and focus on providing insight? In other words, did you not just focus on the "what", but also focus on the "why"?
 
 # Format
 
-- Follow structure of `final_project.ipynb` shared on Slack, which in turn follows the [tidy forecasting workflow](https://otexts.com/fpp3/a-tidy-forecasting-workflow.html)
-- Find your own data. No specific requirements to the data, but it has to have enough protein to apply what you've learned this semester.
-- Research question: Somewhat limited since you will be forecasting into the future
-- Length of analysis:
-    - No more than 4 visualizations (visualization of raw data + 4 more). Ask questions for what constitutes a visualization in `#questions` on Slack
-    - "Ink to information" ratio should be kept low
-
+-   Follow structure of `final_project.ipynb` shared on Slack, which in turn follows the [tidy forecasting workflow](https://otexts.com/fpp3/a-tidy-forecasting-workflow.html)
+-   Find your own data. No specific requirements to the data, but it has to have enough protein to apply what you've learned this semester.
+-   Research question: Somewhat limited since you will be forecasting into the future
+-   Length of analysis:
+    -   No more than 4 visualizations (visualization of raw data + 4 more). Ask questions for what constitutes a visualization in `#questions` on Slack
+    -   "Ink to information" ratio should be kept low
 
 # Video presentation
 
 This is an opportunity to get feedback before the final paper is due. You will be narrating your notebook in a 5min max screencast.
 
-- Be sure to test and watch your recording first
-- Notebook doesn't have to be 100% polished, but it has to be polished enough for me to give feedback
-
+-   Be sure to test and watch your recording first
+-   Notebook doesn't have to be 100% polished, but it has to be polished enough for me to give feedback
