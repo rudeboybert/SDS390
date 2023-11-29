@@ -25,6 +25,37 @@ Things to do this semester:
 ```
 
 
+# Lec 13.2: Thu 11/30
+
+## Announcements
+
+1. 
+
+
+## Lecture
+
+1. FPP 9.3 Autoregressive model: Specific cases of AR(1) model
+    1. Random walk [example](https://stats.stackexchange.com/questions/159650/why-does-the-variance-of-the-random-walk-increase/159653#159653)
+    1. Random walk with drift [example](https://fisher.stats.uwo.ca/faculty/aim/2018/3859A/RNotebooks/05_TimeSeriesVis/05C_RandomWalk_Nov21.html)
+1. FPP 9.4 Moving Average model (recall: this is not moving average smoothing)
+1. FPP 9.5 Non-seasonal ARIMA models
+1. FPP 9.6 
+
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(fpp3)
+library(patchwork)
+
+# Code block 1: 
+```
+
+
+
+------------------------------------------------------------------------
+
+
+
 # Lec 13.1: Tue 11/28
 
 ## Announcements
@@ -75,8 +106,6 @@ for(t in 2:100){
 }
 plot(AR1_ex, type = 'l')
 ```
-
-
 
 
 
