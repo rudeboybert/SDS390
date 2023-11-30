@@ -21,6 +21,24 @@ Things to do this semester:
 1. Talk about DC grades, check-in
 1. 
 
+
+
+dbh <- read_csv("PS/tag_82203.csv") %>% 
+  mutate(date = ymd(str_c(year, month, day, sep ="-"))) %>% 
+  select(date, dbh) %>% 
+  mutate(date = floor_date(date, unit = "month")) %>% 
+  group_by(date) %>% 
+  summarize(dbh = mean(dbh)) %>% 
+  mutate(date = yearmonth(date)) %>% 
+  tsibble(index=date) %>% 
+  fill_gaps()
+
+
+fit <- dbh %>% 
+    model(ARIMA(dbh~ pdq(0,1,2) + PDQ(0,1,1)))
+
+report(fit)
+fit |> forecast(h=10) %>% autoplot()
 -->
 ```
 
@@ -29,7 +47,8 @@ Things to do this semester:
 
 ## Announcements
 
-1. 
+1. Office hours start late today: 11:30am - 12:05pm
+1. Class on Tuesday
 
 
 ## Lecture
@@ -37,17 +56,62 @@ Things to do this semester:
 1. FPP 9.3 Autoregressive model: Specific cases of AR(1) model
     1. Random walk [example](https://stats.stackexchange.com/questions/159650/why-does-the-variance-of-the-random-walk-increase/159653#159653)
     1. Random walk with drift [example](https://fisher.stats.uwo.ca/faculty/aim/2018/3859A/RNotebooks/05_TimeSeriesVis/05C_RandomWalk_Nov21.html)
-1. FPP 9.4 Moving Average model (recall: this is not moving average smoothing)
+1. FPP 9.4 Moving Average modeling (recall: this is not moving average smoothing)
 1. FPP 9.5 Non-seasonal ARIMA models
-1. FPP 9.6 
+1. FPP 9.7 Modeling procedure
 
 
 ```{r, eval=FALSE}
 library(tidyverse)
 library(fpp3)
-library(patchwork)
 
-# Code block 1: 
+# Code block 1: FPP 9.4 Fig 9.6 a) -----
+# Errors
+epsilon <- rnorm(n=100, mean=0, sd=1)
+
+# Store values of yt here
+yt <- rep(0, times = 100)
+yt[1] <- 20
+for(t in 2:100){
+  yt[t] <- 20 + epsilon[t] + 0.8*epsilon[t-1]
+}
+plot(yt, type = 'l')
+
+
+# Code block 2: FPP 9.5 example (in different order) ------
+# Load data
+egypt_exports <- global_economy |>
+  filter(Code == "EGY") %>% 
+  select(Year, Exports)
+egypt_exports
+
+# Visualize raw data:
+egypt_exports |>
+  autoplot(Exports) +
+  labs(y = "% of GDP", title = "Egyptian exports")
+
+# Visualize autocorrelation function:
+egypt_exports %>% 
+  ACF(Exports) %>% 
+  autoplot()
+
+# Visualize partial autocorrelation function:
+egypt_exports %>% 
+  PACF(Exports) %>% 
+  autoplot()
+
+# Fit ARIMA(p,d,q) where you instead of specifying (p,d,q), you let function
+# find these values for you
+fit <- egypt_exports |>
+  model(ARIMA(Exports))
+
+# Get model fitted parameters
+report(fit)
+
+fit |> 
+  forecast(h=10) |> 
+  autoplot(egypt_exports) +
+  labs(y = "% of GDP", title = "Egyptian exports")
 ```
 
 
