@@ -16,6 +16,10 @@ title: "Final Project"
 -   **Instructions/clarifications added afterwards**:
     1.  11/21: Fit between 2-4 models, one of which needs to be an ARIMA model
     2.  11/21: Do a residual analysis of the model selected for forecasting into the future using all the available data
+    3. 11/30: Recall the following resources for fitting ARIMA(p,d,q) models
+        1. FPP 9.5 sections on "Understanding ARIMA models" and "ACF and PACF plots"
+        1. FPP 9.7 Example illustrating flowchart approach on Central African Republic exports
+        1. 4th DataCamp course
 
 # Criteria
 
