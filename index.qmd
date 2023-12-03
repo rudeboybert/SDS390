@@ -41,42 +41,35 @@ report(fit)
 fit |> forecast(h=10) %>% autoplot()
 -->
 ```
-
-
-
 # Lec 14.1: Tue 12/5
 
 ## Announcements
 
-1. While there is no explicit lecture today, class is **not cancelled.** Please:
-    1. Meet with your partner to work on final project
-    1. Take a selfie proving you met up to work. This counts to your participation/engagement grade
-    1. Create a Slack DM that has all group members + me and send me the photo
-1. PS4 presentations on Thursday. Please re-read instructions on [Problem Sets](PS.html) page. 
-
-
+1.  While there is no explicit lecture today, class is **not cancelled.** Please:
+    1.  Meet with your partner to work on final project
+    2.  Take a **group selfie** proving you met up to work. This will count to your participation/engagement grade
+    3.  Create a Slack DM that has all group members + me and send me the photo
+    4. If you're the only one of your group members to make it to class, please take a selfie of just yourself. 
+2.  PS4 presentations on Thursday. Please re-read instructions on [Problem Sets](PS.html) page.
+3. We’re done DC courses, but if you have the energy at some point it might be worth completing the 5th course in the Time Series with Python track on Machine Learning for Time Series Data. If you do, you’ll get a Statement of Accomplishment, which may help you during job searches
 
 ------------------------------------------------------------------------
-
-
 
 # Lec 13.2: Thu 11/30
 
 ## Announcements
 
-1. Office hours start late today: 11:30am - 12:05pm
-1. Class on Tuesday
-
+1.  Office hours start late today: 11:30am - 12:05pm
+2.  Class on Tuesday
 
 ## Lecture
 
-1. FPP 9.3 Autoregressive model: Specific cases of AR(1) model
-    1. Random walk [example](https://stats.stackexchange.com/questions/159650/why-does-the-variance-of-the-random-walk-increase/159653#159653)
-    1. Random walk with drift [example](https://fisher.stats.uwo.ca/faculty/aim/2018/3859A/RNotebooks/05_TimeSeriesVis/05C_RandomWalk_Nov21.html)
-1. FPP 9.4 Moving Average modeling (recall: this is not moving average smoothing)
-1. FPP 9.5 Non-seasonal ARIMA models
-1. FPP 9.7 Modeling procedure
-
+1.  FPP 9.3 Autoregressive model: Specific cases of AR(1) model
+    1.  Random walk [example](https://stats.stackexchange.com/questions/159650/why-does-the-variance-of-the-random-walk-increase/159653#159653)
+    2.  Random walk with drift [example](https://fisher.stats.uwo.ca/faculty/aim/2018/3859A/RNotebooks/05_TimeSeriesVis/05C_RandomWalk_Nov21.html)
+2.  FPP 9.4 Moving Average modeling (recall: this is not moving average smoothing)
+3.  FPP 9.5 Non-seasonal ARIMA models
+4.  FPP 9.7 Modeling procedure
 
 ```{r, eval=FALSE}
 library(tidyverse)
@@ -131,28 +124,23 @@ fit |>
   labs(y = "% of GDP", title = "Egyptian exports")
 ```
 
-
-
 ------------------------------------------------------------------------
-
-
 
 # Lec 13.1: Tue 11/28
 
 ## Announcements
 
-1. PS4 attendance policy
-1. Final project added instructions
-
+1.  PS4 attendance policy
+2.  Final project added instructions
 
 ## Lecture
 
-1. FPP 9.1 Stationarity and differencing
-1. FPP 9.2 Backshift notation    
-1. FPP 9.3 Autoregressive model
-    1. Random walk [example](https://stats.stackexchange.com/questions/159650/why-does-the-variance-of-the-random-walk-increase/159653#159653)
-    1. Random walk with drift [example](https://fisher.stats.uwo.ca/faculty/aim/2018/3859A/RNotebooks/05_TimeSeriesVis/05C_RandomWalk_Nov21.html)
-    1. Recall [PS2](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb)
+1.  FPP 9.1 Stationarity and differencing
+2.  FPP 9.2 Backshift notation\
+3.  FPP 9.3 Autoregressive model
+    1.  Random walk [example](https://stats.stackexchange.com/questions/159650/why-does-the-variance-of-the-random-walk-increase/159653#159653)
+    2.  Random walk with drift [example](https://fisher.stats.uwo.ca/faculty/aim/2018/3859A/RNotebooks/05_TimeSeriesVis/05C_RandomWalk_Nov21.html)
+    3.  Recall [PS2](https://github.com/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb)
 
 ```{r, eval=FALSE}
 library(tidyverse)
@@ -188,28 +176,23 @@ for(t in 2:100){
 plot(AR1_ex, type = 'l')
 ```
 
-
-
 ------------------------------------------------------------------------
-
-
 
 # Lec 12.1: Tue 11/21
 
 ## Announcements
 
-1. No in-class lecture
-1. Final project extra notes
-    1. Fit between 2-4 models, one of which needs to be an ARIMA model
-    1. Do a residual analysis of the model selected for forecasting into the future using all the available data
-
+1.  No in-class lecture
+2.  Final project extra notes
+    1.  Fit between 2-4 models, one of which needs to be an ARIMA model
+    2.  Do a residual analysis of the model selected for forecasting into the future using all the available data
 
 ## Lecture
 
-1. Recorded lecture posted in Screencasts tab of webpage (top right). Please post questions in Slack under `#questions` including the point in time in video your question corresponds to. Topics:
-    1. FPP 8.2 Exponential smoothing with trend
-    1. FPP 8.3 Exponential smoothing with seasonality
-1. PS4 files posted on Slack, please read instructions on Problem Sets page 
+1.  Recorded lecture posted in Screencasts tab of webpage (top right). Please post questions in Slack under `#questions` including the point in time in video your question corresponds to. Topics:
+    1.  FPP 8.2 Exponential smoothing with trend
+    2.  FPP 8.3 Exponential smoothing with seasonality
+2.  PS4 files posted on Slack, please read instructions on Problem Sets page
 
 ```{r, eval=FALSE}
 library(tidyverse)
@@ -316,23 +299,17 @@ fc |>
   guides(colour = guide_legend(title = "Forecast"))
 ```
 
-
-
-
-
 ------------------------------------------------------------------------
-
-
 
 # Lec 11.2: Thu 11/16
 
 ## Announcements
 
-1. Residual analysis: on which data? train or test or both?
+1.  Residual analysis: on which data? train or test or both?
 
 ## Lecture
 
-1. Simple exponential smoothing
+1.  Simple exponential smoothing
 
 ```{r, eval=FALSE}
 library(tidyverse)
@@ -385,132 +362,88 @@ fc |>
   guides(colour = "none")
 ```
 
-
-
-
 ------------------------------------------------------------------------
-
-
-
 
 # Lec 11.1: Tue 11/14
 
 ## Announcements
 
-1. PS3 mini-presentations today. Info in [Problem Sets](PS.html)
-1. Finalized final project information posted in [Final Project](final_project.html) 
-
-
+1.  PS3 mini-presentations today. Info in [Problem Sets](PS.html)
+2.  Finalized final project information posted in [Final Project](final_project.html)
 
 ------------------------------------------------------------------------
-
-
 
 # Lec 10.2: Thu 11/9
 
 ## Announcements
 
-1. In-class guest lecture today with Prof. Will Hopper
-1. Work on PS3. Note link to rendered output of all previous PS `.ipynb` files have been posted in [Problem Sets](PS.html)
-
-
-
+1.  In-class guest lecture today with Prof. Will Hopper
+2.  Work on PS3. Note link to rendered output of all previous PS `.ipynb` files have been posted in [Problem Sets](PS.html)
 
 ------------------------------------------------------------------------
-
-
-
 
 # Lec 10.1: Tue 11/7
 
 ## Announcements
 
-1. Zoom lecture today starting at ~~regular class time~~ 10am (Zoom link sent on Slack)
-1. Answer Poll Everywhere question in Slack `#general` on whether you prefer group or individual final projects
-1. Discuss final project. Info in [Problem Sets](PS.html)
-
-
-
-
+1.  Zoom lecture today starting at ~~regular class time~~ 10am (Zoom link sent on Slack)
+2.  Answer Poll Everywhere question in Slack `#general` on whether you prefer group or individual final projects
+3.  Discuss final project. Info in [Problem Sets](PS.html)
 
 ------------------------------------------------------------------------
-
-
-
 
 # Lec 9.1: Tue 10/31
 
 ## Announcements
 
-1. No lecture on Thursday from Cromwell Day
-1. Zoom lecture on Tuesday 10/7
-1. In-class lecture on Thursday 10/9 with Prof. Will Hopper
-
+1.  No lecture on Thursday from Cromwell Day
+2.  Zoom lecture on Tuesday 10/7
+3.  In-class lecture on Thursday 10/9 with Prof. Will Hopper
 
 ## Lecture
 
-1. Start PS3
-1. 
-
-
-
+1.  Start PS3
+2.  
 
 ------------------------------------------------------------------------
-
-
-
 
 # Lec 8.2: Thu 10/26
 
 ## Announcements
 
-1. Fill out PS2 peer eval Google Form and slido poll
+1.  Fill out PS2 peer eval Google Form and slido poll
 
 ## Lecture
 
-1. FPP 5.5: Prediction intervals
-1. FPP 5.7: Forecasting with STL decomposition method
-1. FPP 5.8: Assessing prediction accuracy
-
-
-
+1.  FPP 5.5: Prediction intervals
+2.  FPP 5.7: Forecasting with STL decomposition method
+3.  FPP 5.8: Assessing prediction accuracy
 
 ------------------------------------------------------------------------
-
-
-
 
 # Lec 8.1: Tue 10/24
 
 ## Announcements
 
-1. PS2 mini-presentations today. Info in [Problem Sets](PS.html)
+1.  PS2 mini-presentations today. Info in [Problem Sets](PS.html)
 
 ## Lecture
 
-1. 
-
-
-
+1.  
 
 ------------------------------------------------------------------------
-
-
-
 
 # Lec 7.2: Thu 10/19
 
 ## Announcements
 
-1. Update PS2 in-class presentation format in [Problem Sets](PS.html)
-1. PS2 mini-presentations this coming Tuesday
+1.  Update PS2 in-class presentation format in [Problem Sets](PS.html)
+2.  PS2 mini-presentations this coming Tuesday
 
 ## Lecture
 
-1. Code blocks below
-1. [Refresher](https://moderndive.com/10-inference-for-regression.html#regression-conditions) on conditions for inference for linear regression
-
-
+1.  Code blocks below
+2.  [Refresher](https://moderndive.com/10-inference-for-regression.html#regression-conditions) on conditions for inference for linear regression
 
 ```{r, eval=FALSE}
 library(fpp3)
@@ -611,21 +544,14 @@ ggplot(seasonal_naive_augment, aes(x = .resid)) +
   geom_histogram(bins = 15)
 ```
 
-
-
 ------------------------------------------------------------------------
-
-
-
-
-
 
 # Lec 7.1: Tue 10/17
 
 ## Announcements
 
-1. Next DC course "Visualizing Time Series Data in Python" assigned due Tue 10/31
-1. Discuss PS2 in-class presentation format on Tue 10/24 using PS1 feedback from [slido](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
+1.  Next DC course "Visualizing Time Series Data in Python" assigned due Tue 10/31
+2.  Discuss PS2 in-class presentation format on Tue 10/24 using PS1 feedback from [slido](https://admin.sli.do/event/3x3vyqpgVxaVxm6XTJLxxF/analytics)
 
 ## Lecture
 
@@ -703,13 +629,7 @@ us_retail_employment |>
   View()
 ```
 
-
-
-
-
 ------------------------------------------------------------------------
-
-
 
 # Lec 6.2: Thu 10/12
 
@@ -736,8 +656,6 @@ us_retail_employment |>
 -->
 ```
 
-
-
 ------------------------------------------------------------------------
 
 # Lec 5.2: Thu 10/5
@@ -748,7 +666,7 @@ us_retail_employment |>
 
 ## Lecture
 
-1. Problem Set 01 in-class presentations
+1.  Problem Set 01 in-class presentations
 
 ------------------------------------------------------------------------
 
@@ -976,11 +894,9 @@ ggplot(full_decomposition, aes(x=Month, y = Employed - trend - seasonal)) +
     1.  What are $\log$ (base $e$) and $\log10$ (base 10) tranformations? [Example table](https://moderndive.com/A-appendixA.html#appendix-log10-transformations)
     2.  Effect on visualizations: [Example figure](https://moderndive.com/11-thinking-with-data.html#fig:log10-price-viz)
 2.  FPP 3.2 Time series decompositions
-3. Problem Set 1 posted
+3.  Problem Set 1 posted
 
 ## Problem Set 1 {#problem-set-1}
-
-
 
 ------------------------------------------------------------------------
 
