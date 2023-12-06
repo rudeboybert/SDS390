@@ -41,6 +41,26 @@ report(fit)
 fit |> forecast(h=10) %>% autoplot()
 -->
 ```
+
+
+
+# Lec 14.2: Thu 12/7
+
+## Announcements
+
+1.  Final lecture on Seasonal ARIMA for Lec 15.1 on Mon 12/12
+
+## Lecture
+
+1. PS4 in-class
+
+
+
+------------------------------------------------------------------------
+
+
+
+
 # Lec 14.1: Tue 12/5
 
 ## Announcements
@@ -53,7 +73,12 @@ fit |> forecast(h=10) %>% autoplot()
 2.  PS4 presentations on Thursday. Please re-read instructions on [Problem Sets](PS.html) page.
 3. We’re done DC courses, but if you have the energy at some point it might be worth completing the 5th course in the Time Series with Python track on Machine Learning for Time Series Data. If you do, you’ll get a Statement of Accomplishment, which may help you during job searches
 
+
+
 ------------------------------------------------------------------------
+
+
+
 
 # Lec 13.2: Thu 11/30
 

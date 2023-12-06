@@ -24,9 +24,8 @@ Clarifications:
 1. **If you can't make it to lecture**, it is your responsibility to send a screencast recording of you narrating your work by the end of the day.
 1.  Groups still made at random, presenters still chosen at random
 1.  No need to merge two files, you can select only one person's and modify it (if at all)
-1.  Reminder: submission due on Moodle before next class
-1.  Answer the sli.do poll [here](https://app.sli.do/event/eEmSUqd1nm8d8WwbW84aJ1/embed/polls/674c19b7-d93f-49f6-840f-7c247c7df308)
 1.  Rate your peer's preparation using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe6uHGVCgcHwBae-k00k6GXxmWKAhouNWivH-3NSim020bgww/viewform)
+1.  Answer the sli.do poll [here](https://app.sli.do/event/sgaYAVeSajLs8VvUq1vPA9/embed/polls/4f28cc97-1f9f-4cfe-ba6e-010442ff98e0)
 
 
 ```{r, eval = FALSE}
@@ -44,6 +43,26 @@ read_csv("390.csv") %>%
 
 `***` = presented
 
+```
+   Last           First       team
+   <chr>          <chr>      <int>
+ 1 O'Meara        Abbey          1
+ 2 Martin         Teddy          1
+ 3 Yang           Christy        2
+ 4 An             Rachael        2
+ 5 Khan           Nubraz         3
+ 6 Pu             Betty          3
+ 7 Ding           Jenny          4
+ 8 Kogalovski     Aleksandra     4
+ 9 Xu             Xiaoman        5
+10 Qiu            Chi            5
+11 Knecht         Beata          6
+12 Huang          Juniper        6
+13 Tha Ra Wun     Tint           7
+14 Murray         Kiera          7
+15 Basnet Chettri Charavee       8
+16 Slosser        Tillie         8
+```
 
 
 ## Example Solutions
