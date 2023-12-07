@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SDS390 - Problem Set 04</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../390.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">SDS390</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://otexts.com/fpp3/" rel="" target="">
+ <span class="menu-text">FPP</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://app.datacamp.com/learn/assignments" rel="" target="">
+ <span class="menu-text">DC</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://chat.openai.com/" rel="" target="">
+ <span class="menu-text">ChatGPT</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../PS.html" rel="" target="">
+ <span class="menu-text">Problem Sets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../final_project.html" rel="" target="">
+ <span class="menu-text">Final Project</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://docs.google.com/spreadsheets/d/12GJWpG53UQgVwG-TEms5uT88HKSkh-m3g81k63SV_YA/edit#gid=0" rel="" target="">
+ <span class="menu-text">Roster</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://drive.google.com/drive/u/1/folders/1ctkp8FthWTOSvCZfEZAl63XtCZA5c8KV" rel="" target="">
+ <span class="menu-text">Screencasts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://moodle.smith.edu/course/view.php?id=47365" rel="" target="">
+ <span class="menu-text">Moodle</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://docs.google.com/document/d/1pYACVZ91x21ffbMDfCgFGqvjM0v9YFiTSGX2-TwHUNE/edit#heading=h.amnifumas6q" rel="" target="">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#load-and-explore-data" id="toc-load-and-explore-data" class="nav-link active" data-scroll-target="#load-and-explore-data">Load and explore data</a>
+  <ul class="collapse">
+  <li><a href="#us-consumption" id="toc-us-consumption" class="nav-link" data-scroll-target="#us-consumption">US Consumption</a></li>
+  <li><a href="#algeria-exports" id="toc-algeria-exports" class="nav-link" data-scroll-target="#algeria-exports">Algeria Exports</a></li>
+  <li><a href="#australia-population" id="toc-australia-population" class="nav-link" data-scroll-target="#australia-population">Australia Population</a></li>
+  <li><a href="#australia-tourism" id="toc-australia-tourism" class="nav-link" data-scroll-target="#australia-tourism">Australia Tourism</a></li>
+  </ul></li>
+  <li><a href="#time-series-regression-model" id="toc-time-series-regression-model" class="nav-link" data-scroll-target="#time-series-regression-model">Time Series Regression Model</a></li>
+  <li><a href="#simple-exponential-smoothing" id="toc-simple-exponential-smoothing" class="nav-link" data-scroll-target="#simple-exponential-smoothing">Simple Exponential Smoothing</a></li>
+  <li><a href="#exponential-smoothing-with-trend" id="toc-exponential-smoothing-with-trend" class="nav-link" data-scroll-target="#exponential-smoothing-with-trend">Exponential smoothing with trend</a></li>
+  <li><a href="#exponential-smoothing-with-seasonality" id="toc-exponential-smoothing-with-seasonality" class="nav-link" data-scroll-target="#exponential-smoothing-with-seasonality">Exponential smoothing with seasonality</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Problem Set 04</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><a href="https://colab.research.google.com/github/rudeboybert/SDS390/blob/master/PS/PS02_albert.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<p>Instructions: 1. Name: Tint Tha Ra Wun 1. Create a new ChatGPT chat called “SDS390 PS04” that contains all the prompts you used for this problem set. <strong>After you’ve completed your assignment</strong>, click the share button and paste the URL in Markdown format <a href="https://chat.openai.com/share/38ef54cb-931e-459d-b468-78d8611a5f4c">here</a>.</p>
+<p>Overview of this PS: You will be recreating graphs and explicitly computing values from “FPP 7 and 8 - The forecaster’s toolbox” in python.</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.api <span class="im">import</span> ExponentialSmoothing, SimpleExpSmoothing, Holt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="load-and-explore-data" class="level1">
+<h1>Load and explore data</h1>
+<section id="us-consumption" class="level2">
+<h2 class="anchored" data-anchor-id="us-consumption">US Consumption</h2>
+<p>Load and wrangle the us_consumption data set, explore the raw values, and plot the time series in an informative fashion.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>us_consumption <span class="op">=</span> pd.read_csv(<span class="st">"us_consumption.csv"</span>, parse_dates <span class="op">=</span> [<span class="st">'Quarter'</span>], index_col <span class="op">=</span><span class="st">'Quarter'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#view dataset</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(us_consumption.info())</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(us_consumption.head())</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#plot timeseries</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>us_consumption.plot(subplots <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>) </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 198 entries, 1970-01-01 to 2019-04-01
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   Consumption   198 non-null    float64
+ 1   Income        198 non-null    float64
+ 2   Production    198 non-null    float64
+ 3   Savings       198 non-null    float64
+ 4   Unemployment  198 non-null    float64
+dtypes: float64(5)
+memory usage: 9.3 KB
+None
+            Consumption    Income  Production   Savings  Unemployment
+Quarter                                                              
+1970-01-01     0.618566  1.044801   -2.452486  5.299014           0.9
+1970-04-01     0.451984  1.225647   -0.551459  7.789894           0.5
+1970-07-01     0.872872  1.585154   -0.358652  7.403984           0.5
+1970-10-01    -0.271848 -0.239545   -2.185691  1.169898           0.7
+1971-01-01     1.901345  1.975925    1.909764  3.535667          -0.1</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="PS04_tint_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="algeria-exports" class="level2">
+<h2 class="anchored" data-anchor-id="algeria-exports">Algeria Exports</h2>
+<p>Load and wrangle the Algeria economy data set, explore the raw values, and plot the time series in an informative fashion.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load dataset</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>algeria_economy <span class="op">=</span> pd.read_csv(<span class="st">"algeria_economy.csv"</span>, parse_dates <span class="op">=</span> [<span class="st">'Year'</span>], index_col <span class="op">=</span><span class="st">'Year'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#view dataset</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(algeria_economy.info())</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(algeria_economy.head())</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#plot timeseries</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>algeria_economy.plot(subplots <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>) </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 58 entries, 1960-01-01 to 2017-01-01
+Data columns (total 8 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   Country     58 non-null     object 
+ 1   Code        58 non-null     object 
+ 2   GDP         58 non-null     float64
+ 3   Growth      57 non-null     float64
+ 4   CPI         49 non-null     float64
+ 5   Imports     58 non-null     float64
+ 6   Exports     58 non-null     float64
+ 7   Population  58 non-null     int64  
+dtypes: float64(5), int64(1), object(2)
+memory usage: 4.1+ KB
+None
+            Country Code           GDP     Growth  CPI    Imports    Exports  \
+Year                                                                           
+1960-01-01  Algeria  DZA  2.723649e+09        NaN  NaN  67.143632  39.043173   
+1961-01-01  Algeria  DZA  2.434777e+09 -13.605441  NaN  67.503771  46.244557   
+1962-01-01  Algeria  DZA  2.001469e+09 -19.685042  NaN  20.818647  19.793873   
+1963-01-01  Algeria  DZA  2.703015e+09  34.313729  NaN  36.825515  24.684682   
+1964-01-01  Algeria  DZA  2.909352e+09   5.839413  NaN  29.439763  25.084059   
+
+            Population  
+Year                    
+1960-01-01    11124888  
+1961-01-01    11404859  
+1962-01-01    11690153  
+1963-01-01    11985136  
+1964-01-01    12295970  </code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="PS04_tint_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="australia-population" class="level2">
+<h2 class="anchored" data-anchor-id="australia-population">Australia Population</h2>
+<p>Load and wrangle the Australia economy data set, explore the raw values, and plot the time series in an informative fashion.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load dataset</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>aus_economy <span class="op">=</span> pd.read_csv(<span class="st">"aus_economy.csv"</span>, index_col <span class="op">=</span> <span class="st">'Year'</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#view dataset</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_economy.info())</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_economy.head())</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#plot timeseries</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>aus_economy.plot(subplots <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>) </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 58 entries, 1960 to 2017
+Data columns (total 9 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   Country     58 non-null     object 
+ 1   Code        58 non-null     object 
+ 2   GDP         58 non-null     float64
+ 3   Growth      57 non-null     float64
+ 4   CPI         58 non-null     float64
+ 5   Imports     58 non-null     float64
+ 6   Exports     58 non-null     float64
+ 7   Population  58 non-null     int64  
+ 8   Pop         58 non-null     float64
+dtypes: float64(6), int64(1), object(2)
+memory usage: 4.5+ KB
+None
+        Country Code           GDP    Growth       CPI    Imports    Exports  \
+Year                                                                           
+1960  Australia  AUS  1.857319e+10       NaN  7.960458  14.061746  12.994452   
+1961  Australia  AUS  1.964834e+10  2.485605  8.142560  15.025080  12.403101   
+1962  Australia  AUS  1.988801e+10  1.296478  8.116545  12.630927  13.943012   
+1963  Australia  AUS  2.150185e+10  6.214278  8.168574  13.834054  13.005886   
+1964  Australia  AUS  2.375854e+10  6.978724  8.402706  13.764495  14.938248   
+
+      Population        Pop  
+Year                         
+1960    10276477  10.276477  
+1961    10483000  10.483000  
+1962    10742000  10.742000  
+1963    10950000  10.950000  
+1964    11167000  11.167000  </code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="PS04_tint_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="australia-tourism" class="level2">
+<h2 class="anchored" data-anchor-id="australia-tourism">Australia Tourism</h2>
+<p>Load and wrangle the Australia Holidays data set, explore the raw values, and plot the time series in an informative fashion.</p>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load dataset</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>aus_holidays <span class="op">=</span> pd.read_csv(<span class="st">"aus_holidays.csv"</span>, index_col<span class="op">=</span><span class="st">'Quarter'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#view dataset</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_holidays.info())</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aus_holidays)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#plot timeseries</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>aus_holidays.plot(subplots <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>) </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Index: 80 entries, 1998-01-01 to 2017-10-01
+Data columns (total 1 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   Trips   80 non-null     float64
+dtypes: float64(1)
+memory usage: 1.2+ KB
+None
+                   Trips
+Quarter                 
+1998-01-01  1.180604e+07
+1998-04-01  9.275662e+06
+1998-07-01  8.642489e+06
+1998-10-01  9.299524e+06
+1999-01-01  1.117203e+07
+...                  ...
+2016-10-01  1.008496e+07
+2017-01-01  1.240642e+07
+2017-04-01  1.047120e+07
+2017-07-01  1.049917e+07
+2017-10-01  1.121082e+07
+
+[80 rows x 1 columns]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="PS04_tint_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="time-series-regression-model" class="level1">
+<h1>Time Series Regression Model</h1>
+<ul>
+<li>FPP 7.2 - Simple exponential smoothing: Recreate <a href="https://otexts.com/fpp3/least-squares.html#fig:usfitted1">Fig 7.6</a></li>
+</ul>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dependent_variable <span class="op">=</span> us_consumption[<span class="st">'Consumption'</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>independent_variables <span class="op">=</span> us_consumption[[<span class="st">'Income'</span>, <span class="st">'Production'</span>, <span class="st">'Savings'</span>, <span class="st">'Unemployment'</span>]]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a constant term to the independent variables</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>independent_variables <span class="op">=</span> sm.add_constant(independent_variables)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the OLS model</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> sm.OLS(dependent_variable, independent_variables).fit()</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Print model summary</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            Consumption   R-squared:                       0.768
+Model:                            OLS   Adj. R-squared:                  0.763
+Method:                 Least Squares   F-statistic:                     160.0
+Date:                Sat, 02 Dec 2023   Prob (F-statistic):           3.93e-60
+Time:                        22:18:58   Log-Likelihood:                -46.660
+No. Observations:                 198   AIC:                             103.3
+Df Residuals:                     193   BIC:                             119.8
+Df Model:                           4                                         
+Covariance Type:            nonrobust                                         
+================================================================================
+                   coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const            0.2531      0.034      7.343      0.000       0.185       0.321
+Income           0.7406      0.040     18.461      0.000       0.661       0.820
+Production       0.0472      0.023      2.038      0.043       0.002       0.093
+Savings         -0.0529      0.003    -18.088      0.000      -0.059      -0.047
+Unemployment    -0.1747      0.096     -1.829      0.069      -0.363       0.014
+==============================================================================
+Omnibus:                       19.961   Durbin-Watson:                   2.218
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               35.767
+Skew:                           0.525   Prob(JB):                     1.71e-08
+Kurtosis:                       4.798   Cond. No.                         53.6
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Extract fitted_values </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fitted_values <span class="op">=</span> model.fittedvalues</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>us_consumption[<span class="st">'fitted_values'</span>] <span class="op">=</span> fitted_values</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#view dataset</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(us_consumption.info())</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(us_consumption.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 198 entries, 1970-01-01 to 2019-04-01
+Data columns (total 6 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   Consumption    198 non-null    float64
+ 1   Income         198 non-null    float64
+ 2   Production     198 non-null    float64
+ 3   Savings        198 non-null    float64
+ 4   Unemployment   198 non-null    float64
+ 5   fitted_values  198 non-null    float64
+dtypes: float64(6)
+memory usage: 10.8 KB
+None
+            Consumption    Income  Production   Savings  Unemployment  \
+Quarter                                                                 
+1970-01-01     0.618566  1.044801   -2.452486  5.299014           0.9   
+1970-04-01     0.451984  1.225647   -0.551459  7.789894           0.5   
+1970-07-01     0.872872  1.585154   -0.358652  7.403984           0.5   
+1970-10-01    -0.271848 -0.239545   -2.185691  1.169898           0.7   
+1971-01-01     1.901345  1.975925    1.909764  3.535667          -0.1   
+
+            fitted_values  
+Quarter                    
+1970-01-01       0.473695  
+1970-04-01       0.635434  
+1970-07-01       0.931185  
+1970-10-01      -0.211558  
+1971-01-01       1.636998  </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Make figure 7.6 </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> us_consumption.plot(y<span class="op">=</span>[<span class="st">'Consumption'</span>, <span class="st">'fitted_values'</span>])</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Quarter'</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'Data'</span>, <span class="st">'Fitted'</span>])</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Percent change in US consumption expenditure'</span>, loc<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="PS04_tint_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="simple-exponential-smoothing" class="level1">
+<h1>Simple Exponential Smoothing</h1>
+<ul>
+<li>FPP 8.1 - Simple exponential smoothing: Recreate <a href="https://otexts.com/fpp3/ses.html#fig:ses">Fig 8.2</a></li>
+<li>You only need to plot the forecasts into the future. The fitted values for observed time points is optional.</li>
+<li>Do the plot without forecasting/error bands as an MVP. Optional: include the forecasting/error bands.</li>
+</ul>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cite: https://www.statsmodels.org/stable/examples/notebooks/generated/exponential_smoothing.html</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#set index range </span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>algeria_economy.index <span class="op">=</span> pd.date_range(start<span class="op">=</span><span class="st">'1960'</span>, end<span class="op">=</span><span class="st">'2018'</span>, freq<span class="op">=</span><span class="st">'A'</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#select columns and create series </span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> algeria_economy[<span class="st">'Exports'</span>]</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>index <span class="op">=</span> algeria_economy.index</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>exports <span class="op">=</span> pd.Series(data, index)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#fit SES model </span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>fit1 <span class="op">=</span> SimpleExpSmoothing(exports, initialization_method<span class="op">=</span><span class="st">"estimated"</span>).fit(smoothing_level<span class="op">=</span><span class="fl">0.84</span>, optimized<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#forecast</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>fcast1 <span class="op">=</span> fit1.forecast(<span class="dv">5</span>).rename(<span class="vs">r"$\alpha=0.84$"</span>) </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>plt.plot(exports, color<span class="op">=</span><span class="st">"black"</span>) <span class="co">#plot original data</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>plt.plot(fit1.fittedvalues, color<span class="op">=</span><span class="st">"orange"</span>) <span class="co">#plot fitted </span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>(line1,) <span class="op">=</span> plt.plot(fcast1, color<span class="op">=</span><span class="st">"blue"</span>) <span class="co">#plot forecase</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>plt.legend([line1], [fcast1.name]) <span class="co">#set legend</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Exports: Algeria'</span>, loc<span class="op">=</span><span class="st">'left'</span>) <span class="co">#set title</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'</span><span class="sc">% o</span><span class="st">f GDP'</span>) <span class="co">#set y-label</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co">#observe parameter values</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> [</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"smoothing_level"</span>,</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"smoothing_trend"</span>,</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"damping_trend"</span>,</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"initial_level"</span>,</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"initial_trend"</span>,</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="vs">r"$\alpha$"</span>, <span class="vs">r"$\beta$"</span>, <span class="vs">r"$\phi$"</span>, <span class="vs">r"$l_0$"</span>, <span class="st">"$b_0$"</span>, <span class="st">"SSE"</span>],</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">"Simple Exponential Smoothing"</span>],</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>results[<span class="st">"Simple Exponential Smoothing"</span>] <span class="op">=</span> [fit1.params[p] <span class="cf">for</span> p <span class="kw">in</span> params] <span class="op">+</span> [fit1.sse]</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Simple Exponential Smoothing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">$\alpha$</td>
+<td>0.840000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">$\beta$</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">$\phi$</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">$l_0$</td>
+<td>36.694093</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">$b_0$</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SSE</td>
+<td>2003.587409</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="PS04_tint_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="exponential-smoothing-with-trend" class="level1">
+<h1>Exponential smoothing with trend</h1>
+<ul>
+<li>FPP 8.2 - Exponential smoothing with trend: Recreate <a href="https://otexts.com/fpp3/holt.html#fig:dampedtrend">Fig 8.4</a></li>
+<li>You only need to plot the forecasts into the future. The fitted values for observed time points is optional.</li>
+<li>Do the plot without forecasting/error bands as an MVP. Optional: include the forecasting/error bands.</li>
+<li>Optional: include a dampening effect (parameter <span class="math inline">\(\phi\)</span> from Lec 12.1)</li>
+</ul>
+<div class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set index range </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>aus_economy.index <span class="op">=</span> pd.date_range(start<span class="op">=</span><span class="st">'1960'</span>, end<span class="op">=</span><span class="st">'2018'</span>, freq<span class="op">=</span><span class="st">'A'</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#select columns and create series </span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>pop <span class="op">=</span> aus_economy[<span class="st">'Pop'</span>]</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>index <span class="op">=</span> aus_economy.index</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>exports <span class="op">=</span> pd.Series(data, index)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#fit model for Holt's</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>fit1 <span class="op">=</span> Holt(pop, initialization_method<span class="op">=</span><span class="st">"estimated"</span>).fit(smoothing_level<span class="op">=</span><span class="dv">1</span>, smoothing_trend<span class="op">=</span><span class="fl">0.3267</span>, optimized<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">#forecast Holt's</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>fcast1 <span class="op">=</span> fit1.forecast(<span class="dv">15</span>).rename(<span class="st">"Holt's trend"</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#fit model for Damped Holt's </span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>fit3 <span class="op">=</span> Holt(pop, damped_trend<span class="op">=</span><span class="va">True</span>, initialization_method<span class="op">=</span><span class="st">"estimated"</span>).fit(smoothing_level<span class="op">=</span><span class="dv">1</span>, smoothing_trend<span class="op">=</span><span class="fl">0.3267</span>, damping_trend<span class="op">=</span><span class="fl">0.9</span>, optimized<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#forecase damped Holt's </span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>fcast3 <span class="op">=</span> fit3.forecast(<span class="dv">15</span>).rename(<span class="st">"Damped Holt's method"</span>)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>plt.plot(pop, color<span class="op">=</span><span class="st">"black"</span>) <span class="co">#plot original data</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>plt.plot(fit1.fittedvalues, color<span class="op">=</span><span class="st">"blue"</span>) <span class="co">#plot fitted values for Holt's </span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>(line1,) <span class="op">=</span> plt.plot(fcast1, color<span class="op">=</span><span class="st">"blue"</span>) <span class="co">#plot forecast for Holt's </span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>plt.plot(fit3.fittedvalues, color<span class="op">=</span><span class="st">"orange"</span>) <span class="co">#plot fitted for Additive Damped</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>(line3,) <span class="op">=</span> plt.plot(fcast3, color<span class="op">=</span><span class="st">"orange"</span>) <span class="co">#plot forecase for Additive Damped</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>plt.legend([line1, line3], [fcast1.name, fcast3.name]) <span class="co">#set legend</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Australian Population'</span>, loc<span class="op">=</span><span class="st">'left'</span>) <span class="co">#set title</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Millions'</span>) <span class="co">#set label</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="90">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Holt's</th>
+<th data-quarto-table-cell-role="th">Additive Damped Holt's</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">$\alpha$</td>
+<td>1.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">$\beta$</td>
+<td>0.326700</td>
+<td>0.326700</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">$\phi$</td>
+<td>NaN</td>
+<td>0.900000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">$l_0$</td>
+<td>10.067191</td>
+<td>10.067191</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">$b_0$</td>
+<td>0.219210</td>
+<td>0.219210</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SSE</td>
+<td>0.223389</td>
+<td>0.485568</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="PS04_tint_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#observe parameter values</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> [</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"smoothing_level"</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"smoothing_trend"</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"damping_trend"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"initial_level"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"initial_trend"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="vs">r"$\alpha$"</span>, <span class="vs">r"$\beta$"</span>, <span class="vs">r"$\phi$"</span>, <span class="vs">r"$l_0$"</span>, <span class="st">"$b_0$"</span>, <span class="st">"SSE"</span>],</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">"Holt's"</span>, <span class="st">"Additive Damped Holt's"</span>],</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>results[<span class="st">"Holt's"</span>] <span class="op">=</span> [fit1.params[p] <span class="cf">for</span> p <span class="kw">in</span> params] <span class="op">+</span> [fit1.sse]</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>results[<span class="st">"Additive Damped Holt's"</span>] <span class="op">=</span> [fit3.params[p] <span class="cf">for</span> p <span class="kw">in</span> params] <span class="op">+</span> [fit3.sse]</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exponential-smoothing-with-seasonality" class="level1">
+<h1>Exponential smoothing with seasonality</h1>
+<ul>
+<li>FPP 8.3 - Exponential smoothing with seasonality: Recreate <a href="https://otexts.com/fpp3/holt-winters.html#fig:7-HW">Fig 8.7</a></li>
+<li>You only need to plot the forecasts into the future. The fitted values for observed time points is optional.</li>
+<li>Include only the additive model</li>
+<li>Do the plot without forecasting/error bands as an MVP. Optional: include the forecasting/error bands.</li>
+</ul>
+<div class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set date range</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>aus_holidays.index <span class="op">=</span> pd.date_range(start<span class="op">=</span><span class="st">'1998-01-01'</span>, end<span class="op">=</span><span class="st">'2018-01-01 '</span>, freq<span class="op">=</span><span class="st">'Q'</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#fit model for add seasonal </span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>fit1 <span class="op">=</span> ExponentialSmoothing(aus_holidays[<span class="st">'Trips'</span>],</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                            trend<span class="op">=</span><span class="st">"add"</span>, </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>                            seasonal<span class="op">=</span><span class="st">"add"</span>, </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                            seasonal_periods<span class="op">=</span><span class="dv">4</span>).fit(smoothing_level <span class="op">=</span> <span class="fl">0.2620</span>, smoothing_trend <span class="op">=</span> <span class="fl">0.1646</span>, smoothing_seasonal <span class="op">=</span> <span class="fl">0.0001</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#create forecast for add seasonal</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>fcast1 <span class="op">=</span> fit1.forecast(<span class="dv">12</span>).rename(<span class="st">"Holt-Winters (add-add-seasonal)"</span>) </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>plt.plot(aus_holidays[<span class="st">'Trips'</span>], color<span class="op">=</span><span class="st">"black"</span>) <span class="co">#plot original data</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>plt.plot(fit1.fittedvalues, color<span class="op">=</span><span class="st">"orange"</span>) <span class="co">#plot fitted values</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>(line1,) <span class="op">=</span> plt.plot(fcast1, color<span class="op">=</span><span class="st">"orange"</span>) <span class="co">#plot forecast values</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>plt.legend([line1], [fcast1.name]) <span class="co">#set legend</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Australian domestic tourism'</span>, loc<span class="op">=</span><span class="st">'left'</span>) <span class="co">#set title</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Overnight trips (millions)'</span>) <span class="co">#set label</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="PS04_tint_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set date range</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>aus_holidays.index <span class="op">=</span> pd.date_range(start<span class="op">=</span><span class="st">'1998-01-01'</span>, end<span class="op">=</span><span class="st">'2018-01-01 '</span>, freq<span class="op">=</span><span class="st">'Q'</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#fit add seasonal</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>fit1 <span class="op">=</span> ExponentialSmoothing(aus_holidays[<span class="st">'Trips'</span>],</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                            initialization_method<span class="op">=</span><span class="st">"estimated"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                            trend<span class="op">=</span><span class="st">"add"</span>, </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>                            seasonal<span class="op">=</span><span class="st">"add"</span>, </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                            seasonal_periods<span class="op">=</span><span class="dv">4</span>).fit(smoothing_level <span class="op">=</span> <span class="fl">0.2620</span>, smoothing_trend <span class="op">=</span> <span class="fl">0.1646</span>, smoothing_seasonal <span class="op">=</span> <span class="fl">0.0001</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#fit mul seasonal</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>fit2 <span class="op">=</span> ExponentialSmoothing(aus_holidays,</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>                            initialization_method<span class="op">=</span><span class="st">"estimated"</span>,</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>                            trend<span class="op">=</span><span class="st">"add"</span>,</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>                            seasonal<span class="op">=</span><span class="st">"mul"</span>,</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>                            seasonal_periods<span class="op">=</span><span class="dv">4</span>,).fit(smoothing_level <span class="op">=</span> <span class="fl">0.2237</span>, smoothing_trend <span class="op">=</span> <span class="fl">0.1360</span>, smoothing_seasonal <span class="op">=</span> <span class="fl">0.0001</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a> )</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co">#forecast 3 years for add seasonal</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>fcast1 <span class="op">=</span> fit1.forecast(<span class="dv">12</span>).rename(<span class="st">"Holt-Winters (add-add-seasonal)"</span>) </span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="co">#forecast for mul seasonal</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>fcast2 <span class="op">=</span> fit2.forecast(<span class="dv">12</span>).rename(<span class="st">"Holt-Winters (add-mul-seasonal)"</span>) </span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>plt.plot(aus_holidays[<span class="st">'Trips'</span>], color<span class="op">=</span><span class="st">"black"</span>) <span class="co">#plot original data</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>plt.plot(fit1.fittedvalues, color<span class="op">=</span><span class="st">"orange"</span>) <span class="co">#plot fitted values for add seasonal</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>(line1,) <span class="op">=</span> plt.plot(fcast1, color<span class="op">=</span><span class="st">"orange"</span>) <span class="co">#plot forecast values for mul seasonal</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>plt.plot(fit2.fittedvalues, color<span class="op">=</span><span class="st">"blue"</span>) <span class="co">#plot fitted values for mul seasonal</span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>(line2,) <span class="op">=</span> plt.plot(fcast2, color<span class="op">=</span><span class="st">"blue"</span>) <span class="co">#plot forecast values for mul seasonal</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>plt.legend([line1, line2], [fcast1.name, fcast2.name]) <span class="co">#set legend</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Australian domestic tourism'</span>, loc<span class="op">=</span><span class="st">'left'</span>) <span class="co">#set title</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Overnight trips (millions)'</span>) <span class="co">#set label</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/tinttharawun/anaconda3/lib/python3.11/site-packages/statsmodels/tsa/holtwinters/model.py:917: ConvergenceWarning: Optimization failed to converge. Check mle_retvals.
+  warnings.warn(</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="PS04_tint_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#observe parameter values</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="vs">r"$\alpha$"</span>, <span class="vs">r"$\beta$"</span>, <span class="vs">r"$\phi$"</span>, <span class="vs">r"$\gamma$"</span>, <span class="vs">r"$l_0$"</span>, <span class="st">"$b_0$"</span>, <span class="st">"SSE"</span>]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> [</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"smoothing_level"</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"smoothing_trend"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"damping_trend"</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"smoothing_seasonal"</span>,</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"initial_level"</span>,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"initial_trend"</span>,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>results[<span class="st">"Additive"</span>] <span class="op">=</span> [fit1.params[p] <span class="cf">for</span> p <span class="kw">in</span> params] <span class="op">+</span> [fit1.sse]</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>results[<span class="st">"Multiplicative"</span>] <span class="op">=</span> [fit2.params[p] <span class="cf">for</span> p <span class="kw">in</span> params] <span class="op">+</span> [fit2.sse]</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="111">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Additive</th>
+<th data-quarto-table-cell-role="th">Multiplicative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">$\alpha$</td>
+<td>2.620000e-01</td>
+<td>2.237000e-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">$\beta$</td>
+<td>1.646000e-01</td>
+<td>1.360000e-01</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">$\phi$</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">$\gamma$</td>
+<td>1.000000e-04</td>
+<td>1.000000e-04</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">$l_0$</td>
+<td>9.766128e+06</td>
+<td>9.704029e+06</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">$b_0$</td>
+<td>-2.779192e+04</td>
+<td>-1.042354e+04</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SSE</td>
+<td>1.374671e+13</td>
+<td>1.505883e+13</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
