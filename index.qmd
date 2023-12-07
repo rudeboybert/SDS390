@@ -48,11 +48,13 @@ fit |> forecast(h=10) %>% autoplot()
 
 ## Announcements
 
-1.  Final lecture on Seasonal ARIMA for Lec 15.1 on Mon 12/12
+1.  
+
 
 ## Lecture
 
 1. PS4 in-class
+1. FPP 9.9 Seasonal ARIMA. Use 4th DC Chapter 4 as reference
 
 
 

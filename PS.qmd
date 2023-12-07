@@ -69,7 +69,7 @@ read_csv("390.csv") %>%
 
 1.  Presentations:
     1. Tint [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS04_presentations/PS04_tint.ipynb)
-    2. Kiera [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS04_presentations/PS04_kiera.ipynb) showing a "done is better than perfect forecast error interval"
+    2. Kiera [solutions](https://github.com/rudeboybert/SDS390/blob/master/PS/PS04_presentations/PS04_kiera.ipynb) showing a "done is better than perfect" forecast error interval
     3.  .zip file of both [here](PS/PS04_presentations.zip)
 2.  Prof Kim's [solution](https://github.com/rudeboybert/SDS390/blob/master/PS/PS04_albert.ipynb).
 

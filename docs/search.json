@@ -18,7 +18,7 @@
     "href": "PS.html#example-solutions",
     "title": "Problem Sets",
     "section": "Example Solutions",
-    "text": "Example Solutions\n\nPresentations:\n\nTint solutions\nKiera solutions showing a “done is better than perfect forecast error interval”\n.zip file of both here\n\nProf Kim’s solution."
+    "text": "Example Solutions\n\nPresentations:\n\nTint solutions\nKiera solutions showing a “done is better than perfect” forecast error interval\n.zip file of both here\n\nProf Kim’s solution."
   },
   {
     "objectID": "PS.html#instructions-1",
@@ -214,14 +214,14 @@
     "href": "index.html#announcements",
     "title": "SDS390: Ecological Forecasting",
     "section": "Announcements",
-    "text": "Announcements\n\nFinal lecture on Seasonal ARIMA for Lec 15.1 on Mon 12/12"
+    "text": "Announcements"
   },
   {
     "objectID": "index.html#lecture",
     "href": "index.html#lecture",
     "title": "SDS390: Ecological Forecasting",
     "section": "Lecture",
-    "text": "Lecture\n\nPS4 in-class"
+    "text": "Lecture\n\nPS4 in-class\nFPP 9.9 Seasonal ARIMA. Use 4th DC Chapter 4 as reference"
   },
   {
     "objectID": "index.html#announcements-1",
