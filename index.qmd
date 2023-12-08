@@ -44,6 +44,25 @@ fit |> forecast(h=10) %>% autoplot()
 
 
 
+# Lec 15.1: Tue 12/13
+
+## Announcements
+
+1. I posted PS1-PS3 and DC grades. If you've completed all 4 DC courses but didn't get 4/4, please let me know; you might have one or two exercises that aren't 100% completed
+1. 
+
+
+## Lecture
+
+1. Work on final project
+
+
+
+------------------------------------------------------------------------
+
+
+
+
 # Lec 14.2: Thu 12/7
 
 ## Announcements
