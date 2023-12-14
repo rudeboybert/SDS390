@@ -44,15 +44,13 @@ fit |> forecast(h=10) %>% autoplot()
 
 
 
-<!--
-
 # Lec 15.2: Thu 12/14
 
 ## Announcements
 
 1. Fill out course evals
 1. Deadlines:
-    1. Today 5pm: 5min video presentation on Moodle
+    1. Today ~~5pm~~ 9pm: 5min video presentation on Moodle
     2. Mon 12/18 8am: Feedback on video presentations returned by Prof. Kim
     3. Thu 12/21 3pm: Final version of notebook due on Moodle
 
@@ -60,6 +58,13 @@ fit |> forecast(h=10) %>% autoplot()
 
 ## Today
 
+1. Model validation:
+    1. Train/test splitting: Only when you want an *estimate* of prediction/forecasting error of $y$ vs $\widehat{y}$ into the future. Most typical measure of error is Root Mean Squared Error (RMSE); we took the square root so that units of error measure match units of $y$
+    1. Residual analysis. Typically done on all data (no train/test split), used to verify:
+        a. Assumptions required to ensure p-values and confidence intervals are valid
+        b. No pattern in residuals. In the case of time series analysis, you also need to run ACF of residuals to ensure there is not autocorrelation
+    1. Sum of squared error $\sum_{i=1}^{n}\left(y_i - \widehat{y}_i\right)^2$: Measure of model quality based only on lack of fit of $\widehat{y}$ to $y$. This is quantity minimized by many regression methods
+    1. AIC/BIC:  Measure of model quality that balances lack of fit of $\widehat{y}$ to $y$ and model complexity. Guards against [overfitting](https://rudeboybert.github.io/SDS293/static/what_is_ML.pdf#page=20) (on slide 20).
 1. Work on final project
 
 
@@ -67,9 +72,6 @@ fit |> forecast(h=10) %>% autoplot()
 
 ------------------------------------------------------------------------
 
-
-
--->
 
 
 
